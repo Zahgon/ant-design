@@ -1,0 +1,5 @@
+(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,396353,e=>{"use strict";var l=e.i(391398);e.i(191788);var a=e.i(820810),s=e.i(997643);let i=`
+  A dog is a type of domesticated animal.
+  Known for its loyalty and faithfulness,
+  it can be found as a welcome guest in many households across the world.
+`;e.s(["default",0,()=>(0,l.jsxs)(s.Space,{vertical:!0,children:[(0,l.jsx)(a.Collapse,{collapsible:"header",defaultActiveKey:["1"],items:[{key:"1",label:"This panel can be collapsed by clicking text or icon",children:(0,l.jsx)("p",{children:i})}]}),(0,l.jsx)(a.Collapse,{collapsible:"icon",defaultActiveKey:["1"],items:[{key:"1",label:"This panel can only be collapsed by clicking icon",children:(0,l.jsx)("p",{children:i})}]}),(0,l.jsx)(a.Collapse,{collapsible:"disabled",items:[{key:"1",label:"This panel can't be collapsed",children:(0,l.jsx)("p",{children:i})}]})]})])},820810,e=>{"use strict";var l=e.i(327696);e.s(["Collapse",()=>l.default])},997643,e=>{"use strict";var l=e.i(640440);e.s(["Space",()=>l.default])}]);
