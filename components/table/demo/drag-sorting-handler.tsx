@@ -29,21 +29,11 @@ interface RowContextProps {
 const RowContext = React.createContext<RowContextProps>({});
 
 const DragHandle: React.FC = () => {
-  const { setActivatorNodeRef, listeners } = useContext(RowContext);
-  return (
-    <Button
-      type="text"
-      size="small"
-      icon={<HolderOutlined />}
-      style={{ cursor: 'move' }}
-      ref={setActivatorNodeRef}
-      {...listeners}
-    />
-  );
+    throw new Error("STUB");
 };
 
 const columns: TableColumnsType<DataType> = [
-  { key: 'sort', align: 'center', width: 80, render: () => <DragHandle /> },
+  { key: 'sort', align: 'center', width: 80, render: () => { throw new Error("STUB"); } },
   { title: 'Name', dataIndex: 'name' },
   { title: 'Age', dataIndex: 'age' },
   { title: 'Address', dataIndex: 'address' },
@@ -78,7 +68,7 @@ const Row: React.FC<RowProps> = (props) => {
   };
 
   const contextValue = useMemo<RowContextProps>(
-    () => ({ setActivatorNodeRef, listeners }),
+    () => { throw new Error("STUB"); },
     [setActivatorNodeRef, listeners],
   );
 
@@ -90,30 +80,7 @@ const Row: React.FC<RowProps> = (props) => {
 };
 
 const App: React.FC = () => {
-  const [dataSource, setDataSource] = React.useState<DataType[]>(initialData);
-
-  const onDragEnd = ({ active, over }: DragEndEvent) => {
-    if (active.id !== over?.id) {
-      setDataSource((prevState) => {
-        const activeIndex = prevState.findIndex((record) => record.key === active?.id);
-        const overIndex = prevState.findIndex((record) => record.key === over?.id);
-        return arrayMove(prevState, activeIndex, overIndex);
-      });
-    }
-  };
-
-  return (
-    <DndContext modifiers={[restrictToVerticalAxis]} onDragEnd={onDragEnd}>
-      <SortableContext items={dataSource.map((i) => i.key)} strategy={verticalListSortingStrategy}>
-        <Table<DataType>
-          rowKey="key"
-          components={{ body: { row: Row } }}
-          columns={columns}
-          dataSource={dataSource}
-        />
-      </SortableContext>
-    </DndContext>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

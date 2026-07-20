@@ -18,21 +18,6 @@ const items: MenuProps['items'] = [
   },
 ];
 
-const App: React.FC = () => (
-  <Dropdown
-    menu={{
-      items,
-      selectable: true,
-      defaultSelectedKeys: ['3'],
-    }}
-  >
-    <Typography.Link>
-      <Space>
-        Selectable
-        <DownOutlined />
-      </Space>
-    </Typography.Link>
-  </Dropdown>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

@@ -8,10 +8,7 @@ function usePopupRender<T extends [React.ReactElement, ...any[]]>(
   renderFn?: RenderFunction<T>,
 ): ((...args: T) => React.ReactElement) | undefined {
   return React.useMemo(() => {
-    if (!renderFn) {
-      return undefined;
-    }
-    return (...args: T) => <ContextIsolator space>{renderFn(...args)}</ContextIsolator>;
+      throw new Error("STUB");
   }, [renderFn]);
 }
 

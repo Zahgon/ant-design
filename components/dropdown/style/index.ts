@@ -415,27 +415,12 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
 };
 
 // ============================== Export ==============================
-export const prepareComponentToken: GetDefaultToken<'Dropdown'> = (token) => ({
-  zIndexPopup: token.zIndexPopupBase + 50,
-  paddingBlock: (token.controlHeight - token.fontSize * token.lineHeight) / 2,
-  ...getArrowOffsetToken({
-    contentRadius: token.borderRadiusLG,
-    limitVerticalRadius: true,
-  }),
-  ...getArrowToken(token),
-});
+export const prepareComponentToken: GetDefaultToken<'Dropdown'> = (token) => { throw new Error("STUB"); };
 
 export default genStyleHooks(
   'Dropdown',
   (token) => {
-    const { marginXXS, sizePopupArrow, paddingXXS, componentCls } = token;
-
-    const dropdownToken = mergeToken<DropdownToken>(token, {
-      menuCls: `${componentCls}-menu`,
-      dropdownArrowDistance: token.calc(sizePopupArrow).div(2).add(marginXXS).equal(),
-      dropdownEdgeChildPadding: paddingXXS,
-    });
-    return [genBaseStyle(dropdownToken), genStatusStyle(dropdownToken)];
+      throw new Error("STUB");
   },
   prepareComponentToken,
   { resetStyle: false },

@@ -23,32 +23,5 @@ export default function QRcodeStatus({
   statusRender,
   status,
 }: QRcodeStatusProps) {
-  const defaultExpiredNode = (
-    <>
-      <p className={`${prefixCls}-expired`}>{locale?.expired}</p>
-      {onRefresh && (
-        <Button type="link" icon={<ReloadOutlined />} onClick={onRefresh}>
-          {locale?.refresh}
-        </Button>
-      )}
-    </>
-  );
-
-  const defaultScannedNode = <p className={`${prefixCls}-scanned`}>{locale?.scanned}</p>;
-
-  const defaultNodes = {
-    expired: defaultExpiredNode,
-    loading: defaultSpin,
-    scanned: defaultScannedNode,
-  };
-
-  const defaultStatusRender: QRCodeProps['statusRender'] = (info) => defaultNodes[info.status];
-
-  const mergedStatusRender = statusRender ?? defaultStatusRender;
-
-  return mergedStatusRender({
-    status,
-    locale,
-    onRefresh,
-  });
+    throw new Error("STUB");
 }

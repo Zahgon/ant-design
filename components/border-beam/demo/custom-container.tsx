@@ -16,15 +16,6 @@ const contentStyle: React.CSSProperties = {
   lineHeight: 1.5715,
 };
 
-const App: React.FC = () => (
-  <BorderBeam>
-    <div style={panelStyle}>
-      <div style={contentStyle}>
-        Review task status, deployment health, and recent automation activity in one custom
-        container.
-      </div>
-    </div>
-  </BorderBeam>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

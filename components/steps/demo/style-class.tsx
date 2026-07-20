@@ -3,13 +3,7 @@ import { Flex, Steps } from 'antd';
 import type { GetProp, StepsProps } from 'antd';
 import { createStyles } from 'antd-style';
 
-const useStyles = createStyles(({ token }) => ({
-  root: {
-    border: `2px dashed ${token.colorBorder}`,
-    borderRadius: token.borderRadius,
-    padding: token.padding,
-  },
-}));
+const useStyles = createStyles(({ token }) => { throw new Error("STUB"); });
 
 const stylesObject: StepsProps['styles'] = {
   itemIcon: { borderRadius: '30%' },
@@ -17,35 +11,11 @@ const stylesObject: StepsProps['styles'] = {
 };
 
 const stylesFn: StepsProps['styles'] = (info): GetProp<StepsProps, 'styles', 'Return'> => {
-  if (info.props.type === 'navigation') {
-    return {
-      root: {
-        borderColor: '#1890ff',
-      },
-    };
-  }
-  return {};
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const { styles } = useStyles();
-
-  const sharedProps: StepsProps = {
-    items: [
-      { title: 'Finished', content: 'This is a content.' },
-      { title: 'In Progress', content: 'This is a content.' },
-      { title: 'Waiting', content: 'This is a content.' },
-    ],
-    current: 1,
-    classNames: { root: styles.root },
-  };
-
-  return (
-    <Flex vertical gap="medium">
-      <Steps {...sharedProps} styles={stylesObject} />
-      <Steps {...sharedProps} styles={stylesFn} type="navigation" />
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

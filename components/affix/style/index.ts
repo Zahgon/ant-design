@@ -17,18 +17,10 @@ interface AffixToken extends FullToken<'Affix'> {
 
 // ============================== Shared ==============================
 const genSharedAffixStyle: GenerateStyle<AffixToken, CSSObject> = (token) => {
-  const { componentCls } = token;
-  return {
-    [componentCls]: {
-      position: 'fixed',
-      zIndex: token.zIndexPopup,
-    },
-  };
+    throw new Error("STUB");
 };
 
-export const prepareComponentToken: GetDefaultToken<'Affix'> = (token) => ({
-  zIndexPopup: token.zIndexBase + 10,
-});
+export const prepareComponentToken: GetDefaultToken<'Affix'> = (token) => { throw new Error("STUB"); };
 
 // ============================== Export ==============================
 export default genStyleHooks('Affix', genSharedAffixStyle, prepareComponentToken);

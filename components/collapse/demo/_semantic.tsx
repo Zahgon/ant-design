@@ -34,31 +34,11 @@ const items: CollapseProps['items'] = [
 ];
 
 const BlockCollapse: React.FC<CollapseProps> = (props) => {
-  const [, token] = useToken();
-  return (
-    <div style={{ position: 'absolute', inset: 0, margin: token.marginXL }}>
-      <Collapse {...props} items={items} defaultActiveKey={['1']} />
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Collapse"
-      itemsAPI="items"
-      semantics={[
-        { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'header', desc: locale.header, version: '5.21.0' },
-        { name: 'icon', desc: locale.icon, version: '6.0.0' },
-        { name: 'title', desc: locale.title, version: '6.0.0' },
-        { name: 'body', desc: locale.body, version: '5.21.0' },
-      ]}
-    >
-      <BlockCollapse />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

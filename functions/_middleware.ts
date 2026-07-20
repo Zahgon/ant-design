@@ -19,7 +19,7 @@ const acceptsMarkdown = (request: Request) =>
   request.headers
     .get('accept')
     ?.split(',')
-    .some((value) => value.trim().toLowerCase().startsWith('text/markdown')) ?? false;
+    .some((value) => { throw new Error("STUB"); }) ?? false;
 
 export const onRequest = ({
   request,

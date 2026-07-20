@@ -80,34 +80,7 @@ const collectSortStates = <RecordType extends AnyObject = AnyObject>(
   };
 
   (columns || []).forEach((column, index) => {
-    const columnPos = getColumnPos(index, pos);
-    if ((column as ColumnGroupType<RecordType>).children) {
-      if ('sortOrder' in column) {
-        // Controlled
-        pushState(column, columnPos);
-      }
-      sortStates = [
-        ...sortStates,
-        ...collectSortStates<RecordType>(
-          (column as ColumnGroupType<RecordType>).children,
-          init,
-          columnPos,
-        ),
-      ];
-    } else if (column.sorter) {
-      if ('sortOrder' in column) {
-        // Controlled
-        pushState(column, columnPos);
-      } else if (init && column.defaultSortOrder) {
-        // Default sorter
-        sortStates.push({
-          column,
-          key: getColumnKey(column, columnPos),
-          multiplePriority: getMultiplePriority<RecordType>(column),
-          sortOrder: column.defaultSortOrder!,
-        });
-      }
-    }
+      throw new Error("STUB");
   });
 
   return sortStates;
@@ -125,158 +98,7 @@ const injectSorter = <RecordType extends AnyObject = AnyObject>(
   a11yLocale?: Locale['global'],
 ): ColumnsType<RecordType> => {
   const finalColumns = (columns || []).map((column, index) => {
-    const columnPos = getColumnPos(index, pos);
-    let newColumn: ColumnsType<RecordType>[number] = column;
-    if (newColumn.sorter) {
-      const sortDirections: SortOrder[] = newColumn.sortDirections || defaultSortDirections;
-      const showSorterTooltip =
-        newColumn.showSorterTooltip === undefined
-          ? tableShowSorterTooltip
-          : newColumn.showSorterTooltip;
-
-      const columnKey = getColumnKey(newColumn, columnPos);
-      const sorterState = sorterStates.find(({ key }) => key === columnKey);
-      const sortOrder = sorterState ? sorterState.sortOrder : null;
-      const nextSortOrder = nextSortDirection(sortDirections, sortOrder);
-
-      let sorter: React.ReactNode;
-      if (column.sortIcon) {
-        sorter = column.sortIcon({ sortOrder });
-      } else {
-        const upNode: React.ReactNode = sortDirections.includes(ASCEND) && (
-          <CaretUpOutlined
-            className={clsx(`${prefixCls}-column-sorter-up`, { active: sortOrder === ASCEND })}
-          />
-        );
-        const downNode: React.ReactNode = sortDirections.includes(DESCEND) && (
-          <CaretDownOutlined
-            className={clsx(`${prefixCls}-column-sorter-down`, { active: sortOrder === DESCEND })}
-          />
-        );
-        sorter = (
-          <span
-            className={clsx(`${prefixCls}-column-sorter`, {
-              [`${prefixCls}-column-sorter-full`]: !!(upNode && downNode),
-            })}
-          >
-            <span className={`${prefixCls}-column-sorter-inner`} aria-hidden="true">
-              {upNode}
-              {downNode}
-            </span>
-          </span>
-        );
-      }
-
-      const { cancelSort, triggerAsc, triggerDesc } = tableLocale || {};
-      let sortTip: string | undefined = cancelSort;
-      if (nextSortOrder === DESCEND) {
-        sortTip = triggerDesc;
-      } else if (nextSortOrder === ASCEND) {
-        sortTip = triggerAsc;
-      }
-      const tooltipProps: TooltipProps = isPlainObject(showSorterTooltip)
-        ? { title: sortTip, ...showSorterTooltip }
-        : { title: sortTip };
-      newColumn = {
-        ...newColumn,
-        className: clsx(newColumn.className, { [`${prefixCls}-column-sort`]: sortOrder }),
-        title: (renderProps: ColumnTitleProps<RecordType>) => {
-          const columnSortersClass = `${prefixCls}-column-sorters`;
-          const renderColumnTitleWrapper = (
-            <span className={`${prefixCls}-column-title`}>
-              {renderColumnTitle(column.title, renderProps)}
-            </span>
-          );
-          const renderSortTitle = (
-            <div className={columnSortersClass}>
-              {renderColumnTitleWrapper}
-              {sorter}
-            </div>
-          );
-          if (showSorterTooltip) {
-            if (
-              typeof showSorterTooltip !== 'boolean' &&
-              showSorterTooltip?.target === 'sorter-icon'
-            ) {
-              return (
-                <div
-                  className={clsx(
-                    columnSortersClass,
-                    `${columnSortersClass}-tooltip-target-sorter`,
-                  )}
-                >
-                  {renderColumnTitleWrapper}
-                  <Tooltip {...tooltipProps}>{sorter}</Tooltip>
-                </div>
-              );
-            }
-            return <Tooltip {...tooltipProps}>{renderSortTitle}</Tooltip>;
-          }
-          return renderSortTitle;
-        },
-        onHeaderCell: (col) => {
-          const cell: React.HTMLAttributes<HTMLElement> = column.onHeaderCell?.(col) || {};
-          const originOnClick = cell.onClick;
-          const originOKeyDown = cell.onKeyDown;
-          cell.onClick = (event: React.MouseEvent<HTMLElement>) => {
-            triggerSorter({
-              column,
-              key: columnKey,
-              sortOrder: nextSortOrder,
-              multiplePriority: getMultiplePriority<RecordType>(column),
-            });
-            originOnClick?.(event);
-          };
-          cell.onKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
-            if (event.keyCode === KeyCode.ENTER) {
-              triggerSorter({
-                column,
-                key: columnKey,
-                sortOrder: nextSortOrder,
-                multiplePriority: getMultiplePriority<RecordType>(column),
-              });
-              originOKeyDown?.(event);
-            }
-          };
-
-          const renderTitle = safeColumnTitle(column.title, {});
-          const displayTitle = renderTitle?.toString();
-
-          // Inform the screen-reader so it can tell the visually impaired user which column is sorted
-          if (sortOrder) {
-            cell['aria-sort'] = sortOrder === 'ascend' ? 'ascending' : 'descending';
-          }
-          // Inform the screen-reader so it can tell the visually impaired user that this column can be sorted
-          cell['aria-description'] = a11yLocale?.sortable;
-          cell['aria-label'] = displayTitle || '';
-          cell.className = clsx(cell.className, `${prefixCls}-column-has-sorters`);
-          cell.tabIndex = 0;
-          if (column.ellipsis) {
-            cell.title = (renderTitle ?? '').toString();
-          }
-          return cell;
-        },
-      };
-    }
-
-    if ('children' in newColumn) {
-      newColumn = {
-        ...newColumn,
-        children: injectSorter(
-          prefixCls,
-          newColumn.children,
-          sorterStates,
-          triggerSorter,
-          defaultSortDirections,
-          tableLocale,
-          tableShowSorterTooltip,
-          columnPos,
-          a11yLocale,
-        ),
-      };
-    }
-
-    return newColumn;
+      throw new Error("STUB");
   });
   return finalColumns;
 };
@@ -297,10 +119,7 @@ const generateSorterInfo = <RecordType extends AnyObject = AnyObject>(
   sorterStates: SortState<RecordType>[],
 ): SorterResult<RecordType> | SorterResult<RecordType>[] => {
   const activeSorters = sorterStates.reduce<SorterResult<RecordType>[]>((list, sorterState) => {
-    if (sorterState.sortOrder) {
-      list.push(stateToInfo(sorterState));
-    }
-    return list;
+      throw new Error("STUB");
   }, []);
 
   // =========== Legacy compatible support ===========
@@ -330,12 +149,12 @@ export const getSortData = <RecordType extends AnyObject = AnyObject>(
 ): RecordType[] => {
   const innerSorterStates = sortStates
     .slice()
-    .sort((a, b) => (b.multiplePriority as number) - (a.multiplePriority as number));
+    .sort((a, b) => { throw new Error("STUB"); });
 
   const cloneData = data.slice();
 
   const runningSorters = innerSorterStates.filter(
-    ({ column: { sorter }, sortOrder }) => getSortFunction<RecordType>(sorter) && sortOrder,
+    ({ column: { sorter }, sortOrder }) => { throw new Error("STUB"); },
   );
 
   // Skip if no sorter needed
@@ -345,35 +164,10 @@ export const getSortData = <RecordType extends AnyObject = AnyObject>(
 
   return cloneData
     .sort((record1, record2) => {
-      for (let i = 0; i < runningSorters.length; i += 1) {
-        const sorterState = runningSorters[i];
-        const {
-          column: { sorter },
-          sortOrder,
-        } = sorterState;
-
-        const compareFn = getSortFunction<RecordType>(sorter);
-
-        if (compareFn && sortOrder) {
-          const compareResult = compareFn(record1, record2, sortOrder);
-
-          if (compareResult !== 0) {
-            return sortOrder === ASCEND ? compareResult : -compareResult;
-          }
-        }
-      }
-
-      return 0;
+        throw new Error("STUB");
     })
     .map<RecordType>((record) => {
-      const subRecords = record[childrenColumnName];
-      if (subRecords) {
-        return {
-          ...record,
-          [childrenColumnName]: getSortData<RecordType>(subRecords, sortStates, childrenColumnName),
-        };
-      }
-      return record;
+        throw new Error("STUB");
     });
 };
 
@@ -406,137 +200,7 @@ const useFilterSorter = <RecordType extends AnyObject = AnyObject>(
   ColumnTitleProps<RecordType>,
   () => SorterResult<RecordType> | SorterResult<RecordType>[],
 ] => {
-  const {
-    prefixCls,
-    mergedColumns,
-    baseColumns,
-    sortDirections,
-    tableLocale,
-    showSorterTooltip,
-    onSorterChange,
-    globalLocale,
-  } = props;
-
-  // Use base (pre-responsive) columns to seed sort states so that
-  // `defaultSortOrder` on a `responsive` column is honored even when the
-  // column is not visible at the current breakpoint.
-  // See: https://github.com/ant-design/ant-design/issues/32847
-  const collectColumns = baseColumns ?? mergedColumns;
-
-  const [sortStates, setSortStates] = React.useState<SortState<RecordType>[]>(() =>
-    collectSortStates<RecordType>(collectColumns, true),
-  );
-
-  const getColumnKeys = (columns: ColumnsType<RecordType>, pos?: string): Key[] => {
-    const newKeys: Key[] = [];
-    columns.forEach((item, index) => {
-      const columnPos = getColumnPos(index, pos);
-      newKeys.push(getColumnKey<RecordType>(item, columnPos));
-      if (Array.isArray((item as ColumnGroupType<RecordType>).children)) {
-        const childKeys = getColumnKeys((item as ColumnGroupType<RecordType>).children, columnPos);
-        newKeys.push(...childKeys);
-      }
-    });
-    return newKeys;
-  };
-  const mergedSorterStates = React.useMemo<SortState<RecordType>[]>(() => {
-    let validate = true;
-    // Collect controlled `sortOrder` from the full (pre-responsive) column
-    // set so that a controlled `sortOrder` on a hidden responsive column
-    // still applies to the sorted data.
-    const collectedStates = collectSortStates<RecordType>(collectColumns, false);
-
-    // Return if not controlled
-    if (!collectedStates.length) {
-      const collectColumnsKeys = getColumnKeys(collectColumns);
-      return sortStates.filter(({ key }) => collectColumnsKeys.includes(key));
-    }
-
-    const validateStates: SortState<RecordType>[] = [];
-
-    function patchStates(state: SortState<RecordType>) {
-      if (validate) {
-        validateStates.push(state);
-      } else {
-        validateStates.push({
-          ...state,
-          sortOrder: null,
-        });
-      }
-    }
-
-    let multipleMode: boolean | null = null;
-    collectedStates.forEach((state) => {
-      if (multipleMode === null) {
-        patchStates(state);
-
-        if (state.sortOrder) {
-          if (state.multiplePriority === false) {
-            validate = false;
-          } else {
-            multipleMode = true;
-          }
-        }
-      } else if (multipleMode && state.multiplePriority !== false) {
-        patchStates(state);
-      } else {
-        validate = false;
-        patchStates(state);
-      }
-    });
-
-    return validateStates;
-  }, [collectColumns, sortStates]);
-
-  // Get render columns title required props
-  const columnTitleSorterProps = React.useMemo<ColumnTitleProps<RecordType>>(() => {
-    const sortColumns = mergedSorterStates.map(({ column, sortOrder }) => ({
-      column,
-      order: sortOrder,
-    }));
-
-    return {
-      sortColumns,
-      // Legacy
-      sortColumn: sortColumns[0]?.column,
-      sortOrder: sortColumns[0]?.order,
-    };
-  }, [mergedSorterStates]);
-
-  const triggerSorter = (sortState: SortState<RecordType>) => {
-    let newSorterStates: SortState<RecordType>[];
-    if (
-      sortState.multiplePriority === false ||
-      !mergedSorterStates.length ||
-      mergedSorterStates[0].multiplePriority === false
-    ) {
-      newSorterStates = [sortState];
-    } else {
-      newSorterStates = [
-        ...mergedSorterStates.filter(({ key }) => key !== sortState.key),
-        sortState,
-      ];
-    }
-    setSortStates(newSorterStates);
-    onSorterChange(generateSorterInfo(newSorterStates), newSorterStates);
-  };
-
-  const transformColumns = (innerColumns: ColumnsType<RecordType>) =>
-    injectSorter(
-      prefixCls,
-      innerColumns,
-      mergedSorterStates,
-      triggerSorter,
-      sortDirections,
-      tableLocale,
-      showSorterTooltip,
-      undefined,
-      globalLocale,
-    );
-
-  const getSorters = () => generateSorterInfo(mergedSorterStates);
-
-  return [transformColumns, mergedSorterStates, columnTitleSorterProps, getSorters] as const;
+    throw new Error("STUB");
 };
 
 export default useFilterSorter;

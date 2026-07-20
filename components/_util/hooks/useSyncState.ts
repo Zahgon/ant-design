@@ -8,10 +8,9 @@ export const useSyncState = <T>(initialValue: T): UseSyncStateProps<T> => {
   const ref = React.useRef<T>(initialValue);
   const [, forceUpdate] = useForceUpdate();
   return [
-    () => ref.current,
+    () => { throw new Error("STUB"); },
     (newValue: T) => {
-      ref.current = newValue;
-      forceUpdate();
+        throw new Error("STUB");
     },
   ] as const;
 };

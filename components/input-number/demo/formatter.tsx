@@ -12,23 +12,6 @@ const formatter: InputNumberProps<number>['formatter'] = (value) => {
   return `$ ${end ? `${v}.${end}` : `${v}`}`;
 };
 
-const App: React.FC = () => (
-  <Space>
-    <InputNumber<number>
-      defaultValue={1000}
-      formatter={formatter}
-      parser={(value) => value?.replace(/\$\s?|(,*)/g, '') as unknown as number}
-      onChange={onChange}
-    />
-    <InputNumber<number>
-      defaultValue={100}
-      min={0}
-      max={100}
-      formatter={(value) => `${value}%`}
-      parser={(value) => value?.replace('%', '') as unknown as number}
-      onChange={onChange}
-    />
-  </Space>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

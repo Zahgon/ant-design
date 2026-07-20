@@ -93,19 +93,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token) => {
 
 // ============================== Export ==============================
 export const prepareComponentToken = (token: GlobalToken): ComponentToken => {
-  const itemPaddingVertical = Math.round(
-    (token.controlHeight - token.fontSize * token.lineHeight) / 2,
-  );
-  return {
-    controlWidth: 184,
-    controlItemWidth: 111,
-    dropdownHeight: 180,
-    optionSelectedBg: token.controlItemBgActive,
-    optionSelectedFontWeight: token.fontWeightStrong,
-    optionPadding: `${itemPaddingVertical}px ${token.paddingSM}px`,
-    menuPadding: token.paddingXXS,
-    optionSelectedColor: token.colorText,
-  };
+    throw new Error("STUB");
 };
 
 export default genStyleHooks('Cascader', genBaseStyle, prepareComponentToken, {

@@ -59,20 +59,11 @@ const dragActiveStyle = (dragState: DragIndexState, id: string) => {
 };
 
 const TableBodyCell: React.FC<BodyCellProps> = (props) => {
-  const dragState = useContext<DragIndexState>(DragIndexContext);
-  return <td {...props} style={{ ...props.style, ...dragActiveStyle(dragState, props.id) }} />;
+    throw new Error("STUB");
 };
 
 const TableHeaderCell: React.FC<HeaderCellProps> = (props) => {
-  const dragState = useContext(DragIndexContext);
-  const { attributes, listeners, setNodeRef, isDragging } = useSortable({ id: props.id });
-  const style: React.CSSProperties = {
-    ...props.style,
-    cursor: 'move',
-    ...(isDragging ? { position: 'relative', zIndex: 9999, userSelect: 'none' } : {}),
-    ...dragActiveStyle(dragState, props.id),
-  };
-  return <th {...props} ref={setNodeRef} style={style} {...attributes} {...listeners} />;
+    throw new Error("STUB");
 };
 
 const dataSource: DataType[] = [
@@ -119,75 +110,7 @@ const baseColumns: TableColumnsType<DataType> = [
 ];
 
 const App: React.FC = () => {
-  const [dragIndex, setDragIndex] = useState<DragIndexState>({ active: -1, over: -1 });
-
-  const [columns, setColumns] = useState(() =>
-    baseColumns.map((column, i) => ({
-      ...column,
-      key: `${i}`,
-      onHeaderCell: () => ({ id: `${i}` }),
-      onCell: () => ({ id: `${i}` }),
-    })),
-  );
-
-  const sensors = useSensors(
-    useSensor(PointerSensor, {
-      activationConstraint: {
-        // https://docs.dndkit.com/api-documentation/sensors/pointer#activation-constraints
-        distance: 1,
-      },
-    }),
-  );
-
-  const onDragEnd = ({ active, over }: DragEndEvent) => {
-    if (active.id !== over?.id) {
-      setColumns((prevState) => {
-        const activeIndex = prevState.findIndex((i) => i.key === active?.id);
-        const overIndex = prevState.findIndex((i) => i.key === over?.id);
-        return arrayMove(prevState, activeIndex, overIndex);
-      });
-    }
-    setDragIndex({ active: -1, over: -1 });
-  };
-
-  const onDragOver = ({ active, over }: DragOverEvent) => {
-    const activeIndex = columns.findIndex((i) => i.key === active.id);
-    const overIndex = columns.findIndex((i) => i.key === over?.id);
-    setDragIndex({
-      active: active.id,
-      over: over?.id,
-      direction: overIndex > activeIndex ? 'right' : 'left',
-    });
-  };
-
-  return (
-    <DndContext
-      sensors={sensors}
-      modifiers={[restrictToHorizontalAxis]}
-      onDragEnd={onDragEnd}
-      onDragOver={onDragOver}
-      collisionDetection={closestCenter}
-    >
-      <SortableContext items={columns.map((i) => i.key)} strategy={horizontalListSortingStrategy}>
-        <DragIndexContext.Provider value={dragIndex}>
-          <Table<DataType>
-            rowKey="key"
-            columns={columns}
-            dataSource={dataSource}
-            components={{
-              header: { cell: TableHeaderCell },
-              body: { cell: TableBodyCell },
-            }}
-          />
-        </DragIndexContext.Provider>
-      </SortableContext>
-      <DragOverlay>
-        <th style={{ backgroundColor: 'gray', padding: 16 }}>
-          {columns[columns.findIndex((i) => i.key === dragIndex.active)]?.title as React.ReactNode}
-        </th>
-      </DragOverlay>
-    </DndContext>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

@@ -19,25 +19,6 @@ const colors = [
 
 const customColors = ['#f50', '#2db7f5', '#87d068', '#108ee9'];
 
-const App: React.FC = () => (
-  <>
-    <Divider titlePlacement="start">Presets</Divider>
-    <Space wrap>
-      {colors.map((color) => (
-        <Tooltip title="prompt text" color={color} key={color}>
-          <Button>{color}</Button>
-        </Tooltip>
-      ))}
-    </Space>
-    <Divider titlePlacement="start">Custom</Divider>
-    <Space wrap>
-      {customColors.map((color) => (
-        <Tooltip title="prompt text" color={color} key={color}>
-          <Button>{color}</Button>
-        </Tooltip>
-      ))}
-    </Space>
-  </>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

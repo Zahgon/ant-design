@@ -29,15 +29,6 @@ const items: MenuProps['items'] = [
   },
 ];
 
-const App: React.FC = () => (
-  <Dropdown menu={{ items }} trigger={['click']}>
-    <a onClick={(e) => e.preventDefault()}>
-      <Space>
-        Click me
-        <DownOutlined />
-      </Space>
-    </a>
-  </Dropdown>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

@@ -16,7 +16,7 @@ const genNotificationItemMotionStyle = (token: NotificationToken): CSSObject => 
   return {
     transform: 'scale(var(--notification-scale, 1))',
     transition: ['transform', 'inset', 'clip-path', 'opacity']
-      .map((property) => `${property} ${transition}`)
+      .map((property) => { throw new Error("STUB"); })
       .join(', '),
   };
 };
@@ -226,7 +226,7 @@ const genNotificationItemStyle = (token: NotificationToken): CSSObject => {
       borderRadius: borderRadiusSM,
       outline: 'none',
       transition: ['color', 'background-color']
-        .map((prop) => `${prop} ${motionDurationMid}`)
+        .map((prop) => { throw new Error("STUB"); })
         .join(', '),
 
       '&:hover': {
@@ -315,11 +315,7 @@ export const genPurePanelStyle = (token: NotificationToken): CSSObject => {
 
 /** Wrap Notification item styles under the component root selector. */
 const genNotificationStyle: GenerateStyle<NotificationToken, CSSObject> = (token) => {
-  const { componentCls } = token;
-
-  return {
-    [componentCls]: genNotificationItemStyle(token),
-  };
+    throw new Error("STUB");
 };
 
 export default genNotificationStyle;

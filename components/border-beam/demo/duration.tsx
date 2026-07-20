@@ -19,18 +19,6 @@ const durations = [
   },
 ];
 
-const App: React.FC = () => (
-  <Flex gap={16} wrap>
-    {durations.map(({ name, seconds, description }) => (
-      <div key={name} style={{ width: 220 }}>
-        <BorderBeam duration={seconds}>
-          <Card title={name} extra={<Tag variant="filled">{seconds}s</Tag>}>
-            <Typography.Text type="secondary">{description}</Typography.Text>
-          </Card>
-        </BorderBeam>
-      </div>
-    ))}
-  </Flex>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

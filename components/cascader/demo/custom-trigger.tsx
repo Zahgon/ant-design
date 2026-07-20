@@ -32,21 +32,7 @@ const options: Option[] = [
 ];
 
 const App: React.FC = () => {
-  const [text, setText] = useState('Unselect');
-
-  const onChange: CascaderProps<Option>['onChange'] = (_, selectedOptions) => {
-    setText(selectedOptions.map((o) => o.label).join(', '));
-  };
-
-  return (
-    <span>
-      {text}
-      &nbsp;
-      <Cascader options={options} onChange={onChange}>
-        <a>Change city</a>
-      </Cascader>
-    </span>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

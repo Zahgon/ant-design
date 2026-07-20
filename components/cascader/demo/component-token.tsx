@@ -47,18 +47,6 @@ const onChange: CascaderProps<Option>['onChange'] = (value) => {
   console.log(value);
 };
 
-const App: React.FC = () => (
-  <ConfigProvider
-    theme={{
-      components: {
-        Cascader: {
-          optionSelectedColor: 'red',
-        },
-      },
-    }}
-  >
-    <Cascader options={options} onChange={onChange} placeholder="Please select" />
-  </ConfigProvider>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

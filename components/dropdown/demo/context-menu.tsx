@@ -18,25 +18,7 @@ const items: MenuProps['items'] = [
 ];
 
 const App: React.FC = () => {
-  const {
-    token: { colorBgLayout, colorTextTertiary },
-  } = theme.useToken();
-
-  return (
-    <Dropdown menu={{ items }} trigger={['contextMenu']}>
-      <div
-        style={{
-          color: colorTextTertiary,
-          background: colorBgLayout,
-          height: 200,
-          textAlign: 'center',
-          lineHeight: '200px',
-        }}
-      >
-        Right Click on here
-      </div>
-    </Dropdown>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

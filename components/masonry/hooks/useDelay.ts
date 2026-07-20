@@ -8,11 +8,10 @@ export default function useDelay(callback: VoidFunction) {
     raf.cancel(idRef.current);
   };
 
-  React.useEffect(() => clearRaf, []);
+  React.useEffect(() => { throw new Error("STUB"); }, []);
 
   const triggerFn = useEvent(() => {
-    clearRaf();
-    idRef.current = raf(callback);
+      throw new Error("STUB");
   });
 
   return triggerFn;

@@ -19,10 +19,7 @@ export function getPaginationParam(
   const paginationObj = isPlainObject(pagination) ? pagination : {};
 
   Object.keys(paginationObj).forEach((pageProp) => {
-    const value = mergedPagination[pageProp as keyof typeof paginationObj];
-    if (!isFunction(value)) {
-      param[pageProp] = value;
-    }
+      throw new Error("STUB");
   });
 
   return param;
@@ -38,11 +35,7 @@ function usePagination(
     : {};
 
   const [innerPagination, setInnerPagination] = useState<{ current?: number; pageSize?: number }>(
-    () => ({
-      current: 'defaultCurrent' in paginationObj ? paginationObj.defaultCurrent : 1,
-      pageSize:
-        'defaultPageSize' in paginationObj ? paginationObj.defaultPageSize : DEFAULT_PAGE_SIZE,
-    }),
+    () => { throw new Error("STUB"); },
   );
 
   // ============ Basic Pagination Config ============
@@ -73,7 +66,9 @@ function usePagination(
   };
 
   if (pagination === false) {
-    return [{}, () => {}] as const;
+    return [{}, () => {
+        throw new Error("STUB");
+    }] as const;
   }
 
   return [

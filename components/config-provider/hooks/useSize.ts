@@ -9,16 +9,7 @@ const useSize = <T extends string | undefined | number | object>(
 ): T => {
   const size = React.useContext<SizeType>(SizeContext);
   const mergedSize = React.useMemo<T>(() => {
-    if (!customSize) {
-      return size as T;
-    }
-    if (isString(customSize)) {
-      return customSize ?? size;
-    }
-    if (isFunction(customSize)) {
-      return customSize(size);
-    }
-    return size as T;
+      throw new Error("STUB");
   }, [customSize, size]);
   return mergedSize;
 };

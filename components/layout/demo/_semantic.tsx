@@ -18,18 +18,7 @@ const locales = {
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Layout.Sider"
-      semantics={[
-        { name: 'root', desc: locale.root },
-        { name: 'body', desc: locale.body },
-      ]}
-    >
-      <Sider styles={{ body: { minHeight: 96 } }}>Sider</Sider>
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

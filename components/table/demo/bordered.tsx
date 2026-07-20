@@ -13,7 +13,7 @@ const columns: TableProps<DataType>['columns'] = [
   {
     title: 'Name',
     dataIndex: 'name',
-    render: (text) => <a>{text}</a>,
+    render: (text) => { throw new Error("STUB"); },
   },
   {
     title: 'Cash Assets',
@@ -48,14 +48,6 @@ const data: DataType[] = [
   },
 ];
 
-const App: React.FC = () => (
-  <Table<DataType>
-    columns={columns}
-    dataSource={data}
-    bordered
-    title={() => 'Header'}
-    footer={() => 'Footer'}
-  />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

@@ -10,16 +10,6 @@ const content = (
   </div>
 );
 
-const App: React.FC = () => (
-  <>
-    <InternalPopover content={content} title="Title" />
-    <InternalPopover
-      content={content}
-      title="Title"
-      placement="bottomLeft"
-      style={{ width: 250 }}
-    />
-  </>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

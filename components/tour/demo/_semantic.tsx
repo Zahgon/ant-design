@@ -47,78 +47,11 @@ const locales = {
 };
 
 const BlockList: React.FC<React.PropsWithChildren<TourProps>> = (props) => {
-  const [open, setOpen] = React.useState(true);
-  const createBtnRef = React.useRef<HTMLButtonElement>(null);
-  return (
-    <div
-      style={{
-        width: '100%',
-        height: 600,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        position: 'relative',
-        overflow: 'hidden',
-      }}
-    >
-      <Button ref={createBtnRef} onClick={() => setOpen(true)}>
-        Show
-      </Button>
-      <Tour
-        {...props}
-        zIndex={1}
-        open={open}
-        defaultCurrent={0}
-        getPopupContainer={false as unknown as TourProps['getPopupContainer']}
-        onClose={() => setOpen(false)}
-        steps={[
-          {
-            title: 'Hello World!',
-            description: 'Hello World?!',
-            cover: (
-              <img
-                alt="tour.png"
-                style={{ width: 360, maxWidth: '100%' }}
-                src="https://user-images.githubusercontent.com/5378891/197385811-55df8480-7ff4-44bd-9d43-a7dade598d70.png"
-              />
-            ),
-            target: () => createBtnRef.current!,
-            mask: true,
-          },
-          {
-            title: 'Save',
-            description: 'Save your changes.',
-            target: () => createBtnRef.current!,
-          },
-        ]}
-      />
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Tour"
-      semantics={[
-        { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'mask', desc: locale.mask, version: '6.0.0' },
-        { name: 'section', desc: locale.section, version: '6.0.0' },
-        { name: 'cover', desc: locale.cover, version: '6.0.0' },
-        { name: 'close', desc: locale.close, version: '6.4.0' },
-        { name: 'header', desc: locale.header, version: '6.0.0' },
-        { name: 'title', desc: locale.title, version: '6.0.0' },
-        { name: 'description', desc: locale.description, version: '6.0.0' },
-        { name: 'footer', desc: locale.footer, version: '6.0.0' },
-        { name: 'actions', desc: locale.actions, version: '6.0.0' },
-        { name: 'indicators', desc: locale.indicators, version: '6.0.0' },
-        { name: 'indicator', desc: locale.indicator, version: '6.0.0' },
-      ]}
-    >
-      <BlockList />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

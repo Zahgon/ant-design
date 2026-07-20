@@ -5,28 +5,7 @@ import { createStyles } from 'antd-style';
 import type { Dayjs } from 'dayjs';
 
 const useStyles = createStyles((props) => {
-  const { prefixCls, css } = props;
-  return {
-    events: css`
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      .${prefixCls}-badge-status {
-        width: 100%;
-        overflow: hidden;
-        font-size: 12px;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-      }
-    `,
-    notesMonth: css`
-      font-size: 28px;
-      text-align: center;
-      section {
-        font-size: 28px;
-      }
-    `,
-  };
+    throw new Error("STUB");
 });
 
 const getListData = (value: Dayjs) => {
@@ -69,42 +48,7 @@ const getMonthData = (value: Dayjs) => {
 };
 
 const App: React.FC = () => {
-  const { styles } = useStyles();
-
-  const monthCellRender = (value: Dayjs) => {
-    const num = getMonthData(value);
-    return num ? (
-      <div className={styles.notesMonth}>
-        <section>{num}</section>
-        <span>Backlog number</span>
-      </div>
-    ) : null;
-  };
-
-  const dateCellRender = (value: Dayjs) => {
-    const listData = getListData(value);
-    return (
-      <ul className={styles.events}>
-        {listData.map((item) => (
-          <li key={item.content}>
-            <Badge status={item.type as BadgeProps['status']} text={item.content} />
-          </li>
-        ))}
-      </ul>
-    );
-  };
-
-  const cellRender: CalendarProps<Dayjs>['cellRender'] = (current, info) => {
-    if (info.type === 'date') {
-      return dateCellRender(current);
-    }
-    if (info.type === 'month') {
-      return monthCellRender(current);
-    }
-    return info.originNode;
-  };
-
-  return <Calendar cellRender={cellRender} />;
+    throw new Error("STUB");
 };
 
 export default App;

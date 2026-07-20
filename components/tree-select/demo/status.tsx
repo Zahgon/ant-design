@@ -1,16 +1,6 @@
 import React from 'react';
 import { Space, TreeSelect } from 'antd';
 
-const App: React.FC = () => (
-  <Space vertical style={{ width: '100%' }}>
-    <TreeSelect status="error" style={{ width: '100%' }} placeholder="Error" />
-    <TreeSelect
-      status="warning"
-      style={{ width: '100%' }}
-      multiple
-      placeholder="Warning multiple"
-    />
-  </Space>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

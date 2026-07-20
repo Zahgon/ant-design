@@ -8,10 +8,6 @@ const content = (
   </div>
 );
 
-const App: React.FC = () => (
-  <Popover content={content} title="Title">
-    <Button type="primary">Hover me</Button>
-  </Popover>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

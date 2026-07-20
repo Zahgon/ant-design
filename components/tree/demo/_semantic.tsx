@@ -43,33 +43,13 @@ const treeData: TreeDataNode[] = [
       {
         title: 'leaf',
         key: '0-0-1',
-        icon: ({ selected }) => (selected ? <FrownFilled /> : <FrownOutlined />),
+        icon: ({ selected }) => { throw new Error("STUB"); },
       },
     ],
   },
 ];
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Tree"
-      semantics={[
-        { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'item', desc: locale.item, version: '6.0.0' },
-        { name: 'itemIcon', desc: locale.itemIcon, version: '6.0.0' },
-        { name: 'itemTitle', desc: locale.itemTitle, version: '6.0.0' },
-        { name: 'itemSwitcher', desc: locale.itemSwitcher, version: '6.4.0' },
-      ]}
-    >
-      <Tree
-        showIcon
-        defaultExpandAll
-        defaultSelectedKeys={['0-0-0']}
-        switcherIcon={<DownOutlined />}
-        treeData={treeData}
-      />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

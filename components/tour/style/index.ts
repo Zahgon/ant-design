@@ -120,7 +120,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
             borderRadius: token.borderRadiusSM,
 
             transition: ['color', 'background-color']
-              .map((prop) => `${prop} ${motionDurationMid}`)
+              .map((prop) => { throw new Error("STUB"); })
               .join(', '),
 
             display: 'flex',
@@ -273,30 +273,12 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
 };
 
 // ============================== Export ==============================
-export const prepareComponentToken: GetDefaultToken<'Tour'> = (token) => ({
-  zIndexPopup: token.zIndexPopupBase + 70,
-  closeBtnSize: token.fontSize * token.lineHeight,
-  primaryPrevBtnBg: new FastColor(token.colorTextLightSolid).setA(0.15).toRgbString(),
-  primaryNextBtnHoverBg: new FastColor(token.colorBgTextHover)
-    .onBackground(token.colorWhite)
-    .toRgbString(),
-  ...getArrowOffsetToken({
-    contentRadius: token.borderRadiusLG,
-    limitVerticalRadius: true,
-  }),
-  ...getArrowToken(token),
-});
+export const prepareComponentToken: GetDefaultToken<'Tour'> = (token) => { throw new Error("STUB"); };
 
 export default genStyleHooks(
   'Tour',
   (token) => {
-    const { borderRadiusLG } = token;
-    const tourToken = mergeToken<TourToken>(token, {
-      indicatorWidth: 6,
-      indicatorHeight: 6,
-      tourBorderRadius: borderRadiusLG,
-    });
-    return genBaseStyle(tourToken);
+      throw new Error("STUB");
   },
   prepareComponentToken,
 );

@@ -129,52 +129,7 @@ const genBorderedStyle: GenerateStyle<ListToken, CSSObject> = (token) => {
   };
 };
 const genResponsiveStyle: GenerateStyle<ListToken, CSSObject> = (token) => {
-  const { componentCls, screenSM, screenMD, marginLG, marginSM, margin } = token;
-  return {
-    [`@media screen and (max-width:${screenMD}px)`]: {
-      [componentCls]: {
-        [`${componentCls}-item`]: {
-          [`${componentCls}-item-action`]: {
-            marginInlineStart: marginLG,
-          },
-        },
-      },
-
-      [`${componentCls}-vertical`]: {
-        [`${componentCls}-item`]: {
-          [`${componentCls}-item-extra`]: {
-            marginInlineStart: marginLG,
-          },
-        },
-      },
-    },
-
-    [`@media screen and (max-width: ${screenSM}px)`]: {
-      [componentCls]: {
-        [`${componentCls}-item`]: {
-          flexWrap: 'wrap',
-
-          [`${componentCls}-action`]: {
-            marginInlineStart: marginSM,
-          },
-        },
-      },
-
-      [`${componentCls}-vertical`]: {
-        [`${componentCls}-item`]: {
-          flexWrap: 'wrap-reverse',
-
-          [`${componentCls}-item-main`]: {
-            minWidth: token.contentWidth,
-          },
-
-          [`${componentCls}-item-extra`]: {
-            margin: `auto auto ${unit(margin)}`,
-          },
-        },
-      },
-    },
-  };
+    throw new Error("STUB");
 };
 
 // =============================== Base ===============================
@@ -426,35 +381,16 @@ const genBaseStyle: GenerateStyle<ListToken, CSSObject> = (token) => {
   };
 };
 
-export const prepareComponentToken: GetDefaultToken<'List'> = (token) => ({
-  contentWidth: 220,
-  itemPadding: `${unit(token.paddingContentVertical)} 0`,
-  itemPaddingSM: `${unit(token.paddingContentVerticalSM)} ${unit(token.paddingContentHorizontal)}`,
-  itemPaddingLG: `${unit(token.paddingContentVerticalLG)} ${unit(
-    token.paddingContentHorizontalLG,
-  )}`,
-  headerBg: 'transparent',
-  footerBg: 'transparent',
-  emptyTextPadding: token.padding,
-  metaMarginBottom: token.padding,
-  avatarMarginRight: token.padding,
-  titleMarginBottom: token.paddingSM,
-  descriptionFontSize: token.fontSize,
-});
+export const prepareComponentToken: GetDefaultToken<'List'> = (token) => { throw new Error("STUB"); };
 
 // ============================== Export ==============================
 export default genStyleHooks(
   'List',
   (token) => {
-    const listToken = mergeToken<ListToken>(token, {
-      listBorderedCls: `${token.componentCls}-bordered`,
-      minHeight: token.controlHeightLG,
-    });
-
-    return [genBaseStyle(listToken), genBorderedStyle(listToken), genResponsiveStyle(listToken)];
+      throw new Error("STUB");
   },
   prepareComponentToken,
   {
-    extraCssVarPrefixCls: ({ prefixCls }) => [`${prefixCls}-container`],
+    extraCssVarPrefixCls: ({ prefixCls }) => { throw new Error("STUB"); },
   },
 );

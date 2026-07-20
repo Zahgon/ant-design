@@ -8,18 +8,6 @@ const options: CheckboxGroupProps<string>['options'] = [
   { label: 'Orange', value: 'Orange' },
 ];
 
-const App: React.FC = () => (
-  <Flex vertical gap="medium">
-    <Radio.Group block options={options} defaultValue="Apple" />
-    <Radio.Group
-      block
-      options={options}
-      defaultValue="Apple"
-      optionType="button"
-      buttonStyle="solid"
-    />
-    <Radio.Group block options={options} defaultValue="Pear" optionType="button" />
-  </Flex>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

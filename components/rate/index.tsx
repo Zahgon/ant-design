@@ -23,76 +23,7 @@ export interface RateProps extends RcRateProps {
 }
 
 const Rate = React.forwardRef<RateRef, RateProps>((props, ref) => {
-  const {
-    prefixCls,
-    className,
-    rootClassName,
-    style,
-    tooltips,
-    character = <StarFilled />,
-    disabled: customDisabled,
-    size,
-    ...rest
-  } = props;
-
-  const characterRender: RcCharacterRender = (node, { index = 0 }) => {
-    if (!tooltips) {
-      return node;
-    }
-
-    const tooltipsItem = tooltips[index];
-
-    if (isPlainObject<TooltipProps>(tooltipsItem)) {
-      return <Tooltip {...tooltipsItem}>{node}</Tooltip>;
-    }
-
-    return <Tooltip title={tooltipsItem}>{node}</Tooltip>;
-  };
-
-  const {
-    getPrefixCls,
-    direction,
-    className: contextClassName,
-    style: contextStyle,
-  } = useComponentConfig('rate');
-
-  const ratePrefixCls = getPrefixCls('rate', prefixCls);
-
-  // Style
-  const [hashId, cssVarCls] = useStyle(ratePrefixCls);
-
-  const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
-
-  // ===================== Disabled =====================
-  const disabled = React.useContext(DisabledContext);
-  const mergedDisabled = customDisabled ?? disabled;
-
-  // ===================== Size =====================
-  const mergedSize = useSize((ctx) => size ?? ctx);
-
-  return (
-    <RcRate
-      ref={ref}
-      character={character}
-      characterRender={characterRender}
-      disabled={mergedDisabled}
-      {...rest}
-      className={clsx(
-        {
-          [`${ratePrefixCls}-large`]: mergedSize === 'large',
-          [`${ratePrefixCls}-small`]: mergedSize === 'small',
-        },
-        className,
-        rootClassName,
-        hashId,
-        cssVarCls,
-        contextClassName,
-      )}
-      style={mergedStyle}
-      prefixCls={ratePrefixCls}
-      direction={direction}
-    />
-  );
+    throw new Error("STUB");
 });
 
 if (process.env.NODE_ENV !== 'production') {

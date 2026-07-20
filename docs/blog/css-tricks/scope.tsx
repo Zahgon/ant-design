@@ -11,20 +11,6 @@ const styleTxt = `
   }
 `;
 
-const Example: React.FC = () => (
-  <Flex vertical gap="middle">
-    <style>{styleTxt}</style>
-    <div className="blog-css-tricks-a">
-      <span>Should be red</span>
-    </div>
-    <div className="blog-css-tricks-a">
-      <span>
-        <div className="blog-css-tricks-b">
-          <span>Should be blue</span>
-        </div>
-      </span>
-    </div>
-  </Flex>
-);
+const Example: React.FC = () => { throw new Error("STUB"); };
 
 export default Example;

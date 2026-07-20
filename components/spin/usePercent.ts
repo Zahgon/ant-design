@@ -17,32 +17,7 @@ export default function usePercent(
   const isAuto = percent === 'auto';
 
   React.useEffect(() => {
-    if (isAuto && spinning) {
-      setMockPercent(0);
-
-      mockIntervalRef.current = setInterval(() => {
-        setMockPercent((prev) => {
-          const restPTG = 100 - prev;
-
-          for (let i = 0; i < STEP_BUCKETS.length; i += 1) {
-            const [limit, stepPtg] = STEP_BUCKETS[i];
-
-            if (prev <= limit) {
-              return prev + restPTG * stepPtg;
-            }
-          }
-
-          return prev;
-        });
-      }, AUTO_INTERVAL);
-    }
-
-    return () => {
-      if (mockIntervalRef.current) {
-        clearInterval(mockIntervalRef.current);
-        mockIntervalRef.current = null;
-      }
-    };
+      throw new Error("STUB");
   }, [isAuto, spinning]);
 
   return isAuto ? mockPercent : percent;

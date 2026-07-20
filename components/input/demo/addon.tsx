@@ -23,17 +23,6 @@ const selectAfter = (
   />
 );
 
-const App: React.FC = () => (
-  <Space vertical>
-    <Input addonBefore="http://" addonAfter=".com" defaultValue="mysite" />
-    <Input addonBefore={selectBefore} addonAfter={selectAfter} defaultValue="mysite" />
-    <Input addonAfter={<SettingOutlined />} defaultValue="mysite" />
-    <Input addonBefore="http://" suffix=".com" defaultValue="mysite" />
-    <Input
-      addonBefore={<Cascader placeholder="cascader" style={{ width: 150 }} />}
-      defaultValue="mysite"
-    />
-  </Space>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

@@ -41,26 +41,7 @@ const treeData = [
 ];
 
 const App: React.FC = () => {
-  const [value, setValue] = useState(['0-0-0']);
-
-  const onChange = (newValue: string[]) => {
-    console.log('onChange ', newValue);
-    setValue(newValue);
-  };
-
-  const tProps = {
-    treeData,
-    value,
-    onChange,
-    treeCheckable: true,
-    showCheckedStrategy: SHOW_PARENT,
-    placeholder: 'Please select',
-    style: {
-      width: '100%',
-    },
-  };
-
-  return <TreeSelect {...tProps} />;
+    throw new Error("STUB");
 };
 
 export default App;

@@ -15,18 +15,11 @@ const supportPortalHost = (hostDom: BorderBeamEffectProps['hostDom']): hostDom i
   typeof HTMLElement !== 'undefined' && hostDom instanceof HTMLElement;
 
 const BorderBeamEffectElement: React.FC<BorderBeamEffectElementProps> = (props) => {
-  const { prefixCls, className, ...rest } = props;
-  return <div aria-hidden="true" className={clsx(prefixCls, className)} {...rest} />;
+    throw new Error("STUB");
 };
 
 const BorderBeamEffect: React.FC<BorderBeamEffectProps> = (props) => {
-  const { prefixCls, hostDom, ...rest } = props;
-
-  if (!hostDom || !supportPortalHost(hostDom)) {
-    return null;
-  }
-
-  return createPortal(<BorderBeamEffectElement prefixCls={prefixCls} {...rest} />, hostDom);
+    throw new Error("STUB");
 };
 
 export default BorderBeamEffect;

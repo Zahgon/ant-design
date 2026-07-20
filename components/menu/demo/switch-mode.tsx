@@ -64,34 +64,7 @@ const items: MenuItem[] = [
 ];
 
 const App: React.FC = () => {
-  const [mode, setMode] = useState<'vertical' | 'inline'>('inline');
-  const [theme, setTheme] = useState<MenuTheme>('light');
-
-  const changeMode = (value: boolean) => {
-    setMode(value ? 'vertical' : 'inline');
-  };
-
-  const changeTheme = (value: boolean) => {
-    setTheme(value ? 'dark' : 'light');
-  };
-
-  return (
-    <>
-      <Switch onChange={changeMode} /> Change Mode
-      <Divider vertical />
-      <Switch onChange={changeTheme} /> Change Style
-      <br />
-      <br />
-      <Menu
-        style={{ width: 256 }}
-        defaultSelectedKeys={['1']}
-        defaultOpenKeys={['sub1']}
-        mode={mode}
-        theme={theme}
-        items={items}
-      />
-    </>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

@@ -17,7 +17,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
   const overrideTokens = { ...override };
 
   Object.keys(seedToken).forEach((token) => {
-    delete overrideTokens[token as keyof SeedToken];
+      throw new Error("STUB");
   });
 
   const mergedToken = {

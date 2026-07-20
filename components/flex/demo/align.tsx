@@ -21,22 +21,7 @@ const justifyOptions = [
 const alignOptions = ['flex-start', 'center', 'flex-end'];
 
 const App: React.FC = () => {
-  const [justify, setJustify] = React.useState<FlexProps['justify']>(justifyOptions[0]);
-  const [alignItems, setAlignItems] = React.useState<FlexProps['align']>(alignOptions[0]);
-  return (
-    <Flex gap="medium" align="start" vertical>
-      <p>Select justify :</p>
-      <Segmented options={justifyOptions} onChange={setJustify} />
-      <p>Select align :</p>
-      <Segmented options={alignOptions} onChange={setAlignItems} />
-      <Flex style={boxStyle} justify={justify} align={alignItems}>
-        <Button type="primary">Primary</Button>
-        <Button type="primary">Primary</Button>
-        <Button type="primary">Primary</Button>
-        <Button type="primary">Primary</Button>
-      </Flex>
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

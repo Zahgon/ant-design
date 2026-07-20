@@ -76,75 +76,10 @@ const locales = {
   },
 };
 
-const mockData = Array.from({ length: 20 }).map((_, i) => ({
-  key: i,
-  title: `content ${i + 1}`,
-}));
+const mockData = Array.from({ length: 20 }).map((_, i) => { throw new Error("STUB"); });
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Transfer"
-      semantics={[
-        { name: 'root', desc: locale.root },
-        { name: 'section', desc: locale.section },
-        { name: 'source.section', desc: locale['source.section'], version: '6.4.0' },
-        { name: 'target.section', desc: locale['target.section'], version: '6.4.0' },
-        { name: 'source.header', desc: locale['source.header'], version: '6.4.0' },
-        { name: 'target.header', desc: locale['target.header'], version: '6.4.0' },
-        { name: 'source.title', desc: locale['source.title'], version: '6.4.0' },
-        { name: 'target.title', desc: locale['target.title'], version: '6.4.0' },
-        { name: 'source.body', desc: locale['source.body'], version: '6.4.0' },
-        { name: 'target.body', desc: locale['target.body'], version: '6.4.0' },
-        { name: 'source.list', desc: locale['source.list'], version: '6.4.0' },
-        { name: 'target.list', desc: locale['target.list'], version: '6.4.0' },
-        { name: 'source.item', desc: locale['source.item'], version: '6.4.0' },
-        { name: 'target.item', desc: locale['target.item'], version: '6.4.0' },
-        { name: 'source.itemIcon', desc: locale['source.itemIcon'], version: '6.4.0' },
-        { name: 'target.itemIcon', desc: locale['target.itemIcon'], version: '6.4.0' },
-        { name: 'source.itemContent', desc: locale['source.itemContent'], version: '6.4.0' },
-        { name: 'target.itemContent', desc: locale['target.itemContent'], version: '6.4.0' },
-        { name: 'source.footer', desc: locale['source.footer'], version: '6.4.0' },
-        { name: 'target.footer', desc: locale['target.footer'], version: '6.4.0' },
-        { name: 'header', desc: locale.header },
-        { name: 'title', desc: locale.title },
-        { name: 'body', desc: locale.body },
-        { name: 'list', desc: locale.list },
-        { name: 'item', desc: locale.item },
-        { name: 'itemIcon', desc: locale.itemIcon },
-        { name: 'itemContent', desc: locale.itemContent },
-        { name: 'footer', desc: locale.footer },
-        { name: 'actions', desc: locale.actions },
-      ]}
-    >
-      <Transfer
-        showSearch
-        titles={['Source', 'Target']}
-        dataSource={mockData}
-        selectedKeys={[]}
-        targetKeys={[3, 9]}
-        render={(item) => item.title}
-        footer={() => <div style={{ padding: 8 }}>Custom Footer</div>}
-        styles={{
-          section: {
-            height: 250,
-            width: 200,
-          },
-          source: {
-            section: {
-              backgroundColor: '#fff7e6',
-            },
-          },
-          target: {
-            section: {
-              backgroundColor: '#e6f7ff',
-            },
-          },
-        }}
-      />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

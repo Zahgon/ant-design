@@ -6,11 +6,7 @@ const useMergedConfig = <Target>(propConfig?: boolean | Target, templateConfig?:
   const support = Boolean(propConfig);
 
   return React.useMemo<readonly [boolean, Target]>(() => {
-    const config = {
-      ...templateConfig,
-      ...(support && isPlainObject(propConfig) ? propConfig : null),
-    } as Target;
-    return [support, config] as const;
+      throw new Error("STUB");
   }, [support, propConfig, templateConfig]);
 };
 

@@ -31,7 +31,7 @@ function compactItemBorder(
   const genEffects = (effects: (string | null)[]) =>
     effects
       .filter(Boolean)
-      .map((n) => `&:${n}${suffix}`)
+      .map((n) => { throw new Error("STUB"); })
       .join(',');
   const hoverEffects = genEffects(['hover', focusElCls ? `hover${focusElCls}` : null]);
   const focusEffects = genEffects([focus ? 'focus' : null, 'active']);

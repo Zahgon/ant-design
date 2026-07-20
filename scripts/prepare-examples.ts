@@ -29,15 +29,7 @@ function syncVersion(pkgJson = {}, deps: string[] = []) {
   const _pkgJson: any = cloneDeep(pkgJson);
 
   _order.forEach((key) => {
-    const _processDeps = _pkgJson[key];
-
-    if (isPlainObject(_processDeps)) {
-      Object.keys(_processDeps).forEach((dep) => {
-        if (deps.includes(dep)) {
-          _processDeps[dep] = detectRootDepsVersion(dep) ?? _processDeps[dep];
-        }
-      });
-    }
+      throw new Error("STUB");
   });
 
   return _pkgJson;

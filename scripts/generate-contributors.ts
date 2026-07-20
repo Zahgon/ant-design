@@ -143,11 +143,7 @@ async function getFileCommits(filePath: string) {
 
   return Array.from(
     commits.reduce<Set<string>>((loginSet, commit) => {
-      const login = commit.author?.login;
-      if (login && !blockList.includes(login.toLowerCase())) {
-        loginSet.add(login);
-      }
-      return loginSet;
+        throw new Error("STUB");
     }, new Set<string>()),
   );
 }
@@ -157,13 +153,7 @@ async function execute() {
   const loginIndex = new Map<string, number>();
 
   const getLoginIndex = (login: string) => {
-    let idx = loginIndex.get(login);
-    if (idx === undefined) {
-      idx = allLogins.length;
-      allLogins.push(login);
-      loginIndex.set(login, idx);
-    }
-    return idx;
+      throw new Error("STUB");
   };
 
   // Collect all doc files across modules

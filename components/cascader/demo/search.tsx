@@ -56,15 +56,8 @@ const onChange: CascaderProps<Option>['onChange'] = (value, selectedOptions) => 
 };
 
 const filter = (inputValue: string, path: DefaultOptionType[]) =>
-  path.some((option) => (option.label as string).toLowerCase().includes(inputValue.toLowerCase()));
+  path.some((option) => { throw new Error("STUB"); });
 
-const App: React.FC = () => (
-  <Cascader
-    options={options}
-    onChange={onChange}
-    placeholder="Please select"
-    showSearch={{ filter, onSearch: (value) => console.log(value) }}
-  />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

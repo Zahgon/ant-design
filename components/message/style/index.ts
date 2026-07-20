@@ -54,13 +54,7 @@ const prepareMessageToken: (token: Parameters<GenStyleFn<'Message'>>[0]) => Noti
 };
 
 /** Provide default public ComponentToken values for Message. */
-const prepareComponentToken: GetDefaultToken<'Message'> = (token) => ({
-  zIndexPopup: token.zIndexPopupBase + CONTAINER_MAX_OFFSET + 10,
-  contentBg: token.colorBgElevated,
-  contentPadding: `${(token.controlHeightLG - token.fontSize * token.lineHeight) / 2}px ${
-    token.paddingSM
-  }px`,
-});
+const prepareComponentToken: GetDefaultToken<'Message'> = (token) => { throw new Error("STUB"); };
 
 // =============================== Base ===============================
 
@@ -89,64 +83,7 @@ const genMessageItemStyle = (token: NotificationToken): CSSObject => {
 
 /** Generate the collapsed stack placeholder styles for Message notices. */
 const generateMessageStackStyle: GenerateStyle<NotificationToken> = (token) => {
-  const { componentCls } = token;
-  const noticeCls = `${componentCls}-notice`;
-  const listContentCls = `${componentCls}-list-content`;
-  const messageItemStyle = genMessageItemStyle(token);
-  const { '&::after': _hoverAfterStyle, ...messageNoticeStyle } = messageItemStyle[
-    noticeCls
-  ] as CSSObject;
-  const placeholderStyle: CSSObject = {
-    ...messageNoticeStyle,
-    position: 'absolute',
-    zIndex: -1,
-    left: '50%',
-    height: token.calc(token.marginXS).mul(2).equal(),
-    padding: 0,
-    boxShadow: token.boxShadowTertiary,
-    opacity: 0,
-    pointerEvents: 'none',
-    transform: 'translateX(-50%) translateY(100%)',
-    transition: [
-      `opacity ${token.motionDurationFast} ${token.motionEaseInOut}`,
-      `transform ${token.motionDurationFast} ${token.motionEaseInOut}`,
-      `width ${token.motionDurationSlow} ${token.motionEaseInOut}`,
-    ].join(', '),
-    content: '""',
-  };
-
-  return {
-    [componentCls]: {
-      [`&${componentCls}-stack`]: {
-        [listContentCls]: {
-          isolation: 'isolate',
-
-          '&::before': {
-            ...placeholderStyle,
-            top: `calc(var(--top-notificiation-height) - ${unit(token.marginXS)})`,
-            width: `calc(var(--top-notificiation-width) - ${unit(token.margin)})`,
-          },
-          '&::after': {
-            ...placeholderStyle,
-            zIndex: -2,
-            top: 'var(--top-notificiation-height)',
-            width: `calc(var(--top-notificiation-width) - ${unit(
-              token.calc(token.margin).mul(2).equal(),
-            )})`,
-          },
-        },
-
-        [`&:not(${componentCls}-stack-expanded)`]: {
-          [listContentCls]: {
-            '&::before, &::after': {
-              opacity: 1,
-              transform: 'translateX(-50%) translateY(0)',
-            },
-          },
-        },
-      },
-    },
-  };
+    throw new Error("STUB");
 };
 
 // ============================= PurePanel =============================
@@ -177,31 +114,20 @@ const generateMessagePurePanelStyle: GenerateStyle<NotificationToken> = (token) 
 export const PurePanelStyle = genSubStyleComponent(
   ['Message', 'PurePanel'],
   (token) =>
-    generateMessagePurePanelStyle(
-      prepareMessageToken(token as unknown as Parameters<GenStyleFn<'Message'>>[0]),
-    ),
+    { throw new Error("STUB"); },
   prepareComponentToken,
 );
 
 // ============================== Export ==============================
 
 /** Wrap Message item styles under the component root selector. */
-const generateMessageStyle: GenerateStyle<NotificationToken> = (token) => ({
-  [token.componentCls]: genMessageItemStyle(token),
-});
+const generateMessageStyle: GenerateStyle<NotificationToken> = (token) => { throw new Error("STUB"); };
 
 /** Register the main style hook for Message. */
 export default genStyleHooks(
   'Message',
   (token) => {
-    const messageToken = prepareMessageToken(
-      token as unknown as Parameters<GenStyleFn<'Message'>>[0],
-    );
-
-    return [
-      sharedGenerateStyle(messageToken, { stackVisibleCount: 1, itemStyle: generateMessageStyle }),
-      generateMessageStackStyle(messageToken),
-    ];
+      throw new Error("STUB");
   },
   prepareComponentToken,
 );

@@ -34,25 +34,6 @@ const options = [
   },
 ];
 
-const App: React.FC = () => (
-  <Select
-    mode="multiple"
-    style={{ width: '100%' }}
-    placeholder="Please select your current mood."
-    defaultValue={['happy']}
-    onChange={(value) => {
-      console.log(`selected ${value}`);
-    }}
-    options={options}
-    optionRender={(option) => (
-      <Space>
-        <span role="img" aria-label={option.data.label}>
-          {option.data.emoji}
-        </span>
-        {`${option.data.label} (${option.data.desc})`}
-      </Space>
-    )}
-  />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

@@ -20,31 +20,11 @@ const locales = {
 };
 
 const BlockList: React.FC<Readonly<RibbonProps>> = (props) => {
-  return (
-    <div style={{ width: '100%' }}>
-      <Badge.Ribbon {...props} text="Hippies" color="pink">
-        <Card title="Pushes open the window" size="small">
-          and raises the spyglass.
-        </Card>
-      </Badge.Ribbon>
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Badge"
-      semantics={[
-        { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'indicator', desc: locale.indicator, version: '6.0.0' },
-        { name: 'content', desc: locale.content, version: '6.0.0' },
-      ]}
-    >
-      <BlockList />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

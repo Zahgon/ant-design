@@ -28,22 +28,6 @@ const firstLineStyles: AlertProps['styles'] = {
   },
 };
 
-const App: React.FC = () => (
-  <Flex vertical gap="middle" style={wrapperStyle}>
-    <Alert title={title} type="info" showIcon closable styles={firstLineStyles} />
-    <Alert
-      title={title}
-      type="success"
-      showIcon
-      closable
-      styles={firstLineStyles}
-      action={
-        <Button size="small" type="text">
-          Action
-        </Button>
-      }
-    />
-  </Flex>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

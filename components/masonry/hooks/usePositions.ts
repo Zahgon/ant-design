@@ -27,25 +27,7 @@ export default function usePositions(
 ) {
   // ==================== Auto Order ====================
   const [orderItemPositions, orderTotalHeight] = React.useMemo(() => {
-    const columnHeights = new Array(columnCount).fill(0) as number[];
-    const itemPositions: ItemPositions = new Map();
-
-    for (let i = 0; i < itemHeights.length; i += 1) {
-      const [itemKey, itemHeight, itemColumn] = itemHeights[i];
-
-      let targetColumnIndex = itemColumn ?? columnHeights.indexOf(Math.min(...columnHeights));
-      targetColumnIndex = Math.min(targetColumnIndex, columnCount - 1);
-
-      const top = columnHeights[targetColumnIndex];
-      itemPositions.set(itemKey, {
-        column: targetColumnIndex,
-        top,
-      });
-
-      columnHeights[targetColumnIndex] += itemHeight + verticalGutter;
-    }
-
-    return [itemPositions, Math.max(0, Math.max(...columnHeights) - verticalGutter)];
+      throw new Error("STUB");
   }, [columnCount, itemHeights, verticalGutter]);
 
   // ====================== Return ======================

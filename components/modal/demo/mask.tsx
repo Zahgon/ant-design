@@ -7,37 +7,7 @@ const modalConfig = {
 };
 
 const App: React.FC = () => {
-  const [modal, contextHolder] = Modal.useModal();
-
-  return (
-    <>
-      <Space>
-        <Button
-          onClick={() => {
-            modal.confirm({ ...modalConfig, mask: { blur: true } });
-          }}
-        >
-          blur
-        </Button>
-        <Button
-          onClick={() => {
-            modal.confirm(modalConfig);
-          }}
-        >
-          Dimmed mask
-        </Button>
-        <Button
-          onClick={() => {
-            modal.confirm({ ...modalConfig, mask: false });
-          }}
-        >
-          No mask
-        </Button>
-      </Space>
-
-      {contextHolder}
-    </>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

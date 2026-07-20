@@ -14,42 +14,7 @@ const drawerList: DrawerConfig[] = [
   { type: 'none', mask: false, title: 'No mask' },
 ];
 const App: React.FC = () => {
-  const [open, setOpen] = useState<false | MaskType>(false);
-
-  const showDrawer = (type: MaskType) => {
-    setOpen(type);
-  };
-
-  const onClose = () => {
-    setOpen(false);
-  };
-
-  return (
-    <Space wrap>
-      {drawerList.map((item) => (
-        <React.Fragment key={item.type}>
-          <Button
-            onClick={() => {
-              showDrawer(item.type);
-            }}
-          >
-            {item.title}
-          </Button>
-          <Drawer
-            title={item.title}
-            placement="right"
-            mask={item.mask}
-            onClose={onClose}
-            open={open === item.type}
-          >
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-          </Drawer>
-        </React.Fragment>
-      ))}
-    </Space>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

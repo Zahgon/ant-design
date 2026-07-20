@@ -26,7 +26,7 @@ class ErrorBoundary extends React.PureComponent<ErrorBoundaryProps, ErrorBoundar
   };
 
   componentDidCatch(error: Error, info: React.ErrorInfo) {
-    this.setState({ error, info });
+      throw new Error("STUB");
   }
 
   render() {

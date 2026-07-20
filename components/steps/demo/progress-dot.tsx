@@ -31,16 +31,6 @@ const sharedVerticalProps = {
   },
 } as const;
 
-const App: React.FC = () => (
-  <Flex vertical gap="medium">
-    <Steps {...sharedProps} />
-    <Steps {...sharedProps} variant="outlined" />
-    <Divider />
-    <Flex gap="medium">
-      <Steps {...sharedVerticalProps} />
-      <Steps {...sharedVerticalProps} variant="outlined" />
-    </Flex>
-  </Flex>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

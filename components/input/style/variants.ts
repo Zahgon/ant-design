@@ -178,7 +178,7 @@ const borderlessFocusVisibleSelector =
 const genBorderlessFocusVisibleStyle = (token: InputToken, outlineColor: string): CSSObject => ({
   outline: `${unit(token.lineWidth)} ${token.lineType} ${outlineColor}`,
   outlineOffset: unit(token.calc(token.lineWidth).mul(-1).equal()),
-  transition: [`outline-offset`, `outline`].map((prop) => `${prop} 0s`).join(', '),
+  transition: [`outline-offset`, `outline`].map((prop) => { throw new Error("STUB"); }).join(', '),
 });
 
 const genBorderlessStatusStyle = (

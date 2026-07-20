@@ -10,17 +10,7 @@ const style: React.CSSProperties = {
 };
 
 const App: React.FC = () => {
-  React.useEffect(() => {
-    document.documentElement.scrollTop = document.documentElement.clientHeight;
-    document.documentElement.scrollLeft = document.documentElement.clientWidth;
-  }, []);
-  return (
-    <div style={style}>
-      <Popover content="Thanks for using antd. Have a nice day !" open>
-        <Button type="primary">Scroll The Window</Button>
-      </Popover>
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

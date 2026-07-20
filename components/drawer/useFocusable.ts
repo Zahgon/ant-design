@@ -13,14 +13,6 @@ export default function useFocusable(
   legacyFocusTriggerAfterClose?: FocusableConfig['focusTriggerAfterClose'],
 ) {
   return useMemo(() => {
-    const ret: FocusableConfig = {
-      trap: defaultTrap ?? true,
-      focusTriggerAfterClose: legacyFocusTriggerAfterClose ?? true,
-    };
-
-    return {
-      ...ret,
-      ...focusable,
-    };
+      throw new Error("STUB");
   }, [focusable, defaultTrap, legacyFocusTriggerAfterClose]);
 }

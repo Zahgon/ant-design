@@ -117,7 +117,7 @@ export const genOverflowStyle = (
         borderRadius: borderRadiusSM,
         cursor: 'default',
         transition: [`font-size`, `line-height`, `height`]
-          .map((prop) => `${prop} ${motionDurationSlow}`)
+          .map((prop) => { throw new Error("STUB"); })
           .join(', '),
         marginInlineEnd: token.calc(INTERNAL_FIXED_ITEM_MARGIN).mul(2).equal(),
         paddingInlineStart: paddingXS,

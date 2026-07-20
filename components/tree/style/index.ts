@@ -510,23 +510,11 @@ export const initComponentToken = (token: AliasToken): TreeSharedToken => {
 };
 
 export const prepareComponentToken: GetDefaultToken<'Tree'> = (token) => {
-  const { colorTextLightSolid, colorPrimary } = token;
-
-  return {
-    ...initComponentToken(token),
-    directoryNodeSelectedColor: colorTextLightSolid,
-    directoryNodeSelectedBg: colorPrimary,
-  };
+    throw new Error("STUB");
 };
 
 export default genStyleHooks(
   'Tree',
-  (token, { prefixCls }) => [
-    {
-      [token.componentCls]: getCheckboxStyle(`${prefixCls}-checkbox`, token),
-    },
-    genTreeStyle(prefixCls, token),
-    genCollapseMotion(token),
-  ],
+  (token, { prefixCls }) => { throw new Error("STUB"); },
   prepareComponentToken,
 );

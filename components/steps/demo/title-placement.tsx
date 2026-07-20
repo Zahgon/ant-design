@@ -16,14 +16,6 @@ const items = [
     content,
   },
 ];
-const App: React.FC = () => (
-  <>
-    <Steps current={1} titlePlacement="vertical" items={items} ellipsis />
-    <br />
-    <Steps current={1} percent={60} titlePlacement="vertical" items={items} />
-    <br />
-    <Steps current={1} percent={80} size="small" titlePlacement="vertical" items={items} />
-  </>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

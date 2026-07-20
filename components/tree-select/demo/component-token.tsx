@@ -34,40 +34,7 @@ const treeData = [
   },
 ];
 const App: React.FC = () => {
-  const [value, setValue] = useState<string>();
-
-  const onChange = (newValue: string) => {
-    setValue(newValue);
-  };
-
-  return (
-    <ConfigProvider
-      theme={{
-        components: {
-          TreeSelect: {
-            nodeHoverBg: '#fff2f0',
-            nodeSelectedBg: '#ffa39e',
-          },
-        },
-      }}
-    >
-      <TreeSelect
-        showSearch
-        style={{ width: '100%' }}
-        value={value}
-        styles={{
-          popup: {
-            root: { maxHeight: 400, overflow: 'auto' },
-          },
-        }}
-        placeholder="Please select"
-        allowClear
-        treeDefaultExpandAll
-        onChange={onChange}
-        treeData={treeData}
-      />
-    </ConfigProvider>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

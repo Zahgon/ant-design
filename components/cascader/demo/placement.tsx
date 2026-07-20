@@ -44,27 +44,7 @@ const options: Option[] = [
 ];
 
 const App: React.FC = () => {
-  const [placement, setPlacement] = useState<'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight'>(
-    'topLeft',
-  );
-
-  const placementChange = (e: RadioChangeEvent) => {
-    setPlacement(e.target.value);
-  };
-
-  return (
-    <>
-      <Radio.Group value={placement} onChange={placementChange}>
-        <Radio.Button value="topLeft">topLeft</Radio.Button>
-        <Radio.Button value="topRight">topRight</Radio.Button>
-        <Radio.Button value="bottomLeft">bottomLeft</Radio.Button>
-        <Radio.Button value="bottomRight">bottomRight</Radio.Button>
-      </Radio.Group>
-      <br />
-      <br />
-      <Cascader options={options} placeholder="Please select" placement={placement} />
-    </>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

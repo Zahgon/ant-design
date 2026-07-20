@@ -1,12 +1,6 @@
 import React from 'react';
 import { Avatar, Badge } from 'antd';
 
-const App: React.FC = () => (
-  <a href="#">
-    <Badge count={5}>
-      <Avatar shape="square" size="large" />
-    </Badge>
-  </a>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

@@ -6,12 +6,7 @@ import { createStaticStyles } from 'antd-style';
 
 type CheckableTagGroupProps = GetProps<typeof Tag.CheckableTagGroup>;
 
-const classNames = createStaticStyles(({ css }) => ({
-  root: css`
-    padding: 2px 6px;
-    border-radius: 4px;
-  `,
-}));
+const classNames = createStaticStyles(({ css }) => { throw new Error("STUB"); });
 
 const styles: TagProps['styles'] = {
   root: {
@@ -26,19 +21,7 @@ const styles: TagProps['styles'] = {
 };
 
 const stylesFn: TagProps['styles'] = (info): GetProp<TagProps, 'styles', 'Return'> => {
-  if (info.props.variant === 'filled') {
-    return {
-      root: {
-        backgroundColor: '#F5EFFF',
-      },
-      icon: {
-        color: '#8F87F1',
-      },
-      content: {
-        color: '#8F87F1',
-      },
-    };
-  }
+    throw new Error("STUB");
 };
 
 const groupStyles: CheckableTagGroupProps['styles'] = {
@@ -58,57 +41,11 @@ const groupStyles: CheckableTagGroupProps['styles'] = {
 const groupStylesFn: CheckableTagGroupProps['styles'] = (
   info,
 ): GetProp<CheckableTagGroupProps, 'styles', 'Return'> => {
-  const { multiple } = info.props;
-  if (multiple) {
-    return {
-      root: {
-        gap: 16,
-        padding: '8px 12px',
-        backgroundColor: 'rgba(143, 135, 241, 0.08)',
-        borderRadius: 8,
-      },
-      item: {
-        backgroundColor: 'rgba(143, 135, 241, 0.1)',
-        borderColor: 'rgba(143, 135, 241, 0.3)',
-        color: '#8F87F1',
-        fontWeight: 500,
-      },
-    };
-  }
-  return {};
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  return (
-    <Space size="large" vertical>
-      <Flex gap="medium">
-        <Tag classNames={classNames} styles={styles} icon={<CheckCircleOutlined />}>
-          Object
-        </Tag>
-        <Tag
-          variant="filled"
-          classNames={classNames}
-          styles={stylesFn}
-          icon={<CloseCircleOutlined />}
-        >
-          Function
-        </Tag>
-      </Flex>
-      <Flex vertical gap="medium">
-        <Tag.CheckableTagGroup
-          classNames={classNames}
-          styles={groupStyles}
-          options={['React', 'Vue', 'Angular']}
-        />
-        <Tag.CheckableTagGroup
-          classNames={classNames}
-          styles={groupStylesFn}
-          options={['meet-student', 'thinkasany']}
-          multiple
-        />
-      </Flex>
-    </Space>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

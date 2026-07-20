@@ -16,7 +16,7 @@ import useModal from './useModal';
 export type { ModalFuncProps, ModalLocale, ModalProps } from './interface';
 
 function modalWarn(props: ModalFuncProps) {
-  return confirm(withWarn(props));
+    throw new Error("STUB");
 }
 
 type ModalType = typeof OriginModal &
@@ -33,15 +33,15 @@ const Modal = OriginModal as ModalType;
 Modal.useModal = useModal;
 
 Modal.info = function infoFn(props: ModalFuncProps) {
-  return confirm(withInfo(props));
+    throw new Error("STUB");
 };
 
 Modal.success = function successFn(props: ModalFuncProps) {
-  return confirm(withSuccess(props));
+    throw new Error("STUB");
 };
 
 Modal.error = function errorFn(props: ModalFuncProps) {
-  return confirm(withError(props));
+    throw new Error("STUB");
 };
 
 Modal.warning = modalWarn;
@@ -49,16 +49,11 @@ Modal.warning = modalWarn;
 Modal.warn = modalWarn;
 
 Modal.confirm = function confirmFn(props: ModalFuncProps) {
-  return confirm(withConfirm(props));
+    throw new Error("STUB");
 };
 
 Modal.destroyAll = function destroyAllFn() {
-  while (destroyFns.length) {
-    const close = destroyFns.pop();
-    if (close) {
-      close();
-    }
-  }
+    throw new Error("STUB");
 };
 
 Modal.config = modalGlobalConfig;

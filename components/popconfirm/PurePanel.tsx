@@ -42,82 +42,7 @@ export interface OverlayProps
 }
 
 export const Overlay: React.FC<OverlayProps> = (props) => {
-  const {
-    prefixCls,
-    okButtonProps,
-    cancelButtonProps,
-    title,
-    description,
-    cancelText,
-    okText,
-    okType = 'primary',
-    icon = <ExclamationCircleFilled />,
-    showCancel = true,
-    close,
-    onConfirm,
-    onCancel,
-    onPopupClick,
-    classNames,
-    styles,
-  } = props;
-
-  const { getPrefixCls } = React.useContext(ConfigContext);
-
-  const [contextLocale] = useLocale('Popconfirm', defaultLocale.Popconfirm);
-
-  const titleNode = getRenderPropValue(title);
-  const descriptionNode = getRenderPropValue(description);
-
-  return (
-    <div className={`${prefixCls}-inner-content`} onClick={onPopupClick}>
-      <div className={`${prefixCls}-message`}>
-        {icon && (
-          <span
-            className={clsx(`${prefixCls}-message-icon`, classNames?.icon)}
-            style={styles?.icon}
-          >
-            {icon}
-          </span>
-        )}
-        <div className={`${prefixCls}-message-text`}>
-          {isReactRenderable(titleNode) && (
-            <div className={clsx(`${prefixCls}-title`, classNames?.title)} style={styles?.title}>
-              {titleNode}
-            </div>
-          )}
-          {isReactRenderable(descriptionNode) && (
-            <div
-              className={clsx(`${prefixCls}-description`, classNames?.content)}
-              style={styles?.content}
-            >
-              {descriptionNode}
-            </div>
-          )}
-        </div>
-      </div>
-      <div className={`${prefixCls}-buttons`}>
-        {showCancel && (
-          <Button onClick={onCancel} size="small" {...cancelButtonProps}>
-            {cancelText || contextLocale?.cancelText}
-          </Button>
-        )}
-        <ActionButton
-          buttonProps={{
-            size: 'small',
-            ...convertLegacyProps(okType),
-            ...okButtonProps,
-          }}
-          actionFn={onConfirm}
-          close={close}
-          prefixCls={getPrefixCls('btn')}
-          quitOnNullishReturnValue
-          emitEvent
-        >
-          {okText || contextLocale?.okText}
-        </ActionButton>
-      </div>
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 export interface PurePanelProps
@@ -129,20 +54,7 @@ export interface PurePanelProps
 }
 
 const PurePanel: React.FC<PurePanelProps> = (props) => {
-  const { prefixCls: customizePrefixCls, placement, className, style, ...restProps } = props;
-
-  const { getPrefixCls } = React.useContext(ConfigContext);
-  const prefixCls = getPrefixCls('popconfirm', customizePrefixCls);
-  useStyle(prefixCls);
-
-  return (
-    <PopoverPurePanel
-      placement={placement}
-      className={clsx(prefixCls, className)}
-      style={style}
-      content={<Overlay prefixCls={prefixCls} {...restProps} />}
-    />
-  );
+    throw new Error("STUB");
 };
 
 export default PurePanel;

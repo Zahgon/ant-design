@@ -11,21 +11,11 @@ export interface PropWarningProps {
  * This will be empty function in production.
  */
 const PropWarning = React.memo<PropWarningProps>((props) => {
-  const { dropdownMatchSelectWidth } = props;
-
-  const warning = devUseWarning('ConfigProvider');
-
-  warning.deprecated(
-    dropdownMatchSelectWidth === undefined,
-    'dropdownMatchSelectWidth',
-    'popupMatchSelectWidth',
-  );
-
-  return null;
+    throw new Error("STUB");
 });
 
 if (process.env.NODE_ENV !== 'production') {
   PropWarning.displayName = 'PropWarning';
 }
 
-export default process.env.NODE_ENV !== 'production' ? PropWarning : () => null;
+export default process.env.NODE_ENV !== 'production' ? PropWarning : () => { throw new Error("STUB"); };

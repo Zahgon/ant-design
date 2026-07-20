@@ -22,23 +22,7 @@ const useBorderSize = (domNode: Element | null) => {
   const [borderInfo, setBorderInfo] = React.useState<BorderInfo>(DEFAULT_BORDER_INFO);
 
   React.useEffect(() => {
-    if (!domNode) {
-      setBorderInfo(DEFAULT_BORDER_INFO);
-      return;
-    }
-
-    const { borderTopWidth, borderRightWidth, borderBottomWidth, borderLeftWidth, borderRadius } =
-      getComputedStyle(domNode);
-
-    setBorderInfo({
-      borderWidth: [
-        parseBorderWidth(borderTopWidth),
-        parseBorderWidth(borderRightWidth),
-        parseBorderWidth(borderBottomWidth),
-        parseBorderWidth(borderLeftWidth),
-      ],
-      borderRadius,
-    });
+      throw new Error("STUB");
   }, [domNode]);
 
   return borderInfo;

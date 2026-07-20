@@ -6,6 +6,6 @@ const onChange: CheckboxProps['onChange'] = (e) => {
   console.log(`checked = ${e.target.checked}`);
 };
 
-const App: React.FC = () => <Checkbox onChange={onChange}>Checkbox</Checkbox>;
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

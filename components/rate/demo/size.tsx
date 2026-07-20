@@ -1,12 +1,6 @@
 import React from 'react';
 import { Flex, Rate } from 'antd';
 
-const App: React.FC = () => (
-  <Flex vertical gap="medium">
-    <Rate size="large" />
-    <Rate />
-    <Rate size="small" />
-  </Flex>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

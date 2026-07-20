@@ -5,37 +5,7 @@ import type { AutoCompleteProps } from 'antd';
 const { TextArea } = Input;
 
 const App: React.FC = () => {
-  const [options, setOptions] = useState<AutoCompleteProps['options']>([]);
-
-  const handleSearch = (value: string) => {
-    setOptions(
-      !value ? [] : [{ value }, { value: value + value }, { value: value + value + value }],
-    );
-  };
-
-  const handleKeyPress = (ev: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    console.log('handleKeyPress', ev);
-  };
-
-  const onSelect = (value: string) => {
-    console.log('onSelect', value);
-  };
-
-  return (
-    <AutoComplete
-      options={options}
-      style={{ width: 200 }}
-      onSelect={onSelect}
-      showSearch={{ onSearch: handleSearch }}
-    >
-      <TextArea
-        placeholder="input here"
-        className="custom"
-        style={{ height: 50 }}
-        onKeyPress={handleKeyPress}
-      />
-    </AutoComplete>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

@@ -45,30 +45,6 @@ const icons = [
   <LeftOutlined key="left" />,
 ];
 
-const App: React.FC = () => (
-  <Flex justify="space-evenly" align="center" style={wrapperStyle}>
-    <div style={boxStyle}>
-      {(['top', 'right', 'bottom', 'left'] as const).map((placement, i) => {
-        const style: React.CSSProperties = {
-          position: 'absolute',
-          insetInlineEnd: insetInlineEnd[i],
-          bottom: bottom[i],
-        };
-        return (
-          <FloatButton.Group
-            key={placement}
-            trigger="click"
-            placement={placement}
-            style={style}
-            icon={icons[i]}
-          >
-            <FloatButton />
-            <FloatButton icon={<CommentOutlined />} />
-          </FloatButton.Group>
-        );
-      })}
-    </div>
-  </Flex>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

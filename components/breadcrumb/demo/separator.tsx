@@ -1,26 +1,6 @@
 import React from 'react';
 import { Breadcrumb } from 'antd';
 
-const App: React.FC = () => (
-  <Breadcrumb
-    separator=">"
-    items={[
-      {
-        title: 'Home',
-      },
-      {
-        title: 'Application Center',
-        href: '',
-      },
-      {
-        title: 'Application List',
-        href: '',
-      },
-      {
-        title: 'An Application',
-      },
-    ]}
-  />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

@@ -4,38 +4,10 @@ import { AutoComplete, Flex, Input } from 'antd';
 import { createStyles } from 'antd-style';
 
 const useStyles = createStyles((props) => {
-  const { css, prefixCls, cssVar } = props;
-  return {
-    categorySearch: css`
-      .${prefixCls}-select-dropdown-menu-item-group-title {
-        color: #666;
-        font-weight: ${cssVar.fontWeightStrong};
-      }
-      .${prefixCls}-select-dropdown-menu-item-group {
-        border-bottom: ${cssVar.lineWidth} ${cssVar.lineType} #f6f6f6;
-      }
-      .${prefixCls}-select-dropdown-menu-item {
-        padding-inline-start: ${cssVar.padding};
-      }
-      .${prefixCls}-select-dropdown-menu-item.show-all {
-        text-align: center;
-        cursor: default;
-      }
-      .${prefixCls}-select-dropdown-menu {
-        max-height: 300px;
-      }
-    `,
-  };
+    throw new Error("STUB");
 });
 
-const Title: React.FC<Readonly<{ title?: string }>> = (props) => (
-  <Flex align="center" justify="space-between">
-    {props.title}
-    <a href="https://www.google.com/search?q=antd" target="_blank" rel="noopener noreferrer">
-      more
-    </a>
-  </Flex>
-);
+const Title: React.FC<Readonly<{ title?: string }>> = (props) => { throw new Error("STUB"); };
 
 const renderItem = (title: string, count: number) => ({
   value: title,
@@ -65,17 +37,7 @@ const options = [
 ];
 
 const App: React.FC = () => {
-  const { styles } = useStyles();
-  return (
-    <AutoComplete
-      classNames={{ popup: { root: styles.categorySearch } }}
-      popupMatchSelectWidth={500}
-      style={{ width: 250 }}
-      options={options}
-    >
-      <Input.Search size="large" placeholder="input here" />
-    </AutoComplete>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

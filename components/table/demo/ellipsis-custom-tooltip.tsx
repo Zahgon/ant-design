@@ -14,7 +14,7 @@ const columns: TableColumnsType<DataType> = [
     title: 'Name',
     dataIndex: 'name',
     key: 'name',
-    render: (text) => <a>{text}</a>,
+    render: (text) => { throw new Error("STUB"); },
     width: 150,
   },
   {
@@ -30,11 +30,7 @@ const columns: TableColumnsType<DataType> = [
     ellipsis: {
       showTitle: false,
     },
-    render: (address) => (
-      <Tooltip placement="topLeft" title={address}>
-        {address}
-      </Tooltip>
-    ),
+    render: (address) => { throw new Error("STUB"); },
   },
   {
     title: 'Long Column Long Column Long Column',
@@ -43,11 +39,7 @@ const columns: TableColumnsType<DataType> = [
     ellipsis: {
       showTitle: false,
     },
-    render: (address) => (
-      <Tooltip placement="topLeft" title={address}>
-        {address}
-      </Tooltip>
-    ),
+    render: (address) => { throw new Error("STUB"); },
   },
   {
     title: 'Long Column Long Column',
@@ -56,11 +48,7 @@ const columns: TableColumnsType<DataType> = [
     ellipsis: {
       showTitle: false,
     },
-    render: (address) => (
-      <Tooltip placement="topLeft" title={address}>
-        {address}
-      </Tooltip>
-    ),
+    render: (address) => { throw new Error("STUB"); },
   },
   {
     title: 'Long Column',
@@ -69,11 +57,7 @@ const columns: TableColumnsType<DataType> = [
     ellipsis: {
       showTitle: false,
     },
-    render: (address) => (
-      <Tooltip placement="topLeft" title={address}>
-        {address}
-      </Tooltip>
-    ),
+    render: (address) => { throw new Error("STUB"); },
   },
 ];
 
@@ -98,6 +82,6 @@ const data: DataType[] = [
   },
 ];
 
-const App: React.FC = () => <Table<DataType> columns={columns} dataSource={data} />;
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

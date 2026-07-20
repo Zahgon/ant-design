@@ -26,24 +26,7 @@ const treeData: TreeDataNode[] = [
 ];
 
 const App: React.FC = () => {
-  const onSelect: DirectoryTreeProps['onSelect'] = (keys, info) => {
-    console.log('Trigger Select', keys, info);
-  };
-
-  const onExpand: DirectoryTreeProps['onExpand'] = (keys, info) => {
-    console.log('Trigger Expand', keys, info);
-  };
-
-  return (
-    <DirectoryTree
-      multiple
-      draggable
-      defaultExpandAll
-      onSelect={onSelect}
-      onExpand={onExpand}
-      treeData={treeData}
-    />
-  );
+    throw new Error("STUB");
 };
 
 export default App;

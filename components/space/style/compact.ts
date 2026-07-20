@@ -12,29 +12,11 @@ interface SpaceToken extends FullToken<'Space'> {
 }
 
 const genSpaceCompactStyle: GenerateStyle<SpaceToken, CSSObject> = (token) => {
-  const { componentCls } = token;
-
-  return {
-    [componentCls]: {
-      display: 'inline-flex',
-
-      '&-block': {
-        display: 'flex',
-        width: '100%',
-      },
-      '&-vertical': {
-        flexDirection: 'column',
-      },
-
-      '&-rtl': {
-        direction: 'rtl',
-      },
-    },
-  };
+    throw new Error("STUB");
 };
 
 // ============================== Export ==============================
-export default genStyleHooks(['Space', 'Compact'], genSpaceCompactStyle, () => ({}), {
+export default genStyleHooks(['Space', 'Compact'], genSpaceCompactStyle, () => { throw new Error("STUB"); }, {
   // Space component don't apply extra font style
   // https://github.com/ant-design/ant-design/issues/40315
   resetStyle: false,

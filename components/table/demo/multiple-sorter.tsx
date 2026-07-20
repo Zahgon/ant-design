@@ -19,7 +19,7 @@ const columns: TableColumnsType<DataType> = [
     title: 'Chinese Score',
     dataIndex: 'chinese',
     sorter: {
-      compare: (a, b) => a.chinese - b.chinese,
+      compare: (a, b) => { throw new Error("STUB"); },
       multiple: 3,
     },
   },
@@ -27,7 +27,7 @@ const columns: TableColumnsType<DataType> = [
     title: 'Math Score',
     dataIndex: 'math',
     sorter: {
-      compare: (a, b) => a.math - b.math,
+      compare: (a, b) => { throw new Error("STUB"); },
       multiple: 2,
     },
   },
@@ -35,7 +35,7 @@ const columns: TableColumnsType<DataType> = [
     title: 'English Score',
     dataIndex: 'english',
     sorter: {
-      compare: (a, b) => a.english - b.english,
+      compare: (a, b) => { throw new Error("STUB"); },
       multiple: 1,
     },
   },
@@ -76,8 +76,6 @@ const onChange: TableProps<DataType>['onChange'] = (pagination, filters, sorter,
   console.log('params', pagination, filters, sorter, extra);
 };
 
-const App: React.FC = () => (
-  <Table<DataType> columns={columns} dataSource={data} onChange={onChange} />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

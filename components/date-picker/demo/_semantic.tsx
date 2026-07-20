@@ -50,33 +50,7 @@ interface BlockProps<P> {
 }
 
 const Block: React.FC<BlockProps<any>> = (props) => {
-  const {
-    singleComponent: SingleComponent,
-    multipleComponent: MultipleComponent,
-    type,
-    setType,
-    ...restProps
-  } = props;
-
-  const divRef = React.useRef<HTMLDivElement>(null);
-
-  const config = {
-    ...restProps,
-    prefix: <SmileOutlined />,
-    zIndex: 1,
-    open: true,
-    getPopupContainer: () => divRef?.current!,
-    needConfirm: true,
-  };
-
-  const PickerComponent = type === 'Single' ? SingleComponent : MultipleComponent;
-
-  return (
-    <Flex vertical ref={divRef} style={{ alignSelf: 'flex-start' }} gap="medium" align="center">
-      <Segmented options={['Single', 'Multiple'] as const} value={type} onChange={setType} />
-      <PickerComponent {...config} />
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 export interface PickerSemanticTemplateProps<P> {
@@ -88,45 +62,11 @@ export interface PickerSemanticTemplateProps<P> {
 export const PickerSemanticTemplate: React.FC<Readonly<PickerSemanticTemplateProps<any>>> = (
   props,
 ) => {
-  const { singleComponent, multipleComponent, ignoreSemantics = [] } = props;
-
-  const [type, setType] = React.useState<'Single' | 'Multiple'>('Single');
-  const [locale] = useLocale(locales);
-
-  return (
-    <SemanticPreview
-      componentName={type === 'Single' ? singleComponent[0] : multipleComponent[0]}
-      semantics={[
-        { name: 'root', desc: locale.root },
-        { name: 'prefix', desc: locale.prefix },
-        { name: 'input', desc: locale.input },
-        { name: 'suffix', desc: locale.suffix },
-        { name: 'popup.root', desc: locale.popup },
-        { name: 'popup.container', desc: locale['popup.container'] },
-        { name: 'popup.header', desc: locale['popup.header'] },
-        { name: 'popup.body', desc: locale['popup.body'] },
-        { name: 'popup.content', desc: locale['popup.content'] },
-        { name: 'popup.item', desc: locale['popup.item'] },
-        { name: 'popup.footer', desc: locale['popup.footer'] },
-      ].filter((semantic) => !ignoreSemantics.includes(semantic.name))}
-    >
-      <Block
-        singleComponent={singleComponent[1]}
-        multipleComponent={multipleComponent[1]}
-        type={type}
-        setType={setType}
-      />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  return (
-    <PickerSemanticTemplate
-      singleComponent={['DatePicker', DatePicker]}
-      multipleComponent={['DatePicker.RangePicker', DatePicker.RangePicker]}
-    />
-  );
+    throw new Error("STUB");
 };
 
 export default App;

@@ -10,11 +10,6 @@ const customIcons: Record<number, React.ReactNode> = {
   5: <SmileOutlined />,
 };
 
-const App: React.FC = () => (
-  <Flex gap="medium" vertical>
-    <Rate defaultValue={2} character={({ index = 0 }) => index + 1} />
-    <Rate defaultValue={3} character={({ index = 0 }) => customIcons[index + 1]} />
-  </Flex>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

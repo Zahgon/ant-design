@@ -3,17 +3,6 @@ import { Image } from 'antd';
 
 const src = 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png';
 
-const App: React.FC = () => (
-  <Image
-    src={src}
-    width="200px"
-    height="200px"
-    alt="test"
-    preview={{
-      imageRender: (_, { image }) => <div>{JSON.stringify(image)}</div>,
-      actionsRender: (_, { image }) => <div>{JSON.stringify(image)}</div>,
-    }}
-  />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

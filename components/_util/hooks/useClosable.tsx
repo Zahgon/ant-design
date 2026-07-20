@@ -165,14 +165,6 @@ export const useClosable = (
 ) => {
   const [contextLocale] = useLocale('global', defaultLocale.global);
   return React.useMemo(() => {
-    return computeClosable(
-      propCloseCollection,
-      contextCloseCollection,
-      {
-        closeIcon: <CloseOutlined />,
-        ...fallbackCloseCollection,
-      },
-      contextLocale.close,
-    );
+      throw new Error("STUB");
   }, [propCloseCollection, contextCloseCollection, fallbackCloseCollection, contextLocale.close]);
 };

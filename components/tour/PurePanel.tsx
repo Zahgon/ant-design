@@ -13,50 +13,7 @@ import useStyle from './style';
 export interface PurePanelProps extends TourStepProps {}
 
 const PurePanel: React.FC<PurePanelProps> = (props) => {
-  const {
-    prefixCls: customizePrefixCls,
-    current = 0,
-    total = 6,
-    className,
-    style,
-    type,
-    closable,
-    closeIcon,
-    ...restProps
-  } = props;
-
-  const { getPrefixCls } = React.useContext(ConfigContext);
-  const prefixCls = getPrefixCls('tour', customizePrefixCls);
-
-  const [hashId, cssVarCls] = useStyle(prefixCls);
-
-  const [mergedClosable, mergedCloseIcon] = useClosable({ closable, closeIcon }, null, {
-    closable: true,
-    closeIconRender: (icon) =>
-      React.isValidElement<{ className?: string }>(icon)
-        ? cloneElement(icon, { className: clsx(icon.props?.className, `${prefixCls}-close-icon`) })
-        : icon,
-  });
-
-  return (
-    <PopoverRawPurePanel
-      prefixCls={prefixCls}
-      hashId={hashId}
-      className={clsx(className, `${prefixCls}-pure`, type && `${prefixCls}-${type}`, cssVarCls)}
-      style={style}
-    >
-      <TourPanel
-        stepProps={{
-          ...restProps,
-          prefixCls,
-          total,
-          closable: mergedClosable ? { closeIcon: mergedCloseIcon } : undefined,
-        }}
-        current={current}
-        type={type}
-      />
-    </PopoverRawPurePanel>
-  );
+    throw new Error("STUB");
 };
 
 export default withPureRenderTheme(PurePanel);

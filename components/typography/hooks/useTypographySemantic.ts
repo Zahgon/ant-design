@@ -31,11 +31,11 @@ export const useTypographySemantic = (
   };
 
   const contextClassNamesObject = useMemo<TypographySemanticAllType['classNames']>(
-    () => ({ root: contextClassName }),
+    () => { throw new Error("STUB"); },
     [contextClassName],
   );
   const contextStylesObject = useMemo<TypographySemanticAllType['styles']>(
-    () => ({ root: contextStyle }),
+    () => { throw new Error("STUB"); },
     [contextStyle],
   );
 

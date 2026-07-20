@@ -23,58 +23,11 @@ const locales = {
 };
 
 const Block: React.FC<Readonly<AnchorProps>> = (props) => {
-  return (
-    <Anchor
-      {...props}
-      affix={false}
-      items={[
-        {
-          key: 'api',
-          href: '#api',
-          title: 'API',
-          children: [
-            {
-              key: '4',
-              href: '#anchor-props',
-              title: 'Anchor Props',
-            },
-            {
-              key: '5',
-              href: '#link-props',
-              title: 'Link Props',
-            },
-          ],
-        },
-        {
-          key: '1',
-          href: '#anchor-demo-basic',
-          title: 'Basic demo',
-        },
-        {
-          key: '2',
-          href: '#anchor-demo-static',
-          title: 'Static demo',
-        },
-      ]}
-    />
-  );
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Anchor"
-      semantics={[
-        { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'item', desc: locale.item, version: '6.0.0' },
-        { name: 'itemTitle', desc: locale.itemTitle, version: '6.0.0' },
-        { name: 'indicator', desc: locale.indicator, version: '6.0.0' },
-      ]}
-    >
-      <Block />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

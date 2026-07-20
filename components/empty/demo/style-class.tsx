@@ -8,12 +8,7 @@ const emptySharedProps: EmptyProps = {
   children: <Button type="primary">Create Now</Button>,
 };
 
-const classNames = createStaticStyles(({ css }) => ({
-  root: css`
-    border: 1px dashed #ccc;
-    padding: 16px;
-  `,
-}));
+const classNames = createStaticStyles(({ css }) => { throw new Error("STUB"); });
 
 const stylesObject: EmptyProps['styles'] = {
   root: { backgroundColor: '#f5f5f5', borderRadius: '8px' },
@@ -23,37 +18,11 @@ const stylesObject: EmptyProps['styles'] = {
 };
 
 const stylesFn: EmptyProps['styles'] = ({ props }): GetProp<EmptyProps, 'styles', 'Return'> => {
-  if (props.description) {
-    return {
-      root: { backgroundColor: '#e6f7ff', border: '1px solid #91d5ff' },
-      description: { color: '#1890ff', fontWeight: 'bold' },
-      image: { filter: 'hue-rotate(180deg)' },
-    };
-  }
-  return {};
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const emptyClassNames: EmptyProps['classNames'] = {
-    root: classNames.root,
-  };
-
-  return (
-    <Flex vertical gap="medium">
-      <Empty
-        {...emptySharedProps}
-        description="Object styles"
-        classNames={emptyClassNames}
-        styles={stylesObject}
-      />
-      <Empty
-        {...emptySharedProps}
-        description="Function styles"
-        classNames={emptyClassNames}
-        styles={stylesFn}
-      />
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

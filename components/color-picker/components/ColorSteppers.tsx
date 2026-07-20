@@ -25,25 +25,7 @@ const ColorSteppers: FC<ColorSteppersProps> = ({
   className,
   formatter,
 }) => {
-  const colorSteppersPrefixCls = `${prefixCls}-steppers`;
-  const [internalValue, setInternalValue] = useState<number | undefined>(0);
-
-  const stepValue = !Number.isNaN(value) ? value : internalValue;
-
-  return (
-    <InputNumber
-      className={clsx(colorSteppersPrefixCls, className)}
-      min={min}
-      max={max}
-      value={stepValue}
-      formatter={formatter}
-      size="small"
-      onChange={(step) => {
-        setInternalValue(step || 0);
-        onChange?.(step);
-      }}
-    />
-  );
+    throw new Error("STUB");
 };
 
 export default ColorSteppers;

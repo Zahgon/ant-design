@@ -43,22 +43,7 @@ const treeData: TreeDataNode[] = [
 ];
 
 const App: React.FC = () => {
-  return (
-    <ConfigProvider
-      theme={{
-        components: {
-          Tree: {
-            titleHeight: 32,
-            switcherSize: 24,
-          },
-        },
-      }}
-    >
-      <Tree showLine defaultExpandAll treeData={treeData} />
-      <Tree showLine defaultExpandAll treeData={treeData} draggable />
-      <Tree showLine defaultExpandAll treeData={treeData} checkable />
-    </ConfigProvider>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

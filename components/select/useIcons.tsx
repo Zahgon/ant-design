@@ -61,53 +61,7 @@ export default function useIcons({
   }
 
   return React.useMemo(() => {
-    // Clear Icon
-    const mergedClearIcon = fallbackProp(clearIcon, contextClearIcon, <CloseCircleFilled />);
-
-    // Validation Feedback Icon
-    const getSuffixIconNode = (arrowIcon?: ReactNode) => {
-      if (suffixIcon === null && !hasFeedback && !showArrow) {
-        return null;
-      }
-      return (
-        <>
-          {showSuffixIcon !== false && arrowIcon}
-          {hasFeedback && feedbackIcon}
-        </>
-      );
-    };
-
-    // Arrow item icon
-    let mergedSuffixIcon = null;
-    if (suffixIcon !== undefined) {
-      mergedSuffixIcon = getSuffixIconNode(suffixIcon);
-    } else if (loading) {
-      mergedSuffixIcon = getSuffixIconNode(
-        fallbackProp(loadingIcon, contextLoadingIcon, <LoadingOutlined spin />),
-      );
-    } else {
-      mergedSuffixIcon = ({ open, showSearch }: { open: boolean; showSearch: boolean }) => {
-        if (open && showSearch) {
-          return getSuffixIconNode(fallbackProp(searchIcon, contextSearchIcon, <SearchOutlined />));
-        }
-        return getSuffixIconNode(fallbackProp(contextSuffixIcon, <DownOutlined />));
-      };
-    }
-
-    // Checked item icon
-    const mergedItemIcon = fallbackProp(
-      menuItemSelectedIcon,
-      contextMenuItemSelectedIcon,
-      multiple ? <CheckOutlined /> : null,
-    );
-    const mergedRemoveIcon = fallbackProp(removeIcon, contextRemoveIcon, <CloseOutlined />);
-
-    return {
-      clearIcon: mergedClearIcon,
-      suffixIcon: mergedSuffixIcon,
-      itemIcon: mergedItemIcon,
-      removeIcon: mergedRemoveIcon,
-    };
+      throw new Error("STUB");
   }, [
     suffixIcon,
     contextSuffixIcon,

@@ -8,10 +8,10 @@ export default function useRefs() {
   }
 
   const setRef = (key: React.Key, element: HTMLDivElement | null) => {
-    ref.current!.set(key, element);
+      throw new Error("STUB");
   };
 
-  const getRef = (key: React.Key) => ref.current!.get(key);
+  const getRef = (key: React.Key) => { throw new Error("STUB"); };
 
   return [setRef, getRef] as const;
 }

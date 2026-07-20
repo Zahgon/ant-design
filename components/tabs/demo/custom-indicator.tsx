@@ -15,23 +15,7 @@ const items: TabsProps['items'] = [
 type Align = 'start' | 'center' | 'end';
 
 const App: React.FC = () => {
-  const [alignValue, setAlignValue] = React.useState<Align>('center');
-  return (
-    <>
-      <Segmented
-        value={alignValue}
-        style={{ marginBottom: 8 }}
-        onChange={setAlignValue}
-        options={['start', 'center', 'end']}
-      />
-      <Tabs
-        defaultActiveKey="1"
-        items={items}
-        onChange={onChange}
-        indicator={{ size: (origin) => origin - 20, align: alignValue }}
-      />
-    </>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

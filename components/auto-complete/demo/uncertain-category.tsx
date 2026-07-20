@@ -9,54 +9,11 @@ const searchResult = (query: string) =>
     .join('.')
     .split('.')
     .map((_, idx) => {
-      const category = `${query}${idx}`;
-      return {
-        value: category,
-        label: (
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-            }}
-          >
-            <span>
-              Found {query} on{' '}
-              <a
-                href={`https://s.taobao.com/search?q=${query}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {category}
-              </a>
-            </span>
-            <span>{getRandomInt(200, 100)} results</span>
-          </div>
-        ),
-      };
+        throw new Error("STUB");
     });
 
 const App: React.FC = () => {
-  const [options, setOptions] = useState<AutoCompleteProps['options']>([]);
-
-  const handleSearch = (value: string) => {
-    setOptions(value ? searchResult(value) : []);
-  };
-
-  const onSelect = (value: string) => {
-    console.log('onSelect', value);
-  };
-
-  return (
-    <AutoComplete
-      popupMatchSelectWidth={252}
-      style={{ width: 300 }}
-      options={options}
-      onSelect={onSelect}
-      showSearch={{ onSearch: handleSearch }}
-    >
-      <Input.Search size="large" placeholder="input here" enterButton />
-    </AutoComplete>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

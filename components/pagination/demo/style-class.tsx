@@ -3,39 +3,16 @@ import { Flex, Pagination } from 'antd';
 import type { GetProp, PaginationProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
-const classNames = createStaticStyles(({ css }) => ({
-  root: css`
-    border: 2px dashed #ccc;
-    padding: 8px;
-  `,
-}));
+const classNames = createStaticStyles(({ css }) => { throw new Error("STUB"); });
 
 const styleFn: PaginationProps['styles'] = ({
   props,
 }): GetProp<PaginationProps, 'styles', 'Return'> => {
-  if (props.size === 'small') {
-    return {
-      item: {
-        backgroundColor: `rgba(200, 200, 200, 0.3)`,
-        marginInlineEnd: 4,
-      },
-    };
-  }
-  return {};
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const paginationSharedProps: PaginationProps = {
-    total: 500,
-    classNames: { root: classNames.root },
-  };
-
-  return (
-    <Flex vertical gap="medium">
-      <Pagination {...paginationSharedProps} styles={{ item: { borderRadius: 999 } }} />
-      <Pagination {...paginationSharedProps} size="small" styles={styleFn} />
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

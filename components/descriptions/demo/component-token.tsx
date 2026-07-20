@@ -88,57 +88,7 @@ const items: DescriptionsProps['items'] = [
 ];
 
 const App: React.FC = () => {
-  const [size, setSize] = useState<'large' | 'medium' | 'small'>('large');
-
-  const onChange = (e: RadioChangeEvent) => {
-    console.log('size checked', e.target.value);
-    setSize(e.target.value);
-  };
-
-  return (
-    <ConfigProvider
-      theme={{
-        components: {
-          Descriptions: {
-            labelBg: 'red',
-            titleColor: 'red',
-            titleMarginBottom: 2,
-            itemPaddingBottom: 8,
-            itemPaddingEnd: 8,
-            colonMarginRight: 10,
-            colonMarginLeft: 20,
-            contentColor: 'green',
-            extraColor: 'blue',
-          },
-        },
-      }}
-    >
-      <div>
-        <Radio.Group onChange={onChange} value={size}>
-          <Radio value="large">large</Radio>
-          <Radio value="medium">medium</Radio>
-          <Radio value="small">small</Radio>
-        </Radio.Group>
-        <br />
-        <br />
-        <Descriptions
-          bordered
-          title="Custom Size"
-          size={size}
-          extra={<div>extra color: blue</div>}
-          items={borderedItems}
-        />
-        <br />
-        <br />
-        <Descriptions
-          title="Custom Size"
-          size={size}
-          extra={<Button type="primary">Edit</Button>}
-          items={items}
-        />
-      </div>
-    </ConfigProvider>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

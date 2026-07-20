@@ -20,30 +20,7 @@ const locales = {
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Empty"
-      semantics={[
-        { name: 'root', desc: locale.root, version: '5.23.0' },
-        { name: 'image', desc: locale.image, version: '5.23.0' },
-        { name: 'description', desc: locale.description, version: '5.23.0' },
-        { name: 'footer', desc: locale.footer, version: '5.23.0' },
-      ]}
-    >
-      <Empty
-        image={Empty.PRESENTED_IMAGE_SIMPLE}
-        styles={{ image: { height: 60 } }}
-        description={
-          <Typography.Text>
-            Customize <a href="#API">Description</a>
-          </Typography.Text>
-        }
-      >
-        <Button type="primary">Create Now</Button>
-      </Empty>
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

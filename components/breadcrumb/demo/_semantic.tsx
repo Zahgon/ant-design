@@ -20,45 +20,11 @@ const locales = {
 };
 
 const Block: React.FC<Readonly<BreadcrumbProps>> = (props) => {
-  return (
-    <Breadcrumb
-      {...props}
-      items={[
-        {
-          href: '',
-          title: <HomeOutlined />,
-        },
-        {
-          href: '',
-          title: (
-            <>
-              <UserOutlined />
-              <span>Application List</span>
-            </>
-          ),
-        },
-        {
-          title: 'Application',
-        },
-      ]}
-    />
-  );
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Breadcrumb"
-      semantics={[
-        { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'item', desc: locale.item, version: '6.0.0' },
-        { name: 'separator', desc: locale.separator, version: '6.0.0' },
-      ]}
-    >
-      <Block />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

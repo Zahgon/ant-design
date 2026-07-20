@@ -13,51 +13,7 @@ interface ColorRgbInputProps {
 }
 
 const ColorRgbInput: FC<ColorRgbInputProps> = ({ prefixCls, value, onChange }) => {
-  const colorRgbInputPrefixCls = `${prefixCls}-rgb-input`;
-  const [internalValue, setInternalValue] = useState<AggregationColor>(() =>
-    generateColor(value || '#000'),
-  );
-
-  const rgbValue = value || internalValue;
-
-  const handleRgbChange = (step: number | null, type: keyof RGB) => {
-    const rgb = rgbValue.toRgb();
-    rgb[type] = step || 0;
-    const genColor = generateColor(rgb);
-
-    setInternalValue(genColor);
-
-    onChange?.(genColor);
-  };
-
-  return (
-    <div className={colorRgbInputPrefixCls}>
-      <ColorSteppers
-        max={255}
-        min={0}
-        value={Number(rgbValue.toRgb().r)}
-        prefixCls={prefixCls}
-        className={colorRgbInputPrefixCls}
-        onChange={(step) => handleRgbChange(Number(step), 'r')}
-      />
-      <ColorSteppers
-        max={255}
-        min={0}
-        value={Number(rgbValue.toRgb().g)}
-        prefixCls={prefixCls}
-        className={colorRgbInputPrefixCls}
-        onChange={(step) => handleRgbChange(Number(step), 'g')}
-      />
-      <ColorSteppers
-        max={255}
-        min={0}
-        value={Number(rgbValue.toRgb().b)}
-        prefixCls={prefixCls}
-        className={colorRgbInputPrefixCls}
-        onChange={(step) => handleRgbChange(Number(step), 'b')}
-      />
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 export default ColorRgbInput;

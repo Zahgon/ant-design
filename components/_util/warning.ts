@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { warning as rcWarning } from '@rc-component/util';
 
-export function noop() {}
+export function noop() {
+    throw new Error("STUB");
+}
 
 const { resetWarned: rcResetWarned } = rcWarning;
 let deprecatedWarnList: Record<string, string[]> | null = null;
@@ -16,12 +18,7 @@ type Warning = (valid: boolean, component: string, message?: string) => void;
 let _warning: Warning = noop;
 if (process.env.NODE_ENV !== 'production') {
   _warning = (valid, component, message) => {
-    rcWarning(valid, `[antd: ${component}] ${message}`);
-
-    // StrictMode will inject console which will not throw warning in React 17.
-    if (process.env.NODE_ENV === 'test') {
-      resetWarned();
-    }
+      throw new Error("STUB");
   };
 }
 const warning = _warning;
@@ -60,51 +57,10 @@ export const WarningContext = React.createContext<WarningContextProps>({});
 export const devUseWarning: (component: string) => TypeWarning =
   process.env.NODE_ENV !== 'production'
     ? (component) => {
-        const { strict } = React.useContext(WarningContext);
-
-        const typeWarning: TypeWarning = (valid, type, message) => {
-          if (!valid) {
-            if (strict === false && type === 'deprecated') {
-              const existWarning = deprecatedWarnList;
-
-              if (!deprecatedWarnList) {
-                deprecatedWarnList = {};
-              }
-
-              deprecatedWarnList[component] = deprecatedWarnList[component] || [];
-              if (!deprecatedWarnList[component].includes(message || '')) {
-                deprecatedWarnList[component].push(message || '');
-              }
-
-              // Warning for the first time
-              if (!existWarning) {
-                console.warn(
-                  '[antd] There exists deprecated usage in your code:',
-                  deprecatedWarnList,
-                );
-              }
-            } else {
-              warning(valid, component, message);
-            }
-          }
-        };
-
-        typeWarning.deprecated = (valid, oldProp, newProp, message = '') => {
-          typeWarning(
-            valid,
-            'deprecated',
-            `\`${oldProp}\` is deprecated. Please use \`${newProp}\` instead.${message ? ` ${message}` : ''}`,
-          );
-        };
-
-        return typeWarning;
-      }
+        throw new Error("STUB");
+    }
     : () => {
-        const noopWarning: TypeWarning = () => {};
-
-        noopWarning.deprecated = noop;
-
-        return noopWarning;
-      };
+        throw new Error("STUB");
+    };
 
 export default warning;

@@ -3,17 +3,7 @@ import { Button, Flex } from 'antd';
 import type { ButtonProps, GetProp } from 'antd';
 import { createStyles } from 'antd-style';
 
-const useStyles = createStyles(({ cssVar }) => ({
-  root: {
-    border: `${cssVar.lineWidth} ${cssVar.lineType} ${cssVar.colorBorder}`,
-    borderRadius: cssVar.borderRadius,
-    padding: `${cssVar.paddingXS} ${cssVar.padding}`,
-    height: 'auto',
-  },
-  content: {
-    color: cssVar.colorText,
-  },
-}));
+const useStyles = createStyles(({ cssVar }) => { throw new Error("STUB"); });
 
 const stylesObject: ButtonProps['styles'] = {
   root: {
@@ -22,31 +12,11 @@ const stylesObject: ButtonProps['styles'] = {
 };
 
 const stylesFn: ButtonProps['styles'] = (info): GetProp<ButtonProps, 'styles', 'Return'> => {
-  if (info.props.type === 'primary') {
-    return {
-      root: {
-        backgroundColor: '#171717',
-      },
-      content: {
-        color: '#fff',
-      },
-    };
-  }
-  return {};
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const { styles: classNames } = useStyles();
-  return (
-    <Flex gap="small">
-      <Button type="default" classNames={classNames} styles={stylesObject}>
-        Object
-      </Button>
-      <Button type="primary" classNames={classNames} styles={stylesFn}>
-        Function
-      </Button>
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

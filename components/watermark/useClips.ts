@@ -59,12 +59,7 @@ const useClips = () => {
       let top = 0;
 
       content.forEach(({ text, font }) => {
-        ctx.font = getCanvasFont(font, ratio, height);
-        ctx.fillStyle = font.color;
-        ctx.textAlign = font.textAlign;
-        ctx.fillText(text, contentWidth / 2, top);
-
-        top += getFontSize(font, ratio) + FontGap * ratio;
+          throw new Error("STUB");
       });
     }
 
@@ -94,11 +89,7 @@ const useClips = () => {
       [0 - halfWidth, 0 + halfHeight],
     ];
     points.forEach(([x, y]) => {
-      const [targetX, targetY] = getRotatePos(x, y, angle);
-      left = Math.min(left, targetX);
-      right = Math.max(right, targetX);
-      top = Math.min(top, targetY);
-      bottom = Math.max(bottom, targetY);
+        throw new Error("STUB");
     });
 
     const cutLeft = left + realMaxSize / 2;

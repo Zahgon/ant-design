@@ -3,11 +3,7 @@ import { Button, Flex, Popconfirm } from 'antd';
 import type { GetProp, PopconfirmProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
-const classNames = createStaticStyles(({ css }) => ({
-  container: css`
-    padding: 10px;
-  `,
-}));
+const classNames = createStaticStyles(({ css }) => { throw new Error("STUB"); });
 
 const styles: PopconfirmProps['styles'] = {
   container: {
@@ -25,58 +21,11 @@ const styles: PopconfirmProps['styles'] = {
 const stylesFn: PopconfirmProps['styles'] = (
   info,
 ): GetProp<PopconfirmProps, 'styles', 'Return'> => {
-  if (!info.props.arrow) {
-    return {
-      container: {
-        backgroundColor: 'rgba(53, 71, 125, 0.8)',
-        padding: 12,
-        borderRadius: 4,
-      },
-      title: {
-        color: '#fff',
-      },
-      content: {
-        color: '#fff',
-      },
-    };
-  }
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  return (
-    <Flex gap="medium">
-      <Popconfirm
-        title="Object text"
-        description="Object description"
-        classNames={classNames}
-        styles={styles}
-        arrow={false}
-      >
-        <Button>Object Style</Button>
-      </Popconfirm>
-      <Popconfirm
-        title="Function text"
-        description="Function description"
-        classNames={classNames}
-        styles={stylesFn}
-        arrow={false}
-        okButtonProps={{
-          styles: { root: { backgroundColor: 'rgba(53, 71, 125, 0.6)', color: '#fff' } },
-        }}
-        cancelButtonProps={{
-          styles: {
-            root: {
-              borderColor: 'rgba(53, 71, 125, 0.6)',
-              backgroundColor: '#fff',
-              color: 'rgba(53, 71, 125, 0.8)',
-            },
-          },
-        }}
-      >
-        <Button type="primary">Function Style</Button>
-      </Popconfirm>
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

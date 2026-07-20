@@ -172,81 +172,17 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
 };
 
 const genColorStyle: GenerateStyle<PopoverToken, CSSObject> = (token) => {
-  const { componentCls, antCls } = token;
-  const [varName] = genCssVar(antCls, 'tooltip');
-  return {
-    [componentCls]: PresetColors.map((colorKey: keyof PresetColorType) => {
-      const lightColor = token[`${colorKey}6`];
-      return {
-        [`&${componentCls}-${colorKey}`]: {
-          [varName('arrow-background-color')]: lightColor,
-          [`${componentCls}-inner`]: {
-            backgroundColor: lightColor,
-          },
-          [`${componentCls}-arrow`]: {
-            background: 'transparent',
-          },
-        },
-      };
-    }),
-  };
+    throw new Error("STUB");
 };
 
 export const prepareComponentToken: GetDefaultToken<'Popover'> = (token) => {
-  const {
-    lineWidth,
-    controlHeight,
-    fontHeight,
-    padding,
-    wireframe,
-    zIndexPopupBase,
-    borderRadiusLG,
-    marginXS,
-    lineType,
-    colorSplit,
-    paddingSM,
-  } = token;
-
-  const titlePaddingBlockDist = controlHeight - fontHeight;
-  const popoverTitlePaddingBlockTop = titlePaddingBlockDist / 2;
-  const popoverTitlePaddingBlockBottom = titlePaddingBlockDist / 2 - lineWidth;
-  const popoverPaddingHorizontal = padding;
-
-  return {
-    titleMinWidth: 177,
-    zIndexPopup: zIndexPopupBase + 30,
-    ...getArrowToken(token),
-    ...getArrowOffsetToken({
-      contentRadius: borderRadiusLG,
-      limitVerticalRadius: true,
-    }),
-
-    // internal
-    innerPadding: wireframe ? 0 : 12,
-    titleMarginBottom: wireframe ? 0 : marginXS,
-    titlePadding: wireframe
-      ? `${popoverTitlePaddingBlockTop}px ${popoverPaddingHorizontal}px ${popoverTitlePaddingBlockBottom}px`
-      : 0,
-    titleBorderBottom: wireframe ? `${lineWidth}px ${lineType} ${colorSplit}` : 'none',
-    innerContentPadding: wireframe ? `${paddingSM}px ${popoverPaddingHorizontal}px` : 0,
-  };
+    throw new Error("STUB");
 };
 
 export default genStyleHooks(
   'Popover',
   (token) => {
-    const { colorBgElevated, colorText } = token;
-
-    const popoverToken = mergeToken<PopoverToken>(token, {
-      popoverBg: colorBgElevated,
-      popoverColor: colorText,
-    });
-
-    return [
-      genBaseStyle(popoverToken),
-      genColorStyle(popoverToken),
-      initZoomMotion(popoverToken, 'zoom-big'),
-    ];
+      throw new Error("STUB");
   },
   prepareComponentToken,
   {

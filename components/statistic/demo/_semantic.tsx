@@ -32,50 +32,11 @@ const locales = {
 };
 
 const BlockList: React.FC<StatisticProps> = (props) => {
-  const divRef = React.useRef<HTMLDivElement>(null);
-  return (
-    <div ref={divRef} style={{ position: 'absolute' }}>
-      <Statistic
-        title="Active"
-        value={11.28}
-        precision={2}
-        styles={{
-          content: {
-            color: '#3f8600',
-            fontSize: 24,
-          },
-          value: {
-            color: '#e11b1b',
-            fontSize: 32,
-            paddingInline: 8,
-          },
-        }}
-        prefix={<ArrowUpOutlined />}
-        suffix="%"
-        {...props}
-      />
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Statistic"
-      semantics={[
-        { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'header', desc: locale.header, version: '6.0.0' },
-        { name: 'title', desc: locale.title, version: '6.0.0' },
-        { name: 'prefix', desc: locale.prefix, version: '6.0.0' },
-        { name: 'content', desc: locale.content, version: '6.0.0' },
-        { name: 'value', desc: locale.value, version: '6.4.0' },
-        { name: 'suffix', desc: locale.suffix, version: '6.0.0' },
-      ]}
-    >
-      <BlockList />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

@@ -50,17 +50,6 @@ const items: MenuProps['items'] = [
   },
 ];
 
-const App: React.FC = () => (
-  <div style={{ height: 200 }}>
-    <Dropdown menu={{ items, openKeys: ['2'] }} open autoAdjustOverflow={false}>
-      <a onClick={(e) => e.preventDefault()}>
-        <Space>
-          Cascading menu
-          <DownOutlined />
-        </Space>
-      </a>
-    </Dropdown>
-  </div>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

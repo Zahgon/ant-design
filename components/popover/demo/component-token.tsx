@@ -10,24 +10,6 @@ const content = (
   </div>
 );
 
-const App: React.FC = () => (
-  <ConfigProvider
-    theme={{
-      components: {
-        Popover: {
-          titleMinWidth: 40,
-        },
-      },
-    }}
-  >
-    <InternalPopover content={content} title="Title" />
-    <InternalPopover
-      content={content}
-      title="Title"
-      placement="bottomLeft"
-      style={{ width: 250 }}
-    />
-  </ConfigProvider>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

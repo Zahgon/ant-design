@@ -59,33 +59,13 @@ const genBaseStyle: GenerateStyle<UploadToken, CSSObject> = (token) => {
   };
 };
 
-export const prepareComponentToken: GetDefaultToken<'Upload'> = (token) => ({
-  actionsColor: token.colorIcon,
-  pictureCardSize: token.controlHeightLG * 2.55,
-});
+export const prepareComponentToken: GetDefaultToken<'Upload'> = (token) => { throw new Error("STUB"); };
 
 // ============================== Export ==============================
 export default genStyleHooks(
   'Upload',
   (token) => {
-    const { fontSizeHeading3, marginXS, lineWidth, pictureCardSize, calc } = token;
-
-    const uploadToken = mergeToken<UploadToken>(token, {
-      uploadThumbnailSize: calc(fontSizeHeading3).mul(2).equal(),
-      uploadProgressOffset: calc(calc(marginXS).div(2)).add(lineWidth).equal(),
-      uploadPicCardSize: pictureCardSize,
-    });
-
-    return [
-      genBaseStyle(uploadToken),
-      genDraggerStyle(uploadToken),
-      genPictureStyle(uploadToken),
-      genPictureCardStyle(uploadToken),
-      genListStyle(uploadToken),
-      genMotionStyle(uploadToken),
-      genRtlStyle(uploadToken),
-      genCollapseMotion(uploadToken),
-    ];
+      throw new Error("STUB");
   },
   prepareComponentToken,
 );

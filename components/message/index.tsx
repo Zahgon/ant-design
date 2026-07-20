@@ -51,10 +51,7 @@ let taskQueue: Task[] = [];
 let defaultGlobalConfig: ConfigOptions = {};
 
 function getGlobalContext() {
-  const { getContainer, duration, rtl, maxCount, top, stack } = defaultGlobalConfig;
-  const mergedContainer = getContainer?.() || document.body;
-
-  return { getContainer: () => mergedContainer, duration, rtl, maxCount, top, stack };
+    throw new Error("STUB");
 }
 
 interface GlobalHolderRef {
@@ -66,52 +63,11 @@ const GlobalHolder = React.forwardRef<
   GlobalHolderRef,
   { messageConfig: ConfigOptions; sync: () => void }
 >((props, ref) => {
-  const { messageConfig, sync } = props;
-
-  const { getPrefixCls } = useContext(ConfigContext);
-  const prefixCls = defaultGlobalConfig.prefixCls || getPrefixCls('message');
-  const appConfig = useContext(AppConfigContext);
-
-  const [api, holder] = useInternalMessage({ ...messageConfig, prefixCls, ...appConfig.message });
-
-  React.useImperativeHandle(ref, () => {
-    const instance: MessageInstance = { ...api };
-
-    Object.keys(instance).forEach((method) => {
-      instance[method as keyof MessageInstance] = (...args: any[]) => {
-        sync();
-        return (api as any)[method](...args);
-      };
-    });
-
-    return {
-      instance,
-      sync,
-    };
-  });
-  return holder;
+    throw new Error("STUB");
 });
 
 const GlobalHolderWrapper = React.forwardRef<GlobalHolderRef, unknown>((_, ref) => {
-  const [messageConfig, setMessageConfig] = React.useState<ConfigOptions>(getGlobalContext);
-
-  const sync = () => {
-    setMessageConfig(getGlobalContext);
-  };
-
-  React.useEffect(sync, []);
-
-  const global = globalConfig();
-  const rootPrefixCls = global.getRootPrefixCls();
-  const rootIconPrefixCls = global.getIconPrefixCls();
-  const theme = global.getTheme();
-
-  const dom = <GlobalHolder ref={ref} sync={sync} messageConfig={messageConfig} />;
-  return (
-    <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={rootIconPrefixCls} theme={theme}>
-      {global.holderRender ? global.holderRender(dom) : dom}
-    </ConfigProvider>
-  );
+    throw new Error("STUB");
 });
 
 const flushMessageQueue = () => {
@@ -126,22 +82,7 @@ const flushMessageQueue = () => {
 
     // Delay render to avoid sync issue
     act(() => {
-      render(
-        <GlobalHolderWrapper
-          ref={(node) => {
-            const { instance, sync } = node || {};
-            // React 18 test env will throw if call immediately in ref
-            Promise.resolve().then(() => {
-              if (!newMessage.instance && instance) {
-                newMessage.instance = instance;
-                newMessage.sync = sync;
-                flushMessageQueue();
-              }
-            });
-          }}
-        />,
-        holderFragment,
-      );
+        throw new Error("STUB");
     });
 
     return;
@@ -154,42 +95,7 @@ const flushMessageQueue = () => {
 
   // >>> Execute task
   taskQueue.forEach((task) => {
-    const { type, skipped } = task;
-
-    // Only `skipped` when user call notice but cancel it immediately
-    // and instance not ready
-    if (!skipped) {
-      switch (type) {
-        case 'open': {
-          act(() => {
-            const closeFn = message!.instance!.open({
-              ...defaultGlobalConfig,
-              ...task.config,
-            });
-
-            closeFn?.then(task.resolve);
-            task.setCloseFn(closeFn);
-          });
-          break;
-        }
-
-        case 'destroy':
-          act(() => {
-            message?.instance!.destroy(task.key);
-          });
-          break;
-
-        // Other type open
-        default: {
-          act(() => {
-            const closeFn = message!.instance![type](...task.args);
-
-            closeFn?.then(task.resolve);
-            task.setCloseFn(closeFn);
-          });
-        }
-      }
-    }
+      throw new Error("STUB");
   });
 
   // Clean up
@@ -201,40 +107,12 @@ const flushMessageQueue = () => {
 // ==============================================================================
 
 function setMessageGlobalConfig(config: ConfigOptions) {
-  defaultGlobalConfig = {
-    ...defaultGlobalConfig,
-    ...config,
-  };
-
-  // Trigger sync for it
-  act(() => {
-    message?.sync?.();
-  });
+    throw new Error("STUB");
 }
 
 function open(config: ArgsProps): MessageType {
   const result = wrapPromiseFn((resolve) => {
-    let closeFn: VoidFunction;
-
-    const task: OpenTask = {
-      type: 'open',
-      config,
-      resolve,
-      setCloseFn: (fn) => {
-        closeFn = fn;
-      },
-    };
-    taskQueue.push(task);
-
-    return () => {
-      if (closeFn) {
-        act(() => {
-          closeFn();
-        });
-      } else {
-        task.skipped = true;
-      }
-    };
+      throw new Error("STUB");
   });
 
   flushMessageQueue();
@@ -250,28 +128,7 @@ function typeOpen(type: NoticeType, args: Parameters<TypeOpen>): MessageType {
   }
 
   const result = wrapPromiseFn((resolve) => {
-    let closeFn: VoidFunction;
-
-    const task: TypeTask = {
-      type,
-      args,
-      resolve,
-      setCloseFn: (fn) => {
-        closeFn = fn;
-      },
-    };
-
-    taskQueue.push(task);
-
-    return () => {
-      if (closeFn) {
-        act(() => {
-          closeFn();
-        });
-      } else {
-        task.skipped = true;
-      }
-    };
+      throw new Error("STUB");
   });
 
   flushMessageQueue();
@@ -317,18 +174,20 @@ const baseStaticMethods: BaseMethods = {
 const staticMethods = baseStaticMethods as MessageMethods & BaseMethods;
 
 methods.forEach((type: keyof MessageMethods) => {
-  staticMethods[type] = (...args: Parameters<TypeOpen>) => typeOpen(type, args);
+    throw new Error("STUB");
 });
 
 // ==============================================================================
 // ==                                   Test                                   ==
 // ==============================================================================
-const noop = () => {};
+const noop = () => {
+    throw new Error("STUB");
+};
 
 let _actWrapper: (wrapper: (fn: () => void) => void) => void = noop;
 if (process.env.NODE_ENV === 'test') {
   _actWrapper = (wrapper) => {
-    act = wrapper;
+      throw new Error("STUB");
   };
 }
 const actWrapper = _actWrapper;
@@ -337,7 +196,7 @@ export { actWrapper };
 let _actDestroy = noop;
 if (process.env.NODE_ENV === 'test') {
   _actDestroy = () => {
-    message = null;
+      throw new Error("STUB");
   };
 }
 const actDestroy = _actDestroy;

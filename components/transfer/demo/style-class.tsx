@@ -3,52 +3,22 @@ import { Flex, Transfer } from 'antd';
 import type { GetProp, TransferProps } from 'antd';
 import { createStyles } from 'antd-style';
 
-const useStyles = createStyles(({ token, css }) => ({
-  section: { backgroundColor: 'rgba(250,250,250, 0.5)' },
-  header: { color: token.colorPrimary },
-  actions: css`
-    & button {
-      background-color: rgba(255, 242, 232, 0.6);
-    }
-  `,
-}));
+const useStyles = createStyles(({ token, css }) => { throw new Error("STUB"); });
 
-const mockData = Array.from({ length: 20 }).map<any>((_, i) => ({
-  key: i.toString(),
-  title: `content${i + 1}`,
-  description: `description of content${i + 1}`,
-}));
+const mockData = Array.from({ length: 20 }).map<any>((_, i) => { throw new Error("STUB"); });
 
-const initialTargetKeys = mockData.filter((item) => Number(item.key) > 10).map((item) => item.key);
+const initialTargetKeys = mockData.filter((item) => { throw new Error("STUB"); }).map((item) => { throw new Error("STUB"); });
 
 const stylesObject: TransferProps['styles'] = {
   header: { fontWeight: 'bold' },
 };
 
 const stylesFn: TransferProps['styles'] = (info): GetProp<TransferProps, 'styles', 'Return'> => {
-  if (info.props.status === 'warning') {
-    return {
-      section: { backgroundColor: 'rgba(246,255,237, 0.6)', borderColor: '#b7eb8f' },
-      header: { color: '#8DBCC7', fontWeight: 'normal' },
-    };
-  }
-  return {};
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const { styles: classNames } = useStyles();
-  const sharedProps: TransferProps = {
-    dataSource: mockData,
-    targetKeys: initialTargetKeys,
-    render: (item) => item.title,
-    classNames,
-  };
-  return (
-    <Flex vertical gap="large" style={{ width: '100%' }}>
-      <Transfer {...sharedProps} status="error" styles={stylesObject} />
-      <Transfer {...sharedProps} status="warning" styles={stylesFn} />
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

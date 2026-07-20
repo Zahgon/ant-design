@@ -30,58 +30,10 @@ const items: MenuProps['items'] = [
   DesktopOutlined,
   TeamOutlined,
   FileOutlined,
-].map((icon, index) => ({
-  key: String(index + 1),
-  icon: React.createElement(icon),
-  label: `nav ${index + 1}`,
-}));
+].map((icon, index) => { throw new Error("STUB"); });
 
 const App: React.FC = () => {
-  const [collapsed, setCollapsed] = React.useState(false);
-  const {
-    token: { colorBgContainer, borderRadiusLG },
-  } = theme.useToken();
-
-  const currentYear = new Date().getFullYear();
-
-  return (
-    <Layout style={layoutStyle}>
-      <Sider
-        collapsible
-        collapsed={collapsed}
-        collapsedWidth="0"
-        style={siderStyle}
-        trigger={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-        onCollapse={setCollapsed}
-      >
-        <div className="demo-logo-vertical" />
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} items={items} />
-      </Sider>
-      <Layout>
-        <Header
-          style={{
-            padding: 0,
-            background: colorBgContainer,
-          }}
-        />
-        <Content style={{ margin: '24px 16px 0' }}>
-          <div
-            style={{
-              padding: 24,
-              minHeight: 240,
-              background: colorBgContainer,
-              borderRadius: borderRadiusLG,
-            }}
-          >
-            Content keeps its full width when the sider overlays it.
-          </div>
-        </Content>
-        <Footer style={{ textAlign: 'center' }}>
-          Ant Design ©{currentYear} Created by Ant UED
-        </Footer>
-      </Layout>
-    </Layout>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

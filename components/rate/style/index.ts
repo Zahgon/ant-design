@@ -105,62 +105,16 @@ const genRateRtlStyle: GenerateStyle<RateToken, CSSObject> = (token) => ({
 });
 
 const genRateStyle: GenerateStyle<RateToken, CSSObject> = (token) => {
-  const { componentCls } = token;
-
-  return {
-    [componentCls]: {
-      ...resetComponent(token),
-
-      display: 'inline-block',
-      margin: 0,
-      padding: 0,
-      color: token.starColor,
-      fontSize: token.starSize,
-      lineHeight: 1,
-      listStyle: 'none',
-      outline: 'none',
-
-      '&-small': {
-        fontSize: token.starSizeSM,
-      },
-
-      '&-large': {
-        fontSize: token.starSizeLG,
-      },
-
-      // disable styles
-      [`&-disabled${componentCls} ${componentCls}-star`]: {
-        cursor: 'default',
-
-        '> div:hover': {
-          transform: 'scale(1)',
-        },
-      },
-
-      // star styles
-      ...genRateStarStyle(token),
-
-      // rtl styles
-      ...genRateRtlStyle(token),
-    },
-  };
+    throw new Error("STUB");
 };
 
 // ============================== Export ==============================
-export const prepareComponentToken: GetDefaultToken<'Rate'> = (token) => ({
-  starColor: token.yellow6,
-  starSize: token.controlHeight * 0.625,
-  starSizeSM: token.controlHeightSM * 0.625,
-  starSizeLG: token.controlHeightLG * 0.625,
-  starHoverScale: 'scale(1.1)',
-  starBg: token.colorFillContent,
-});
+export const prepareComponentToken: GetDefaultToken<'Rate'> = (token) => { throw new Error("STUB"); };
 
 export default genStyleHooks(
   'Rate',
   (token) => {
-    const rateToken = mergeToken<RateToken>(token, {});
-    return genRateStyle(rateToken);
+      throw new Error("STUB");
   },
   prepareComponentToken,
 );

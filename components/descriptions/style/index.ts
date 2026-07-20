@@ -119,154 +119,16 @@ const genBorderedStyle: GenerateStyle<DescriptionsToken, CSSObject> = (token) =>
 };
 
 const genDescriptionStyles: GenerateStyle<DescriptionsToken, CSSObject> = (token) => {
-  const {
-    componentCls,
-    extraColor,
-    itemPaddingBottom,
-    itemPaddingEnd,
-    colonMarginRight,
-    colonMarginLeft,
-    titleMarginBottom,
-  } = token;
-  return {
-    [componentCls]: {
-      ...resetComponent(token),
-      ...genBorderedStyle(token),
-      '&-rtl': {
-        direction: 'rtl',
-      },
-      [`${componentCls}-header`]: {
-        display: 'flex',
-        alignItems: 'center',
-        marginBottom: titleMarginBottom,
-      },
-      [`${componentCls}-title`]: {
-        ...textEllipsis,
-        flex: 'auto',
-        color: token.titleColor,
-        fontWeight: token.fontWeightStrong,
-        fontSize: token.fontSizeLG,
-        lineHeight: token.lineHeightLG,
-      },
-      [`${componentCls}-extra`]: {
-        marginInlineStart: 'auto',
-        color: extraColor,
-        fontSize: token.fontSize,
-      },
-      [`${componentCls}-view`]: {
-        // #54268 used `width: 0` with `min-width: 100%` to avoid oversized
-        // intrinsic widths in max-content ancestors. Keep the wrapper at
-        // `width: 100%` so it remains measurable in shrink-to-fit containers
-        // like Popover (#58574), while the inner table preserves the minimum.
-        width: '100%',
-        borderRadius: token.borderRadiusLG,
-        table: {
-          minWidth: '100%',
-          tableLayout: 'fixed',
-          borderCollapse: 'collapse',
-        },
-      },
-      [`${componentCls}-row`]: {
-        '> th, > td': {
-          paddingBottom: itemPaddingBottom,
-          paddingInlineEnd: itemPaddingEnd,
-        },
-        '> th:last-child, > td:last-child': {
-          paddingInlineEnd: 0,
-        },
-        '&:last-child': {
-          borderBottom: 'none',
-          '> th, > td': {
-            paddingBottom: 0,
-          },
-        },
-      },
-      [`${componentCls}-item-label`]: {
-        color: token.labelColor,
-        fontWeight: 'normal',
-        fontSize: token.fontSize,
-        lineHeight: token.lineHeight,
-        textAlign: 'start',
-
-        '&::after': {
-          content: '":"',
-          position: 'relative',
-          top: -0.5, // magic for position
-          marginInline: `${unit(colonMarginLeft)} ${unit(colonMarginRight)}`,
-        },
-
-        [`&${componentCls}-item-no-colon::after`]: {
-          content: '""',
-        },
-      },
-      [`${componentCls}-item-no-label`]: {
-        '&::after': {
-          margin: 0,
-          content: '""',
-        },
-      },
-      [`${componentCls}-item-content`]: {
-        display: 'table-cell',
-        flex: 1,
-        color: token.contentColor,
-        fontSize: token.fontSize,
-        lineHeight: token.lineHeight,
-        wordBreak: 'break-word',
-        overflowWrap: 'break-word',
-      },
-      [`${componentCls}-item`]: {
-        paddingBottom: 0,
-        verticalAlign: 'top',
-        '&-container': {
-          display: 'flex',
-          [`${componentCls}-item-label`]: {
-            display: 'inline-flex',
-            alignItems: 'baseline',
-          },
-          [`${componentCls}-item-content`]: {
-            display: 'inline-flex',
-            alignItems: 'baseline',
-            minWidth: '1em',
-          },
-        },
-      },
-      '&-medium': {
-        [`${componentCls}-row`]: {
-          '> th, > td': {
-            paddingBottom: token.paddingSM,
-          },
-        },
-      },
-      '&-small': {
-        [`${componentCls}-row`]: {
-          '> th, > td': {
-            paddingBottom: token.paddingXS,
-          },
-        },
-      },
-    },
-  };
+    throw new Error("STUB");
 };
 
-export const prepareComponentToken: GetDefaultToken<'Descriptions'> = (token) => ({
-  labelBg: token.colorFillAlter,
-  labelColor: token.colorTextTertiary,
-  titleColor: token.colorText,
-  titleMarginBottom: token.fontSizeSM * token.lineHeightSM,
-  itemPaddingBottom: token.padding,
-  itemPaddingEnd: token.padding,
-  colonMarginRight: token.marginXS,
-  colonMarginLeft: token.marginXXS / 2,
-  contentColor: token.colorText,
-  extraColor: token.colorText,
-});
+export const prepareComponentToken: GetDefaultToken<'Descriptions'> = (token) => { throw new Error("STUB"); };
 
 // ============================== Export ==============================
 export default genStyleHooks(
   'Descriptions',
   (token) => {
-    const descriptionToken = mergeToken<DescriptionsToken>(token, {});
-    return genDescriptionStyles(descriptionToken);
+      throw new Error("STUB");
   },
   prepareComponentToken,
 );

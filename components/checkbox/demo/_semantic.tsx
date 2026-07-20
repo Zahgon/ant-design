@@ -18,19 +18,7 @@ const locales = {
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Checkbox"
-      semantics={[
-        { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'icon', desc: locale.icon, version: '6.0.0' },
-        { name: 'label', desc: locale.label, version: '6.0.0' },
-      ]}
-    >
-      <Checkbox>Checkbox</Checkbox>
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

@@ -20,18 +20,6 @@ const imageList = [
   'https://images.unsplash.com/photo-1709198165282-1dab551df890',
 ];
 
-const App = () => (
-  <Masonry
-    columns={4}
-    gutter={16}
-    items={imageList.map((img, index) => ({
-      key: `item-${index}`,
-      data: img,
-    }))}
-    itemRender={({ data }) => (
-      <img src={`${data}?w=523&auto=format`} alt="sample" style={{ width: '100%' }} />
-    )}
-  />
-);
+const App = () => { throw new Error("STUB"); };
 
 export default App;

@@ -11,15 +11,6 @@ export default function useRafDebounce(callback: VoidFunction) {
   const wrapperCallback = useEvent(callback);
 
   return () => {
-    if (executeRef.current) {
-      return;
-    }
-
-    executeRef.current = true;
-    wrapperCallback();
-
-    rafRef.current = raf(() => {
-      executeRef.current = false;
-    });
+      throw new Error("STUB");
   };
 }

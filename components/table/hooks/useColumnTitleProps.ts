@@ -19,10 +19,7 @@ const useColumnTitleProps = <RecordType extends AnyObject = AnyObject>(
   filters: Record<string, FilterValue | null>,
 ) => {
   const columnTitleProps = React.useMemo<ColumnTitleProps<RecordType>>(() => {
-    return {
-      ...sorterTitleProps,
-      filters: getMergedFilters(filters),
-    };
+      throw new Error("STUB");
   }, [sorterTitleProps, filters]);
   return columnTitleProps;
 };

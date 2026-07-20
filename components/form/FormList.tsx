@@ -35,42 +35,7 @@ const FormList: React.FC<FormListProps> = ({
   children,
   ...props
 }) => {
-  if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning('Form.List');
-
-    warning(
-      isNumber(props.name) || (Array.isArray(props.name) ? !!props.name.length : !!props.name),
-      'usage',
-      'Miss `name` prop.',
-    );
-  }
-
-  const { getPrefixCls } = React.useContext(ConfigContext);
-  const prefixCls = getPrefixCls('form', customizePrefixCls);
-  const contextValue = React.useMemo(
-    () => ({
-      prefixCls,
-      status: 'error' as const,
-    }),
-    [prefixCls],
-  );
-
-  return (
-    <List {...props}>
-      {(fields, operation, meta) => (
-        <FormItemPrefixContext.Provider value={contextValue}>
-          {children(
-            fields.map((field) => ({ ...field, fieldKey: field.key })),
-            operation,
-            {
-              errors: meta.errors,
-              warnings: meta.warnings,
-            },
-          )}
-        </FormItemPrefixContext.Provider>
-      )}
-    </List>
-  );
+    throw new Error("STUB");
 };
 
 export default FormList;

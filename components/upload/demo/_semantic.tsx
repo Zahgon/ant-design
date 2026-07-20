@@ -53,27 +53,10 @@ const uploadProps: UploadProps = {
   ],
 };
 
-const Block: React.FC<Readonly<UploadProps<any>>> = (props) => (
-  <Upload {...uploadProps} {...props}>
-    <Button icon={<UploadOutlined />}>Upload</Button>
-  </Upload>
-);
+const Block: React.FC<Readonly<UploadProps<any>>> = (props) => { throw new Error("STUB"); };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Upload"
-      semantics={[
-        { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'list', desc: locale.list, version: '6.0.0' },
-        { name: 'item', desc: locale.item, version: '6.0.0' },
-        { name: 'trigger', desc: locale.trigger, version: '6.3.0' },
-      ]}
-    >
-      <Block />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

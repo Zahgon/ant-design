@@ -5,6 +5,6 @@ import customParseFormat from 'dayjs/plugin/customParseFormat';
 
 dayjs.extend(customParseFormat);
 
-const App: React.FC = () => <TimePicker defaultValue={dayjs('12:08:23', 'HH:mm:ss')} disabled />;
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

@@ -25,22 +25,9 @@ const items = [
   { key: '2', label: 'Action 2' },
 ];
 
-const expandDataSource = Array.from({ length: 3 }).map<ExpandedDataType>((_, i) => ({
-  key: i.toString(),
-  date: '2014-12-24 23:12:00',
-  name: 'This is production name',
-  upgradeNum: 'Upgraded: 56',
-}));
+const expandDataSource = Array.from({ length: 3 }).map<ExpandedDataType>((_, i) => { throw new Error("STUB"); });
 
-const dataSource = Array.from({ length: 3 }).map<DataType>((_, i) => ({
-  key: i.toString(),
-  name: 'Screen',
-  platform: 'iOS',
-  version: '10.3.4.5654',
-  upgradeNum: 500,
-  creator: 'Jack',
-  createdAt: '2014-12-24 23:12:00',
-}));
+const dataSource = Array.from({ length: 3 }).map<DataType>((_, i) => { throw new Error("STUB"); });
 
 const expandColumns: TableColumnsType<ExpandedDataType> = [
   { title: 'Date', dataIndex: 'date', key: 'date' },
@@ -48,23 +35,13 @@ const expandColumns: TableColumnsType<ExpandedDataType> = [
   {
     title: 'Status',
     key: 'state',
-    render: () => <Badge status="success" text="Finished" />,
+    render: () => { throw new Error("STUB"); },
   },
   { title: 'Upgrade Status', dataIndex: 'upgradeNum', key: 'upgradeNum' },
   {
     title: 'Action',
     key: 'operation',
-    render: () => (
-      <Space size="medium">
-        <a>Pause</a>
-        <a>Stop</a>
-        <Dropdown menu={{ items }}>
-          <a>
-            More <DownOutlined />
-          </a>
-        </Dropdown>
-      </Space>
-    ),
+    render: () => { throw new Error("STUB"); },
   },
 ];
 
@@ -75,37 +52,11 @@ const columns: TableColumnsType<DataType> = [
   { title: 'Upgraded', dataIndex: 'upgradeNum', key: 'upgradeNum' },
   { title: 'Creator', dataIndex: 'creator', key: 'creator' },
   { title: 'Date', dataIndex: 'createdAt', key: 'createdAt' },
-  { title: 'Action', key: 'operation', render: () => <a>Publish</a> },
+  { title: 'Action', key: 'operation', render: () => { throw new Error("STUB"); } },
 ];
 
-const expandedRowRender = () => (
-  <Table<ExpandedDataType>
-    columns={expandColumns}
-    dataSource={expandDataSource}
-    pagination={false}
-  />
-);
+const expandedRowRender = () => { throw new Error("STUB"); };
 
-const App: React.FC = () => (
-  <>
-    <Table<DataType>
-      columns={columns}
-      expandable={{ expandedRowRender, defaultExpandedRowKeys: ['0'] }}
-      dataSource={dataSource}
-    />
-    <Table<DataType>
-      columns={columns}
-      expandable={{ expandedRowRender, defaultExpandedRowKeys: ['0'] }}
-      dataSource={dataSource}
-      size="medium"
-    />
-    <Table<DataType>
-      columns={columns}
-      expandable={{ expandedRowRender, defaultExpandedRowKeys: ['0'] }}
-      dataSource={dataSource}
-      size="small"
-    />
-  </>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

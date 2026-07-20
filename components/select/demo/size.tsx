@@ -18,50 +18,7 @@ const handleChange = (value: string | string[]) => {
 };
 
 const App: React.FC = () => {
-  const [size, setSize] = useState<SizeType>('medium');
-
-  const handleSizeChange = (e: RadioChangeEvent) => {
-    setSize(e.target.value);
-  };
-
-  return (
-    <>
-      <Radio.Group value={size} onChange={handleSizeChange}>
-        <Radio.Button value="large">Large</Radio.Button>
-        <Radio.Button value="medium">Medium</Radio.Button>
-        <Radio.Button value="small">Small</Radio.Button>
-      </Radio.Group>
-      <br />
-      <br />
-      <Space vertical style={{ width: '100%' }}>
-        <Select
-          size={size}
-          defaultValue="a1"
-          onChange={handleChange}
-          style={{ width: 200 }}
-          options={options}
-        />
-        <Select
-          mode="multiple"
-          size={size}
-          placeholder="Please select"
-          defaultValue={['a10', 'c12']}
-          onChange={handleChange}
-          style={{ width: '100%' }}
-          options={options}
-        />
-        <Select
-          mode="tags"
-          size={size}
-          placeholder="Please select"
-          defaultValue={['a10', 'c12']}
-          onChange={handleChange}
-          style={{ width: '100%' }}
-          options={options}
-        />
-      </Space>
-    </>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

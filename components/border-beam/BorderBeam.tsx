@@ -31,61 +31,7 @@ export interface BorderBeamProps {
 }
 
 const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) => {
-  const {
-    prefixCls: customizePrefixCls,
-    className,
-    style,
-    children,
-    color,
-    duration,
-    lineWidth,
-    outset,
-    size,
-  } = props;
-
-  const {
-    className: contextClassName,
-    style: contextStyle,
-    getPrefixCls,
-  } = useComponentConfig('borderBeam');
-
-  // ============================ Prefix ============================
-  const prefixCls = getPrefixCls('border-beam', customizePrefixCls);
-  const [hashId, cssVarCls] = useStyle(prefixCls);
-
-  const [varName] = genCssVar(getPrefixCls(), 'border-beam');
-
-  // ============================= Host =============================
-  const [childNode, childDomNode] = useChildDom(children);
-  const { borderWidth, borderRadius } = useBorderSize(childDomNode);
-  const beamGradient = useMemo(() => getBorderBeamGradient(color), [color]);
-
-  // ============================ Border ============================
-  const insetOffset = useMemo<string>(() => {
-    return isNonNullable(outset) ? getInset(outset) : borderWidth.map<string>(getInset).join(' ');
-  }, [borderWidth, outset]);
-
-  // ============================ Render ============================
-  return (
-    <>
-      {childNode}
-      <BorderBeamEffect
-        prefixCls={prefixCls}
-        hostDom={childDomNode}
-        className={clsx(contextClassName, className, hashId, cssVarCls)}
-        style={{
-          ...contextStyle,
-          ...style,
-          ...(beamGradient && { [varName('beam-gradient')]: beamGradient }),
-          ...(isNumber(duration) && duration > 0 && { [varName('duration')]: `${duration}s` }),
-          ...(isNonNullable(lineWidth) && { [varName('line-width')]: unit(lineWidth) }),
-          ...(isNonNullable(size) && { [varName('size')]: unit(size) }),
-          [varName('inset-offset')]: insetOffset,
-          [varName('border-radius')]: borderRadius,
-        }}
-      />
-    </>
-  );
+    throw new Error("STUB");
 };
 
 if (process.env.NODE_ENV !== 'production') {

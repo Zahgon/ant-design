@@ -12,27 +12,6 @@ const DEFAULT_COLOR = [
   },
 ];
 
-const Demo = () => (
-  <Space vertical>
-    <ColorPicker
-      defaultValue={DEFAULT_COLOR}
-      allowClear
-      showText
-      mode={['single', 'gradient']}
-      onChangeComplete={(color) => {
-        console.log(color.toCssString());
-      }}
-    />
-    <ColorPicker
-      defaultValue={DEFAULT_COLOR}
-      allowClear
-      showText
-      mode="gradient"
-      onChangeComplete={(color) => {
-        console.log(color.toCssString());
-      }}
-    />
-  </Space>
-);
+const Demo = () => { throw new Error("STUB"); };
 
 export default Demo;

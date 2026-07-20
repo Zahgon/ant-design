@@ -58,31 +58,8 @@ const handleAreaClick = (
 };
 
 const displayRender: CascaderProps<Option>['displayRender'] = (labels, selectedOptions = []) =>
-  labels.map((label, i) => {
-    const option = selectedOptions[i];
-    if (i === labels.length - 1) {
-      return (
-        <span key={option.value}>
-          {label} (<a onClick={(e) => handleAreaClick(e, label, option)}>{option.code}</a>)
-        </span>
-      );
-    }
-    return <span key={option.value}>{label} / </span>;
-  });
+  { throw new Error("STUB"); };
 
-const App: React.FC = () => (
-  <Cascader
-    options={options}
-    defaultValue={['zhejiang', 'hangzhou', 'xihu']}
-    displayRender={displayRender}
-    style={{ width: '100%' }}
-    // `optionRender` is supported since 5.16.0
-    optionRender={(option) => (
-      <>
-        {option.label} ({option.value})
-      </>
-    )}
-  />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

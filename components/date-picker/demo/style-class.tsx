@@ -4,12 +4,7 @@ import type { DatePickerProps, GetProp } from 'antd';
 import { createStyles } from 'antd-style';
 import type { Dayjs } from 'dayjs';
 
-const useStyles = createStyles(({ token }) => ({
-  root: {
-    border: `${token.lineWidth}px ${token.lineType} ${token.colorPrimary}`,
-    width: 200,
-  },
-}));
+const useStyles = createStyles(({ token }) => { throw new Error("STUB"); });
 
 const stylesObject: DatePickerProps<Dayjs>['styles'] = {
   input: { fontStyle: 'italic' },
@@ -19,25 +14,11 @@ const stylesObject: DatePickerProps<Dayjs>['styles'] = {
 const stylesFn: DatePickerProps<Dayjs>['styles'] = (
   info,
 ): GetProp<DatePickerProps<Dayjs>, 'styles', 'Return'> => {
-  if (info.props.size === 'large') {
-    return {
-      root: { borderColor: '#722ed1' },
-      popup: {
-        container: { border: '1px solid #722ed1', borderRadius: 8 },
-      },
-    };
-  }
-  return {};
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const { styles: classNames } = useStyles();
-  return (
-    <Flex vertical gap="medium">
-      <DatePicker classNames={classNames} styles={stylesObject} placeholder="Object" />
-      <DatePicker classNames={classNames} styles={stylesFn} placeholder="Function" size="large" />
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

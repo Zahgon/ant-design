@@ -9,39 +9,6 @@ const data = [
   'Los Angeles battles huge wildfires.',
 ];
 
-const App: React.FC = () => (
-  <>
-    <Divider titlePlacement="start">Default Size</Divider>
-    <List
-      header={<div>Header</div>}
-      footer={<div>Footer</div>}
-      bordered
-      dataSource={data}
-      renderItem={(item) => (
-        <List.Item>
-          <Typography.Text mark>[ITEM]</Typography.Text> {item}
-        </List.Item>
-      )}
-    />
-    <Divider titlePlacement="start">Small Size</Divider>
-    <List
-      size="small"
-      header={<div>Header</div>}
-      footer={<div>Footer</div>}
-      bordered
-      dataSource={data}
-      renderItem={(item) => <List.Item>{item}</List.Item>}
-    />
-    <Divider titlePlacement="start">Large Size</Divider>
-    <List
-      size="large"
-      header={<div>Header</div>}
-      footer={<div>Footer</div>}
-      bordered
-      dataSource={data}
-      renderItem={(item) => <List.Item>{item}</List.Item>}
-    />
-  </>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

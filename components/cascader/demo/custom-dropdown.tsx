@@ -42,16 +42,8 @@ const options: Option[] = [
   },
 ];
 
-const popupRender = (menus: React.ReactNode) => (
-  <div>
-    {menus}
-    <Divider style={{ margin: 0 }} />
-    <div style={{ padding: 8 }}>The footer is not very short.</div>
-  </div>
-);
+const popupRender = (menus: React.ReactNode) => { throw new Error("STUB"); };
 
-const App: React.FC = () => (
-  <Cascader options={options} popupRender={popupRender} placeholder="Please select" />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

@@ -14,8 +14,6 @@ const options = [
   },
 ];
 
-const App: React.FC = () => (
-  <InternalMentions style={{ width: '100%' }} value="@" options={options} />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

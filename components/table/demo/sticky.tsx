@@ -72,48 +72,14 @@ const columns: TableColumnsType<DataType> = [
     key: 'operation',
     fixed: 'end',
     width: 100,
-    render: () => <a>action</a>,
+    render: () => { throw new Error("STUB"); },
   },
 ];
 
-const dataSource = Array.from({ length: 100 }).map<DataType>((_, i) => ({
-  key: i,
-  name: `Edward ${i}`,
-  age: 32,
-  address: `London Park no. ${i}`,
-}));
+const dataSource = Array.from({ length: 100 }).map<DataType>((_, i) => { throw new Error("STUB"); });
 
 const App: React.FC = () => {
-  const [fixedTop, setFixedTop] = useState(false);
-  return (
-    <Table<DataType>
-      columns={columns}
-      dataSource={dataSource}
-      scroll={{ x: 1500 }}
-      summary={() => (
-        <Table.Summary fixed={fixedTop ? 'top' : 'bottom'}>
-          <Table.Summary.Row>
-            <Table.Summary.Cell index={0} colSpan={2}>
-              <Switch
-                checkedChildren="Fixed Top"
-                unCheckedChildren="Fixed Top"
-                checked={fixedTop}
-                onChange={() => {
-                  setFixedTop(!fixedTop);
-                }}
-              />
-            </Table.Summary.Cell>
-            <Table.Summary.Cell index={2} colSpan={8}>
-              Scroll Context
-            </Table.Summary.Cell>
-            <Table.Summary.Cell index={10}>Fix Right</Table.Summary.Cell>
-          </Table.Summary.Row>
-        </Table.Summary>
-      )}
-      // antd site header height
-      sticky={{ offsetHeader: 64 }}
-    />
-  );
+    throw new Error("STUB");
 };
 
 export default App;

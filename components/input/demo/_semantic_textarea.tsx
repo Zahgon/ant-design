@@ -23,25 +23,7 @@ const locales = {
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Input.TextArea"
-      semantics={[
-        { name: 'root', desc: locale.root },
-        { name: 'textarea', desc: locale.textarea },
-        { name: 'clear', desc: locale.clear, version: '6.4.0' },
-        { name: 'count', desc: locale.count },
-      ]}
-    >
-      <Input.TextArea
-        allowClear
-        defaultValue="Hello, Ant Design"
-        rows={3}
-        count={{ max: 100, show: true }}
-      />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

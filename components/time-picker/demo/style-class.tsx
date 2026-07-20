@@ -3,12 +3,7 @@ import { Flex, TimePicker } from 'antd';
 import type { GetProp, TimePickerProps } from 'antd';
 import { createStyles } from 'antd-style';
 
-const useStyles = createStyles(({ token }) => ({
-  root: {
-    border: `${token.lineWidth}px ${token.lineType} ${token.colorPrimary}`,
-    width: 150,
-  },
-}));
+const useStyles = createStyles(({ token }) => { throw new Error("STUB"); });
 
 const stylesObject: TimePickerProps['styles'] = {
   root: {
@@ -19,30 +14,11 @@ const stylesObject: TimePickerProps['styles'] = {
 const stylesFn: TimePickerProps['styles'] = (
   info,
 ): GetProp<TimePickerProps, 'styles', 'Return'> => {
-  if (info.props.size === 'large') {
-    return {
-      root: {
-        borderColor: '#722ed1',
-      },
-      suffix: {
-        color: '#722ed1',
-      },
-      popup: {
-        container: { border: '1px solid #722ed1', borderRadius: 8 },
-      },
-    };
-  }
-  return {};
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const { styles: classNames } = useStyles();
-  return (
-    <Flex vertical gap="medium">
-      <TimePicker classNames={classNames} styles={stylesObject} placeholder="Object" />
-      <TimePicker classNames={classNames} styles={stylesFn} placeholder="Function" size="large" />
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

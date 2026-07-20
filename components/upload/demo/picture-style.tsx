@@ -24,16 +24,6 @@ const fileList: UploadFile[] = [
   },
 ];
 
-const App: React.FC = () => (
-  <Upload
-    action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload"
-    listType="picture"
-    defaultFileList={fileList}
-  >
-    <Button type="primary" icon={<UploadOutlined />}>
-      Upload
-    </Button>
-  </Upload>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

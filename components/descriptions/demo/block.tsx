@@ -24,6 +24,6 @@ const items: DescriptionsProps['items'] = [
   },
 ];
 
-const App: React.FC = () => <Descriptions bordered title="User Info" items={items} />;
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

@@ -22,23 +22,7 @@ export interface CollapsePanelProps {
 }
 
 const CollapsePanel = React.forwardRef<HTMLDivElement, CollapsePanelProps>((props, ref) => {
-  if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning('Collapse.Panel');
-    warning.deprecated(!('disabled' in props), 'disabled', 'collapsible="disabled"');
-  }
-
-  const { getPrefixCls } = React.useContext(ConfigContext);
-  const { prefixCls: customizePrefixCls, className, showArrow = true } = props;
-  const prefixCls = getPrefixCls('collapse', customizePrefixCls);
-  const collapsePanelClassName = clsx({ [`${prefixCls}-no-arrow`]: !showArrow }, className);
-  return (
-    <RcCollapse.Panel
-      ref={ref}
-      {...props}
-      prefixCls={prefixCls}
-      className={collapsePanelClassName}
-    />
-  );
+    throw new Error("STUB");
 });
 
 export default CollapsePanel;

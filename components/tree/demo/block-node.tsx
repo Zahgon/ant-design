@@ -21,8 +21,6 @@ const treeData: TreeDataNode[] = [
   },
 ];
 
-const App: React.FC = () => (
-  <Tree checkable defaultSelectedKeys={['0-1']} defaultExpandAll treeData={treeData} blockNode />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

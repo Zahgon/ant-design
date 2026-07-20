@@ -35,63 +35,11 @@ const sharedStyles: React.CSSProperties = {
 };
 
 const SpinBlock: React.FC<Readonly<SpinProps>> = (props) => {
-  return (
-    <div
-      style={{
-        display: 'flex',
-        width: '100%',
-        minHeight: '100%',
-        alignItems: 'stretch',
-      }}
-    >
-      <div style={sharedStyles}>
-        <Spin percent={0} {...props} />
-      </div>
-      <div style={sharedStyles}>
-        <Spin percent={0} {...props} description="Loading">
-          <div
-            style={{
-              width: 100,
-              height: 100,
-              background: 'rgba(150,150,150,0.2)',
-              borderRadius: 8,
-            }}
-          />
-        </Spin>
-      </div>
-      <div style={sharedStyles}>
-        <Spin
-          percent={0}
-          {...props}
-          fullscreen
-          description="Loading"
-          style={{
-            position: 'absolute',
-          }}
-        />
-      </div>
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-
-  return (
-    <SemanticPreview
-      padding={false}
-      componentName="Spin"
-      semantics={[
-        { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'section', desc: locale.section, version: '6.3.0' },
-        { name: 'indicator', desc: locale.indicator, version: '6.0.0' },
-        { name: 'description', desc: locale.description, version: '6.3.0' },
-        { name: 'container', desc: locale.container, version: '6.3.0' },
-      ]}
-    >
-      <SpinBlock />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

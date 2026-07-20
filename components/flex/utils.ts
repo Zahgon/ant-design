@@ -42,7 +42,7 @@ const genClsWrap = (prefixCls: string, props: FlexProps) => {
 const genClsAlign = (prefixCls: string, props: FlexProps) => {
   const alignCls: Record<PropertyKey, boolean> = {};
   alignItemsValues.forEach((cssKey) => {
-    alignCls[`${prefixCls}-align-${cssKey}`] = props.align === cssKey;
+      throw new Error("STUB");
   });
   alignCls[`${prefixCls}-align-stretch`] = !props.align && !!props.vertical;
   return alignCls;
@@ -51,7 +51,7 @@ const genClsAlign = (prefixCls: string, props: FlexProps) => {
 const genClsJustify = (prefixCls: string, props: FlexProps) => {
   const justifyCls: Record<PropertyKey, boolean> = {};
   justifyContentValues.forEach((cssKey) => {
-    justifyCls[`${prefixCls}-justify-${cssKey}`] = props.justify === cssKey;
+      throw new Error("STUB");
   });
   return justifyCls;
 };

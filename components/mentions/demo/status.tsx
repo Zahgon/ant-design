@@ -13,39 +13,7 @@ const onSelect = (option: MentionsOptionProps) => {
 };
 
 const App: React.FC = () => {
-  const options = [
-    {
-      value: 'afc163',
-      label: 'afc163',
-    },
-    {
-      value: 'zombieJ',
-      label: 'zombieJ',
-    },
-    {
-      value: 'yesmeck',
-      label: 'yesmeck',
-    },
-  ];
-
-  return (
-    <Space vertical>
-      <Mentions
-        onChange={onChange}
-        onSelect={onSelect}
-        defaultValue="@afc163"
-        status="error"
-        options={options}
-      />
-      <Mentions
-        onChange={onChange}
-        onSelect={onSelect}
-        defaultValue="@afc163"
-        status="warning"
-        options={options}
-      />
-    </Space>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

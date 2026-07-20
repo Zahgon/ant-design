@@ -13,33 +13,19 @@ export const { genStyleHooks, genComponentStyleHook, genSubStyleComponent } = ge
   SeedToken
 >({
   usePrefix: () => {
-    const { getPrefixCls, iconPrefixCls } = useContext(ConfigContext);
-
-    const rootPrefixCls = getPrefixCls();
-
-    return {
-      rootPrefixCls,
-      iconPrefixCls,
-    };
-  },
+        throw new Error("STUB");
+    },
   useToken: () => {
-    const [theme, realToken, hashId, token, cssVar, zeroRuntime] = useLocalToken();
-    return { theme, realToken, hashId, token, cssVar, zeroRuntime };
+      throw new Error("STUB");
   },
   useCSP: () => {
-    const { csp } = useContext(ConfigContext);
-    return csp ?? {};
+      throw new Error("STUB");
   },
   getResetStyles: (token, config) => {
-    const linkStyle = genLinkStyle(token);
-    return [
-      linkStyle,
-      { '&': linkStyle },
-      genIconStyle(config?.prefix.iconPrefixCls ?? defaultIconPrefixCls),
-    ];
+      throw new Error("STUB");
   },
   getCommonStyle: genCommonStyle,
-  getCompUnitless: (() => unitless) as GetCompUnitless<ComponentTokenMap, AliasToken>,
+  getCompUnitless: (() => { throw new Error("STUB"); }) as GetCompUnitless<ComponentTokenMap, AliasToken>,
 });
 
 type CssVarName = (name: string) => `--${string}`;

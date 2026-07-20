@@ -69,55 +69,7 @@ const treeData: TreeDataNode[] = [
 ];
 
 const App: React.FC = () => {
-  const [showLine, setShowLine] = useState<boolean>(true);
-  const [showIcon, setShowIcon] = useState<boolean>(false);
-  const [showLeafIcon, setShowLeafIcon] = useState<React.ReactNode>(true);
-
-  const onSelect = (selectedKeys: React.Key[], info: any) => {
-    console.log('selected', selectedKeys, info);
-  };
-
-  const handleLeafIconChange = (value: 'true' | 'false' | 'custom') => {
-    if (value === 'custom') {
-      return setShowLeafIcon(<CheckOutlined />);
-    }
-
-    if (value === 'true') {
-      return setShowLeafIcon(true);
-    }
-
-    return setShowLeafIcon(false);
-  };
-
-  return (
-    <div>
-      <div style={{ marginBottom: 16 }}>
-        showLine: <Switch checked={!!showLine} onChange={setShowLine} />
-        <br />
-        <br />
-        showIcon: <Switch checked={showIcon} onChange={setShowIcon} />
-        <br />
-        <br />
-        showLeafIcon:{' '}
-        <Select
-          defaultValue="true"
-          onChange={handleLeafIconChange}
-          options={[
-            { label: 'True', value: 'true' },
-            { label: 'False', value: 'false' },
-            { label: 'Custom icon', value: 'custom' },
-          ]}
-        />
-      </div>
-      <Tree
-        showLine={showLine ? { showLeafIcon } : false}
-        showIcon={showIcon}
-        defaultExpandedKeys={['0-0-0']}
-        onSelect={onSelect}
-        treeData={treeData}
-      />
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

@@ -13,15 +13,7 @@ const locales = {
 };
 
 const Demo: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <Flex vertical gap="medium">
-      <Progress type="line" percent={50} style={{ width: 320 }} />
-      <Progress percent={50} format={() => locale.loading} style={{ width: 320 }} />
-      <Progress percent={100} status="success" style={{ width: 320 }} />
-      <Progress percent={70} status="exception" style={{ width: 320 }} />
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 export default Demo;

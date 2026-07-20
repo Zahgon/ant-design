@@ -3,12 +3,7 @@ import { Flex, TreeSelect } from 'antd';
 import type { GetProp, TreeSelectProps } from 'antd';
 import { createStyles } from 'antd-style';
 
-const useStyles = createStyles(({ token }) => ({
-  root: {
-    width: 300,
-    borderRadius: token.borderRadius,
-  },
-}));
+const useStyles = createStyles(({ token }) => { throw new Error("STUB"); });
 
 const styleObject: TreeSelectProps['styles'] = {
   input: {
@@ -27,19 +22,7 @@ const styleObject: TreeSelectProps['styles'] = {
 const styleFunction: TreeSelectProps['styles'] = (
   info,
 ): GetProp<TreeSelectProps, 'styles', 'Return'> => {
-  if (info.props.size === 'medium') {
-    return {
-      suffix: {
-        color: '#722ed1',
-      },
-      popup: {
-        item: {
-          color: '#722ed1',
-        },
-      },
-    };
-  }
-  return {};
+    throw new Error("STUB");
 };
 
 const treeData: TreeSelectProps['treeData'] = [
@@ -76,19 +59,7 @@ const treeData: TreeSelectProps['treeData'] = [
 ];
 
 const App: React.FC = () => {
-  const { styles: classNames } = useStyles();
-
-  const sharedProps: TreeSelectProps = {
-    treeData,
-    classNames,
-  };
-
-  return (
-    <Flex vertical gap="large">
-      <TreeSelect {...sharedProps} styles={styleObject} placeholder="Object" />
-      <TreeSelect {...sharedProps} styles={styleFunction} placeholder="Function" size="medium" />
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

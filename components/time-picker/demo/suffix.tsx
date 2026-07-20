@@ -11,16 +11,6 @@ const onChange: TimePickerProps['onChange'] = (time, timeString) => {
   console.log(time, timeString);
 };
 
-const App: React.FC = () => (
-  <Space vertical size={12}>
-    <TimePicker
-      suffixIcon={<SmileOutlined />}
-      onChange={onChange}
-      defaultOpenValue={dayjs('00:00:00', 'HH:mm:ss')}
-    />
-    <TimePicker prefix={<SmileOutlined />} />
-    <TimePicker.RangePicker prefix={<SmileOutlined />} />
-  </Space>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

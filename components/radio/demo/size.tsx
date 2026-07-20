@@ -1,27 +1,6 @@
 import React from 'react';
 import { Flex, Radio } from 'antd';
 
-const App: React.FC = () => (
-  <Flex vertical gap="medium">
-    <Radio.Group defaultValue="a" size="large">
-      <Radio.Button value="a">Hangzhou</Radio.Button>
-      <Radio.Button value="b">Shanghai</Radio.Button>
-      <Radio.Button value="c">Beijing</Radio.Button>
-      <Radio.Button value="d">Chengdu</Radio.Button>
-    </Radio.Group>
-    <Radio.Group defaultValue="a">
-      <Radio.Button value="a">Hangzhou</Radio.Button>
-      <Radio.Button value="b">Shanghai</Radio.Button>
-      <Radio.Button value="c">Beijing</Radio.Button>
-      <Radio.Button value="d">Chengdu</Radio.Button>
-    </Radio.Group>
-    <Radio.Group defaultValue="a" size="small">
-      <Radio.Button value="a">Hangzhou</Radio.Button>
-      <Radio.Button value="b">Shanghai</Radio.Button>
-      <Radio.Button value="c">Beijing</Radio.Button>
-      <Radio.Button value="d">Chengdu</Radio.Button>
-    </Radio.Group>
-  </Flex>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

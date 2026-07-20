@@ -35,16 +35,7 @@ function getCollapsible(collapsible?: PanelProps['collapsible']): ItemType['coll
 function useItems(children: React.ReactNode): ItemType[] {
   const items = React.useMemo(
     () =>
-      toArray(children)
-        .filter((item) => React.isValidElement<PanelProps>(item))
-        .map((node) => {
-          const { props } = node;
-          const { collapsible, ...restProps } = props;
-          return {
-            ...restProps,
-            collapsible: getCollapsible(collapsible),
-          };
-        }),
+      { throw new Error("STUB"); },
     [children],
   );
   return items;

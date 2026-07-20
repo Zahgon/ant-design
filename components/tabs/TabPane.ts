@@ -5,7 +5,7 @@ import type { CompatibilityProps } from '.';
 
 type TabPaneProps = CompatibilityProps & Omit<RcTabPaneProps, 'destroyInactiveTabPane'>;
 
-const TabPane: React.FC<TabPaneProps> = () => null;
+const TabPane: React.FC<TabPaneProps> = () => { throw new Error("STUB"); };
 
 if (process.env.NODE_ENV !== 'production') {
   TabPane.displayName = 'DeprecatedTabPane';

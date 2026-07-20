@@ -28,24 +28,6 @@ const menuItems = [
   },
 ];
 
-const App: React.FC = () => (
-  <Breadcrumb
-    items={[
-      {
-        title: 'Ant Design',
-      },
-      {
-        title: <a href="">Component</a>,
-      },
-      {
-        title: <a href="">General</a>,
-        menu: { items: menuItems },
-      },
-      {
-        title: 'Button',
-      },
-    ]}
-  />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

@@ -4,13 +4,7 @@ import { Button, Dropdown, Flex, Space } from 'antd';
 import type { DropdownProps, GetProp, MenuProps } from 'antd';
 import { createStyles } from 'antd-style';
 
-const useStyles = createStyles(({ token }) => ({
-  root: {
-    backgroundColor: token.colorFillAlter,
-    border: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
-    borderRadius: token.borderRadius,
-  },
-}));
+const useStyles = createStyles(({ token }) => { throw new Error("STUB"); });
 
 const items: MenuProps['items'] = [
   {
@@ -58,51 +52,11 @@ const objectStyles: DropdownProps['styles'] = {
 const functionStyles: DropdownProps['styles'] = (
   info,
 ): GetProp<DropdownProps, 'styles', 'Return'> => {
-  const { props } = info;
-  const isClick = props.trigger?.includes('click');
-  if (isClick) {
-    return {
-      root: {
-        borderColor: '#1890ff',
-        borderRadius: '8px',
-      },
-    };
-  }
-  return {};
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const { styles } = useStyles();
-
-  const sharedProps: DropdownProps = {
-    menu: { items },
-    placement: 'bottomLeft',
-    classNames: { root: styles.root },
-  };
-
-  return (
-    <Flex gap="medium" wrap="wrap">
-      <Space vertical size="large">
-        <Dropdown {...sharedProps} styles={objectStyles}>
-          <Button>
-            <Space>
-              Object Style
-              <DownOutlined />
-            </Space>
-          </Button>
-        </Dropdown>
-
-        <Dropdown {...sharedProps} styles={functionStyles} trigger={['click']}>
-          <Button type="primary">
-            <Space>
-              Function Style
-              <DownOutlined />
-            </Space>
-          </Button>
-        </Dropdown>
-      </Space>
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

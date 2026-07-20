@@ -24,22 +24,8 @@ const columns: TableColumnsType<DataType> = [
   },
 ];
 
-const dataSource = Array.from({ length: 200 }).map<DataType>((_, key) => ({
-  key,
-  name: 'Sample Name',
-  age: 30 + (key % 5),
-  address: `Sample Address ${key}`,
-}));
+const dataSource = Array.from({ length: 200 }).map<DataType>((_, key) => { throw new Error("STUB"); });
 
-const App: React.FC = () => (
-  <div style={{ width: 300 }}>
-    <Table<DataType>
-      columns={columns}
-      dataSource={dataSource}
-      size="small"
-      pagination={{ defaultCurrent: 13 }}
-    />
-  </div>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

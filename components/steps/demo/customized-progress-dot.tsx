@@ -2,41 +2,8 @@ import React from 'react';
 import type { StepsProps } from 'antd';
 import { Popover, Steps } from 'antd';
 
-const customDot: StepsProps['progressDot'] = (dot, { status, index }) => (
-  <Popover
-    content={
-      <span>
-        step {index} status: {status}
-      </span>
-    }
-  >
-    {dot}
-  </Popover>
-);
+const customDot: StepsProps['progressDot'] = (dot, { status, index }) => { throw new Error("STUB"); };
 const content = 'You can hover on the dot.';
-const App: React.FC = () => (
-  <Steps
-    current={1}
-    progressDot={customDot}
-    items={[
-      {
-        title: 'Finished',
-        content,
-      },
-      {
-        title: 'In Progress',
-        content,
-      },
-      {
-        title: 'Waiting',
-        content,
-      },
-      {
-        title: 'Waiting',
-        content,
-      },
-    ]}
-  />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

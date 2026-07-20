@@ -3,12 +3,7 @@ import { Flex, Timeline } from 'antd';
 import type { GetProp, TimelineProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
-const classNames = createStaticStyles(({ css }) => ({
-  root: css`
-    padding: 8px;
-    border-radius: 4px;
-  `,
-}));
+const classNames = createStaticStyles(({ css }) => { throw new Error("STUB"); });
 
 const styles: TimelineProps['styles'] = {
   itemIcon: {
@@ -17,44 +12,11 @@ const styles: TimelineProps['styles'] = {
 };
 
 const stylesFn: TimelineProps['styles'] = (info): GetProp<TimelineProps, 'styles', 'Return'> => {
-  if (info.props.orientation === 'vertical') {
-    return {
-      root: {
-        padding: '10px 6px',
-        border: '1px solid #A294F9',
-      },
-      itemIcon: {
-        borderColor: '#A294F9',
-      },
-    };
-  }
-  return {};
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const sharedProps: TimelineProps = {
-    classNames,
-    items: [
-      {
-        title: '2015-09-01',
-        content: 'Create a services site',
-      },
-      {
-        title: '2015-09-01 09:12:11',
-        content: 'Solve initial network problems',
-      },
-      {
-        content: 'Technical testing',
-      },
-    ],
-  };
-
-  return (
-    <Flex vertical gap="medium">
-      <Timeline {...sharedProps} orientation="horizontal" styles={styles} />
-      <Timeline {...sharedProps} orientation="vertical" styles={stylesFn} />
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

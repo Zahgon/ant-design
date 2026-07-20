@@ -8,22 +8,14 @@ import { defaultPrefixCls } from '../config-provider';
 import { isTransitionEvent } from './is';
 
 // ================== Collapse Motion ==================
-const getCollapsedHeight: MotionEventHandler = () => ({
-  height: 0,
-  opacity: 0,
-});
+const getCollapsedHeight: MotionEventHandler = () => { throw new Error("STUB"); };
 
-const getRealHeight: MotionEventHandler = (node) => ({
-  height: node?.scrollHeight ?? 0,
-  opacity: node ? 1 : 0,
-});
+const getRealHeight: MotionEventHandler = (node) => { throw new Error("STUB"); };
 
-const getCurrentHeight: MotionEventHandler = (node) => ({
-  height: node?.offsetHeight ?? 0,
-});
+const getCurrentHeight: MotionEventHandler = (node) => { throw new Error("STUB"); };
 
 const skipOpacityTransition: MotionEndEventHandler = (_, event) => {
-  return event?.deadline === true || (isTransitionEvent(event) && event.propertyName === 'height');
+    throw new Error("STUB");
 };
 
 const initCollapseMotion = (rootCls = defaultPrefixCls): CSSMotionProps => ({

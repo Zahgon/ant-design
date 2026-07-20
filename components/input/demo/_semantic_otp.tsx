@@ -18,19 +18,7 @@ const locales = {
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Input.OTP"
-      semantics={[
-        { name: 'root', desc: locale.root },
-        { name: 'input', desc: locale.input },
-        { name: 'separator', desc: locale.separator },
-      ]}
-    >
-      <Input.OTP separator="-" />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

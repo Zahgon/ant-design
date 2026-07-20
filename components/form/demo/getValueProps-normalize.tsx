@@ -13,32 +13,6 @@ const onFinish: FormProps<FieldType>['onFinish'] = (values) => {
   console.log('Success:', values);
 };
 
-const App: React.FC = () => (
-  <Form
-    name="getValueProps"
-    labelCol={{ span: 8 }}
-    wrapperCol={{ span: 16 }}
-    style={{ maxWidth: 600 }}
-    initialValues={{ date: dateTimestamp }}
-    onFinish={onFinish}
-    autoComplete="off"
-  >
-    <Form.Item<FieldType>
-      label="Date"
-      name="date"
-      rules={[{ required: true }]}
-      getValueProps={(value) => ({ value: value && dayjs(Number(value)) })}
-      normalize={(value) => value && `${dayjs(value).valueOf()}`}
-    >
-      <DatePicker />
-    </Form.Item>
-
-    <Form.Item label={null}>
-      <Button type="primary" htmlType="submit">
-        Submit
-      </Button>
-    </Form.Item>
-  </Form>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

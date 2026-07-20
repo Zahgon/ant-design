@@ -40,12 +40,7 @@ export default function genColorMapToken(
 
   const presetColorTokens: Record<string, string> = {};
   PresetColors.forEach((colorKey) => {
-    const colorBase = seed[colorKey];
-    if (colorBase) {
-      const colorPalette = generateColorPalettes(colorBase);
-      presetColorTokens[`${colorKey}Hover`] = colorPalette[5];
-      presetColorTokens[`${colorKey}Active`] = colorPalette[7];
-    }
+      throw new Error("STUB");
   });
 
   return {

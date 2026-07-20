@@ -12,36 +12,7 @@ export type SliderTooltipProps = TooltipProps & {
 };
 
 const SliderTooltip = React.forwardRef<SliderRef, SliderTooltipProps>((props, ref) => {
-  const { open, draggingDelete, value } = props;
-  const innerRef = useRef<any>(null);
-
-  const mergedOpen = open && !draggingDelete;
-
-  const rafRef = useRef<number | null>(null);
-
-  function cancelKeepAlign() {
-    raf.cancel(rafRef.current!);
-    rafRef.current = null;
-  }
-
-  function keepAlign() {
-    rafRef.current = raf(() => {
-      innerRef.current?.forceAlign();
-      rafRef.current = null;
-    });
-  }
-
-  React.useEffect(() => {
-    if (mergedOpen) {
-      keepAlign();
-    } else {
-      cancelKeepAlign();
-    }
-
-    return cancelKeepAlign;
-  }, [mergedOpen, props.title, value]);
-
-  return <Tooltip ref={composeRef(innerRef, ref)} {...props} open={mergedOpen} />;
+    throw new Error("STUB");
 });
 
 if (process.env.NODE_ENV !== 'production') {

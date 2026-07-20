@@ -21,7 +21,7 @@ function getBreadcrumbName(route: InternalRouteType, params: any) {
     ? route.title
     : String(route.title).replace(
         new RegExp(`:(${paramsKeys})`, 'g'),
-        (replacement, key) => params[key] || replacement,
+        (replacement, key) => { throw new Error("STUB"); },
       );
 }
 

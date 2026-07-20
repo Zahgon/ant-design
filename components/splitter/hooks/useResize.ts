@@ -15,7 +15,7 @@ export default function useResize(
   updateSizes: (sizes: number[]) => void,
   reverse: boolean,
 ) {
-  const limitSizes = items.map((item) => [item.min, item.max]);
+  const limitSizes = items.map((item) => { throw new Error("STUB"); });
 
   const mergedContainerSize = containerSize || 0;
   const ptg2px = (ptg: number) => ptg * mergedContainerSize;

@@ -21,46 +21,7 @@ export interface CopyBtnProps extends Omit<CopyConfig, 'onCopy'> {
 }
 
 const CopyBtn: React.FC<CopyBtnProps> = (props) => {
-  const {
-    prefixCls,
-    copied,
-    locale,
-    iconOnly,
-    tooltips,
-    icon,
-    tabIndex,
-    onCopy,
-    loading: btnLoading,
-    className,
-    style,
-  } = props;
-
-  const tooltipNodes = toCopyConfigList(tooltips);
-  const iconNodes = toCopyConfigList(icon);
-  const { copied: copiedText, copy: copyText } = locale ?? {};
-  const systemStr = copied ? copiedText : copyText;
-  const copyTitle = getNode(tooltipNodes[copied ? 1 : 0], systemStr);
-  const ariaLabel = typeof copyTitle === 'string' ? copyTitle : systemStr;
-
-  return (
-    <Tooltip title={copyTitle}>
-      <button
-        type="button"
-        className={clsx(`${prefixCls}-copy`, className, {
-          [`${prefixCls}-copy-success`]: copied,
-          [`${prefixCls}-copy-icon-only`]: iconOnly,
-        })}
-        style={style}
-        onClick={onCopy}
-        aria-label={ariaLabel}
-        tabIndex={tabIndex}
-      >
-        {copied
-          ? getNode(iconNodes[1], <CheckOutlined />, true)
-          : getNode(iconNodes[0], btnLoading ? <LoadingOutlined /> : <CopyOutlined />, true)}
-      </button>
-    </Tooltip>
-  );
+    throw new Error("STUB");
 };
 
 export default CopyBtn;

@@ -15,21 +15,11 @@ const useLocale = <C extends LocaleComponentName = LocaleComponentName>(
   const fullLocale = React.useContext<LocaleContextProps | undefined>(LocaleContext);
 
   const getLocale = React.useMemo<NonNullable<Locale[C]>>(() => {
-    const locale = defaultLocale || defaultLocaleData[componentName];
-    const localeFromContext = fullLocale?.[componentName] ?? {};
-    return {
-      ...(isFunction(locale) ? locale() : locale),
-      ...(localeFromContext || {}),
-    };
+      throw new Error("STUB");
   }, [componentName, defaultLocale, fullLocale]);
 
   const getLocaleCode = React.useMemo<string>(() => {
-    const localeCode = fullLocale?.locale;
-    // Had use LocaleProvide but didn't set locale
-    if (fullLocale?.exist && !localeCode) {
-      return defaultLocaleData.locale;
-    }
-    return localeCode!;
+      throw new Error("STUB");
   }, [fullLocale]);
 
   return [getLocale, getLocaleCode] as const;

@@ -11,36 +11,6 @@ const itemRender: PaginationProps['itemRender'] = (_, type, originalElement) => 
   }
   return originalElement;
 };
-const App: React.FC = () => (
-  <ConfigProvider
-    theme={{
-      components: {
-        Pagination: {
-          itemSize: 20,
-          itemSizeSM: 12,
-          itemActiveBg: '#e7cc87',
-          itemActiveColor: '#eee',
-          itemActiveColorHover: '#fff',
-          itemLinkBg: '#344324',
-          itemActiveBgDisabled: '#9c1515',
-          itemInputBg: '#9c1515',
-          miniOptionsSizeChangerTop: 0,
-          itemBg: '#b5f5ec',
-        },
-      },
-    }}
-  >
-    <Pagination
-      showSizeChanger
-      defaultCurrent={3}
-      total={500}
-      itemRender={itemRender}
-      showQuickJumper
-      showTotal={(total) => `Total ${total} items`}
-    />
-    <br />
-    <Pagination showSizeChanger defaultCurrent={3} total={500} disabled />
-  </ConfigProvider>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

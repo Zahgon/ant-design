@@ -5,30 +5,15 @@ import useLocale from '../../../../.dumi/hooks/useLocale';
 
 const locales = {
   cn: {
-    total: (total: number, current: string | number) => `第 ${current} 条 / 共 ${total} 条`,
+    total: (total: number, current: string | number) => { throw new Error("STUB"); },
   },
   en: {
-    total: (total: number, current: string | number) => `${current} of ${total} items`,
+    total: (total: number, current: string | number) => { throw new Error("STUB"); },
   },
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <Flex vertical gap="medium">
-      <Pagination defaultCurrent={1} total={50} showSizeChanger={false} size="small" />
-      <Pagination defaultCurrent={1} total={100} showSizeChanger={false} size="small" />
-      <Pagination defaultCurrent={1} total={100} size="small" />
-      <Pagination defaultCurrent={1} total={100} showQuickJumper size="small" />
-      <Pagination
-        defaultCurrent={1}
-        total={100}
-        showQuickJumper
-        size="small"
-        showTotal={(total, range) => locale.total(total, range.join('-'))}
-      />
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

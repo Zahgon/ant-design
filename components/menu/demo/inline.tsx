@@ -74,20 +74,7 @@ const items: MenuItem[] = [
 ];
 
 const App: React.FC = () => {
-  const onClick: MenuProps['onClick'] = (e) => {
-    console.log('click ', e);
-  };
-
-  return (
-    <Menu
-      onClick={onClick}
-      style={{ width: 256 }}
-      defaultSelectedKeys={['1']}
-      defaultOpenKeys={['sub1']}
-      mode="inline"
-      items={items}
-    />
-  );
+    throw new Error("STUB");
 };
 
 export default App;

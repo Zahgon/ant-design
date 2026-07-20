@@ -36,20 +36,14 @@ const props: UploadProps = {
     },
   ],
   showUploadList: {
-    extra: ({ size = 0 }) => (
-      <span style={{ color: '#cccccc' }}>({(size / 1024 / 1024).toFixed(2)}MB)</span>
-    ),
+    extra: ({ size = 0 }) => { throw new Error("STUB"); },
     showDownloadIcon: true,
     downloadIcon: 'Download',
     showRemoveIcon: true,
-    removeIcon: <StarOutlined onClick={(e) => console.log(e, 'custom removeIcon event')} />,
+    removeIcon: <StarOutlined onClick={(e) => { throw new Error("STUB"); }} />,
   },
 };
 
-const App: React.FC = () => (
-  <Upload {...props}>
-    <Button icon={<UploadOutlined />}>Upload</Button>
-  </Upload>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

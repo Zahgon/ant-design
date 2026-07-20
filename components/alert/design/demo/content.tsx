@@ -20,13 +20,7 @@ const locales = {
 };
 
 const Demo: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <Flex gap="medium" vertical style={{ maxWidth: 600 }}>
-      <Alert title={locale.welcomeMessage} />
-      <Alert title={locale.helpTitle} description={locale.helpDescription} />
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 export default Demo;

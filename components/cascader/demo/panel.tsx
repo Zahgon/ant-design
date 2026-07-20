@@ -48,26 +48,11 @@ const onChange: CascaderProps<Option>['onChange'] = (value) => {
 };
 
 const onMultipleChange: CascaderProps<Option, 'value', true>['onChange'] = (value) => {
-  console.log(value);
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const [disabled, setDisabled] = useState(false);
-
-  return (
-    <Flex vertical gap="small" align="flex-start">
-      <Switch
-        checked={disabled}
-        checkedChildren="Enabled"
-        unCheckedChildren="Disabled"
-        onChange={setDisabled}
-        aria-label="disabled switch"
-      />
-      <Cascader.Panel options={options} onChange={onChange} disabled={disabled} />
-      <Cascader.Panel multiple options={options} onChange={onMultipleChange} disabled={disabled} />
-      <Cascader.Panel />
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

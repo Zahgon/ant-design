@@ -41,37 +41,6 @@ const onFinish = (fieldsValue: any) => {
   console.log('Received values of form: ', values);
 };
 
-const App: React.FC = () => (
-  <Form
-    name="time_related_controls"
-    {...formItemLayout}
-    onFinish={onFinish}
-    style={{ maxWidth: 600 }}
-  >
-    <Form.Item name="date-picker" label="DatePicker" {...config}>
-      <DatePicker />
-    </Form.Item>
-    <Form.Item name="date-time-picker" label="DatePicker[showTime]" {...config}>
-      <DatePicker showTime format="YYYY-MM-DD HH:mm:ss" />
-    </Form.Item>
-    <Form.Item name="month-picker" label="MonthPicker" {...config}>
-      <DatePicker picker="month" />
-    </Form.Item>
-    <Form.Item name="range-picker" label="RangePicker" {...rangeConfig}>
-      <RangePicker />
-    </Form.Item>
-    <Form.Item name="range-time-picker" label="RangePicker[showTime]" {...rangeConfig}>
-      <RangePicker showTime format="YYYY-MM-DD HH:mm:ss" />
-    </Form.Item>
-    <Form.Item name="time-picker" label="TimePicker" {...config}>
-      <TimePicker />
-    </Form.Item>
-    <Form.Item label={null}>
-      <Button type="primary" htmlType="submit">
-        Submit
-      </Button>
-    </Form.Item>
-  </Form>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

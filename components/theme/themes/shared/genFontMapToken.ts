@@ -3,8 +3,8 @@ import genFontSizes from './genFontSizes';
 
 const genFontMapToken = (fontSize: number): FontMapToken => {
   const fontSizePairs = genFontSizes(fontSize);
-  const fontSizes = fontSizePairs.map((pair) => pair.size);
-  const lineHeights = fontSizePairs.map((pair) => pair.lineHeight);
+  const fontSizes = fontSizePairs.map((pair) => { throw new Error("STUB"); });
+  const lineHeights = fontSizePairs.map((pair) => { throw new Error("STUB"); });
 
   const fontSizeMD = fontSizes[1];
   const fontSizeSM = fontSizes[0];

@@ -13,8 +13,7 @@ export interface SizeContextProps {
 }
 
 export const SizeContextProvider: React.FC<SizeContextProps> = ({ children, size }) => {
-  const originSize = React.useContext<SizeType>(SizeContext);
-  return <SizeContext.Provider value={size || originSize}>{children}</SizeContext.Provider>;
+    throw new Error("STUB");
 };
 
 export default SizeContext;

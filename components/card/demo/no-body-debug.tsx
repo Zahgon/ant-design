@@ -1,12 +1,6 @@
 import React from 'react';
 import { Card } from 'antd';
 
-const App: React.FC = () => (
-  <Card
-    style={{ width: 300 }}
-    cover={<img alt="example" src="https://api.dicebear.com/10.x/lorelei/svg?seed=8" />}
-    actions={[<span key="setting">setting</span>, <span key="edit">edit</span>]}
-  />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

@@ -27,41 +27,27 @@ const sharedProps: GetProps<typeof DirectoryTree> = {
   treeData,
   defaultExpandAll: true,
   onSelect: (keys, info) => {
-    console.log('Trigger Select', keys, info);
+      throw new Error("STUB");
   },
   onExpand: (keys, info) => {
-    console.log('Trigger Expand', keys, info);
+      throw new Error("STUB");
   },
 };
 
-const DemoOne = () => <DirectoryTree draggable defaultSelectedKeys={['0-0-0']} />;
+const DemoOne = () => { throw new Error("STUB"); };
 
-const DemoTwo = () => <DirectoryTree {...sharedProps} checkable defaultSelectedKeys={['0-1-0']} />;
+const DemoTwo = () => { throw new Error("STUB"); };
 
-const DemoThree = () => (
-  <DirectoryTree {...sharedProps} draggable checkable defaultSelectedKeys={['0-1']} />
-);
+const DemoThree = () => { throw new Error("STUB"); };
 
-const BasicDemo = () => <DirectoryTree {...sharedProps} multiple treeData={treeData} />;
+const BasicDemo = () => { throw new Error("STUB"); };
 
-const NormalDemo = () => <Tree {...sharedProps} defaultSelectedKeys={['0-1']} />;
+const NormalDemo = () => { throw new Error("STUB"); };
 
-const NormalCheckDemo = () => (
-  <Tree {...sharedProps} checkable defaultSelectedKeys={['0-1', '0-0-0', '0-0-1', '0-1-1']} />
-);
+const NormalCheckDemo = () => { throw new Error("STUB"); };
 
-const NormalDragDemo = () => <Tree {...sharedProps} draggable defaultSelectedKeys={['0-1-0']} />;
+const NormalDragDemo = () => { throw new Error("STUB"); };
 
-const App = () => (
-  <Flex wrap gap="large">
-    <DemoOne />
-    <DemoTwo />
-    <DemoThree />
-    <BasicDemo />
-    <NormalDemo />
-    <NormalCheckDemo />
-    <NormalDragDemo />
-  </Flex>
-);
+const App = () => { throw new Error("STUB"); };
 
 export default App;

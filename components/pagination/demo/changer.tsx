@@ -3,26 +3,9 @@ import type { PaginationProps } from 'antd';
 import { Pagination } from 'antd';
 
 const onShowSizeChange: PaginationProps['onShowSizeChange'] = (current, pageSize) => {
-  console.log(current, pageSize);
+    throw new Error("STUB");
 };
 
-const App: React.FC = () => (
-  <>
-    <Pagination
-      showSizeChanger
-      onShowSizeChange={onShowSizeChange}
-      defaultCurrent={3}
-      total={500}
-    />
-    <br />
-    <Pagination
-      showSizeChanger
-      onShowSizeChange={onShowSizeChange}
-      defaultCurrent={3}
-      total={500}
-      disabled
-    />
-  </>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

@@ -23,65 +23,11 @@ const locales = {
 };
 
 const Block: React.FC<MentionProps> = (props) => {
-  const divRef = React.useRef<HTMLDivElement>(null);
-  const memoizedValue = React.useMemo<React.ContextType<typeof UnstableContext>>(
-    () => ({ open: true }),
-    [],
-  );
-  return (
-    <div ref={divRef} style={{ position: 'absolute', height: 200, overflow: 'hidden' }}>
-      <UnstableContext.Provider value={memoizedValue}>
-        <Mentions
-          {...props}
-          placement="bottom"
-          style={{ width: '100%' }}
-          value="Hi, @"
-          allowClear
-          getPopupContainer={() => divRef.current!}
-          styles={{
-            popup: {
-              zIndex: 1,
-            },
-          }}
-          options={[
-            {
-              value: 'afc163',
-              label: 'afc163',
-            },
-            {
-              value: 'zombieJ',
-              label: 'zombieJ',
-            },
-            {
-              value: 'thinkasany',
-              label: 'thinkasany',
-            },
-            {
-              value: 'meet-student',
-              label: 'meet-student',
-            },
-          ]}
-        />
-      </UnstableContext.Provider>
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Mentions"
-      semantics={[
-        { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'textarea', desc: locale.textarea, version: '6.0.0' },
-        { name: 'suffix', desc: locale.suffix, version: '6.0.0' },
-        { name: 'popup', desc: locale.popup, version: '6.0.0' },
-      ]}
-    >
-      <Block />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

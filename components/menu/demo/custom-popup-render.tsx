@@ -5,49 +5,10 @@ import { createStyles } from 'antd-style';
 
 const { Title, Paragraph } = Typography;
 
-const useStyles = createStyles(({ token }) => ({
-  navigationPopup: {
-    padding: token.padding,
-    minWidth: 480,
-    background: token.colorBgElevated,
-    borderRadius: token.borderRadiusLG,
-    boxShadow: token.boxShadowSecondary,
-  },
-  menuItem: {
-    borderRadius: token.borderRadius,
-    transition: `all ${token.motionDurationSlow}`,
-    cursor: 'pointer',
-    '&:hover': {
-      background: 'rgba(0, 0, 0, 0.02)',
-    },
-  },
-  menuItemSpace: {
-    padding: token.paddingSM,
-  },
-  leadingHeader: {
-    margin: '0 !important',
-    paddingBottom: token.paddingXS,
-    borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
-  },
-  marginLess: {
-    margin: '0 !important',
-  },
-}));
+const useStyles = createStyles(({ token }) => { throw new Error("STUB"); });
 
 const MenuItem = ({ title, description }: { title: string; description: string }) => {
-  const { styles } = useStyles();
-  return (
-    <div className={styles.menuItem}>
-      <Space vertical size={4} className={styles.menuItemSpace}>
-        <Title level={5} className={styles.marginLess}>
-          {title}
-        </Title>
-        <Paragraph type="secondary" className={styles.marginLess}>
-          {description}
-        </Paragraph>
-      </Space>
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 const menuItems = [
@@ -92,48 +53,7 @@ const menuItems = [
 ];
 
 const App: React.FC = () => {
-  const { styles } = useStyles();
-  const popupRender: MenuProps['popupRender'] = (_, { item }) => {
-    return (
-      <Flex className={styles.navigationPopup} vertical gap="medium">
-        <Typography.Title level={3} className={styles.leadingHeader}>
-          {item.title}
-        </Typography.Title>
-        <Row gutter={16}>
-          {React.Children.map(item.children as React.ReactNode, (child) => {
-            if (!React.isValidElement(child)) {
-              return null;
-            }
-            return (
-              <Col span={12} key={child.key}>
-                {child}
-              </Col>
-            );
-          })}
-        </Row>
-      </Flex>
-    );
-  };
-
-  return (
-    <ConfigProvider
-      theme={{
-        components: {
-          Menu: {
-            popupBg: '#fff',
-            horizontalItemSelectedColor: '#1677ff',
-            horizontalItemHoverColor: '#1677ff',
-          },
-          Typography: {
-            titleMarginBottom: 0,
-            titleMarginTop: 0,
-          },
-        },
-      }}
-    >
-      <Menu mode="horizontal" items={menuItems} popupRender={popupRender} />
-    </ConfigProvider>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

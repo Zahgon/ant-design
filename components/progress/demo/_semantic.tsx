@@ -28,58 +28,11 @@ const colorMap = {
 };
 
 const Block: React.FC<Readonly<ProgressProps>> = (props) => {
-  const [gradient, setGradient] = React.useState(false);
-  const [type, setType] = React.useState('line');
-
-  const progressProps: any = {
-    type: type === 'steps' ? 'line' : type,
-    steps: type === 'steps' ? 5 : undefined,
-  };
-
-  return (
-    <Flex vertical gap="medium" style={{ width: '100%' }} align="center">
-      <Flex align="center" gap="medium">
-        <Segmented
-          options={['line', 'steps', 'circle', 'dashboard']}
-          value={type}
-          onChange={setType}
-        />
-        <Switch
-          checked={gradient}
-          value={gradient}
-          onChange={() => setGradient(!gradient)}
-          checkedChildren="Gradient"
-          unCheckedChildren="Gradient"
-        />
-      </Flex>
-      <Flex vertical align="center" style={{ height: 200, width: '100%' }}>
-        <Progress
-          percent={80}
-          {...props}
-          {...progressProps}
-          strokeColor={gradient ? colorMap : undefined!}
-        />
-      </Flex>
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Progress"
-      semantics={[
-        { name: 'root', desc: locale.root },
-        { name: 'body', desc: locale.body },
-        { name: 'rail', desc: locale.rail },
-        { name: 'track', desc: locale.track },
-        { name: 'indicator', desc: locale.indicator },
-      ]}
-    >
-      <Block />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

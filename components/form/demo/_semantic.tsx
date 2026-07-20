@@ -28,61 +28,7 @@ const locales = {
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  const [form] = Form.useForm();
-
-  React.useEffect(() => {
-    form.setFields([
-      {
-        name: 'password',
-        errors: ['Please input your password!', 'Use at least 8 characters.'],
-      },
-    ]);
-  }, [form]);
-
-  return (
-    <SemanticPreview
-      componentName="Form"
-      semantics={[
-        { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'label', desc: locale.label, version: '6.0.0' },
-        { name: 'content', desc: locale.content, version: '6.0.0' },
-        { name: 'help', desc: locale.help, version: '6.4.0' },
-        { name: 'helpItem', desc: locale.helpItem, version: '6.4.0' },
-        { name: 'extra', desc: locale.extra, version: '6.4.0' },
-      ]}
-    >
-      <Form
-        form={form}
-        name="basic"
-        labelCol={{ span: 8 }}
-        wrapperCol={{ span: 16 }}
-        style={{ maxWidth: 600 }}
-        initialValues={{ remember: true }}
-        autoComplete="off"
-      >
-        <Form.Item
-          label="Username"
-          name="username"
-          help="Use 4 to 16 characters."
-          rules={[{ required: true, message: 'Please input your username!' }]}
-        >
-          <Input />
-        </Form.Item>
-        <Form.Item
-          label="Password"
-          name="password"
-          extra="Password must contain letters and numbers."
-          rules={[
-            { required: true, message: 'Please input your password!' },
-            { min: 8, message: 'Use at least 8 characters.' },
-          ]}
-        >
-          <Input.Password />
-        </Form.Item>
-      </Form>
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

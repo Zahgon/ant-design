@@ -42,26 +42,11 @@ const resolvedCache: Record<string, any> = {};
 
 // 归一化路径用于匹配：去掉前导 ../、./ 等
 function normalize(p: string): string {
-  return p
-    .replace(/^(\.\.\/|\.\/)+/, '')
-    .replace(/\/index(\.tsx?)?$/, '')
-    .replace(/\.tsx?$/, '');
+    throw new Error("STUB");
 }
 
 function requireActual(request: string): any {
-  // 'react' / 'react-dom' 等裸模块：交给真实模块（同步 require 兜底）
-  if (!request.startsWith('.') && !request.startsWith('/')) {
-    return nodeRequire(request);
-  }
-  const target = normalize(request);
-  const hitKey = Object.keys(lazyMap).find((key) => normalize(key) === target);
-  if (hitKey && hitKey in resolvedCache) {
-    return resolvedCache[hitKey];
-  }
-  throw new Error(
-    `[vitest requireActual shim] 模块未预加载: ${request}（normalized: ${target}）。` +
-      `请扩展 vitest.setup.ts 的 import.meta.glob 或检查模块加载兼容性。`,
-  );
+    throw new Error("STUB");
 }
 
 // setupFiles 的顶层 await 在测试文件模块求值之前执行，故在此预解析 lazyMap
@@ -69,14 +54,7 @@ function requireActual(request: string): any {
 async function preloadModules() {
   await Promise.all(
     Object.entries(lazyMap).map(async ([key, loader]) => {
-      if (!(key in resolvedCache)) {
-        try {
-          resolvedCache[key] = await loader();
-        } catch {
-          // 保持失败可见：requireActual 未命中 resolvedCache 时会抛出明确错误。
-          // 不要返回空组件，否则会把兼容性失败记录成空 snapshot。
-        }
-      }
+        throw new Error("STUB");
     }),
   );
 }
@@ -105,7 +83,7 @@ const jestShim: any = {
   requireActual,
   requireMock: requireActual,
   resetModules: vi.resetModules,
-  isolateModules: (fn: () => void) => fn(),
+  isolateModules: (fn: () => void) => { throw new Error("STUB"); },
 };
 
 (globalThis as any).jest = jestShim;
@@ -140,10 +118,7 @@ const ignoreWarns = [
   'You called act',
 ];
 console.error = (...args: any[]) => {
-  const str = args.join('').replace(/\n/g, '');
-  if (ignoreWarns.every((warn) => !str.includes(warn))) {
-    originConsoleErr(...args);
-  }
+    throw new Error("STUB");
 };
 
 type Writeable<T> = { -readonly [P in keyof T]: T[P] };
@@ -151,20 +126,16 @@ type Writeable<T> = { -readonly [P in keyof T]: T[P] };
 export function fillWindowEnv(window: Window | DOMWindow) {
   const win = window as Writeable<Window> & typeof globalThis;
   win.resizeTo = (width, height) => {
-    win.innerWidth = width || win.innerWidth;
-    win.innerHeight = height || win.innerHeight;
-    win.dispatchEvent(new Event('resize'));
+      throw new Error("STUB");
   };
-  win.scrollTo = () => {};
+  win.scrollTo = () => {
+      throw new Error("STUB");
+  };
   if (!win.matchMedia) {
     Object.defineProperty(win, 'matchMedia', {
       writable: true,
       configurable: true,
-      value: vi.fn((query: string) => ({
-        matches: query.includes('max-width'),
-        addEventListener: vi.fn(),
-        removeEventListener: vi.fn(),
-      })),
+      value: vi.fn((query: string) => { throw new Error("STUB"); }),
     });
   }
   win.AnimationEvent = win.AnimationEvent || (win.Event as any);
@@ -174,30 +145,7 @@ export function fillWindowEnv(window: Window | DOMWindow) {
 
   const originalGetComputedStyle = win.getComputedStyle;
   win.getComputedStyle = (elt: Element, pseudoElt?: string | null) => {
-    if (pseudoElt) {
-      return {
-        getPropertyValue: (prop: string) => {
-          const defaults: Record<string, string> = {
-            width: '0px',
-            height: '0px',
-            padding: '0px',
-            margin: '0px',
-            border: '0px',
-            'background-color': 'transparent',
-            color: 'rgb(0, 0, 0)',
-            'font-size': '16px',
-            'line-height': 'normal',
-            display: 'block',
-            position: 'static',
-            overflow: 'visible',
-            'overflow-x': 'visible',
-            'overflow-y': 'visible',
-          };
-          return defaults[prop] || '';
-        },
-      } as CSSStyleDeclaration;
-    }
-    return originalGetComputedStyle.call(win, elt, pseudoElt);
+      throw new Error("STUB");
   };
 }
 
@@ -213,41 +161,21 @@ if (typeof MessageChannel === 'undefined') {
     port1: any;
     port2: any;
     constructor() {
-      // 用闭包引用 port，避免 postMessage 作为回调被解构/unbound 调用时 this 丢失。
-      const createPort = (): any => {
-        const port: any = {
-          onmessage: null,
-          postMessage: (message: any) => {
-            setTimeout(() => {
-              port._target?.onmessage?.({ data: message });
-            }, 0);
-          },
-          _target: null,
-        };
-        return port;
-      };
-      const port1 = createPort();
-      const port2 = createPort();
-      port1._target = port2;
-      port2._target = port1;
-      this.port1 = port1;
-      this.port2 = port2;
+        throw new Error("STUB");
     }
   };
 }
 
 // Mock useId 返回稳定 id（snapshot 稳定）
 vi.mock('react', async () => {
-  const originReact = await vi.importActual<typeof import('react')>('react');
-  if (process.env.MOCK_USE_ID !== 'false') {
-    return { ...originReact, useId: () => 'test-id' };
-  }
-  return { ...originReact };
+    throw new Error("STUB");
 });
 
 global.ResizeObserver = class ResizeObserver {
   observe() {}
-  unobserve() {}
+  unobserve() {
+      throw new Error("STUB");
+  }
   disconnect() {}
 };
 
@@ -256,12 +184,14 @@ if (typeof HTMLCanvasElement !== 'undefined') {
   Object.defineProperty(HTMLCanvasElement.prototype, 'getContext', {
     configurable: true,
     writable: true,
-    value: vi.fn(() => null),
+    value: vi.fn(() => { throw new Error("STUB"); }),
   });
 }
 
 if (global.HTMLElement) {
-  global.HTMLElement.prototype.scrollIntoView = () => {};
+  global.HTMLElement.prototype.scrollIntoView = () => {
+      throw new Error("STUB");
+  };
 }
 
 /* -------------------------------------------------------------------------- */
@@ -275,11 +205,7 @@ function cleanup(node: HTMLElement) {
   const childList = Array.from(node.childNodes);
   node.innerHTML = '';
   childList.forEach((child) => {
-    if (!(child instanceof Text)) {
-      node.appendChild(cleanup(child as any));
-    } else if (child.textContent) {
-      node.appendChild(child);
-    }
+      throw new Error("STUB");
   });
   return node;
 }
@@ -287,7 +213,7 @@ function cleanup(node: HTMLElement) {
 function formatHTML(nodes: SnapshotTarget) {
   let cloneNodes: Node | Node[];
   if (Array.isArray(nodes) || nodes instanceof HTMLCollection || nodes instanceof NodeList) {
-    cloneNodes = Array.from(nodes).map((node) => cleanup(node.cloneNode(true) as HTMLElement));
+    cloneNodes = Array.from(nodes).map((node) => { throw new Error("STUB"); });
   } else {
     cloneNodes = cleanup(nodes.cloneNode(true) as HTMLElement);
   }
@@ -296,32 +222,20 @@ function formatHTML(nodes: SnapshotTarget) {
   });
   return htmlContent
     .split('\n')
-    .filter((line) => line.trim())
+    .filter((line) => { throw new Error("STUB"); })
     .join('\n');
 }
 
 expect.addSnapshotSerializer({
   test: (element) =>
-    typeof HTMLElement !== 'undefined' &&
-    (element instanceof HTMLElement ||
-      element instanceof DocumentFragment ||
-      element instanceof HTMLCollection ||
-      (Array.isArray(element) && element[0] instanceof HTMLElement)),
-  print: (element) => formatHTML(element as SnapshotTarget),
+    { throw new Error("STUB"); },
+  print: (element) => { throw new Error("STUB"); },
 });
 
 expect.addSnapshotSerializer({
-  test: (node: any) => node && typeof node === 'object' && node.type === 'demo' && node.html,
+  test: (node: any) => { throw new Error("STUB"); },
   print: (node: any) => {
-    const container = document.createElement('div');
-    container.innerHTML = node.html;
-    const children = Array.from(container.childNodes).filter((n) => n.nodeName !== 'LINK');
-    children.forEach((ele: any) => {
-      if (typeof ele.removeAttribute === 'function') {
-        ele.removeAttribute('data-reactroot');
-      }
-    });
-    return formatHTML((children.length > 1 ? children : children[0]) as SnapshotTarget);
+      throw new Error("STUB");
   },
 });
 

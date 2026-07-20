@@ -17,7 +17,7 @@ function isPtg(itemSize: string | number | undefined): itemSize is string {
  * Align the size into flex percentage base.
  */
 export default function useSizes(items: PanelProps[], containerSize?: number) {
-  const propSizes = items.map((item) => item.size);
+  const propSizes = items.map((item) => { throw new Error("STUB"); });
 
   const itemsCount = items.length;
 
@@ -27,33 +27,21 @@ export default function useSizes(items: PanelProps[], containerSize?: number) {
   // We do not need care the size state match the `items` length in `useState`.
   // It will calculate later.
   const [innerSizes, setInnerSizes] = React.useState<(string | number | undefined)[]>(() =>
-    items.map((item) => item.defaultSize),
+    { throw new Error("STUB"); },
   );
   const sizes = React.useMemo(() => {
-    // If any panel has a `size` passed as a prop, use `propSizes` and calculate all other panel sizes that don't have a `size` defined by the prop.
-    // If no panel has received a value for the `size` prop, use `innerSizes`.
-    return propSizes.some(isNonNullable) ? propSizes : innerSizes;
+      throw new Error("STUB");
   }, [itemsCount, innerSizes, propSizes]);
 
   const postPercentMinSizes = React.useMemo(
     () =>
-      items.map((item) => {
-        if (isPtg(item.min)) {
-          return getPtg(item.min);
-        }
-        return (item.min || 0) / mergedContainerSize;
-      }),
+      { throw new Error("STUB"); },
     [items, mergedContainerSize],
   );
 
   const postPercentMaxSizes = React.useMemo(
     () =>
-      items.map((item) => {
-        if (isPtg(item.max)) {
-          return getPtg(item.max);
-        }
-        return (item.max || mergedContainerSize) / mergedContainerSize;
-      }),
+      { throw new Error("STUB"); },
     [items, mergedContainerSize],
   );
 
@@ -62,36 +50,17 @@ export default function useSizes(items: PanelProps[], containerSize?: number) {
   // 2. Get rest percentage for exist percentage.
   // 3. Fill the rest percentage into empty item.
   const postPercentSizes = React.useMemo(() => {
-    const ptgList: (number | undefined)[] = [];
-
-    // Fill default percentage
-    for (let i = 0; i < itemsCount; i += 1) {
-      const itemSize = sizes[i];
-
-      if (isPtg(itemSize)) {
-        ptgList[i] = getPtg(itemSize);
-      } else if (itemSize || itemSize === 0) {
-        const num = Number(itemSize);
-        if (!Number.isNaN(num)) {
-          ptgList[i] = num / mergedContainerSize;
-        }
-      } else {
-        ptgList[i] = undefined;
-      }
-    }
-
-    // Use autoPtgSizes to handle the undefined sizes
-    return autoPtgSizes(ptgList, postPercentMinSizes, postPercentMaxSizes);
+      throw new Error("STUB");
   }, [itemsCount, sizes, mergedContainerSize, postPercentMinSizes, postPercentMaxSizes]);
 
   const postPxSizes = React.useMemo(
-    () => postPercentSizes.map(ptg2px),
+    () => { throw new Error("STUB"); },
     [postPercentSizes, mergedContainerSize],
   );
 
   // If ssr, we will use the size from developer config first.
   const panelSizes = React.useMemo(
-    () => (containerSize ? postPxSizes : sizes),
+    () => { throw new Error("STUB"); },
     [postPxSizes, sizes, containerSize],
   );
 

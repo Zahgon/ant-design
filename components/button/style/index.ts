@@ -14,136 +14,7 @@ export type { ComponentToken };
 
 // ============================== Shared ==============================
 const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => {
-  const {
-    componentCls,
-    iconCls,
-    fontWeight,
-    opacityLoading,
-    motionDurationSlow,
-    motionEaseInOut,
-    iconGap,
-    calc,
-  } = token;
-
-  return {
-    [componentCls]: {
-      outline: 'none',
-      position: 'relative',
-      display: 'inline-flex',
-      gap: iconGap,
-      alignItems: 'center',
-      justifyContent: 'center',
-      fontWeight,
-      whiteSpace: 'nowrap',
-      textAlign: 'center',
-      backgroundImage: 'none',
-      cursor: 'pointer',
-      transition: `all ${token.motionDurationMid} ${token.motionEaseInOut}`,
-      userSelect: 'none',
-      touchAction: 'manipulation',
-      ...genNoMotionStyle(),
-      '&:disabled > *': {
-        pointerEvents: 'none',
-      },
-
-      // https://github.com/ant-design/ant-design/issues/51380
-      [`${componentCls}-icon > svg`]: resetIcon(),
-
-      // https://github.com/ant-design/ant-design/issues/57727
-      [`${componentCls}-icon`]: {
-        display: 'inline-flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-
-        [iconCls]: {
-          verticalAlign: 'middle',
-
-          // Baseline will align the first element.
-          // So the Button with SVG will make the baseline to be the bottom of the SVG.
-          // Let's use `:before` to add a space to make the baseline to be the center of the Button.
-          // https://github.com/ant-design/ant-design/issues/58428
-          '&:before': {
-            content: '"\\a0"',
-            display: 'inline-block',
-            width: 0,
-          },
-        },
-      },
-
-      '> a': {
-        color: 'currentColor',
-      },
-
-      '&:not(:disabled)': genFocusStyle(token),
-
-      [`&${componentCls}-two-chinese-chars::first-letter`]: {
-        letterSpacing: '0.34em',
-      },
-
-      [`&${componentCls}-two-chinese-chars > *:not(${iconCls})`]: {
-        marginInlineEnd: '-0.34em',
-        letterSpacing: '0.34em',
-      },
-
-      [`&${componentCls}-icon-only`]: {
-        paddingInline: 0,
-
-        // make `btn-icon-only` not too narrow
-        [`&${componentCls}-compact-item`]: {
-          flex: 'none',
-        },
-      },
-
-      // Loading
-      [`&${componentCls}-loading`]: {
-        opacity: opacityLoading,
-        cursor: 'default',
-      },
-
-      [`${componentCls}-loading-icon`]: {
-        transition: ['width', 'opacity', 'margin']
-          .map((prop) => `${prop} ${motionDurationSlow} ${motionEaseInOut}`)
-          .join(','),
-      },
-
-      // iconPlacement
-      [`&:not(${componentCls}-icon-end)`]: {
-        [`${componentCls}-loading-icon-motion`]: {
-          '&-appear-start, &-enter-start': {
-            marginInlineEnd: calc(iconGap).mul(-1).equal(),
-          },
-          '&-appear-active, &-enter-active': {
-            marginInlineEnd: 0,
-          },
-          '&-leave-start': {
-            marginInlineEnd: 0,
-          },
-          '&-leave-active': {
-            marginInlineEnd: calc(iconGap).mul(-1).equal(),
-          },
-        },
-      },
-
-      '&-icon-end': {
-        flexDirection: 'row-reverse',
-
-        [`${componentCls}-loading-icon-motion`]: {
-          '&-appear-start, &-enter-start': {
-            marginInlineStart: calc(iconGap).mul(-1).equal(),
-          },
-          '&-appear-active, &-enter-active': {
-            marginInlineStart: 0,
-          },
-          '&-leave-start': {
-            marginInlineStart: 0,
-          },
-          '&-leave-active': {
-            marginInlineStart: calc(iconGap).mul(-1).equal(),
-          },
-        },
-      },
-    },
-  };
+    throw new Error("STUB");
 };
 
 // ============================== Shape ===============================
@@ -199,74 +70,26 @@ const genButtonStyle = (token: ButtonToken, prefixCls = ''): CSSInterpolation =>
 };
 
 const genSizeBaseButtonStyle: GenerateStyle<ButtonToken> = (token) => {
-  const baseToken = mergeToken<ButtonToken>(token, {
-    fontSize: token.contentFontSize,
-  });
-  return genButtonStyle(baseToken, token.componentCls);
+    throw new Error("STUB");
 };
 
 const genSizeSmallButtonStyle: GenerateStyle<ButtonToken> = (token) => {
-  const smallToken = mergeToken<ButtonToken>(token, {
-    controlHeight: token.controlHeightSM,
-    fontSize: token.contentFontSizeSM,
-    padding: token.paddingXS,
-    buttonPaddingHorizontal: token.paddingInlineSM,
-    buttonPaddingVertical: 0,
-    borderRadius: token.borderRadiusSM,
-    buttonIconOnlyFontSize: token.onlyIconSizeSM,
-  });
-
-  return genButtonStyle(smallToken, `${token.componentCls}-sm`);
+    throw new Error("STUB");
 };
 
 const genSizeLargeButtonStyle: GenerateStyle<ButtonToken> = (token) => {
-  const largeToken = mergeToken<ButtonToken>(token, {
-    controlHeight: token.controlHeightLG,
-    fontSize: token.contentFontSizeLG,
-    buttonPaddingHorizontal: token.paddingInlineLG,
-    buttonPaddingVertical: 0,
-    borderRadius: token.borderRadiusLG,
-    buttonIconOnlyFontSize: token.onlyIconSizeLG,
-  });
-
-  return genButtonStyle(largeToken, `${token.componentCls}-lg`);
+    throw new Error("STUB");
 };
 
 const genBlockButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => {
-  const { componentCls } = token;
-  return {
-    [componentCls]: {
-      [`&${componentCls}-block`]: {
-        width: '100%',
-      },
-    },
-  };
+    throw new Error("STUB");
 };
 
 // ============================== Export ==============================
 export default genStyleHooks(
   'Button',
   (token) => {
-    const buttonToken = prepareToken(token);
-
-    return [
-      // Shared
-      genSharedButtonStyle(buttonToken),
-
-      // Size
-      genSizeBaseButtonStyle(buttonToken),
-      genSizeSmallButtonStyle(buttonToken),
-      genSizeLargeButtonStyle(buttonToken),
-
-      // Block
-      genBlockButtonStyle(buttonToken),
-
-      // Variant
-      genVariantStyle(buttonToken),
-
-      // Button Group
-      genGroupStyle(buttonToken),
-    ];
+      throw new Error("STUB");
   },
   prepareComponentToken,
   {

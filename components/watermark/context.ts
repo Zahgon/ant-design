@@ -6,7 +6,9 @@ export interface WatermarkContextProps {
   remove: (ele: HTMLElement) => void;
 }
 
-function voidFunc() {}
+function voidFunc() {
+    throw new Error("STUB");
+}
 
 const WatermarkContext = React.createContext<WatermarkContextProps>({
   add: voidFunc,
@@ -18,15 +20,7 @@ export function usePanelRef(panelSelector?: string) {
 
   const panelEleRef = React.useRef<HTMLElement>(null);
   const panelRef = useEvent((ele: HTMLElement | null) => {
-    if (ele) {
-      const innerContentEle = panelSelector ? ele.querySelector<HTMLElement>(panelSelector) : ele;
-      if (innerContentEle) {
-        watermark.add(innerContentEle);
-        panelEleRef.current = innerContentEle;
-      }
-    } else {
-      watermark.remove(panelEleRef.current!);
-    }
+      throw new Error("STUB");
   });
 
   return panelRef;

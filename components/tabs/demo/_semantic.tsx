@@ -34,50 +34,11 @@ const locales = {
 };
 
 const Block: React.FC<Readonly<TabsProps>> = (props) => {
-  return (
-    <Tabs
-      {...props}
-      defaultActiveKey="1"
-      type="editable-card"
-      style={{ height: 220, width: '100%' }}
-      styles={{
-        popup: {
-          root: { background: '#fff' },
-        },
-        indicator: { visibility: 'visible' },
-      }}
-      items={Array.from({ length: 30 }, (_, i) => {
-        const id = String(i);
-        return {
-          label: `Tab-${id}`,
-          key: id,
-          disabled: i === 28,
-          children: `Content of tab ${id}`,
-        };
-      })}
-    />
-  );
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Tabs"
-      semantics={[
-        { name: 'root', desc: locale.root },
-        { name: 'header', desc: locale.header },
-        { name: 'item', desc: locale.item },
-        { name: 'remove', desc: locale.remove, version: '6.4.0' },
-        { name: 'indicator', desc: locale.indicator },
-        { name: 'body', desc: locale.body },
-        { name: 'content', desc: locale.content },
-        { name: 'popup.root', desc: locale['popup.root'] },
-      ]}
-    >
-      <Block />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

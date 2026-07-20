@@ -1,13 +1,6 @@
 import React from 'react';
 import { Cascader, Flex } from 'antd';
 
-const App: React.FC = () => (
-  <Flex vertical gap="medium">
-    <Cascader placeholder="Please select" variant="borderless" />
-    <Cascader placeholder="Please select" variant="filled" />
-    <Cascader placeholder="Please select" variant="outlined" />
-    <Cascader placeholder="Please select" variant="underlined" />
-  </Flex>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

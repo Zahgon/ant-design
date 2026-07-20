@@ -278,17 +278,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken, CSSObject> = (token) => 
 };
 
 const genArrowStyle: GenerateStyle<CollapseToken, CSSObject> = (token) => {
-  const { componentCls } = token;
-
-  const fixedSelector = `> ${componentCls}-item > ${componentCls}-header ${componentCls}-arrow`;
-
-  return {
-    [`${componentCls}-rtl`]: {
-      [fixedSelector]: {
-        transform: `rotate(180deg)`,
-      },
-    },
-  };
+    throw new Error("STUB");
 };
 
 const genBorderlessStyle: GenerateStyle<CollapseToken, CSSObject> = (token) => {
@@ -328,57 +318,17 @@ const genBorderlessStyle: GenerateStyle<CollapseToken, CSSObject> = (token) => {
 };
 
 const genGhostStyle: GenerateStyle<CollapseToken, CSSObject> = (token) => {
-  const { componentCls, paddingSM } = token;
-
-  return {
-    [`${componentCls}-ghost`]: {
-      backgroundColor: 'transparent',
-      border: 0,
-      [`> ${componentCls}-item`]: {
-        borderBottom: 0,
-        [`> ${componentCls}-panel`]: {
-          backgroundColor: 'transparent',
-          border: 0,
-          [`> ${componentCls}-body`]: {
-            paddingBlock: paddingSM,
-          },
-        },
-      },
-    },
-  };
+    throw new Error("STUB");
 };
 
 export const prepareComponentToken: GetDefaultToken<'Collapse'> = (token) => {
-  const componentToken: ComponentToken = {
-    headerPadding: `${unit(token.paddingSM)} ${unit(token.padding)}`,
-    headerPaddingSM: `${unit(token.paddingXS)} ${unit(token.paddingSM)} ${unit(token.paddingXS)} ${unit(token.paddingXS)}`,
-    headerPaddingLG: `${unit(token.padding)} ${unit(token.paddingLG)} ${unit(token.padding)} ${unit(token.padding)}`,
-    headerBg: token.colorFillAlter,
-    contentPadding: `${unit(token.padding)} ${unit(16)}`, // Fixed Value
-    contentPaddingSM: token.paddingSM,
-    contentPaddingLG: token.paddingLG,
-    contentBg: token.colorBgContainer,
-    borderlessContentPadding: `${unit(token.paddingXXS)} ${unit(16)} ${unit(token.padding)}`,
-    borderlessContentBg: 'transparent',
-  };
-
-  return componentToken;
+    throw new Error("STUB");
 };
 
 export default genStyleHooks(
   'Collapse',
   (token) => {
-    const collapseToken = mergeToken<CollapseToken>(token, {
-      collapsePanelBorderRadius: token.borderRadiusLG,
-    });
-
-    return [
-      genBaseStyle(collapseToken),
-      genBorderlessStyle(collapseToken),
-      genGhostStyle(collapseToken),
-      genArrowStyle(collapseToken),
-      genCollapseMotion(collapseToken),
-    ];
+      throw new Error("STUB");
   },
   prepareComponentToken,
 );

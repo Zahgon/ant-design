@@ -3,13 +3,7 @@ import { Flex, Image } from 'antd';
 import type { GetProp, ImageProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
-const classNames = createStaticStyles(({ css }) => ({
-  root: css`
-    padding: 4px;
-    border-radius: 8px;
-    overflow: hidden;
-  `,
-}));
+const classNames = createStaticStyles(({ css }) => { throw new Error("STUB"); });
 
 const styles: ImageProps['styles'] = {
   image: {
@@ -18,37 +12,11 @@ const styles: ImageProps['styles'] = {
 };
 
 const stylesFn: ImageProps['styles'] = (info): GetProp<ImageProps, 'styles', 'Return'> => {
-  if (info.props.preview) {
-    return {
-      root: {
-        border: '2px solid #A594F9',
-        borderRadius: 8,
-        padding: 4,
-        transition: 'all 0.3s ease',
-      },
-      image: {
-        borderRadius: 4,
-        filter: 'grayscale(50%)',
-      },
-    };
-  }
-  return {};
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const sharedProps: ImageProps = {
-    src: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-    width: 160,
-    alt: 'Example image',
-    classNames,
-  };
-
-  return (
-    <Flex gap="medium">
-      <Image {...sharedProps} styles={styles} />
-      <Image {...sharedProps} styles={stylesFn} preview={{ open: false }} />
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

@@ -17,41 +17,11 @@ type PositionType = 'left' | 'right';
 type TabBarExtraMap = Partial<Record<PositionType, React.ReactNode>>;
 
 const items = Array.from({ length: 3 }).map((_, i) => {
-  const id = String(i + 1);
-  return {
-    label: `Tab ${id}`,
-    key: id,
-    children: `Content of tab ${id}`,
-  };
+    throw new Error("STUB");
 });
 
 const App: React.FC = () => {
-  const [position, setPosition] = useState<PositionType[]>(['left', 'right']);
-
-  const slot = useMemo(() => {
-    if (position.length === 0) {
-      return null;
-    }
-    return position.reduce<TabBarExtraMap>(
-      (acc, direction) => ({ ...acc, [direction]: operationsSlot[direction] }),
-      {},
-    );
-  }, [position]);
-
-  return (
-    <>
-      <Tabs tabBarExtraContent={operations} items={items} />
-      <br />
-      <br />
-      <br />
-      <div>You can also specify its direction or both side</div>
-      <Divider />
-      <CheckboxGroup<PositionType> options={options} value={position} onChange={setPosition} />
-      <br />
-      <br />
-      <Tabs tabBarExtraContent={slot} items={items} />
-    </>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

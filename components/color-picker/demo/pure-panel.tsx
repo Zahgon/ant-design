@@ -7,12 +7,7 @@ const { _InternalPanelDoNotUseOrYouWillBeFired: PureRenderColorPicker } = ColorP
 type Color = GetProp<ColorPickerProps, 'value'>;
 
 const Demo: React.FC = () => {
-  const [color, setColor] = useState<Color>('#1677ff');
-  return (
-    <div style={{ paddingInlineStart: 100 }}>
-      <PureRenderColorPicker value={color} onChange={setColor} />
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 export default Demo;

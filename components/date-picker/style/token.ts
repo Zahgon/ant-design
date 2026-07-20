@@ -198,11 +198,4 @@ export const initPanelComponentToken = (token: GlobalToken): PanelComponentToken
   return filledToken;
 };
 
-export const prepareComponentToken: GetDefaultToken<'DatePicker'> = (token) => ({
-  ...initComponentToken(token),
-  ...initPanelComponentToken(token),
-  ...getArrowToken(token),
-  presetsWidth: 120,
-  presetsMaxWidth: 200,
-  zIndexPopup: token.zIndexPopupBase + 50,
-});
+export const prepareComponentToken: GetDefaultToken<'DatePicker'> = (token) => { throw new Error("STUB"); };

@@ -3,11 +3,7 @@ import { ColorPicker, Flex, Space } from 'antd';
 import type { ColorPickerProps, GetProp } from 'antd';
 import { createStyles } from 'antd-style';
 
-const useStyles = createStyles(({ token }) => ({
-  root: {
-    borderRadius: token.borderRadius,
-  },
-}));
+const useStyles = createStyles(({ token }) => { throw new Error("STUB"); });
 
 const stylesObject: ColorPickerProps['styles'] = {
   popup: {
@@ -20,41 +16,11 @@ const stylesObject: ColorPickerProps['styles'] = {
 const stylesFn: ColorPickerProps['styles'] = (
   info,
 ): GetProp<ColorPickerProps, 'styles', 'Return'> => {
-  if (info.props.size === 'large') {
-    return {
-      popup: {
-        root: {
-          border: '1px solid #722ed1',
-        },
-      },
-    };
-  }
-  return {};
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const { styles: classNames } = useStyles();
-  return (
-    <Space size={[8, 16]} wrap>
-      <Flex gap="small">
-        <ColorPicker
-          defaultValue="#1677ff"
-          arrow={false}
-          styles={stylesObject}
-          classNames={classNames}
-        />
-      </Flex>
-      <Flex gap="small">
-        <ColorPicker
-          defaultValue="#722ed1"
-          size="large"
-          styles={stylesFn}
-          arrow={false}
-          classNames={classNames}
-        />
-      </Flex>
-    </Space>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

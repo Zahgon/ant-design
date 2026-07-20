@@ -14,11 +14,7 @@ interface DataType {
 // In the fifth row, other columns are merged into first column
 // by setting it's colSpan to be 0
 const sharedOnCell = (_: DataType, index?: number) => {
-  if (index === 1) {
-    return { colSpan: 0 };
-  }
-
-  return {};
+    throw new Error("STUB");
 };
 
 const columns: TableProps<DataType>['columns'] = [
@@ -30,10 +26,8 @@ const columns: TableProps<DataType>['columns'] = [
   {
     title: 'Name',
     dataIndex: 'name',
-    render: (text) => <a>{text}</a>,
-    onCell: (_, index) => ({
-      colSpan: index === 1 ? 5 : 1,
-    }),
+    render: (text) => { throw new Error("STUB"); },
+    onCell: (_, index) => { throw new Error("STUB"); },
   },
   {
     title: 'Age',
@@ -45,18 +39,7 @@ const columns: TableProps<DataType>['columns'] = [
     colSpan: 2,
     dataIndex: 'tel',
     onCell: (_, index) => {
-      if (index === 3) {
-        return { rowSpan: 2 };
-      }
-      // These two are merged into above cell
-      if (index === 4) {
-        return { rowSpan: 0 };
-      }
-      if (index === 1) {
-        return { colSpan: 0 };
-      }
-
-      return {};
+        throw new Error("STUB");
     },
   },
   {
@@ -115,6 +98,6 @@ const data: DataType[] = [
   },
 ];
 
-const App: React.FC = () => <Table<DataType> columns={columns} dataSource={data} bordered />;
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

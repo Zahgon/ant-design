@@ -88,37 +88,7 @@ interface IconProps {
 }
 
 const Icon: React.FC<IconProps> = ({ icon, status, className, style }) => {
-  if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning('Result');
-    warning(
-      !(typeof icon === 'string' && icon.length > 2),
-      'breaking',
-      `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
-    );
-  }
-
-  if (ExceptionStatus.includes(`${status}`)) {
-    const SVGComponent = ExceptionMap[status as ExceptionStatusType];
-    return (
-      <div className={className} style={style}>
-        <SVGComponent />
-      </div>
-    );
-  }
-
-  const iconNode = React.createElement(
-    IconMap[status as Exclude<ResultStatusType, ExceptionStatusType>],
-  );
-
-  if (icon === null || icon === false) {
-    return null;
-  }
-
-  return (
-    <div className={className} style={style}>
-      {icon || iconNode}
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 interface ExtraProps {
@@ -128,14 +98,7 @@ interface ExtraProps {
 }
 
 const Extra: React.FC<ExtraProps> = ({ className, extra, style }) => {
-  if (!isReactRenderable(extra)) {
-    return null;
-  }
-  return (
-    <div className={className} style={style}>
-      {extra}
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 export interface ResultType extends React.FC<ResultProps> {
@@ -145,106 +108,7 @@ export interface ResultType extends React.FC<ResultProps> {
 }
 
 const Result: ResultType = (props) => {
-  const {
-    prefixCls: customizePrefixCls,
-    className: customizeClassName,
-    rootClassName,
-    subTitle,
-    title,
-    style,
-    children,
-    status = 'info',
-    icon,
-    extra,
-    styles,
-    classNames,
-    ...rest
-  } = props;
-
-  const {
-    getPrefixCls,
-    direction,
-    className: contextClassName,
-    style: contextStyle,
-    classNames: contextClassNames,
-    styles: contextStyles,
-  } = useComponentConfig('result');
-
-  // =========== Merged Props for Semantic ==========
-  const mergedProps: ResultProps = {
-    ...props,
-    status,
-  };
-
-  const contextStyleRoot = useSemanticRootStyle(contextStyle);
-  const styleRoot = useSemanticRootStyle(style);
-
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    ResultSemanticAllType['classNames'],
-    ResultSemanticAllType['styles'],
-    ResultProps
-  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
-    props: mergedProps,
-  });
-
-  const prefixCls = getPrefixCls('result', customizePrefixCls);
-
-  // Style
-  const [hashId, cssVarCls] = useStyle(prefixCls);
-
-  const rootClassNames = clsx(
-    prefixCls,
-    `${prefixCls}-${status}`,
-    customizeClassName,
-    contextClassName,
-    rootClassName,
-    { [`${prefixCls}-rtl`]: direction === 'rtl' },
-    hashId,
-    cssVarCls,
-    mergedClassNames.root,
-  );
-
-  const titleClassNames = clsx(`${prefixCls}-title`, mergedClassNames.title);
-
-  const subTitleClassNames = clsx(`${prefixCls}-subtitle`, mergedClassNames.subTitle);
-
-  const extraClassNames = clsx(`${prefixCls}-extra`, mergedClassNames.extra);
-
-  const bodyClassNames = clsx(`${prefixCls}-body`, mergedClassNames.body);
-
-  const iconClassNames = clsx(
-    `${prefixCls}-icon`,
-    { [`${prefixCls}-image`]: ExceptionStatus.includes(`${status}`) },
-    mergedClassNames.icon,
-  );
-
-  const rootStyles: React.CSSProperties = {
-    ...mergedStyles.root,
-  };
-
-  const restProps = pickAttrs(rest, { aria: true, data: true });
-
-  return (
-    <div {...restProps} className={rootClassNames} style={rootStyles}>
-      <Icon className={iconClassNames} style={mergedStyles.icon} status={status} icon={icon} />
-      {isReactRenderable(title) && (
-        <div className={titleClassNames} style={mergedStyles.title}>
-          {title}
-        </div>
-      )}
-      {isReactRenderable(subTitle) && (
-        <div className={subTitleClassNames} style={mergedStyles.subTitle}>
-          {subTitle}
-        </div>
-      )}
-      <Extra className={extraClassNames} extra={extra} style={mergedStyles.extra} />
-      {isReactRenderable(children) && (
-        <div className={bodyClassNames} style={mergedStyles.body}>
-          {children}
-        </div>
-      )}
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 Result.PRESENTED_IMAGE_403 = ExceptionMap['403'];

@@ -14,24 +14,7 @@ interface DefaultExpandIconProps<RecordType = AnyObject> {
 
 function renderExpandIcon(locale: TableLocale) {
   return <RecordType extends AnyObject = AnyObject>(props: DefaultExpandIconProps<RecordType>) => {
-    const { prefixCls, onExpand, record, expanded, expandable } = props;
-    const iconPrefix = `${prefixCls}-row-expand-icon`;
-    return (
-      <button
-        type="button"
-        onClick={(e) => {
-          onExpand(record, e!);
-          e.stopPropagation();
-        }}
-        className={clsx(iconPrefix, {
-          [`${iconPrefix}-spaced`]: !expandable,
-          [`${iconPrefix}-expanded`]: expandable && expanded,
-          [`${iconPrefix}-collapsed`]: expandable && !expanded,
-        })}
-        aria-label={expanded ? locale.collapse : locale.expand}
-        aria-expanded={expanded}
-      />
-    );
+      throw new Error("STUB");
   };
 }
 

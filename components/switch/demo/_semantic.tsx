@@ -22,20 +22,7 @@ const locales = {
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Switch"
-      motion
-      semantics={[
-        { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'content', desc: locale.content, version: '6.0.0' },
-        { name: 'indicator', desc: locale.indicator, version: '6.3.0' },
-      ]}
-    >
-      <Switch checkedChildren="ON" unCheckedChildren="OFF" defaultChecked />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

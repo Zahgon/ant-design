@@ -26,7 +26,7 @@ export interface PurePanelProps
 }
 
 const PureFloatButton: React.FC<PureFloatButtonProps> = ({ backTop, ...props }) =>
-  backTop ? <BackTop {...props} visibilityHeight={0} /> : <FloatButton {...props} />;
+  { throw new Error("STUB"); };
 
 /** @private Internal Component. Do not use in your production. */
 const PurePanel: React.FC<PurePanelProps> = ({
@@ -37,33 +37,7 @@ const PurePanel: React.FC<PurePanelProps> = ({
   prefixCls: customizePrefixCls,
   ...restProps
 }) => {
-  const { getPrefixCls } = React.useContext(ConfigContext);
-  const prefixCls = getPrefixCls(floatButtonPrefixCls, customizePrefixCls);
-  const pureCls = `${prefixCls}-pure`;
-
-  if (items) {
-    return (
-      <FloatButtonGroup
-        className={clsx(className, pureCls)}
-        classNames={cls as FloatButtonGroupProps['classNames']}
-        styles={styles as FloatButtonGroupProps['styles']}
-        {...restProps}
-      >
-        {items.map((item, index) => (
-          <PureFloatButton key={index} {...item} />
-        ))}
-      </FloatButtonGroup>
-    );
-  }
-
-  return (
-    <PureFloatButton
-      className={clsx(className, pureCls)}
-      classNames={cls as FloatButtonProps['classNames']}
-      styles={styles as FloatButtonProps['styles']}
-      {...restProps}
-    />
-  );
+    throw new Error("STUB");
 };
 
 export default PurePanel;

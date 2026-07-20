@@ -34,14 +34,7 @@ const alibabaSansFonts = [
 
 const alibabaSansFontFaceStyle = alibabaSansFonts
   .map(
-    ({ weight, url }) => `
-@font-face {
-  font-family: 'AlibabaSans';
-  font-style: normal;
-  font-weight: ${weight};
-  font-display: optional;
-  src: url('${url}') format('woff2');
-}`,
+    ({ weight, url }) => { throw new Error("STUB"); },
   )
   .join('\n');
 
@@ -118,13 +111,7 @@ export default defineConfig({
           analyzerPort: 'auto',
         },
   links: [
-    ...alibabaSansFonts.map(({ url }) => ({
-      rel: 'preload',
-      as: 'font',
-      href: url,
-      type: 'font/woff2',
-      crossorigin: 'anonymous',
-    })),
+    ...alibabaSansFonts.map(({ url }) => { throw new Error("STUB"); }),
     {
       rel: 'prefetch',
       as: 'font',
@@ -261,5 +248,5 @@ export default defineConfig({
       async: true,
       content: fs.readFileSync(path.join(__dirname, '.dumi', 'scripts', 'webmcp.js')).toString(),
     },
-  ].filter((script) => !!script),
+  ].filter((script) => { throw new Error("STUB"); }),
 });

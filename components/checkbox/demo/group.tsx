@@ -20,21 +20,6 @@ const optionsWithDisabled: CheckboxOptionType<string>[] = [
   { label: 'Orange', value: 'Orange', className: 'label-3', disabled: false },
 ];
 
-const App: React.FC = () => (
-  <>
-    <Checkbox.Group options={plainOptions} defaultValue={['Apple']} onChange={onChange} />
-    <br />
-    <br />
-    <Checkbox.Group options={options} defaultValue={['Pear']} onChange={onChange} />
-    <br />
-    <br />
-    <Checkbox.Group
-      options={optionsWithDisabled}
-      disabled
-      defaultValue={['Apple']}
-      onChange={onChange}
-    />
-  </>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

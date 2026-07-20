@@ -23,12 +23,7 @@ const sharedContent = (
 );
 
 const classNames = createStaticStyles(
-  ({ css }): NonNullable<GetProp<DrawerProps, 'classNames', 'Return'>> => ({
-    root: css`
-      border-radius: 10px;
-      padding: 10px;
-    `,
-  }),
+  ({ css }): NonNullable<GetProp<DrawerProps, 'classNames', 'Return'>> => { throw new Error("STUB"); },
 );
 
 const styles: DrawerProps['styles'] = {
@@ -38,78 +33,11 @@ const styles: DrawerProps['styles'] = {
 };
 
 const stylesFn: DrawerProps['styles'] = (info): GetProp<DrawerProps, 'styles', 'Return'> => {
-  if (info.props.footer) {
-    return {
-      header: {
-        padding: 16,
-      },
-      body: {
-        padding: 16,
-      },
-      footer: {
-        padding: '16px 10px',
-        backgroundColor: '#fafafa',
-      },
-    };
-  }
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const [drawerOpen, setDrawerOpen] = useState(false);
-  const [drawerFnOpen, setDrawerFnOpen] = useState(false);
-
-  const sharedProps: DrawerProps = {
-    classNames,
-    size: 500,
-  };
-
-  const footer: React.ReactNode = (
-    <Flex gap="medium" justify="flex-end">
-      <Button
-        onClick={() => setDrawerFnOpen(false)}
-        styles={{ root: { borderColor: '#ccc', color: '#171717', backgroundColor: '#fff' } }}
-      >
-        Cancel
-      </Button>
-      <Button
-        type="primary"
-        styles={{ root: { backgroundColor: '#171717' } }}
-        onClick={() => setDrawerOpen(true)}
-      >
-        Submit
-      </Button>
-    </Flex>
-  );
-
-  return (
-    <Flex gap="medium">
-      <Button onClick={() => setDrawerOpen(true)}>Open Style Drawer</Button>
-      <Button type="primary" onClick={() => setDrawerFnOpen(true)}>
-        Open Function Drawer
-      </Button>
-      <Drawer
-        {...sharedProps}
-        footer={null}
-        title="Custom Style Drawer"
-        styles={styles}
-        open={drawerOpen}
-        onClose={() => setDrawerOpen(false)}
-      >
-        {sharedContent}
-      </Drawer>
-      <Drawer
-        {...sharedProps}
-        footer={footer}
-        title="Custom Function drawer"
-        styles={stylesFn}
-        mask={{ enabled: true, blur: true }}
-        open={drawerFnOpen}
-        onClose={() => setDrawerFnOpen(false)}
-      >
-        {sharedContent}
-      </Drawer>
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

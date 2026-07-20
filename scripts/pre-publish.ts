@@ -69,7 +69,7 @@ const showMessage = (
 };
 
 process.on('SIGINT', () => {
-  process.exit(1);
+    throw new Error("STUB");
 });
 
 const toMB = (bytes: number) => (bytes / 1024 / 1024).toFixed(2);
@@ -84,13 +84,7 @@ async function downloadArtifact(msgKey: string, url: string, filepath: string, t
     headers,
     responseType: 'arraybuffer',
     onDownloadProgress: (progressEvent) => {
-      const { loaded, total = 0 } = progressEvent;
-
-      showMessage(
-        `下载进度 ${toMB(loaded)}MB/${toMB(total)}MB (${((loaded / total) * 100).toFixed(2)}%)`,
-        true,
-        msgKey,
-      );
+        throw new Error("STUB");
     },
   });
 
@@ -149,7 +143,7 @@ const runPrePublish = async () => {
       showMessage(`  点此查看状态：https://github.com/${owner}/${repo}/commit/${sha}`);
 
       failureUrlList.forEach((url) => {
-        showMessage(`  - ${url}`);
+          throw new Error("STUB");
       });
 
       process.exit(1);
@@ -175,72 +169,26 @@ const runPrePublish = async () => {
 
   // 从 github artifact 中下载产物
   const downloadArtifactPromise = Promise.resolve().then(async () => {
-    showMessage('开始查找远程分支构建产物', true, '[Github]');
-
-    const {
-      data: { workflow_runs },
-    } = await octokit.rest.actions.listWorkflowRunsForRepo({
-      owner,
-      repo,
-      head_sha: sha,
-      per_page: 100,
-      exclude_pull_requests: true,
-      event: 'push',
-      status: 'completed',
-      conclusion: 'success',
-      head_branch: currentBranch,
-    });
-    const testWorkflowRun = workflow_runs.find((run) => run.name === '✅ test');
-    if (!testWorkflowRun) {
-      throw new Error('找不到远程构建工作流');
-    }
-
-    const {
-      data: { artifacts },
-    } = await octokit.actions.listWorkflowRunArtifacts({
-      owner,
-      repo,
-      run_id: testWorkflowRun?.id || 0,
-    });
-    const artifact = artifacts.find((item) => item.name === 'build artifacts');
-    if (!artifact) {
-      throw new Error('找不到远程构建产物');
-    }
-
-    showMessage(`准备从远程分支下载构建产物`, true, '[Github]');
-    const { url } = await octokit.rest.actions.downloadArtifact.endpoint({
-      owner,
-      repo,
-      artifact_id: artifact.id,
-      archive_format: 'zip',
-    });
-
-    // 返回下载后的文件路径
-    return downloadArtifact('[Github]', url, 'artifacts.zip', process.env.GITHUB_ACCESS_TOKEN);
+      throw new Error("STUB");
   });
   downloadArtifactPromise
     .then(() => {
-      showMessage(`成功下载构建产物`, 'succeed', '[Github]');
+        throw new Error("STUB");
     })
     .catch((e: Error) => {
-      showMessage(chalk.bgRedBright(e.message), 'fail', '[Github]');
+        throw new Error("STUB");
     });
 
   // 从 OSS 下载产物
   const downloadOSSPromise = Promise.resolve().then(async () => {
-    const url = `https://antd-visual-diff.oss-accelerate.aliyuncs.com/${sha}/oss-artifacts.zip`;
-
-    showMessage(`准备从远程 OSS 下载构建产物`, true, '[OSS]');
-
-    // 返回下载后的文件路径
-    return downloadArtifact('[OSS]', url, 'oss-artifacts.zip');
+      throw new Error("STUB");
   });
   downloadOSSPromise
     .then(() => {
-      showMessage(`成功下载构建产物`, 'succeed', '[OSS]');
+        throw new Error("STUB");
     })
     .catch((e: Error) => {
-      showMessage(chalk.bgRedBright(e.message), 'fail', '[OSS]');
+        throw new Error("STUB");
     });
 
   // 任意一个完成，则完成

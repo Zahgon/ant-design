@@ -27,6 +27,6 @@ const items: CollapseProps['items'] = [
   },
 ];
 
-const App: React.FC = () => <Collapse items={items} bordered={false} defaultActiveKey={['1']} />;
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

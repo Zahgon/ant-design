@@ -3,18 +3,7 @@ import { Flex, Tree } from 'antd';
 import type { GetProp, TreeProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
-const classNames = createStaticStyles(({ css }) => ({
-  root: css`
-    padding: 8px;
-    border-radius: 4px;
-  `,
-  item: css`
-    border-radius: 2px;
-  `,
-  itemTitle: css`
-    font-size: 14px;
-  `,
-}));
+const classNames = createStaticStyles(({ css }) => { throw new Error("STUB"); });
 
 const treeData: TreeProps['treeData'] = [
   {
@@ -55,38 +44,11 @@ const styles: TreeProps['styles'] = {
 };
 
 const stylesFn: TreeProps['styles'] = (info): GetProp<TreeProps, 'styles', 'Return'> => {
-  if (!info.props.checkable) {
-    return {
-      root: {
-        border: `2px solid #E5D9F2`,
-        borderRadius: 4,
-      },
-    };
-  }
-  return {};
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const sharedProps: TreeProps = {
-    treeData,
-    classNames,
-    autoExpandParent: true,
-    checkable: true,
-  };
-  return (
-    <Flex vertical gap="medium">
-      <Tree {...sharedProps} treeData={treeData} styles={styles} />
-      <Tree
-        {...sharedProps}
-        checkable={false}
-        treeData={treeData}
-        styles={stylesFn}
-        defaultExpandedKeys={['0-0-0', '0-0-1']}
-        defaultSelectedKeys={['0-0-1']}
-        defaultCheckedKeys={['0-0-0', '0-0-1']}
-      />
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

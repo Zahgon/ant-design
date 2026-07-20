@@ -39,37 +39,7 @@ const locales = {
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Drawer"
-      semantics={[
-        { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'mask', desc: locale.mask, version: '5.13.0' },
-        { name: 'section', desc: locale.section, version: '6.0.0' },
-        { name: 'header', desc: locale.header, version: '5.13.0' },
-        { name: 'title', desc: locale.title, version: '6.0.0' },
-        { name: 'extra', desc: locale.extra, version: '6.0.0' },
-        { name: 'body', desc: locale.body, version: '5.13.0' },
-        { name: 'footer', desc: locale.footer, version: '5.13.0' },
-        { name: 'dragger', desc: locale.dragger, version: '6.0.0' },
-        { name: 'close', desc: locale.close, version: '6.1.0' },
-      ]}
-    >
-      <Drawer
-        title="Title"
-        placement="right"
-        footer={<Typography.Link>Footer</Typography.Link>}
-        open
-        getContainer={false}
-        extra={<Button>Cancel</Button>}
-        size={300}
-        resizable={{}}
-      >
-        <p>Some contents...</p>
-      </Drawer>
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

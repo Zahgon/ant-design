@@ -17,43 +17,7 @@ export interface SpaceCompactCellProps extends React.HTMLAttributes<HTMLDivEleme
 }
 
 const SpaceAddon = React.forwardRef<HTMLDivElement, SpaceCompactCellProps>((props, ref) => {
-  const {
-    className,
-    children,
-    style,
-    prefixCls: customizePrefixCls,
-    variant = 'outlined',
-    disabled,
-    status,
-    ...restProps
-  } = props;
-  const { getPrefixCls, direction: directionConfig } = React.useContext(ConfigContext);
-
-  const prefixCls = getPrefixCls('space-addon', customizePrefixCls);
-  const [hashId, cssVarCls] = useStyle(prefixCls);
-  const { compactItemClassnames, compactSize } = useCompactItemContext(prefixCls, directionConfig);
-
-  const statusCls = getStatusClassNames(prefixCls, status);
-
-  const classes = clsx(
-    prefixCls,
-    hashId,
-    compactItemClassnames,
-    cssVarCls,
-    `${prefixCls}-variant-${variant}`,
-    statusCls,
-    {
-      [`${prefixCls}-${compactSize}`]: compactSize,
-      [`${prefixCls}-disabled`]: disabled,
-    },
-    className,
-  );
-
-  return (
-    <div ref={ref} className={classes} style={style} {...restProps}>
-      {children}
-    </div>
-  );
+    throw new Error("STUB");
 });
 
 export default SpaceAddon;

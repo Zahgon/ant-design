@@ -32,26 +32,7 @@ const genPickerPadding = (paddingBlock: number, paddingInline: number): CSSObjec
 };
 
 const genPickerStatusStyle: GenerateStyle<PickerToken, CSSObject> = (token) => {
-  const { componentCls, colorError, colorWarning } = token;
-  const [varName] = genCssVar(token.antCls, 'date-picker');
-
-  return {
-    [`${componentCls}:not(${componentCls}-disabled):not([disabled])`]: {
-      [`&${componentCls}-status-error`]: {
-        [varName('affix-color')]: token.colorErrorAffix,
-        [`${componentCls}-active-bar`]: {
-          background: colorError,
-        },
-      },
-
-      [`&${componentCls}-status-warning`]: {
-        [varName('affix-color')]: token.colorWarningAffix,
-        [`${componentCls}-active-bar`]: {
-          background: colorWarning,
-        },
-      },
-    },
-  };
+    throw new Error("STUB");
 };
 
 const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
@@ -109,7 +90,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
         lineHeight: 1,
         borderRadius,
         transition: [`border`, `box-shadow`, `background-color`]
-          .map((prop) => `${prop} ${motionDurationMid}`)
+          .map((prop) => { throw new Error("STUB"); })
           .join(', '),
 
         [`${componentCls}-prefix`]: {
@@ -190,7 +171,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           color: colorTextQuaternary,
           lineHeight: 1,
           pointerEvents: 'none',
-          transition: ['opacity', 'color'].map((prop) => `${prop} ${motionDurationMid}`).join(', '),
+          transition: ['opacity', 'color'].map((prop) => { throw new Error("STUB"); }).join(', '),
 
           '> *': {
             verticalAlign: 'top',
@@ -217,7 +198,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           cursor: 'pointer',
           opacity: 0,
           pointerEvents: 'none',
-          transition: ['opacity', 'color'].map((prop) => `${prop} ${motionDurationMid}`).join(', '),
+          transition: ['opacity', 'color'].map((prop) => { throw new Error("STUB"); }).join(', '),
 
           '> *': {
             verticalAlign: 'top',
@@ -537,28 +518,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
 export default genStyleHooks(
   'DatePicker',
   (token) => {
-    const pickerToken = mergeToken<PickerToken>(
-      initInputToken(token),
-      initPickerPanelToken(token),
-      {
-        inputPaddingHorizontalBase: token.calc(token.paddingSM).sub(1).equal(),
-        multipleSelectItemHeight: token.multipleItemHeight,
-        selectHeight: token.controlHeight,
-      },
-    );
-    return [
-      genPickerPanelStyle(pickerToken),
-      genPickerStyle(pickerToken),
-      genVariantsStyle(pickerToken),
-      genPickerStatusStyle(pickerToken),
-      genPickerMultipleStyle(pickerToken),
-      // =====================================================
-      // ==             Space Compact                       ==
-      // =====================================================
-      genCompactItemStyle(token, {
-        focusElCls: `${token.componentCls}-focused`,
-      }),
-    ];
+      throw new Error("STUB");
   },
   prepareComponentToken,
 );

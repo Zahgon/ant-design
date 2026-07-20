@@ -4,20 +4,7 @@ import type { TableColumnsType } from 'antd';
 import { createStyles } from 'antd-style';
 
 const useStyle = createStyles(({ css, token }) => {
-  const { antCls } = token;
-  return {
-    customTable: css`
-      ${antCls}-table {
-        ${antCls}-table-container {
-          ${antCls}-table-body,
-          ${antCls}-table-content {
-            scrollbar-width: thin;
-            scrollbar-color: #eaeaea transparent;
-          }
-        }
-      }
-    `,
-  };
+    throw new Error("STUB");
 });
 
 interface DataType {
@@ -63,18 +50,18 @@ const columns: TableColumnsType<DataType> = [
     title: 'Action 1',
     fixed: 'end',
     width: 90,
-    render: () => <a>action</a>,
+    render: () => { throw new Error("STUB"); },
   },
   {
     title: 'Action 2',
     width: 90,
-    render: () => <a>action</a>,
+    render: () => { throw new Error("STUB"); },
   },
   {
     title: 'Action 3',
     fixed: 'end',
     width: 90,
-    render: () => <a>action</a>,
+    render: () => { throw new Error("STUB"); },
   },
 ];
 
@@ -84,17 +71,7 @@ const dataSource: DataType[] = [
 ];
 
 const App: React.FC = () => {
-  const { styles } = useStyle();
-  return (
-    <Table<DataType>
-      bordered
-      className={styles.customTable}
-      columns={columns}
-      dataSource={dataSource}
-      scroll={{ x: 'max-content' }}
-      pagination={false}
-    />
-  );
+    throw new Error("STUB");
 };
 
 export default App;

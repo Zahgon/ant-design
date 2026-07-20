@@ -3,14 +3,7 @@ import { Flex, Tabs } from 'antd';
 import type { GetProp, TabsProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
-const classNames = createStaticStyles(({ css }) => ({
-  root: css`
-    border-width: 2px;
-    border-style: dashed;
-    padding: 16px;
-    margin-bottom: 10px;
-  `,
-}));
+const classNames = createStaticStyles(({ css }) => { throw new Error("STUB"); });
 
 const stylesObject: TabsProps['styles'] = {
   root: { borderWidth: 2, borderStyle: 'dashed', padding: 16, marginBottom: 10 },
@@ -22,13 +15,7 @@ const stylesObject: TabsProps['styles'] = {
 };
 
 const stylesFn: TabsProps['styles'] = (info): GetProp<TabsProps, 'styles', 'Return'> => {
-  if (info.props.type === 'card') {
-    return {
-      root: { backgroundColor: 'rgba(250,250,250, 0.8)', borderColor: '#d9d9d9' },
-      header: { textAlign: 'start' },
-    };
-  }
-  return {};
+    throw new Error("STUB");
 };
 
 const items = [
@@ -50,18 +37,7 @@ const items = [
 ];
 
 const App: React.FC = () => {
-  const shareProps: TabsProps = {
-    items,
-    defaultActiveKey: '1',
-    classNames,
-  };
-
-  return (
-    <Flex vertical gap="medium">
-      <Tabs {...shareProps} styles={stylesObject} />
-      <Tabs tabPlacement="start" type="card" {...shareProps} styles={stylesFn} />
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

@@ -4,11 +4,6 @@ import { Slider } from 'antd';
 
 const formatter: NonNullable<SliderSingleProps['tooltip']>['formatter'] = (value) => `${value}%`;
 
-const App: React.FC = () => (
-  <>
-    <Slider tooltip={{ formatter }} />
-    <Slider tooltip={{ formatter: null }} />
-  </>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

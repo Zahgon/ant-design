@@ -24,16 +24,6 @@ const treeData = dig();
 
 const MemoTooltip = React.memo(Tooltip);
 
-const App: React.FC = () => (
-  <Tree
-    treeData={treeData}
-    height={233}
-    defaultExpandAll
-    titleRender={(item) => {
-      const title = item.title as React.ReactNode;
-      return <MemoTooltip title={title}>{title}</MemoTooltip>;
-    }}
-  />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

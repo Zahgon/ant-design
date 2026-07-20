@@ -49,13 +49,13 @@ const columns: TableColumnsType<DataType> = [
     ],
     filterMode: 'tree',
     filterSearch: true,
-    onFilter: (value, record) => record.name.includes(value as string),
+    onFilter: (value, record) => { throw new Error("STUB"); },
     width: '30%',
   },
   {
     title: 'Age',
     dataIndex: 'age',
-    sorter: (a, b) => a.age - b.age,
+    sorter: (a, b) => { throw new Error("STUB"); },
   },
   {
     title: 'Address',
@@ -70,7 +70,7 @@ const columns: TableColumnsType<DataType> = [
         value: 'New York',
       },
     ],
-    onFilter: (value, record) => record.address.startsWith(value as string),
+    onFilter: (value, record) => { throw new Error("STUB"); },
     filterSearch: true,
     width: '40%',
   },
@@ -107,8 +107,6 @@ const onChange: TableProps<DataType>['onChange'] = (pagination, filters, sorter,
   console.log('params', pagination, filters, sorter, extra);
 };
 
-const App: React.FC = () => (
-  <Table<DataType> columns={columns} dataSource={data} onChange={onChange} />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

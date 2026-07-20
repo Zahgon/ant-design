@@ -25,28 +25,7 @@ const locales = {
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Input.Password"
-      semantics={[
-        { name: 'root', desc: locale.root },
-        { name: 'prefix', desc: locale.prefix },
-        { name: 'input', desc: locale.input },
-        { name: 'suffix', desc: locale.suffix },
-        { name: 'clear', desc: locale.clear, version: '6.4.0' },
-        { name: 'count', desc: locale.count },
-      ]}
-    >
-      <Input.Password
-        allowClear
-        showCount
-        prefix={<UserOutlined />}
-        suffix={<EditOutlined />}
-        defaultValue="Hello, Ant Design"
-      />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

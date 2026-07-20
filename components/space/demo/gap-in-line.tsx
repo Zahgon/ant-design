@@ -8,26 +8,7 @@ const style: React.CSSProperties = {
 };
 
 const App: React.FC = () => {
-  const [singleCol, setSingleCol] = useState(false);
-
-  return (
-    <>
-      <Switch
-        checked={singleCol}
-        onChange={() => {
-          setSingleCol(!singleCol);
-        }}
-      />
-      <div style={{ boxShadow: '0 0 5px green' }}>
-        <Space style={{ width: singleCol ? 307 : 310, background: 'blue' }} size={[8, 8]} wrap>
-          <div style={style} />
-          <div style={style} />
-          <div style={style} />
-          <div style={style} />
-        </Space>
-      </div>
-    </>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

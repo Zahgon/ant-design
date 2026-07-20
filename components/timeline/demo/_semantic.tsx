@@ -39,43 +39,7 @@ const locales = {
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Timeline"
-      semantics={[
-        { name: 'root', desc: locale.root },
-        { name: 'item', desc: locale.item },
-        { name: 'itemWrapper', desc: locale.itemWrapper },
-        { name: 'itemIcon', desc: locale.itemIcon },
-        { name: 'itemSection', desc: locale.itemSection },
-        { name: 'itemHeader', desc: locale.itemHeader },
-        { name: 'itemTitle', desc: locale.itemTitle },
-        { name: 'itemContent', desc: locale.itemContent },
-        { name: 'itemRail', desc: locale.itemRail },
-      ]}
-    >
-      <Timeline
-        items={[
-          {
-            title: '2015-09-01',
-            content: 'Create a services',
-          },
-          {
-            title: '2015-09-01 09:12:11',
-            content: 'Solve initial network problems',
-          },
-          {
-            content: 'Technical testing',
-          },
-          {
-            title: '2015-09-01 09:12:11',
-            content: 'Network problems being solved',
-          },
-        ]}
-      />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

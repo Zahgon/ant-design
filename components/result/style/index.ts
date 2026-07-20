@@ -133,41 +133,17 @@ const genStatusIconStyle: GenerateStyle<ResultToken, CSSObject> = (token) => {
   };
 };
 
-const genResultStyle: GenerateStyle<ResultToken> = (token) => [
-  genBaseStyle(token),
-  genStatusIconStyle(token),
-];
+const genResultStyle: GenerateStyle<ResultToken> = (token) => { throw new Error("STUB"); };
 
 // ============================== Export ==============================
 export const prepareComponentToken: GetDefaultToken<'Result'> = (token) => {
-  const { fontSizeHeading3, fontSize, paddingLG } = token;
-  return {
-    titleFontSize: fontSizeHeading3,
-    subtitleFontSize: fontSize,
-    iconFontSize: isNumber(fontSizeHeading3)
-      ? fontSizeHeading3 * 3
-      : `calc(${fontSizeHeading3} * 3)`,
-    extraMargin: `${paddingLG}px 0 0 0`,
-  };
+    throw new Error("STUB");
 };
 
 export default genStyleHooks(
   'Result',
   (token) => {
-    const resultInfoIconColor = token.colorInfo;
-    const resultErrorIconColor = token.colorError;
-    const resultSuccessIconColor = token.colorSuccess;
-    const resultWarningIconColor = token.colorWarning;
-
-    const resultToken = mergeToken<ResultToken>(token, {
-      resultInfoIconColor,
-      resultErrorIconColor,
-      resultSuccessIconColor,
-      resultWarningIconColor,
-      imageWidth: 250,
-      imageHeight: 295,
-    });
-    return genResultStyle(resultToken);
+      throw new Error("STUB");
   },
   prepareComponentToken,
 );

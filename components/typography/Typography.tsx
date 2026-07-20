@@ -25,44 +25,7 @@ interface InternalProps extends React.HTMLAttributes<HTMLElement> {
   prefixCls: string;
 }
 const InternalTypography = React.forwardRef<HTMLElement, InternalProps>((props, ref) => {
-  const {
-    component: Component = 'article',
-    className,
-    rootClassName,
-    children,
-    direction,
-    style,
-    classNames,
-    styles,
-    prefixCls,
-    ...restProps
-  } = props;
-
-  const [hashId, cssVarCls] = useStyle(prefixCls);
-
-  const componentClassName = clsx(
-    prefixCls,
-    {
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-    },
-    className,
-    rootClassName,
-    hashId,
-    cssVarCls,
-    classNames?.root,
-  );
-
-  const mergedStyle: React.CSSProperties = {
-    ...styles?.root,
-    ...style,
-  };
-
-  return (
-    // @ts-expect-error: Expression produces a union type that is too complex to represent.
-    <Component {...restProps} className={componentClassName} style={mergedStyle} ref={ref}>
-      {children}
-    </Component>
-  );
+    throw new Error("STUB");
 });
 
 if (process.env.NODE_ENV !== 'production') {
@@ -71,31 +34,8 @@ if (process.env.NODE_ENV !== 'production') {
 
 const Typography = React.forwardRef<HTMLElement, TypographyProps<keyof JSX.IntrinsicElements>>(
   (props, ref) => {
-    const {
-      prefixCls: customizePrefixCls,
-      className,
-      rootClassName,
-      direction: typographyDirection,
-      classNames,
-      styles,
-      ...restProps
-    } = props;
-
-    const [mergedClassNames, mergedStyles, mergedPrefixCls, mergedDirection] =
-      useTypographySemantic(customizePrefixCls, classNames, styles, typographyDirection, props);
-
-    return (
-      <InternalTypography
-        ref={ref}
-        className={clsx(className, rootClassName)}
-        direction={mergedDirection}
-        classNames={mergedClassNames}
-        styles={mergedStyles}
-        prefixCls={mergedPrefixCls}
-        {...restProps}
-      />
-    );
-  },
+        throw new Error("STUB");
+    },
 );
 
 if (process.env.NODE_ENV !== 'production') {

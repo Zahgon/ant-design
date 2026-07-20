@@ -7,35 +7,6 @@ const preventDefault = (e: React.MouseEvent<HTMLElement>) => {
   console.log('Clicked! But prevent default.');
 };
 
-const App: React.FC = () => (
-  <Flex gap="small" align="center" wrap>
-    <Tag>Tag 1</Tag>
-    <Tag>
-      <a
-        href="https://github.com/ant-design/ant-design/issues/1862"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Ant Design issue"
-      >
-        Link
-      </a>
-    </Tag>
-    <Tag closeIcon onClose={preventDefault}>
-      Prevent Default
-    </Tag>
-    <Tag closeIcon={<CloseCircleOutlined />} onClose={console.log}>
-      Tag 2
-    </Tag>
-    <Tag
-      closable={{
-        closeIcon: <DeleteOutlined />,
-        'aria-label': 'Close Button',
-      }}
-      onClose={console.log}
-    >
-      Tag 3
-    </Tag>
-  </Flex>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

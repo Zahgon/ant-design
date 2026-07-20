@@ -7,25 +7,7 @@ import { Button, Checkbox, ConfigProvider, Radio, Select } from 'antd';
 // which do not show correct in site.
 // We may need do convert in site also.
 const App: React.FC = () => {
-  const [prefixCls, setPrefixCls] = useState('light');
-  return (
-    <>
-      <Button
-        style={{ marginBottom: 12 }}
-        type="primary"
-        onClick={() => setPrefixCls(prefixCls === 'light' ? 'dark' : 'light')}
-      >
-        toggle prefixCls
-      </Button>
-      <br />
-      <ConfigProvider prefixCls={prefixCls} iconPrefixCls="bamboo">
-        <SmileOutlined />
-        <Select style={{ width: 120 }} />
-        <Radio>test</Radio>
-        <Checkbox>test</Checkbox>
-      </ConfigProvider>
-    </>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

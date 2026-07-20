@@ -10,12 +10,7 @@ export interface NormalCancelBtnProps extends Pick<ModalProps, 'cancelButtonProp
 }
 
 const NormalCancelBtn: FC = () => {
-  const { cancelButtonProps, cancelTextLocale, onCancel } = useContext(ModalContext);
-  return (
-    <Button onClick={onCancel} {...cancelButtonProps}>
-      {cancelTextLocale}
-    </Button>
-  );
+    throw new Error("STUB");
 };
 
 export default NormalCancelBtn;

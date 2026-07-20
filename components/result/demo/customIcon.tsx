@@ -2,12 +2,6 @@ import React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
 import { Button, Result } from 'antd';
 
-const App: React.FC = () => (
-  <Result
-    icon={<SmileOutlined />}
-    title="Great, we have done all the operations!"
-    extra={<Button type="primary">Next</Button>}
-  />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

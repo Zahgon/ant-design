@@ -11,7 +11,7 @@ const { Option } = Select;
 // We don't care debug panel
 /* istanbul ignore next */
 const PurePanel = genPurePanel(RefAutoComplete, 'popupAlign', (props: any) =>
-  omit(props, ['visible']),
+  { throw new Error("STUB"); },
 );
 
 type CompoundedComponent = typeof RefAutoComplete & {

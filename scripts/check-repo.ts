@@ -20,16 +20,7 @@ async function checkVersion() {
   const checkUrls = ['https://registry.npmmirror.com/antd', 'http://registry.npmjs.org/antd'];
   const promises = checkUrls.map(
     (url) =>
-      new Promise<Record<string, any>>((resolve) => {
-        fetch(url)
-          .then((res: Response) => res.json())
-          .then(({ versions }) => {
-            resolve(versions);
-          })
-          .catch(() => {
-            // Do nothing.
-          });
-      }),
+      { throw new Error("STUB"); },
   );
 
   // Any one of the promises resolved, we can continue.
@@ -64,7 +55,7 @@ async function checkCommit({ files }: StatusResult) {
   if (files.length) {
     spinner.fail(chalk.red('🙄 You forgot something to commit.'));
     files.forEach(({ path: filePath, working_dir: mark }) => {
-      console.log(' -', chalk.red(mark), filePath);
+        throw new Error("STUB");
     });
     exitProcess();
   }

@@ -59,13 +59,6 @@ const items: DescriptionsProps['items'] = [
   },
 ];
 
-const App: React.FC = () => (
-  <Descriptions
-    title="Responsive Descriptions"
-    bordered
-    column={{ xs: 1, sm: 2, md: 3, lg: 3, xl: 4, xxl: 4 }}
-    items={items}
-  />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

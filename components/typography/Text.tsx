@@ -13,28 +13,7 @@ export interface TextProps
 }
 
 const Text = React.forwardRef<HTMLSpanElement, TextProps>((props, ref) => {
-  const { ellipsis, children, ...restProps } = props;
-  const mergedEllipsis = React.useMemo(() => {
-    if (isPlainObject(ellipsis)) {
-      return omit(ellipsis as EllipsisConfig, ['expandable', 'rows']);
-    }
-    return ellipsis;
-  }, [ellipsis]);
-
-  if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning('Typography.Text');
-    warning(
-      !isPlainObject(ellipsis) || (!('expandable' in ellipsis) && !('rows' in ellipsis)),
-      'usage',
-      '`ellipsis` do not support `expandable` or `rows` props.',
-    );
-  }
-
-  return (
-    <Base ref={ref} {...restProps} ellipsis={mergedEllipsis} component="span">
-      {children}
-    </Base>
-  );
+    throw new Error("STUB");
 });
 
 export default Text;

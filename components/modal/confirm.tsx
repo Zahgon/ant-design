@@ -34,39 +34,7 @@ export type ModalStaticFunctions = {
 };
 
 const ConfirmDialogWrapper: React.FC<ConfirmDialogProps> = (props) => {
-  const { prefixCls: customizePrefixCls, getContainer, direction } = props;
-  const runtimeLocale = getConfirmLocale();
-
-  const config = useContext(ConfigContext);
-  const rootPrefixCls = getRootPrefixCls() || config.getPrefixCls();
-  // because Modal.config set rootPrefixCls, which is different from other components
-  const prefixCls = customizePrefixCls || `${rootPrefixCls}-modal`;
-
-  let mergedGetContainer = getContainer;
-  if (mergedGetContainer === false) {
-    mergedGetContainer = undefined;
-
-    if (process.env.NODE_ENV !== 'production') {
-      warning(
-        false,
-        'Modal',
-        'Static method not support `getContainer` to be `false` since it do not have context env.',
-      );
-    }
-  }
-
-  return (
-    <ConfirmDialog
-      {...props}
-      rootPrefixCls={rootPrefixCls}
-      prefixCls={prefixCls}
-      iconPrefixCls={config.iconPrefixCls}
-      theme={config.theme}
-      direction={direction ?? config.direction}
-      locale={config.locale?.Modal ?? runtimeLocale}
-      getContainer={mergedGetContainer}
-    />
-  );
+    throw new Error("STUB");
 };
 
 export default function confirm(config: ModalFuncProps) {
@@ -81,9 +49,11 @@ export default function confirm(config: ModalFuncProps) {
   let timeoutId: ReturnType<typeof setTimeout>;
 
   function destroy(...args: any[]) {
-    const triggerCancel = args.some((param) => param?.triggerCancel);
+    const triggerCancel = args.some((param) => { throw new Error("STUB"); });
     if (triggerCancel) {
-      config.onCancel?.(() => {}, ...args.slice(1));
+      config.onCancel?.(() => {
+          throw new Error("STUB");
+      }, ...args.slice(1));
     }
     for (let i = 0; i < destroyFns.length; i++) {
       const fn = destroyFns[i];
@@ -94,7 +64,7 @@ export default function confirm(config: ModalFuncProps) {
     }
 
     unmount(container).then(() => {
-      // Do nothing
+        throw new Error("STUB");
     });
   }
 
@@ -107,18 +77,7 @@ export default function confirm(config: ModalFuncProps) {
      * Sync render blocks React event. Let's make this async.
      */
     timeoutId = setTimeout(() => {
-      const rootPrefixCls = global.getPrefixCls(undefined, getRootPrefixCls());
-      const iconPrefixCls = global.getIconPrefixCls();
-      const theme = global.getTheme();
-
-      const dom = <ConfirmDialogWrapper {...props} />;
-
-      render(
-        <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={iconPrefixCls} theme={theme}>
-          {isFunction(global.holderRender) ? global.holderRender(dom) : dom}
-        </ConfigProvider>,
-        container,
-      );
+        throw new Error("STUB");
     });
   };
 
@@ -127,11 +86,7 @@ export default function confirm(config: ModalFuncProps) {
       ...currentConfig,
       open: false,
       afterClose: () => {
-        if (isFunction(config.afterClose)) {
-          config.afterClose();
-        }
-        // @ts-ignore
-        destroy.apply(this, args);
+          throw new Error("STUB");
       },
     };
 
@@ -158,10 +113,7 @@ export default function confirm(config: ModalFuncProps) {
 }
 
 export function withWarn(props: ModalFuncProps): ModalFuncProps {
-  return {
-    ...props,
-    type: 'warning',
-  };
+    throw new Error("STUB");
 }
 
 export function withInfo(props: ModalFuncProps): ModalFuncProps {
@@ -193,6 +145,5 @@ export function withConfirm(props: ModalFuncProps): ModalFuncProps {
 }
 
 export function modalGlobalConfig({ rootPrefixCls }: { rootPrefixCls: string }) {
-  warning(false, 'Modal', 'Modal.config is deprecated. Please use ConfigProvider.config instead.');
-  defaultRootPrefixCls = rootPrefixCls;
+    throw new Error("STUB");
 }

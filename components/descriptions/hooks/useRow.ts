@@ -14,34 +14,9 @@ function getCalcRows(
   let count = 0;
 
   rowItems
-    .filter((n) => n)
+    .filter((n) => { throw new Error("STUB"); })
     .forEach((rowItem) => {
-      const { filled, ...restItem } = rowItem;
-
-      if (filled) {
-        tmpRow.push(restItem);
-        rows.push(tmpRow);
-        // reset
-        tmpRow = [];
-        count = 0;
-        return;
-      }
-      const restSpan = mergedColumn - count;
-      count += rowItem.span || 1;
-      if (count >= mergedColumn) {
-        if (count > mergedColumn) {
-          exceed = true;
-          tmpRow.push({ ...restItem, span: restSpan });
-        } else {
-          tmpRow.push(restItem);
-        }
-        rows.push(tmpRow);
-        // reset
-        tmpRow = [];
-        count = 0;
-      } else {
-        tmpRow.push(restItem);
-      }
+        throw new Error("STUB");
     });
 
   if (tmpRow.length > 0) {
@@ -49,20 +24,13 @@ function getCalcRows(
   }
 
   rows = rows.map((rows) => {
-    const count = rows.reduce((acc, item) => acc + (item.span || 1), 0);
-    if (count < mergedColumn) {
-      // If the span of the last element in the current row is less than the column, then add its span to the remaining columns
-      const last = rows[rows.length - 1];
-      last.span = mergedColumn - (count - (last.span || 1));
-      return rows;
-    }
-    return rows;
+      throw new Error("STUB");
   });
   return [rows, exceed];
 }
 
 const useRow = (mergedColumn: number, items: InternalDescriptionsItemType[]) => {
-  const [rows, exceed] = useMemo(() => getCalcRows(items, mergedColumn), [items, mergedColumn]);
+  const [rows, exceed] = useMemo(() => { throw new Error("STUB"); }, [items, mergedColumn]);
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Descriptions');

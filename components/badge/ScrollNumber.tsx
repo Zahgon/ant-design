@@ -23,70 +23,7 @@ export interface ScrollNumberState {
 }
 
 const ScrollNumber = React.forwardRef<HTMLElement, ScrollNumberProps>((props, ref) => {
-  const {
-    prefixCls: customizePrefixCls,
-    count,
-    className,
-    motionClassName,
-    style,
-    title,
-    show,
-    component: Component = 'sup',
-    children,
-    ...restProps
-  } = props;
-  const { getPrefixCls } = React.useContext(ConfigContext);
-  const prefixCls = getPrefixCls('scroll-number', customizePrefixCls);
-
-  // ============================ Render ============================
-  const newProps = {
-    ...restProps,
-    'data-show': show,
-    style,
-    className: clsx(prefixCls, className, motionClassName),
-    title: title as string,
-  };
-
-  // Only integer need motion
-  let numberNodes: React.ReactNode = count;
-  if (count && Number(count) % 1 === 0) {
-    const numberList = String(count).split('');
-
-    numberNodes = (
-      <bdi>
-        {numberList.map((num, i) => (
-          <SingleNumber
-            prefixCls={prefixCls}
-            count={Number(count)}
-            value={num}
-            // eslint-disable-next-line react/no-array-index-key
-            key={numberList.length - i}
-          />
-        ))}
-      </bdi>
-    );
-  }
-
-  // allow specify the border
-  // mock border-color by box-shadow for compatible with old usage:
-  // <Badge count={4} style={{ backgroundColor: '#fff', color: '#999', borderColor: '#d9d9d9' }} />
-  if (style?.borderColor) {
-    newProps.style = {
-      ...style,
-      boxShadow: `0 0 0 1px ${style.borderColor} inset`,
-    };
-  }
-  if (children) {
-    return cloneElement(children, (oriProps) => ({
-      className: clsx(`${prefixCls}-custom-component`, oriProps?.className, motionClassName),
-    }));
-  }
-
-  return (
-    <Component {...newProps} ref={ref}>
-      {numberNodes}
-    </Component>
-  );
+    throw new Error("STUB");
 });
 
 export default ScrollNumber;

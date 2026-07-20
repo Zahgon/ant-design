@@ -7,10 +7,6 @@ const options = [
   { label: 'Medium', value: 'c' },
 ];
 
-const App: React.FC = () => (
-  <div style={{ width: 280, border: '1px solid #eee', padding: 16 }}>
-    <Radio.Group options={options} defaultValue="a" />
-  </div>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

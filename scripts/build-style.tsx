@@ -9,10 +9,7 @@ import { ConfigProvider } from '../components';
 const originalResolve = (Module as any)._resolveFilename;
 
 (Module as any)._resolveFilename = function (request: string, ...args: any[]) {
-  if (request === 'antd') {
-    return require.resolve('../components');
-  }
-  return originalResolve.call(this, request, ...args);
+    throw new Error("STUB");
 };
 
 // Check for media queries using CSS var like: @media (min-width: var(--xxx))
@@ -43,15 +40,7 @@ const run = async () => {
       fs.unlinkSync(output);
     }
 
-    const styleStr = extractStyle((node) => (
-      <ConfigProvider
-        theme={{
-          hashed: false,
-        }}
-      >
-        {node}
-      </ConfigProvider>
-    ));
+    const styleStr = extractStyle((node) => { throw new Error("STUB"); });
 
     if (!isValidMediaQuery(styleStr)) {
       throw new Error('Invalid media query found, example: @media (min-width: var(--xxx))');

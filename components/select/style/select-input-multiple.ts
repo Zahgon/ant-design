@@ -100,7 +100,7 @@ const genSelectInputMultipleStyle: GenerateStyle<SelectToken, CSSObject> = (toke
           paddingInlineStart: paddingXS,
           paddingInlineEnd: paddingXXS,
           transition: ['height', 'line-height', 'padding']
-            .map((key) => `${key} ${token.motionDurationSlow}`)
+            .map((key) => { throw new Error("STUB"); })
             .join(','),
 
           // >>> Content

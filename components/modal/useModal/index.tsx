@@ -23,9 +23,7 @@ export type HookAPI = Omit<Record<keyof ModalStaticFunctions, ModalFuncWithPromi
 
 const ElementsHolder = React.memo(
   React.forwardRef<ElementsHolderRef>((_props, ref) => {
-    const [elements, patchElement] = usePatchElement();
-    React.useImperativeHandle(ref, () => ({ patchElement }), [patchElement]);
-    return <>{elements}</>;
+      throw new Error("STUB");
   }),
 );
 
@@ -36,96 +34,18 @@ function useModal(): readonly [instance: HookAPI, contextHolder: React.ReactElem
   const [actionQueue, setActionQueue] = React.useState<VoidFunction[]>([]);
 
   React.useEffect(() => {
-    if (actionQueue.length) {
-      const cloneQueue = [...actionQueue];
-
-      cloneQueue.forEach((action) => {
-        action();
-      });
-
-      setActionQueue([]);
-    }
+      throw new Error("STUB");
   }, [actionQueue]);
 
   // =========================== Hook ===========================
   const getConfirmFunc = React.useCallback(
     (withFunc: (config: ModalFuncProps) => ModalFuncProps) =>
-      function hookConfirm(config: ModalFuncProps) {
-        uuid += 1;
-
-        const modalRef = React.createRef<HookModalRef>();
-
-        // Proxy to promise with `onClose`
-        let resolvePromise: (confirmed: boolean) => void;
-        const promise = new Promise<boolean>((resolve) => {
-          resolvePromise = resolve;
-        });
-        let silent = false;
-
-        let closeFunc: (() => void) | undefined;
-        const modal = (
-          <HookModal
-            key={`modal-${uuid}`}
-            config={withFunc(config)}
-            ref={modalRef}
-            afterClose={() => {
-              closeFunc?.();
-            }}
-            isSilent={() => silent}
-            onConfirm={(confirmed) => {
-              resolvePromise(confirmed);
-            }}
-          />
-        );
-
-        closeFunc = holderRef.current?.patchElement(modal);
-
-        if (closeFunc) {
-          destroyFns.push(closeFunc);
-        }
-
-        const instance: ReturnType<ModalFuncWithPromise> = {
-          destroy: () => {
-            function destroyAction() {
-              modalRef.current?.destroy();
-            }
-
-            if (modalRef.current) {
-              destroyAction();
-            } else {
-              setActionQueue((prev) => [...prev, destroyAction]);
-            }
-          },
-          update: (newConfig) => {
-            function updateAction() {
-              modalRef.current?.update(newConfig);
-            }
-
-            if (modalRef.current) {
-              updateAction();
-            } else {
-              setActionQueue((prev) => [...prev, updateAction]);
-            }
-          },
-          then: (resolve) => {
-            silent = true;
-            return promise.then(resolve);
-          },
-        };
-
-        return instance;
-      },
+      { throw new Error("STUB"); },
     [],
   );
 
   const fns = React.useMemo<HookAPI>(
-    () => ({
-      info: getConfirmFunc(withInfo),
-      success: getConfirmFunc(withSuccess),
-      error: getConfirmFunc(withError),
-      warning: getConfirmFunc(withWarn),
-      confirm: getConfirmFunc(withConfirm),
-    }),
+    () => { throw new Error("STUB"); },
     [getConfirmFunc],
   );
   return [fns, <ElementsHolder key="modal-holder" ref={holderRef} />] as const;

@@ -23,32 +23,7 @@ const optionLists: Option[] = [
 ];
 
 const App: React.FC = () => {
-  const [options, setOptions] = useState<Option[]>(optionLists);
-
-  const onChange: CascaderProps<Option>['onChange'] = (value, selectedOptions) => {
-    console.log(value, selectedOptions);
-  };
-
-  const loadData = (selectedOptions: Option[]) => {
-    const targetOption = selectedOptions[selectedOptions.length - 1];
-
-    // load options lazily
-    setTimeout(() => {
-      targetOption.children = [
-        {
-          label: `${targetOption.label} Dynamic 1`,
-          value: 'dynamic1',
-        },
-        {
-          label: `${targetOption.label} Dynamic 2`,
-          value: 'dynamic2',
-        },
-      ];
-      setOptions([...options]);
-    }, 1000);
-  };
-
-  return <Cascader options={options} loadData={loadData} onChange={onChange} changeOnSelect />;
+    throw new Error("STUB");
 };
 
 export default App;

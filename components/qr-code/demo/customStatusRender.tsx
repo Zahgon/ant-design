@@ -6,47 +6,9 @@ import { Button, Flex, QRCode, Space, Spin } from 'antd';
 const value = 'https://ant.design';
 
 const customStatusRender: QRCodeProps['statusRender'] = (info) => {
-  switch (info.status) {
-    case 'expired':
-      return (
-        <div>
-          <CloseCircleFilled style={{ color: 'red' }} /> {info.locale?.expired}
-          <p>
-            <Button type="link" onClick={info.onRefresh}>
-              <ReloadOutlined /> {info.locale?.refresh}
-            </Button>
-          </p>
-        </div>
-      );
-    case 'loading':
-      return (
-        <Space vertical>
-          <Spin />
-          <p>Loading...</p>
-        </Space>
-      );
-    case 'scanned':
-      return (
-        <div>
-          <CheckCircleFilled style={{ color: 'green' }} /> {info.locale?.scanned}
-        </div>
-      );
-    default:
-      return null;
-  }
+    throw new Error("STUB");
 };
 
-const App: React.FC = () => (
-  <Flex gap="medium" wrap>
-    <QRCode value={value} status="loading" statusRender={customStatusRender} />
-    <QRCode
-      value={value}
-      status="expired"
-      onRefresh={() => console.log('refresh')}
-      statusRender={customStatusRender}
-    />
-    <QRCode value={value} status="scanned" statusRender={customStatusRender} />
-  </Flex>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

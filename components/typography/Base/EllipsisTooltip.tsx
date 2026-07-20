@@ -19,16 +19,7 @@ const EllipsisTooltip: React.FC<EllipsisTooltipProps> = ({
   children,
   tooltipProps,
 }) => {
-  if (!tooltipProps?.title || !enableEllipsis) {
-    return children;
-  }
-
-  const mergedOpen = open && isEllipsis;
-  return (
-    <Tooltip open={mergedOpen} {...tooltipProps}>
-      {children}
-    </Tooltip>
-  );
+    throw new Error("STUB");
 };
 
 if (process.env.NODE_ENV !== 'production') {

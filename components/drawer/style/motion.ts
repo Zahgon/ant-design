@@ -58,23 +58,7 @@ const getPanelMotionStyles = (direction: Direction, duration: string) => [
 ];
 
 const genMotionStyle: GenerateStyle<DrawerToken, CSSObject> = (token) => {
-  const { componentCls, motionDurationSlow } = token;
-  return {
-    [componentCls]: {
-      // ======================== Mask ========================
-      [`${componentCls}-mask-motion`]: getFadeStyle(0, motionDurationSlow),
-      // ======================= Panel ========================
-      [`${componentCls}-panel-motion`]: ['left', 'right', 'top', 'bottom'].reduce(
-        (obj, direction) => {
-          return {
-            ...obj,
-            [`&-${direction}`]: getPanelMotionStyles(direction as Direction, motionDurationSlow),
-          };
-        },
-        {},
-      ),
-    },
-  };
+    throw new Error("STUB");
 };
 
 export default genMotionStyle;

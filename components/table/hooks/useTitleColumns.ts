@@ -15,12 +15,7 @@ const fillTitle = <RecordType extends AnyObject = AnyObject>(
   columnTitleProps: ColumnTitleProps<RecordType>,
 ) => {
   const finalColumns = columns.map((column) => {
-    const cloneColumn: ColumnGroupType<RecordType> | ColumnType<RecordType> = { ...column };
-    cloneColumn.title = renderColumnTitle(column.title, columnTitleProps);
-    if ('children' in cloneColumn) {
-      cloneColumn.children = fillTitle<RecordType>(cloneColumn.children, columnTitleProps);
-    }
-    return cloneColumn;
+      throw new Error("STUB");
   });
   return finalColumns;
 };
@@ -29,7 +24,7 @@ const useTitleColumns = <RecordType extends AnyObject = AnyObject>(
   columnTitleProps: ColumnTitleProps<RecordType>,
 ) => {
   const filledColumns = React.useCallback<TransformColumns<RecordType>>(
-    (columns) => fillTitle<RecordType>(columns, columnTitleProps),
+    (columns) => { throw new Error("STUB"); },
     [columnTitleProps],
   );
   return [filledColumns] as const;

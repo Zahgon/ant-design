@@ -17,14 +17,7 @@ function useBreakpoint(
   const responsiveObserver = useResponsiveObserver();
 
   useLayoutEffect(() => {
-    const token = responsiveObserver.subscribe((supportScreens) => {
-      screensRef.current = supportScreens;
-      if (refreshOnChange) {
-        forceUpdate();
-      }
-    });
-
-    return () => responsiveObserver.unsubscribe(token);
+      throw new Error("STUB");
   }, [refreshOnChange]);
 
   return screensRef.current;

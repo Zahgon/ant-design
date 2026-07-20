@@ -46,48 +46,7 @@ export default function useForm<Values = any>(form?: FormInstance<Values>): [For
 
   const wrapForm: FormInstance<Values> = React.useMemo(
     () =>
-      form ?? {
-        ...rcForm,
-        __INTERNAL__: {
-          itemRef: (name: InternalNamePath) => (node: React.ReactElement) => {
-            const namePathStr = toNamePathStr(name);
-            if (node) {
-              itemsRef.current[namePathStr] = node;
-            } else {
-              delete itemsRef.current[namePathStr];
-            }
-          },
-        },
-        scrollToField: (name: NamePath, options: ScrollOptions = {}) => {
-          const { focus, ...restOpt } = options;
-          const node = getFieldDOMNode(name, wrapForm);
-
-          if (node) {
-            scrollIntoView(node, {
-              scrollMode: 'if-needed',
-              block: 'nearest',
-              ...restOpt,
-            } as any);
-
-            // Focus if scroll success
-            if (focus) {
-              wrapForm.focusField(name);
-            }
-          }
-        },
-        focusField: (name: NamePath) => {
-          const itemRef = wrapForm.getFieldInstance(name);
-          if (isFunction(itemRef?.focus)) {
-            itemRef.focus();
-          } else {
-            getFieldDOMNode(name, wrapForm)?.focus?.();
-          }
-        },
-        getFieldInstance: (name: NamePath) => {
-          const namePathStr = toNamePathStr(name);
-          return itemsRef.current[namePathStr];
-        },
-      },
+      { throw new Error("STUB"); },
     [form, rcForm],
   );
 

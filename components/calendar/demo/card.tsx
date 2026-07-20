@@ -8,19 +8,7 @@ const onPanelChange = (value: Dayjs, mode: CalendarProps<Dayjs>['mode']) => {
 };
 
 const App: React.FC = () => {
-  const { token } = theme.useToken();
-
-  const wrapperStyle: React.CSSProperties = {
-    width: 300,
-    border: `${token.lineWidth}px ${token.lineType} ${token.colorBorderSecondary}`,
-    borderRadius: token.borderRadiusLG,
-  };
-
-  return (
-    <div style={wrapperStyle}>
-      <Calendar fullscreen={false} onPanelChange={onPanelChange} />
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

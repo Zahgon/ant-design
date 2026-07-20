@@ -9,28 +9,6 @@ const getRTLStyle: GenerateStyle<MenuToken & CssUtil, CSSObject> = ({
   componentCls,
   menuArrowOffset,
   calc,
-}) => ({
-  [`${componentCls}-rtl`]: {
-    direction: 'rtl',
-  },
-
-  [`${componentCls}-submenu-rtl`]: {
-    transformOrigin: '100% 0',
-  },
-
-  // Vertical Arrow
-  [`${componentCls}-rtl${componentCls}-vertical,
-    ${componentCls}-submenu-rtl ${componentCls}-vertical`]: {
-    [`${componentCls}-submenu-arrow`]: {
-      '&::before': {
-        transform: `rotate(-45deg) translateY(${unit(calc(menuArrowOffset).mul(-1).equal())})`,
-      },
-
-      '&::after': {
-        transform: `rotate(45deg) translateY(${unit(menuArrowOffset)})`,
-      },
-    },
-  },
-});
+}) => { throw new Error("STUB"); };
 
 export default getRTLStyle;

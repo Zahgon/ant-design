@@ -104,78 +104,7 @@ const items2: MenuItem[] = [
 ];
 
 const App: React.FC = () => {
-  const [current, setCurrent] = useState('mail');
-
-  const onClick: MenuProps['onClick'] = (e) => {
-    console.log('click ', e);
-    setCurrent(e.key);
-  };
-
-  return (
-    <Space vertical>
-      <ConfigProvider
-        theme={{
-          algorithm: [theme.darkAlgorithm],
-          components: {
-            Menu: {
-              popupBg: 'yellow',
-              darkPopupBg: 'red',
-            },
-          },
-        }}
-      >
-        <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} />
-        <Menu
-          defaultSelectedKeys={['1']}
-          defaultOpenKeys={['sub1']}
-          mode="inline"
-          theme="dark"
-          inlineCollapsed
-          items={items2}
-          style={{
-            width: 56,
-          }}
-        />
-      </ConfigProvider>
-      <ConfigProvider
-        theme={{
-          components: {
-            Menu: {
-              horizontalItemBorderRadius: 6,
-              popupBg: 'red',
-              horizontalItemHoverBg: '#f5f5f5',
-            },
-          },
-        }}
-      >
-        <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} />
-      </ConfigProvider>
-      <ConfigProvider
-        theme={{
-          components: {
-            Menu: {
-              darkItemColor: '#91daff',
-              darkItemBg: '#d48806',
-              darkSubMenuItemBg: '#faad14',
-              darkItemSelectedColor: '#ffccc7',
-              darkItemSelectedBg: '#52c41a',
-            },
-          },
-        }}
-      >
-        <Menu
-          defaultSelectedKeys={['1']}
-          defaultOpenKeys={['sub1']}
-          mode="inline"
-          theme="dark"
-          items={items2}
-          style={{
-            width: 256,
-          }}
-        />
-      </ConfigProvider>
-    </Space>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

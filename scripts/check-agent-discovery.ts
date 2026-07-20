@@ -61,11 +61,7 @@ const validateMarkdownMiddleware = async () => {
       },
     }),
     next: async () =>
-      new Response('<!doctype html>', {
-        headers: {
-          'content-type': 'text/html; charset=utf-8',
-        },
-      }),
+      { throw new Error("STUB"); },
   });
 
   assert.equal(markdownResponse.headers.get('content-type'), 'text/markdown; charset=utf-8');
@@ -75,11 +71,7 @@ const validateMarkdownMiddleware = async () => {
   const htmlResponse = await onRequest({
     request: new Request(`${previewOrigin}/`),
     next: async () =>
-      new Response('<!doctype html>', {
-        headers: {
-          'content-type': 'text/html; charset=utf-8',
-        },
-      }),
+      { throw new Error("STUB"); },
   });
 
   assert.equal(htmlResponse.headers.get('content-type'), 'text/html; charset=utf-8');
@@ -116,20 +108,20 @@ assert.equal(fs.existsSync(publicPath('.well-known', 'api-catalog')), true);
 const catalog = readPublicJson('.well-known', 'api-catalog');
 assert.ok(Array.isArray(catalog.linkset));
 
-const rootEntry = catalog.linkset.find((entry: any) => entry.anchor === '/');
+const rootEntry = catalog.linkset.find((entry: any) => { throw new Error("STUB"); });
 assert.ok(rootEntry);
 assert.ok(
   rootEntry['service-desc']?.some(
     (link: any) =>
-      link.href === '/.well-known/openapi.json' && link.type === 'application/openapi+json',
+      { throw new Error("STUB"); },
   ),
 );
 assert.ok(
   rootEntry['service-doc']?.some(
-    (link: any) => link.href === '/docs/react/introduce' && link.type === 'text/html',
+    (link: any) => { throw new Error("STUB"); },
   ),
 );
-assert.ok(rootEntry.status?.some((link: any) => link.href === '/' && link.type === 'text/html'));
+assert.ok(rootEntry.status?.some((link: any) => { throw new Error("STUB"); }));
 
 const authMd = fs.readFileSync(publicPath('auth.md'), 'utf8');
 assert.match(authMd, /^# ant\.design auth\.md/m);
@@ -151,5 +143,5 @@ const main = async () => {
 };
 
 main().catch((error) => {
-  throw error;
+    throw new Error("STUB");
 });

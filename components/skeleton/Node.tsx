@@ -11,42 +11,7 @@ export interface SkeletonNodeProps extends Omit<SkeletonElementProps, 'size' | '
 }
 
 const SkeletonNode: React.FC<SkeletonNodeProps> = (props) => {
-  const {
-    prefixCls: customizePrefixCls,
-    className,
-    classNames,
-    rootClassName,
-    internalClassName,
-    style,
-    styles,
-    active,
-    children,
-  } = props;
-  const { getPrefixCls } = React.useContext(ConfigContext);
-  const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
-  const [hashId, cssVarCls] = useStyle(prefixCls);
-
-  const cls = clsx(
-    prefixCls,
-    `${prefixCls}-element`,
-    { [`${prefixCls}-active`]: active },
-    hashId,
-    classNames?.root,
-    className,
-    rootClassName,
-    cssVarCls,
-  );
-
-  return (
-    <div className={cls} style={styles?.root}>
-      <div
-        className={clsx(classNames?.content, internalClassName || `${prefixCls}-node`)}
-        style={{ ...styles?.content, ...style }}
-      >
-        {children}
-      </div>
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 export default SkeletonNode;

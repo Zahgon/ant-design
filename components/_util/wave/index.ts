@@ -25,61 +25,7 @@ const TRIGGER_TYPE_TO_EVENT_MAP = {
 } as const;
 
 const Wave: React.FC<WaveProps> = (props) => {
-  const { children, disabled, component, colorSource } = props;
-  const { getPrefixCls, wave } = useContext<ConfigConsumerProps>(ConfigContext);
-
-  const containerRef = useRef<HTMLElement | null>(null);
-
-  // ============================== Style ===============================
-  const prefixCls = getPrefixCls('wave');
-  const hashId = useStyle(prefixCls);
-
-  // =============================== Wave ===============================
-  const showWave = useWave(containerRef, clsx(prefixCls, hashId), component, colorSource);
-
-  // ============================== Effect ==============================
-  React.useEffect(() => {
-    const node = containerRef.current;
-    if (!node || node.nodeType !== window.Node.ELEMENT_NODE || disabled) {
-      return;
-    }
-
-    const onClick = (e: Event) => {
-      // Fix radio button click twice
-      if (
-        !isVisible(e.target as HTMLElement) ||
-        !node.getAttribute ||
-        node.getAttribute('disabled') ||
-        (node as HTMLInputElement).disabled ||
-        (node.className.includes('disabled') && !node.className.includes('disabled:')) ||
-        node.getAttribute('aria-disabled') === 'true' ||
-        node.className.includes('-leave')
-      ) {
-        return;
-      }
-      showWave(e as MouseEvent);
-    };
-
-    const triggerType = wave?.triggerType;
-    const eventName =
-      triggerType && triggerType in TRIGGER_TYPE_TO_EVENT_MAP
-        ? TRIGGER_TYPE_TO_EVENT_MAP[triggerType]
-        : 'click';
-
-    node.addEventListener(eventName, onClick, true);
-    return () => {
-      node.removeEventListener(eventName, onClick, true);
-    };
-  }, [disabled, wave?.triggerType]);
-
-  // ============================== Render ==============================
-  if (!React.isValidElement(children)) {
-    return children ?? null;
-  }
-
-  const ref = supportRef(children) ? composeRef(getNodeRef(children), containerRef) : containerRef;
-
-  return cloneElement(children, { ref });
+    throw new Error("STUB");
 };
 
 if (process.env.NODE_ENV !== 'production') {

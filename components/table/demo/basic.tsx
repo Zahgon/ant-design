@@ -15,7 +15,7 @@ const columns: TableProps<DataType>['columns'] = [
     title: 'Name',
     dataIndex: 'name',
     key: 'name',
-    render: (text) => <a>{text}</a>,
+    render: (text) => { throw new Error("STUB"); },
   },
   {
     title: 'Age',
@@ -31,31 +31,12 @@ const columns: TableProps<DataType>['columns'] = [
     title: 'Tags',
     key: 'tags',
     dataIndex: 'tags',
-    render: (_, { tags }) => (
-      <Flex gap="small" align="center" wrap>
-        {tags.map((tag) => {
-          let color = tag.length > 5 ? 'geekblue' : 'green';
-          if (tag === 'kawaii') {
-            color = 'volcano';
-          }
-          return (
-            <Tag color={color} key={tag}>
-              {tag.toUpperCase()}
-            </Tag>
-          );
-        })}
-      </Flex>
-    ),
+    render: (_, { tags }) => { throw new Error("STUB"); },
   },
   {
     title: 'Action',
     key: 'action',
-    render: (_, record) => (
-      <Space size="medium">
-        <a>Invite {record.name}</a>
-        <a>Delete</a>
-      </Space>
-    ),
+    render: (_, record) => { throw new Error("STUB"); },
   },
 ];
 
@@ -83,6 +64,6 @@ const data: DataType[] = [
   },
 ];
 
-const App: React.FC = () => <Table<DataType> columns={columns} dataSource={data} />;
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

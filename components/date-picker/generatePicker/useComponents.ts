@@ -5,10 +5,7 @@ import PickerButton from '../PickerButton';
 
 export default function useComponents(components?: Components) {
   return useMemo(
-    () => ({
-      button: PickerButton,
-      ...components,
-    }),
+    () => { throw new Error("STUB"); },
     [components],
   );
 }

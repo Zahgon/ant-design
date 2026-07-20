@@ -7,14 +7,7 @@ const style: React.CSSProperties = {
 };
 
 const App: React.FC = () => {
-  return (
-    <Flex vertical gap="medium">
-      <TreeSelect style={style} placeholder="Please select" variant="borderless" />
-      <TreeSelect style={style} placeholder="Please select" variant="filled" />
-      <TreeSelect style={style} placeholder="Please select" variant="outlined" />
-      <TreeSelect style={style} placeholder="Please select" variant="underlined" />
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

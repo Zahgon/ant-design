@@ -69,7 +69,7 @@ export const clearFix = (): CSSObject => ({
 export const genFocusOutline = (token: AliasToken, offset?: number): CSSObject => ({
   outline: `${unit(token.lineWidthFocus)} solid ${token.colorPrimaryBorder}`,
   outlineOffset: offset ?? 1,
-  transition: [`outline-offset`, `outline`].map((prop) => `${prop} 0s`).join(', '),
+  transition: [`outline-offset`, `outline`].map((prop) => { throw new Error("STUB"); }).join(', '),
 });
 
 export const genFocusStyle = (token: AliasToken, offset?: number): CSSObject => ({
@@ -120,34 +120,7 @@ export const genCommonStyle = (
   rootCls?: string,
   resetFont?: boolean,
 ): CSSObject => {
-  const prefixSelector = `[class^="${componentPrefixCls}"], [class*=" ${componentPrefixCls}"]`;
-  const rootPrefixSelector = rootCls ? `.${rootCls}` : prefixSelector;
-
-  const resetStyle: CSSObject = {
-    boxSizing: 'border-box',
-
-    '&::before, &::after': {
-      boxSizing: 'border-box',
-    },
-  };
-
-  let resetFontStyle: CSSObject = {};
-
-  if (resetFont !== false) {
-    resetFontStyle = {
-      fontFamily: token.fontFamily,
-      fontSize: token.fontSize,
-    };
-  }
-
-  return {
-    [rootPrefixSelector]: {
-      ...resetFontStyle,
-      ...resetStyle,
-
-      [prefixSelector]: resetStyle,
-    },
-  };
+    throw new Error("STUB");
 };
 
 export const genIconStyle = (iconPrefixCls: string): CSSObject => ({

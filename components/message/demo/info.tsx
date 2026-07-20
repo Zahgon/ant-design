@@ -5,10 +5,6 @@ const info = () => {
   message.info('This is a normal message');
 };
 
-const App: React.FC = () => (
-  <Button type="primary" onClick={info}>
-    Static Method
-  </Button>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

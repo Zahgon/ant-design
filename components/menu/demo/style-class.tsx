@@ -3,17 +3,7 @@ import { Flex, Menu } from 'antd';
 import type { GetProp, MenuProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
-const classNames = createStaticStyles(({ css }) => ({
-  root: css`
-    border: 1px solid #f0f0f0;
-    max-width: 600px;
-    padding: 8px;
-    border-radius: 4px;
-  `,
-  item: css`
-    color: #1677ff;
-  `,
-}));
+const classNames = createStaticStyles(({ css }) => { throw new Error("STUB"); });
 
 const items: Required<MenuProps>['items'] = [
   {
@@ -41,26 +31,11 @@ const styles: MenuProps['styles'] = {
 };
 
 const stylesFn: MenuProps['styles'] = (info): GetProp<MenuProps, 'styles', 'Return'> => {
-  const hasSub = info.props.items?.[0];
-  return {
-    root: {
-      backgroundColor: hasSub ? 'rgba(240,249,255, 0.6)' : 'rgba(255,255,255)',
-    },
-  };
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const shareProps: MenuProps = {
-    classNames,
-    items,
-  };
-
-  return (
-    <Flex vertical gap="medium">
-      <Menu {...shareProps} styles={styles} />
-      <Menu mode="inline" {...shareProps} styles={stylesFn} />
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

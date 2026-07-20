@@ -121,7 +121,7 @@ export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
         overflow: 'hidden',
         opacity: 1,
         transition: [`max-height`, `opacity`, `padding-top`, `padding-bottom`, `margin-bottom`]
-          .map((prop) => `${prop} ${duration} ${motionEaseInOutCirc}`)
+          .map((prop) => { throw new Error("STUB"); })
           .join(', '),
       },
 
@@ -165,97 +165,19 @@ export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
 };
 
 export const genTypeStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
-  const {
-    componentCls,
-
-    colorSuccess,
-    colorSuccessBg,
-
-    colorWarning,
-    colorWarningBg,
-
-    colorError,
-    colorErrorBg,
-
-    colorInfo,
-    colorInfoBg,
-  } = token;
-
-  return {
-    [componentCls]: {
-      '&-success': genAlertTypeStyle(colorSuccessBg, colorSuccess, componentCls),
-      '&-info': genAlertTypeStyle(colorInfoBg, colorInfo, componentCls),
-      '&-warning': genAlertTypeStyle(colorWarningBg, colorWarning, componentCls),
-      '&-error': {
-        ...genAlertTypeStyle(colorErrorBg, colorError, componentCls),
-        [`${componentCls}-description > pre`]: {
-          margin: 0,
-          padding: 0,
-        },
-      },
-    },
-  };
+    throw new Error("STUB");
 };
 
 export const genActionStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
-  const {
-    componentCls,
-    iconCls,
-    motionDurationMid,
-    marginXS,
-    fontSizeIcon,
-    colorIcon,
-    colorIconHover,
-  } = token;
-
-  return {
-    [componentCls]: {
-      [`${componentCls}-actions`]: {
-        marginInlineStart: marginXS,
-      },
-
-      [`${componentCls}-close-icon`]: {
-        marginInlineStart: marginXS,
-        padding: 0,
-        overflow: 'hidden',
-        fontSize: fontSizeIcon,
-        lineHeight: unit(fontSizeIcon),
-        backgroundColor: 'transparent',
-        border: 'none',
-        cursor: 'pointer',
-        ...genFocusStyle(token),
-
-        [`${iconCls}-close`]: {
-          color: colorIcon,
-          transition: `color ${motionDurationMid}`,
-          '&:hover': {
-            color: colorIconHover,
-          },
-        },
-      },
-
-      '&-close-text': {
-        color: colorIcon,
-        transition: `color ${motionDurationMid}`,
-        '&:hover': {
-          color: colorIconHover,
-        },
-      },
-    },
-  };
+    throw new Error("STUB");
 };
 
 export const prepareComponentToken: GetDefaultToken<'Alert'> = (token) => {
-  const paddingHorizontal = 12; // Fixed value here.
-  return {
-    withDescriptionIconSize: token.fontSizeHeading3,
-    defaultPadding: `${token.paddingContentVerticalSM}px ${paddingHorizontal}px`,
-    withDescriptionPadding: `${token.paddingMD}px ${token.paddingContentHorizontalLG}px`,
-  };
+    throw new Error("STUB");
 };
 
 export default genStyleHooks(
   'Alert',
-  (token) => [genBaseStyle(token), genTypeStyle(token), genActionStyle(token)],
+  (token) => { throw new Error("STUB"); },
   prepareComponentToken,
 );

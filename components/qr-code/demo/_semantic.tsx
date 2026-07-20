@@ -17,19 +17,7 @@ const locales = {
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  const value = 'https://ant.design';
-  return (
-    <SemanticPreview
-      componentName="QRCode"
-      semantics={[
-        { name: 'root', desc: locale.root },
-        { name: 'cover', desc: locale.cover },
-      ]}
-    >
-      <QRCode value={value} status="loading" />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

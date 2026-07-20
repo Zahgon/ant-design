@@ -19,71 +19,7 @@ interface SwitcherIconProps {
 }
 
 const SwitcherIconCom: React.FC<SwitcherIconProps> = (props) => {
-  const { prefixCls, switcherIcon, treeNodeProps, showLine, switcherLoadingIcon } = props;
-
-  const { isLeaf, expanded, loading } = treeNodeProps;
-
-  if (loading) {
-    if (React.isValidElement(switcherLoadingIcon)) {
-      return switcherLoadingIcon;
-    }
-    return <LoadingOutlined className={`${prefixCls}-switcher-loading-icon`} />;
-  }
-  let showLeafIcon: boolean | TreeLeafIcon;
-  if (isPlainObject(showLine)) {
-    showLeafIcon = showLine.showLeafIcon;
-  }
-
-  if (isLeaf) {
-    if (!showLine) {
-      return null;
-    }
-
-    if (typeof showLeafIcon !== 'boolean' && showLeafIcon) {
-      const leafIcon = isFunction(showLeafIcon) ? showLeafIcon(treeNodeProps) : showLeafIcon;
-      const leafCls = `${prefixCls}-switcher-line-custom-icon`;
-
-      if (React.isValidElement<{ className?: string }>(leafIcon)) {
-        return cloneElement(leafIcon, {
-          className: clsx(leafIcon.props?.className, leafCls),
-        });
-      }
-
-      return leafIcon as unknown as React.ReactElement<any>;
-    }
-
-    return showLeafIcon ? (
-      <FileOutlined className={`${prefixCls}-switcher-line-icon`} />
-    ) : (
-      <span className={`${prefixCls}-switcher-leaf-line`} />
-    );
-  }
-
-  const switcherCls = `${prefixCls}-switcher-icon`;
-
-  const switcher = isFunction(switcherIcon) ? switcherIcon(treeNodeProps) : switcherIcon;
-
-  if (React.isValidElement<{ className?: string }>(switcher)) {
-    return cloneElement(switcher, {
-      className: clsx(
-        switcher.props?.className,
-        showLine ? `${prefixCls}-switcher-line-icon` : switcherCls,
-      ),
-    });
-  }
-
-  if (switcher !== undefined) {
-    return switcher as unknown as React.ReactElement<any>;
-  }
-
-  if (showLine) {
-    return expanded ? (
-      <MinusSquareOutlined className={`${prefixCls}-switcher-line-icon`} />
-    ) : (
-      <PlusSquareOutlined className={`${prefixCls}-switcher-line-icon`} />
-    );
-  }
-  return <CaretDownFilled className={switcherCls} />;
+    throw new Error("STUB");
 };
 
 export default SwitcherIconCom;

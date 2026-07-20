@@ -28,12 +28,7 @@ console.log(chalk.green(`🔥 Checking CSS-in-JS...`));
 let errorCount = 0;
 const originError = console.error;
 console.error = (msg: any) => {
-  if (msg.includes('Warning: [Ant Design CSS-in-JS]')) {
-    errorCount += 1;
-    console.log(chalk.red(`❌ `), msg.slice(msg.indexOf('Error in')).replace(/\s+/g, ' '));
-  } else {
-    originError(msg);
-  }
+    throw new Error("STUB");
 };
 
 // https://github.com/csstree/validator/blob/7df8ca/lib/validate.js#L187
@@ -43,7 +38,7 @@ function cssValidate(css: string, filename: string) {
     filename,
     positions: true,
     onParseError(error) {
-      errors.push(error);
+        throw new Error("STUB");
     },
   });
 
@@ -98,26 +93,5 @@ async function checkCSSContent() {
 }
 
 (async () => {
-  await generateCssinjs({
-    key: 'check',
-    render(Component: React.ComponentType<any>) {
-      ReactDOMServer.renderToString(
-        <StyleProvider
-          linters={[logicalPropertiesLinter, legacyNotSelectorLinter, parentSelectorLinter]}
-        >
-          <Component />
-        </StyleProvider>,
-      );
-    },
-  });
-
-  await checkCSSVar();
-  await checkCSSContent();
-
-  if (errorCount > 0) {
-    console.log(chalk.red(`❌  CSS-in-JS check failed with ${errorCount} errors.`));
-    process.exit(1);
-  } else {
-    console.log(chalk.green(`✅  CSS-in-JS check passed.`));
-  }
+    throw new Error("STUB");
 })();

@@ -9,36 +9,6 @@ const { RangePicker } = DatePicker;
 
 const dateFormat = 'YYYY-MM-DD';
 
-const App: React.FC = () => (
-  <Space vertical size={12}>
-    <DatePicker variant="filled" defaultValue={dayjs('2015-06-06', dateFormat)} disabled />
-    <DatePicker
-      variant="filled"
-      picker="month"
-      defaultValue={dayjs('2015-06', 'YYYY-MM')}
-      disabled
-    />
-    <RangePicker
-      variant="filled"
-      defaultValue={[dayjs('2015-06-06', dateFormat), dayjs('2015-06-06', dateFormat)]}
-      disabled
-    />
-    <RangePicker
-      variant="filled"
-      defaultValue={[dayjs('2019-09-03', dateFormat), dayjs('2019-11-22', dateFormat)]}
-      disabled={[false, true]}
-    />
-    <DatePicker
-      defaultValue={dayjs('2023-12-25')}
-      variant="filled"
-      status="error"
-      style={{ width: '100%' }}
-      previewValue={false}
-    />
-    <DatePicker variant="filled" status="warning" style={{ width: '100%' }} />
-    <RangePicker variant="filled" status="error" style={{ width: '100%' }} />
-    <RangePicker variant="filled" status="warning" style={{ width: '100%' }} />
-  </Space>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

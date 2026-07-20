@@ -4,20 +4,7 @@ import type { TableColumnsType } from 'antd';
 import { createStyles } from 'antd-style';
 
 const useStyle = createStyles(({ css, token }) => {
-  const { antCls } = token;
-  return {
-    customTable: css`
-      ${antCls}-table {
-        ${antCls}-table-container {
-          ${antCls}-table-body,
-          ${antCls}-table-content {
-            scrollbar-width: thin;
-            scrollbar-color: #eaeaea transparent;
-          }
-        }
-      }
-    `,
-  };
+    throw new Error("STUB");
 });
 
 interface DataType {
@@ -49,7 +36,7 @@ const columns: TableColumnsType<DataType> = [
         value: 'John',
       },
     ],
-    onFilter: (value, record) => record.name.indexOf(value as string) === 0,
+    onFilter: (value, record) => { throw new Error("STUB"); },
   },
   {
     title: 'Other',
@@ -59,7 +46,7 @@ const columns: TableColumnsType<DataType> = [
         dataIndex: 'age',
         key: 'age',
         width: 150,
-        sorter: (a, b) => a.age - b.age,
+        sorter: (a, b) => { throw new Error("STUB"); },
       },
       {
         title: 'Address',
@@ -116,30 +103,10 @@ const columns: TableColumnsType<DataType> = [
   },
 ];
 
-const dataSource = Array.from({ length: 100 }).map<DataType>((_, i) => ({
-  key: i,
-  name: 'John Brown',
-  age: i + 1,
-  street: 'Lake Park',
-  building: 'C',
-  number: 2035,
-  companyAddress: 'Lake Street 42',
-  companyName: 'SoftLake Co',
-  gender: 'M',
-}));
+const dataSource = Array.from({ length: 100 }).map<DataType>((_, i) => { throw new Error("STUB"); });
 
 const App: React.FC = () => {
-  const { styles } = useStyle();
-  return (
-    <Table<DataType>
-      className={styles.customTable}
-      columns={columns}
-      dataSource={dataSource}
-      bordered
-      size="medium"
-      scroll={{ x: 'calc(700px + 50%)', y: 47 * 5 }}
-    />
-  );
+    throw new Error("STUB");
 };
 
 export default App;

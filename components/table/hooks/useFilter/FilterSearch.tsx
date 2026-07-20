@@ -16,23 +16,7 @@ interface FilterSearchProps<RecordType = AnyObject> {
 const FilterSearch = <RecordType extends AnyObject = AnyObject>(
   props: FilterSearchProps<RecordType>,
 ) => {
-  const { value, filterSearch, tablePrefixCls, locale, onChange } = props;
-  if (!filterSearch) {
-    return null;
-  }
-  return (
-    <div className={`${tablePrefixCls}-filter-dropdown-search`}>
-      <Input
-        prefix={<SearchOutlined />}
-        placeholder={locale.filterSearchPlaceholder}
-        onChange={onChange}
-        value={value}
-        // for skip min-width of input
-        htmlSize={1}
-        className={`${tablePrefixCls}-filter-dropdown-search-input`}
-      />
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 export default FilterSearch;

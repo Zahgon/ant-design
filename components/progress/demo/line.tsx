@@ -1,14 +1,6 @@
 import React from 'react';
 import { Flex, Progress } from 'antd';
 
-const App: React.FC = () => (
-  <Flex gap="small" vertical>
-    <Progress percent={30} />
-    <Progress percent={50} status="active" />
-    <Progress percent={70} status="exception" />
-    <Progress percent={100} />
-    <Progress percent={50} showInfo={false} />
-  </Flex>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

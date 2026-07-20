@@ -33,19 +33,6 @@ export const useAllowClear = (options: UseAllowClearOptions): AllowClear => {
   }
 
   return useMemo(() => {
-    const mergedAllowClear = allowClear ?? contextAllowClear ?? defaultAllowClear;
-    if (!mergedAllowClear) {
-      return false;
-    }
-    return {
-      clearIcon: fallbackProp(
-        isPlainObject(allowClear) ? allowClear?.clearIcon : clearIcon,
-        isPlainObject(contextAllowClear) ? contextAllowClear?.clearIcon : contextClearIcon,
-        <CloseCircleFilled />,
-      ),
-      disabled:
-        (isPlainObject(allowClear) ? allowClear?.disabled : undefined) ??
-        (isPlainObject(contextAllowClear) ? contextAllowClear?.disabled : undefined),
-    };
+      throw new Error("STUB");
   }, [allowClear, clearIcon, contextAllowClear, contextClearIcon, defaultAllowClear]);
 };

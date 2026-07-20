@@ -86,23 +86,7 @@ const h1Style: React.CSSProperties = {
 };
 
 const Demo: React.FC = () => {
-  return (
-    <Flex orientation="horizontal" gap="middle" style={{ padding: 10 }}>
-      <div style={{ width: '35%' }}>
-        <h1 style={h1Style}>Input</h1>
-        <InputPreview />
-      </div>
-      <div style={{ width: '35%' }}>
-        <h1 style={h1Style}>Switch</h1>
-        {SwitchNode}
-        <h1 style={h1Style}>Breadcrumb</h1>
-        <BreadcrumbPreview />
-        <h1 style={h1Style}>Modal</h1>
-        {ModalNode}
-      </div>
-      <div style={{ width: '30%' }}>{DrawerNode}</div>
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 export default Demo;

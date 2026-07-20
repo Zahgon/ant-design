@@ -56,16 +56,7 @@ export const Footer: React.FC<
   const cancelTextLocale = cancelText || locale?.cancelText;
 
   const memoizedValue = React.useMemo<ModalContextProps>(() => {
-    return {
-      confirmLoading,
-      okButtonProps,
-      cancelButtonProps,
-      okTextLocale,
-      cancelTextLocale,
-      okType,
-      onOk,
-      onCancel,
-    };
+      throw new Error("STUB");
   }, [
     confirmLoading,
     okButtonProps,

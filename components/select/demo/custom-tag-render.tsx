@@ -12,32 +12,9 @@ const options: SelectProps['options'] = [
 ];
 
 const tagRender: TagRender = (props) => {
-  const { label, value, closable, onClose } = props;
-  const onPreventMouseDown = (event: React.MouseEvent<HTMLSpanElement>) => {
-    event.preventDefault();
-    event.stopPropagation();
-  };
-  return (
-    <Tag
-      color={value}
-      onMouseDown={onPreventMouseDown}
-      closable={closable}
-      onClose={onClose}
-      style={{ marginInlineEnd: 4 }}
-    >
-      {label}
-    </Tag>
-  );
+    throw new Error("STUB");
 };
 
-const App: React.FC = () => (
-  <Select
-    mode="multiple"
-    tagRender={tagRender}
-    defaultValue={['gold', 'cyan']}
-    style={{ width: '100%' }}
-    options={options}
-  />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

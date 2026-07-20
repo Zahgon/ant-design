@@ -27,103 +27,16 @@ interface BasicPropsWithTagName extends BasicProps {
 
 const generator = ({ suffixCls, tagName, displayName }: GeneratorProps) => {
   return (Component: React.ComponentType<BasicPropsWithTagName & React.RefAttributes<any>>) => {
-    const Adapter = React.forwardRef<HTMLElement, BasicProps>((props, ref) => (
-      <Component ref={ref} suffixCls={suffixCls} tagName={tagName} {...props} />
-    ));
-    if (process.env.NODE_ENV !== 'production') {
-      Adapter.displayName = displayName;
-    }
-    return Adapter;
+      throw new Error("STUB");
   };
 };
 
 const Basic = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>((props, ref) => {
-  const {
-    prefixCls: customizePrefixCls,
-    suffixCls,
-    className,
-    tagName: TagName,
-    ...others
-  } = props;
-
-  const { getPrefixCls } = React.useContext(ConfigContext);
-  const prefixCls = getPrefixCls('layout', customizePrefixCls);
-
-  const [hashId, cssVarCls] = useStyle(prefixCls);
-
-  const prefixWithSuffixCls = suffixCls ? `${prefixCls}-${suffixCls}` : prefixCls;
-
-  return (
-    <TagName
-      className={clsx(customizePrefixCls || prefixWithSuffixCls, className, hashId, cssVarCls)}
-      ref={ref}
-      {...others}
-    />
-  );
+    throw new Error("STUB");
 });
 
 const BasicLayout = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>((props, ref) => {
-  const { direction } = React.useContext(ConfigContext);
-
-  const [siders, setSiders] = React.useState<string[]>([]);
-
-  const {
-    prefixCls: customizePrefixCls,
-    className,
-    rootClassName,
-    children,
-    hasSider,
-    tagName: Tag,
-    style,
-    ...others
-  } = props;
-
-  const passedProps = omit(others, ['suffixCls']);
-
-  const {
-    getPrefixCls,
-    className: contextClassName,
-    style: contextStyle,
-  } = useComponentConfig('layout');
-  const prefixCls = getPrefixCls('layout', customizePrefixCls);
-
-  const mergedHasSider = useHasSider(siders, children, hasSider);
-
-  const [hashId, cssVarCls] = useStyle(prefixCls);
-  const classString = clsx(
-    prefixCls,
-    {
-      [`${prefixCls}-has-sider`]: mergedHasSider,
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-    },
-    contextClassName,
-    className,
-    rootClassName,
-    hashId,
-    cssVarCls,
-  );
-
-  const contextValue = React.useMemo(
-    () => ({
-      siderHook: {
-        addSider: (id: string) => {
-          setSiders((prev) => [...prev, id]);
-        },
-        removeSider: (id: string) => {
-          setSiders((prev) => prev.filter((currentId) => currentId !== id));
-        },
-      },
-    }),
-    [],
-  );
-
-  return (
-    <LayoutContext.Provider value={contextValue}>
-      <Tag ref={ref} className={classString} style={{ ...contextStyle, ...style }} {...passedProps}>
-        {children}
-      </Tag>
-    </LayoutContext.Provider>
-  );
+    throw new Error("STUB");
 });
 
 const Layout = generator({

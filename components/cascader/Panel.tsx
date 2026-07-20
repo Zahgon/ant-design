@@ -36,67 +36,7 @@ function CascaderPanel<
   OptionType extends DefaultOptionType = DefaultOptionType,
   ValueField extends keyof OptionType = keyof OptionType,
 >(props: CascaderPanelAutoProps<OptionType, ValueField>) {
-  const {
-    prefixCls: customizePrefixCls,
-    className,
-    multiple,
-    rootClassName,
-    notFoundContent,
-    direction,
-    expandIcon,
-    loadingIcon,
-    disabled: customDisabled,
-  } = props;
-
-  const { expandIcon: contextExpandIcon, loadingIcon: contextLoadingIcon } =
-    useComponentConfig('cascader');
-
-  const disabled = React.useContext(DisabledContext);
-  const mergedDisabled = customDisabled ?? disabled;
-
-  const [_, cascaderPrefixCls, mergedDirection, renderEmpty] = useBase(
-    customizePrefixCls,
-    direction,
-  );
-
-  const rootCls = useCSSVarCls(cascaderPrefixCls);
-  const [hashId, cssVarCls] = useStyle(cascaderPrefixCls, rootCls);
-  usePanelStyle(cascaderPrefixCls);
-
-  const isRtl = mergedDirection === 'rtl';
-
-  // ===================== Icon ======================
-  const { expandIcon: mergedExpandIcon, loadingIcon: mergedLoadingIcon } = useIcons({
-    contextExpandIcon,
-    contextLoadingIcon,
-    expandIcon,
-    loadingIcon,
-    isRtl,
-  });
-
-  // ===================== Empty =====================
-  const mergedNotFoundContent = notFoundContent || renderEmpty?.('Cascader') || (
-    <DefaultRenderEmpty componentName="Cascader" />
-  );
-
-  // =================== Multiple ====================
-  const checkable = useCheckable(cascaderPrefixCls, multiple);
-
-  // ==================== Render =====================
-
-  return (
-    <Panel
-      {...(props as Pick<RcCascaderProps, RcPanelPickType>)}
-      checkable={checkable}
-      prefixCls={cascaderPrefixCls}
-      className={clsx(className, hashId, rootClassName, cssVarCls, rootCls)}
-      notFoundContent={mergedNotFoundContent}
-      direction={mergedDirection}
-      expandIcon={mergedExpandIcon}
-      loadingIcon={mergedLoadingIcon}
-      disabled={mergedDisabled}
-    />
-  );
+    throw new Error("STUB");
 }
 
 export default CascaderPanel;

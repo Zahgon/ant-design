@@ -1,11 +1,6 @@
 import React from 'react';
 import { QRCode, Space } from 'antd';
 
-const App: React.FC = () => (
-  <Space>
-    <QRCode type="canvas" value="https://ant.design/" />
-    <QRCode type="svg" value="https://ant.design/" />
-  </Space>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

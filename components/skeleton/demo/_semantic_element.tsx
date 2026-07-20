@@ -26,17 +26,7 @@ const OPTIONS = [
 ];
 
 const PreviewContent: React.FC<PreviewContentProps> = (props) => {
-  const { element, setElement, ...rest } = props;
-  const Element = COMPONENT_MAP[element];
-  return (
-    <Flex vertical style={{ width: 'fit-content', marginInlineEnd: 'auto' }}>
-      <Segmented options={OPTIONS} value={element} onChange={setElement} />
-      <Divider titlePlacement="start" plain>
-        Preview
-      </Divider>
-      <Element {...rest} />
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 const locales = {
@@ -51,20 +41,7 @@ const locales = {
 };
 
 const App: React.FC = () => {
-  const [element, setElement] = useState('Avatar');
-  const [locale] = useLocale(locales);
-
-  return (
-    <SemanticPreview
-      componentName={`Skeleton.${element}`}
-      semantics={[
-        { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'content', desc: locale.content, version: '6.0.0' },
-      ]}
-    >
-      <PreviewContent element={element} setElement={setElement} />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

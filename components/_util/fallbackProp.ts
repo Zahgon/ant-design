@@ -8,5 +8,5 @@
  * Note: it is different from `??` operator which skips null
  */
 export default function fallbackProp<T>(...args: T[]) {
-  return args.find((arg): arg is Exclude<T, undefined> => arg !== undefined);
+  return args.find((arg): arg is Exclude<T, undefined> => { throw new Error("STUB"); });
 }

@@ -19,25 +19,7 @@ const items: MenuProps['items'] = [
 ];
 
 const App: React.FC = () => {
-  const [messageApi, contextHolder] = message.useMessage();
-
-  const onClick: MenuProps['onClick'] = ({ key }) => {
-    messageApi.info(`Click on item ${key}`);
-  };
-
-  return (
-    <>
-      {contextHolder}
-      <Dropdown menu={{ items, onClick }}>
-        <a onClick={(e) => e.preventDefault()}>
-          <Space>
-            Hover me, Click menu item
-            <DownOutlined />
-          </Space>
-        </a>
-      </Dropdown>
-    </>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

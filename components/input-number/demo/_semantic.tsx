@@ -27,44 +27,11 @@ const locales = {
 };
 
 const Block: React.FC<InputNumberProps> = (props) => {
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-      <InputNumber
-        prefix="￥"
-        suffix="RMB"
-        defaultValue={100}
-        style={{ width: 200 }}
-        styles={{ actions: { opacity: 1, width: 24 }, suffix: { marginInlineEnd: 28 } }}
-        {...props}
-      />
-      <InputNumber
-        defaultValue={100}
-        style={{ width: 200 }}
-        styles={{ actions: { opacity: 1, width: 24 }, suffix: { marginInlineEnd: 28 } }}
-        mode="spinner"
-        {...props}
-      />
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="InputNumber"
-      semantics={[
-        { name: 'root', desc: locale.root },
-        { name: 'prefix', desc: locale.prefix },
-        { name: 'input', desc: locale.input },
-        { name: 'suffix', desc: locale.suffix },
-        { name: 'actions', desc: locale.actions },
-        { name: 'action', desc: locale.action },
-      ]}
-    >
-      <Block />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

@@ -1,8 +1,6 @@
 import React from 'react';
 import { Segmented } from 'antd';
 
-const Demo: React.FC = () => (
-  <Segmented<string | number> options={[123, 456, 'longtext-longtext-longtext-longtext']} block />
-);
+const Demo: React.FC = () => { throw new Error("STUB"); };
 
 export default Demo;

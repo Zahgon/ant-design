@@ -43,7 +43,7 @@ const useMergedPropByScreen = (
   oriProp: RowProps['align'] | RowProps['justify'],
   screen: ScreenMap | null,
 ) => {
-  const [prop, setProp] = React.useState(() => (isString(oriProp) ? oriProp : ''));
+  const [prop, setProp] = React.useState(() => { throw new Error("STUB"); });
 
   const calcMergedAlignOrJustify = () => {
     if (isString(oriProp)) {
@@ -67,78 +67,14 @@ const useMergedPropByScreen = (
   };
 
   React.useEffect(() => {
-    calcMergedAlignOrJustify();
+      throw new Error("STUB");
   }, [JSON.stringify(oriProp), screen]);
 
   return prop;
 };
 
 const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
-  const {
-    prefixCls: customizePrefixCls,
-    justify,
-    align,
-    className,
-    style,
-    children,
-    gutter = 0,
-    wrap,
-    ...others
-  } = props;
-
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
-
-  const screens = useBreakpoint(true, null);
-
-  const mergedAlign = useMergedPropByScreen(align, screens);
-  const mergedJustify = useMergedPropByScreen(justify, screens);
-
-  const prefixCls = getPrefixCls('row', customizePrefixCls);
-
-  const [hashId, cssVarCls] = useRowStyle(prefixCls);
-
-  const gutters = useGutter(gutter, screens);
-  const classes = clsx(
-    prefixCls,
-    {
-      [`${prefixCls}-no-wrap`]: wrap === false,
-      [`${prefixCls}-${mergedJustify}`]: mergedJustify,
-      [`${prefixCls}-${mergedAlign}`]: mergedAlign,
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-    },
-    className,
-    hashId,
-    cssVarCls,
-  );
-
-  // Add gutter related style
-  const rowStyle: React.CSSProperties = {};
-
-  if (gutters?.[0]) {
-    const horizontalGutter = isNumber(gutters[0])
-      ? `${gutters[0] / -2}px`
-      : `calc(${gutters[0]} / -2)`;
-    rowStyle.marginInline = horizontalGutter;
-  }
-
-  // "gutters" is a new array in each rendering phase, it'll make 'React.useMemo' effectless.
-  // So we deconstruct "gutters" variable here.
-  const [gutterH, gutterV] = gutters;
-
-  rowStyle.rowGap = gutterV;
-
-  const rowContext = React.useMemo<RowContextState>(
-    () => ({ gutter: [gutterH, gutterV] as [number, number], wrap }),
-    [gutterH, gutterV, wrap],
-  );
-
-  return (
-    <RowContext.Provider value={rowContext}>
-      <div {...others} className={classes} style={{ ...rowStyle, ...style }} ref={ref}>
-        {children}
-      </div>
-    </RowContext.Provider>
-  );
+    throw new Error("STUB");
 });
 
 if (process.env.NODE_ENV !== 'production') {

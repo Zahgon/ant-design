@@ -1,19 +1,6 @@
 import React from 'react';
 import { Button, ConfigProvider, Space } from 'antd';
 
-const App: React.FC = () => (
-  <ConfigProvider
-    theme={{
-      components: {
-        Addon: { colorText: 'blue', algorithm: true },
-      },
-    }}
-  >
-    <Space.Compact>
-      <Space.Addon>Addon</Space.Addon>
-      <Button type="primary">Button</Button>
-    </Space.Compact>
-  </ConfigProvider>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

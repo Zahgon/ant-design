@@ -21,21 +21,7 @@ const locales = {
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Button"
-      semantics={[
-        { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'icon', desc: locale.icon, version: '5.5.0' },
-        { name: 'content', desc: locale.content, version: '6.0.0' },
-      ]}
-    >
-      <Button type="primary" icon={<AntDesignOutlined />}>
-        Ant Design
-      </Button>
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

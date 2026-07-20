@@ -28,29 +28,6 @@ const sizes: Array<{
   },
 ];
 
-const App: React.FC = () => (
-  <div
-    style={{
-      display: 'grid',
-      gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
-      gap: 32,
-      maxWidth: 960,
-    }}
-  >
-    {sizes.map(({ name, size, bodyMinHeight, description, spanFull }) => (
-      <div key={name} style={{ gridColumn: spanFull ? '1 / -1' : undefined }}>
-        <BorderBeam size={size}>
-          <Card
-            title={name}
-            extra={<Tag variant="filled">{size ?? 100}px</Tag>}
-            styles={{ body: { minHeight: bodyMinHeight, display: 'flex', alignItems: 'center' } }}
-          >
-            <Typography.Text type="secondary">{description}</Typography.Text>
-          </Card>
-        </BorderBeam>
-      </div>
-    ))}
-  </div>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

@@ -3,13 +3,7 @@ import { Flex, InputNumber } from 'antd';
 import type { GetProp, InputNumberProps } from 'antd';
 import { createStyles } from 'antd-style';
 
-const useStyle = createStyles(({ token }) => ({
-  root: {
-    border: `${token.lineWidth}px ${token.lineType} ${token.colorPrimary}`,
-    borderRadius: token.borderRadiusLG,
-    width: 200,
-  },
-}));
+const useStyle = createStyles(({ token }) => { throw new Error("STUB"); });
 
 const stylesObject: InputNumberProps['styles'] = {
   input: {
@@ -20,28 +14,11 @@ const stylesObject: InputNumberProps['styles'] = {
 const stylesFn: InputNumberProps['styles'] = ({
   props,
 }): GetProp<InputNumberProps, 'styles', 'Return'> => {
-  if (props.size === 'large') {
-    return {
-      root: {
-        backgroundColor: 'rgba(250,250,250, 0.5)',
-        borderColor: '#722ed1',
-      },
-    };
-  }
-  return {};
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const { styles: classNames } = useStyle();
-  const sharedProps: InputNumberProps = {
-    classNames,
-  };
-  return (
-    <Flex vertical gap="medium">
-      <InputNumber {...sharedProps} styles={stylesObject} placeholder="Object" />
-      <InputNumber {...sharedProps} styles={stylesFn} placeholder="Function" size="large" />
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

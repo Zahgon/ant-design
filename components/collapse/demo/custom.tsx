@@ -32,24 +32,7 @@ const getItems: (panelStyle: CSSProperties) => CollapseProps['items'] = (panelSt
 ];
 
 const App: React.FC = () => {
-  const { token } = theme.useToken();
-
-  const panelStyle: React.CSSProperties = {
-    marginBottom: 24,
-    background: token.colorFillAlter,
-    borderRadius: token.borderRadiusLG,
-    border: 'none',
-  };
-
-  return (
-    <Collapse
-      bordered={false}
-      defaultActiveKey={['1']}
-      expandIcon={({ isActive }) => <CaretRightOutlined rotate={isActive ? 90 : 0} />}
-      style={{ background: token.colorBgContainer }}
-      items={getItems(panelStyle)}
-    />
-  );
+    throw new Error("STUB");
 };
 
 export default App;

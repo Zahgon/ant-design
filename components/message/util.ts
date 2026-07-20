@@ -11,17 +11,15 @@ export function wrapPromiseFn(openFn: (resolve: VoidFunction) => VoidFunction) {
   let closeFn: VoidFunction;
 
   const closePromise = new Promise<boolean>((resolve) => {
-    closeFn = openFn(() => {
-      resolve(true);
-    });
+      throw new Error("STUB");
   });
 
   const result: any = () => {
-    closeFn?.();
+      throw new Error("STUB");
   };
 
   result.then = (filled: VoidFunction, rejected: VoidFunction) =>
-    closePromise.then(filled, rejected);
+    { throw new Error("STUB"); };
   result.promise = closePromise;
 
   return result;

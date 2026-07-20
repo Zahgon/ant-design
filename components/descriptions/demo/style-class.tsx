@@ -3,11 +3,7 @@ import { Descriptions, Flex } from 'antd';
 import type { DescriptionsProps, GetProp } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
-const classNames = createStaticStyles(({ css }) => ({
-  root: css`
-    padding: 10px;
-  `,
-}));
+const classNames = createStaticStyles(({ css }) => { throw new Error("STUB"); });
 
 const items: DescriptionsProps['items'] = [
   {
@@ -36,32 +32,11 @@ const styles: DescriptionsProps['styles'] = {
 const stylesFn: DescriptionsProps['styles'] = (
   info,
 ): GetProp<DescriptionsProps, 'styles', 'Return'> => {
-  if (info.props.size === 'large') {
-    return {
-      root: {
-        borderRadius: 8,
-        border: '1px solid #CDC1FF',
-      },
-      label: { color: '#A294F9' },
-    };
-  }
-  return {};
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const descriptionsProps: DescriptionsProps = {
-    title: 'User Info',
-    items,
-    bordered: true,
-    classNames,
-  };
-
-  return (
-    <Flex vertical gap="medium">
-      <Descriptions {...descriptionsProps} styles={styles} size="small" />
-      <Descriptions {...descriptionsProps} styles={stylesFn} size="large" />
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

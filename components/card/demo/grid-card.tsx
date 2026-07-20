@@ -6,18 +6,6 @@ const gridStyle: React.CSSProperties = {
   textAlign: 'center',
 };
 
-const App: React.FC = () => (
-  <Card title="Card Title">
-    <Card.Grid style={gridStyle}>Content</Card.Grid>
-    <Card.Grid hoverable={false} style={gridStyle}>
-      Content
-    </Card.Grid>
-    <Card.Grid style={gridStyle}>Content</Card.Grid>
-    <Card.Grid style={gridStyle}>Content</Card.Grid>
-    <Card.Grid style={gridStyle}>Content</Card.Grid>
-    <Card.Grid style={gridStyle}>Content</Card.Grid>
-    <Card.Grid style={gridStyle}>Content</Card.Grid>
-  </Card>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

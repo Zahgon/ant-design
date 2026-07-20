@@ -14,7 +14,7 @@ const columns: TableColumnsType<DataType> = [
     title: 'Name (all screens)',
     dataIndex: 'name',
     key: 'name',
-    render: (text) => <a>{text}</a>,
+    render: (text) => { throw new Error("STUB"); },
   },
   {
     title: 'Age (medium screen or bigger)',
@@ -39,6 +39,6 @@ const data: DataType[] = [
   },
 ];
 
-const App: React.FC = () => <Table<DataType> columns={columns} dataSource={data} />;
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

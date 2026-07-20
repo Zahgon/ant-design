@@ -16,16 +16,6 @@ const data = [
   },
 ];
 
-const App: React.FC = () => (
-  <List
-    grid={{ gutter: 16, column: 4 }}
-    dataSource={data}
-    renderItem={(item) => (
-      <List.Item>
-        <Card title={item.title}>Card content</Card>
-      </List.Item>
-    )}
-  />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

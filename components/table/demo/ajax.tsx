@@ -66,9 +66,7 @@ const getRandomuserParams = (params: TableParams) => {
   // https://github.com/mockapi-io/docs/wiki/Code-examples#filtering
   if (filters) {
     Object.entries(filters).forEach(([key, value]) => {
-      if (isNonNullable(value)) {
-        result[key] = value;
-      }
+        throw new Error("STUB");
     });
   }
 
@@ -80,80 +78,14 @@ const getRandomuserParams = (params: TableParams) => {
 
   // 处理其他参数
   Object.entries(restParams).forEach(([key, value]) => {
-    if (isNonNullable(value)) {
-      result[key] = value;
-    }
+      throw new Error("STUB");
   });
 
   return result;
 };
 
 const App: React.FC = () => {
-  const [data, setData] = useState<DataType[]>();
-  const [loading, setLoading] = useState(false);
-  const [tableParams, setTableParams] = useState<TableParams>({
-    pagination: {
-      current: 1,
-      pageSize: 10,
-    },
-  });
-
-  const params = toURLSearchParams(getRandomuserParams(tableParams));
-
-  const fetchData = () => {
-    setLoading(true);
-    fetch(`https://660d2bd96ddfa2943b33731c.mockapi.io/api/users?${params.toString()}`)
-      .then((res) => res.json())
-      .then((res) => {
-        setData(Array.isArray(res) ? res : []);
-        setLoading(false);
-        setTableParams({
-          ...tableParams,
-          pagination: {
-            ...tableParams.pagination,
-            total: 100,
-            // 100 is mock data, you should read it from server
-            // total: data.totalCount,
-          },
-        });
-      })
-      .catch(() => {
-        console.log('fetch mock data failed');
-      });
-  };
-
-  useEffect(fetchData, [
-    tableParams.pagination?.current,
-    tableParams.pagination?.pageSize,
-    tableParams?.sortOrder,
-    tableParams?.sortField,
-    JSON.stringify(tableParams.filters),
-  ]);
-
-  const handleTableChange: TableProps<DataType>['onChange'] = (pagination, filters, sorter) => {
-    setTableParams({
-      pagination,
-      filters,
-      sortOrder: Array.isArray(sorter) ? undefined : sorter.order,
-      sortField: Array.isArray(sorter) ? undefined : sorter.field,
-    });
-
-    // `dataSource` is useless since `pageSize` changed
-    if (pagination.pageSize !== tableParams.pagination?.pageSize) {
-      setData([]);
-    }
-  };
-
-  return (
-    <Table<DataType>
-      columns={columns}
-      rowKey={(record) => record.id}
-      dataSource={data}
-      pagination={tableParams.pagination}
-      loading={loading}
-      onChange={handleTableChange}
-    />
-  );
+    throw new Error("STUB");
 };
 
 export default App;

@@ -9,56 +9,7 @@ import useLocale from '../../../../.dumi/hooks/useLocale';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: PureDatePicker } = DatePicker;
 
-const useStyle = createStyles(({ token, prefixCls }) => ({
-  weekendCell: css`
-    color: #ff4d4f40;
-    .${prefixCls}-picker-cell-in-view & {
-      color: #ff4d4f;
-    }
-  `,
-  detailedCell: css`
-    width: 40px;
-    height: 40px !important;
-  `,
-  detailedPicker: css`
-    .${prefixCls}-picker-date-panel {
-      width: auto;
-      .${prefixCls}-picker-content {
-        width: auto;
-      }
-    }
-  `,
-  extraInfo: css`
-    font-size: 12px;
-    line-height: 12px;
-    transform: scale(${10 / 12});
-    color: ${token.colorTextQuaternary};
-    .${prefixCls}-picker-cell-in-view & {
-      color: ${token.colorTextSecondary};
-    }
-    .${prefixCls}-picker-cell-selected & {
-      color: #fff;
-    }
-  `,
-  add: css`
-    color: #ff4d4f80;
-    .${prefixCls}-picker-cell-in-view & {
-      color: #ff4d4f;
-    }
-    .${prefixCls}-picker-cell-selected & {
-      color: #fff;
-    }
-  `,
-  minus: css`
-    color: #52c41a80;
-    .${prefixCls}-picker-cell-in-view & {
-      color: #52c41a;
-    }
-    .${prefixCls}-picker-cell-selected & {
-      color: #fff;
-    }
-  `,
-}));
+const useStyle = createStyles(({ token, prefixCls }) => { throw new Error("STUB"); });
 
 const seeds = Array.from({ length: 30 }).map(Math.random);
 
@@ -80,53 +31,7 @@ const locales = {
 };
 
 const Demo: FC = () => {
-  const { styles } = useStyle();
-  const [locale] = useLocale(locales);
-  const dateRender = (current: Dayjs) => (
-    <div
-      className={clsx('ant-picker-cell-inner', {
-        [styles.weekendCell]: [6, 0].includes(current.day()),
-      })}
-    >
-      {current.date()}
-    </div>
-  );
-
-  const saleDateRender = (current: Dayjs) => (
-    <div className={clsx('ant-picker-cell-inner', styles.detailedCell)}>
-      {current.date()}
-      <div className={styles.extraInfo}>{getSales(current)}</div>
-    </div>
-  );
-
-  const dataDateRender = (current: Dayjs) => {
-    const data = getData(current);
-    return (
-      <div className={clsx('ant-picker-cell-inner', styles.detailedCell)}>
-        {current.date()}
-        <div className={clsx(styles.extraInfo, data > 0 ? styles.add : styles.minus)}>
-          {data.toFixed(2)}%
-        </div>
-      </div>
-    );
-  };
-
-  return (
-    <div style={{ width: '100%' }}>
-      <div style={{ color: 'rgba(0,0,0,0.45)', marginBottom: 32 }}>{locale.officeScenario}</div>
-      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 40 }}>
-        <PureDatePicker dateRender={dateRender} popupClassName={styles.detailedPicker} />
-      </div>
-      <div style={{ color: 'rgba(0,0,0,0.45)', marginBottom: 32 }}>{locale.commerceScenario}</div>
-      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 40 }}>
-        <PureDatePicker dateRender={saleDateRender} popupClassName={styles.detailedPicker} />
-      </div>
-      <div style={{ color: 'rgba(0,0,0,0.45)', marginBottom: 32 }}>{locale.bigDataScenario}</div>
-      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 40 }}>
-        <PureDatePicker dateRender={dataDateRender} popupClassName={styles.detailedPicker} />
-      </div>
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 export default Demo;

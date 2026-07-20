@@ -24,18 +24,13 @@ const columns: TableColumnsType<DataType> = [
     key: 'age',
     fixed: 'start',
   },
-  ...Array.from({ length: 8 }, (_, index) => ({
-    title: `Column ${index + 1}`,
-    dataIndex: 'address',
-    key: `column-${index + 1}`,
-    width: 120,
-  })),
+  ...Array.from({ length: 8 }, (_, index) => { throw new Error("STUB"); }),
   {
     title: 'Action',
     key: 'operation',
     fixed: 'end',
     width: 100,
-    render: () => <a>action</a>,
+    render: () => { throw new Error("STUB"); },
   },
 ];
 
@@ -44,15 +39,6 @@ const dataSource: DataType[] = [
   { key: '2', name: 'Ethan', age: 40, address: 'London Park' },
 ];
 
-const App: React.FC = () => (
-  <Watermark content="Ant Design">
-    <Table<DataType>
-      columns={columns}
-      dataSource={dataSource}
-      pagination={false}
-      scroll={{ x: 'max-content' }}
-    />
-  </Watermark>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

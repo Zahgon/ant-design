@@ -36,13 +36,10 @@ interface LineProps extends Omit<ProgressProps, 'classNames' | 'styles'> {
 export const sortGradient = (gradients: StringGradients) => {
   let tempArr: { key: number; value?: string }[] = [];
   Object.keys(gradients).forEach((key) => {
-    const formattedKey = Number.parseFloat(key.replace(/%/g, ''));
-    if (!Number.isNaN(formattedKey)) {
-      tempArr.push({ key: formattedKey, value: gradients[key] });
-    }
+      throw new Error("STUB");
   });
-  tempArr = tempArr.sort((a, b) => a.key - b.key);
-  return tempArr.map(({ key, value }) => `${value} ${key}%`).join(', ');
+  tempArr = tempArr.sort((a, b) => { throw new Error("STUB"); });
+  return tempArr.map(({ key, value }) => { throw new Error("STUB"); }).join(', ');
 };
 
 /**
@@ -78,112 +75,7 @@ export const handleGradient = (
 };
 
 const Line: React.FC<LineProps> = (props) => {
-  const {
-    prefixCls,
-    classNames,
-    styles,
-    direction: directionConfig,
-    percent,
-    size,
-    strokeWidth,
-    strokeColor,
-    strokeLinecap = 'round',
-    children,
-    railColor,
-    trailColor,
-    percentPosition,
-    success,
-  } = props;
-
-  const { align: infoAlign, type: infoPosition } = percentPosition;
-
-  const mergedRailColor = railColor ?? trailColor;
-
-  const borderRadius = strokeLinecap === 'square' || strokeLinecap === 'butt' ? 0 : undefined;
-
-  if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning('Progress');
-
-    warning.deprecated(!('strokeWidth' in props), 'strokeWidth', 'size');
-  }
-
-  // ========================= Size =========================
-  const mergedSize = size ?? [-1, strokeWidth || (size === 'small' ? 6 : 8)];
-
-  const [width, height] = getSize(mergedSize, 'line', { strokeWidth });
-
-  // ========================= Rail =========================
-  const railStyle: React.CSSProperties = {
-    backgroundColor: mergedRailColor || undefined,
-    borderRadius,
-    height,
-  };
-
-  // ======================== Tracks ========================
-  const trackCls = `${prefixCls}-track`;
-
-  const backgroundProps =
-    strokeColor && typeof strokeColor !== 'string'
-      ? handleGradient(strokeColor, directionConfig)
-      : { [LineStrokeColorVar]: strokeColor, background: strokeColor };
-
-  const percentTrackStyle: React.CSSProperties = {
-    width: `${validProgress(percent)}%`,
-    height,
-    borderRadius,
-    ...backgroundProps,
-  };
-
-  const successPercent = getSuccessPercent(props);
-
-  const successTrackStyle: React.CSSProperties = {
-    width: `${validProgress(successPercent)}%`,
-    height,
-    borderRadius,
-    backgroundColor: success?.strokeColor,
-  };
-
-  // ======================== Render ========================
-  return (
-    <div
-      className={clsx(`${prefixCls}-body`, classNames.body, {
-        [`${prefixCls}-body-layout-bottom`]: infoAlign === 'center' && infoPosition === 'outer',
-      })}
-      style={{ width: width > 0 ? width : '100%', ...styles.body }}
-    >
-      {/************** Rail **************/}
-      <div
-        className={clsx(`${prefixCls}-rail`, classNames.rail)}
-        style={{ ...railStyle, ...styles.rail }}
-      >
-        {/************* Track *************/}
-        {/* Percent */}
-        <div
-          className={clsx(trackCls, classNames.track)}
-          style={{
-            ...percentTrackStyle,
-            ...styles.track,
-          }}
-        >
-          {infoPosition === 'inner' && children}
-        </div>
-
-        {/* Success */}
-        {successPercent !== undefined && (
-          <div
-            className={clsx(trackCls, `${trackCls}-success`, classNames.track)}
-            style={{
-              ...successTrackStyle,
-              ...styles.track,
-            }}
-          />
-        )}
-      </div>
-
-      {/* Indicator */}
-      {infoPosition === 'outer' && children}
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 export default Line;

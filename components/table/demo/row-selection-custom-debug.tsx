@@ -16,24 +16,12 @@ const columns: TableColumnsType<DataType> = [
   },
 ];
 
-const dataSource = Array.from({ length: 46 }).map<DataType>((_, i) => ({
-  key: i,
-  name: i % 2 === 0 ? `Edward King ${i}` : 'Another Row',
-}));
+const dataSource = Array.from({ length: 46 }).map<DataType>((_, i) => { throw new Error("STUB"); });
 
 const rowSelection: TableRowSelection<DataType> = {
-  renderCell: (checked, _record, index, node) => ({
-    props: { rowSpan: index % 2 === 0 ? 2 : 0 },
-    children: (
-      <>
-        {String(checked)}: {node}
-      </>
-    ),
-  }),
+  renderCell: (checked, _record, index, node) => { throw new Error("STUB"); },
 };
 
-const App: React.FC = () => (
-  <Table<DataType> rowSelection={rowSelection} columns={columns} dataSource={dataSource} />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

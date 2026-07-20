@@ -17,18 +17,8 @@ const styleTxt = `
 }
 `;
 
-const Block: React.FC<React.PropsWithChildren<React.HTMLAttributes<HTMLDivElement>>> = (props) => (
-  <div className="blog-css-tricks" style={props.style}>
-    <p>{props.children}</p>
-  </div>
-);
+const Block: React.FC<React.PropsWithChildren<React.HTMLAttributes<HTMLDivElement>>> = (props) => { throw new Error("STUB"); };
 
-const Example: React.FC = () => (
-  <Flex vertical gap="middle">
-    <style>{styleTxt}</style>
-    <Block>Without CSS Var</Block>
-    <Block style={{ '--custom-var': '0px' }}>With CSS Var</Block>
-  </Flex>
-);
+const Example: React.FC = () => { throw new Error("STUB"); };
 
 export default Example;

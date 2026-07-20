@@ -74,47 +74,7 @@ const items: MenuItem[] = [
 ];
 
 const App: React.FC = () => {
-  const onClick: MenuProps['onClick'] = (e) => {
-    console.log('click ', e);
-  };
-
-  return (
-    <ConfigProvider
-      theme={{
-        components: {
-          Menu: {
-            collapsedIconSize: 30,
-          },
-        },
-      }}
-    >
-      <style>{`
-        .menu-collapsed-icon-debug .ant-menu-item,
-        .menu-collapsed-icon-debug .ant-menu-submenu-title {
-          background: rgba(22, 119, 255, 0.06);
-        }
-
-        .menu-collapsed-icon-debug .ant-menu-item-icon {
-          outline: 1px solid #ff4d4f;
-          background: rgba(255, 77, 79, 0.12);
-        }
-
-        .menu-collapsed-icon-debug .ant-menu-item-icon svg,
-        .menu-collapsed-icon-debug .ant-menu-submenu-title .anticon svg {
-          outline: 1px solid #1677ff;
-          background: rgba(22, 119, 255, 0.16);
-        }
-
-        .menu-collapsed-icon-debug .ant-menu-title-content {
-          outline: 1px dashed #52c41a;
-          background: rgba(82, 196, 26, 0.12);
-        }
-      `}</style>
-      <div className="menu-collapsed-icon-debug">
-        <Menu onClick={onClick} mode="inline" inlineCollapsed items={items} />
-      </div>
-    </ConfigProvider>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

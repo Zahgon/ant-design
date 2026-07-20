@@ -8,7 +8,7 @@ import { defineConfig } from 'vitest/config';
 const LIB_DIR = process.env.LIB_DIR || 'components';
 const baseDir = ['es', 'lib'].includes(LIB_DIR) ? LIB_DIR : 'components';
 
-const r = (p: string) => resolve(__dirname, p);
+const r = (p: string) => { throw new Error("STUB"); };
 
 export default defineConfig({
   // JSX 走 automatic runtime（方案 A：丢弃 babel）。Vitest 4 默认转换器为 oxc，
@@ -39,10 +39,7 @@ export default defineConfig({
     // 测试同目录的 __snapshots__/vitest/ 子目录，与组件就近存放；Jest 通过
     // modulePathIgnorePatterns 忽略该子目录，避免在 --ci 下把它判为 obsolete 而报错。
     resolveSnapshotPath: (testPath, snapExtension) => {
-      const normalized = testPath.replace(/\\/g, '/');
-      const dir = normalized.slice(0, normalized.lastIndexOf('/'));
-      const file = normalized.slice(normalized.lastIndexOf('/') + 1);
-      return `${dir}/__snapshots__/vitest/${file}${snapExtension}`;
+        throw new Error("STUB");
     },
     // include 覆盖全组件；exclude 是当前 Vitest 迁移进度的显式 manifest。
     // 维护规则：

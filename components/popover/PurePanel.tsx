@@ -18,26 +18,7 @@ interface OverlayProps {
 }
 
 export const Overlay: React.FC<OverlayProps> = (props) => {
-  const { title, content, prefixCls, classNames, styles } = props;
-
-  if (!isReactRenderable(title) && !isReactRenderable(content)) {
-    return null;
-  }
-
-  return (
-    <>
-      {isReactRenderable(title) && (
-        <div className={clsx(`${prefixCls}-title`, classNames?.title)} style={styles?.title}>
-          {title}
-        </div>
-      )}
-      {isReactRenderable(content) && (
-        <div className={clsx(`${prefixCls}-content`, classNames?.content)} style={styles?.content}>
-          {content}
-        </div>
-      )}
-    </>
-  );
+    throw new Error("STUB");
 };
 
 export interface PurePanelProps extends Omit<PopoverProps, 'children'> {
@@ -49,79 +30,11 @@ interface RawPurePanelProps extends PopoverProps {
 }
 
 export const RawPurePanel: React.FC<RawPurePanelProps> = (props) => {
-  const {
-    hashId,
-    prefixCls,
-    className,
-    style,
-    placement = 'top',
-    title,
-    content,
-    children,
-    classNames,
-    styles,
-  } = props;
-
-  const titleNode = getRenderPropValue(title);
-  const contentNode = getRenderPropValue(content);
-
-  const mergedProps: PopoverProps = {
-    ...props,
-    placement,
-  };
-
-  const [mergedClassNames, mergedStyles] = useMergeSemantic([classNames], [styles], {
-    props: mergedProps,
-  });
-
-  const rootClassName = clsx(
-    hashId,
-    prefixCls,
-    `${prefixCls}-pure`,
-    `${prefixCls}-placement-${placement}`,
-    className,
-  );
-
-  return (
-    <div className={rootClassName} style={style}>
-      <div className={`${prefixCls}-arrow`} />
-      <Popup
-        {...props}
-        className={hashId}
-        prefixCls={prefixCls}
-        classNames={mergedClassNames}
-        styles={mergedStyles}
-      >
-        {children || (
-          <Overlay
-            prefixCls={prefixCls}
-            title={titleNode}
-            content={contentNode}
-            classNames={mergedClassNames}
-            styles={mergedStyles}
-          />
-        )}
-      </Popup>
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 const PurePanel: React.FC<PurePanelProps> = (props) => {
-  const { prefixCls: customizePrefixCls, className, ...restProps } = props;
-  const { getPrefixCls } = React.useContext(ConfigContext);
-
-  const prefixCls = getPrefixCls('popover', customizePrefixCls);
-
-  const [hashId, cssVarCls] = useStyle(prefixCls);
-
-  return (
-    <RawPurePanel
-      {...restProps}
-      prefixCls={prefixCls}
-      hashId={hashId}
-      className={clsx(className, cssVarCls)}
-    />
-  );
+    throw new Error("STUB");
 };
 
 export default PurePanel;

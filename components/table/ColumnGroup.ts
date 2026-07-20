@@ -14,6 +14,6 @@ export interface ColumnGroupProps<RecordType = AnyObject>
 /* istanbul ignore next */
 /** This is a syntactic sugar for `columns` prop. So HOC will not work on this. */
 
-const ColumnGroup = <RecordType extends AnyObject>(_: ColumnGroupProps<RecordType>) => null;
+const ColumnGroup = <RecordType extends AnyObject>(_: ColumnGroupProps<RecordType>) => { throw new Error("STUB"); };
 
 export default ColumnGroup;

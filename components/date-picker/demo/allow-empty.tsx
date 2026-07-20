@@ -1,14 +1,6 @@
 import React from 'react';
 import { DatePicker } from 'antd';
 
-const App: React.FC = () => (
-  <DatePicker.RangePicker
-    placeholder={['Start Date', 'Till Now']}
-    allowEmpty={[false, true]}
-    onChange={(date, dateString) => {
-      console.log(date, dateString);
-    }}
-  />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

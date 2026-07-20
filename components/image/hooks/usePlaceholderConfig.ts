@@ -11,18 +11,6 @@ export function isPlaceholderConfig(
 
 export default function usePlaceholderConfig(placeholder?: PlaceholderType) {
   return useMemo(() => {
-    if (!placeholder || !isPlaceholderConfig(placeholder)) {
-      return {};
-    }
-
-    if (typeof placeholder.progress === 'boolean') {
-      return {
-        progressConfig: placeholder.progress ? {} : undefined,
-      };
-    }
-
-    return {
-      progressConfig: placeholder.progress,
-    };
+      throw new Error("STUB");
   }, [placeholder]);
 }

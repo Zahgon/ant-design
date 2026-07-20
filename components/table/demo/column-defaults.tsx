@@ -43,13 +43,6 @@ const data: DataType[] = [
   },
 ];
 
-const App: React.FC = () => (
-  <Table<DataType>
-    columns={columns}
-    dataSource={data}
-    column={{ align: 'center', ellipsis: true }}
-    pagination={false}
-  />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

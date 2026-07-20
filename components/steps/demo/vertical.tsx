@@ -18,15 +18,6 @@ const items = [
   },
 ];
 
-const App: React.FC = () => (
-  <Flex>
-    <div style={{ flex: 1 }}>
-      <Steps orientation="vertical" current={1} items={items} />
-    </div>
-    <div style={{ flex: 1 }}>
-      <Steps orientation="vertical" current={1} items={items} size="small" />
-    </div>
-  </Flex>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

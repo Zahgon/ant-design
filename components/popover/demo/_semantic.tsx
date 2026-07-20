@@ -24,41 +24,11 @@ const locales = {
 };
 
 const BlockList: React.FC<React.PropsWithChildren<PopoverProps>> = (props) => {
-  const divRef = React.useRef<HTMLDivElement>(null);
-  const { children, ...rest } = props;
-  return (
-    <div ref={divRef} style={{ position: 'absolute', marginTop: 60 }}>
-      <Popover
-        open
-        placement="top"
-        title="Hello"
-        content="Ant Design love you!"
-        autoAdjustOverflow={false}
-        getPopupContainer={() => divRef.current!}
-        {...rest}
-      >
-        {children}
-      </Popover>
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Popover"
-      semantics={[
-        { name: 'root', desc: locale.root },
-        { name: 'container', desc: locale.container },
-        { name: 'title', desc: locale.title },
-        { name: 'content', desc: locale.content },
-        { name: 'arrow', desc: locale.arrow },
-      ]}
-    >
-      <BlockList />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

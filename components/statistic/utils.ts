@@ -36,26 +36,16 @@ export function formatTimeStr(duration: number, format: string) {
   let leftDuration: number = duration;
 
   const escapeRegex = /\[[^\]]*]/g;
-  const keepList: string[] = (format.match(escapeRegex) || []).map((str) => str.slice(1, -1));
+  const keepList: string[] = (format.match(escapeRegex) || []).map((str) => { throw new Error("STUB"); });
   const templateText = format.replace(escapeRegex, '[]');
 
   const replacedText = timeUnits.reduce((current, [name, unit]) => {
-    if (current.includes(name)) {
-      const value = Math.floor(leftDuration / unit);
-      leftDuration -= value * unit;
-      return current.replace(new RegExp(`${name}+`, 'g'), (match: string) => {
-        const len = match.length;
-        return value.toString().padStart(len, '0');
-      });
-    }
-    return current;
+      throw new Error("STUB");
   }, templateText);
 
   let index = 0;
   return replacedText.replace(escapeRegex, () => {
-    const match = keepList[index];
-    index += 1;
-    return match;
+      throw new Error("STUB");
   });
 }
 

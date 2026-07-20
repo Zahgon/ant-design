@@ -17,34 +17,7 @@ export interface ConfirmCancelBtnProps
 }
 
 const ConfirmCancelBtn: FC = () => {
-  const {
-    autoFocusButton,
-    cancelButtonProps,
-    cancelTextLocale,
-    isSilent,
-    mergedOkCancel,
-    rootPrefixCls,
-    close,
-    onCancel,
-    onConfirm,
-    onClose,
-  } = useContext(ModalContext);
-  return mergedOkCancel ? (
-    <ActionButton
-      isSilent={isSilent}
-      actionFn={onCancel}
-      close={(...args: any[]) => {
-        close?.(...args);
-        onConfirm?.(false);
-        onClose?.();
-      }}
-      autoFocus={autoFocusButton === 'cancel'}
-      buttonProps={cancelButtonProps}
-      prefixCls={`${rootPrefixCls}-btn`}
-    >
-      {cancelTextLocale}
-    </ActionButton>
-  ) : null;
+    throw new Error("STUB");
 };
 
 export default ConfirmCancelBtn;

@@ -7,14 +7,10 @@ const openNotification = () => {
     description:
       'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
     onClick: () => {
-      console.log('Notification Clicked!');
+        throw new Error("STUB");
     },
   });
 };
-const App: React.FC = () => (
-  <Button type="primary" onClick={openNotification}>
-    Open the notification box
-  </Button>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

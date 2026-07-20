@@ -15,12 +15,7 @@ const onChange = (date: Dayjs | null) => {
 };
 
 const onRangeChange = (dates: null | (Dayjs | null)[], dateStrings: string[]) => {
-  if (dates) {
-    console.log('From: ', dates[0], ', to: ', dates[1]);
-    console.log('From: ', dateStrings[0], ', to: ', dateStrings[1]);
-  } else {
-    console.log('Clear');
-  }
+    throw new Error("STUB");
 };
 
 const rangePresets: TimeRangePickerProps['presets'] = [
@@ -30,30 +25,6 @@ const rangePresets: TimeRangePickerProps['presets'] = [
   { label: 'Last 90 Days', value: [dayjs().add(-90, 'd'), dayjs()] },
 ];
 
-const App: React.FC = () => (
-  <Space vertical size={12}>
-    <DatePicker
-      presets={[
-        { label: 'Yesterday', value: dayjs().add(-1, 'd') },
-        { label: 'Last Week', value: dayjs().add(-7, 'd') },
-        { label: 'Last Month', value: dayjs().add(-1, 'month') },
-      ]}
-      onChange={onChange}
-    />
-    <RangePicker presets={rangePresets} onChange={onRangeChange} />
-    <RangePicker
-      presets={[
-        {
-          label: <span aria-label="Current Time to End of Day">Now ~ EOD</span>,
-          value: () => [dayjs(), dayjs().endOf('day')], // 5.8.0+ support function
-        },
-        ...rangePresets,
-      ]}
-      showTime
-      format="YYYY/MM/DD HH:mm:ss"
-      onChange={onRangeChange}
-    />
-  </Space>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

@@ -65,8 +65,6 @@ const onClick: MenuProps['onClick'] = (e) => {
   console.log('click', e);
 };
 
-const App: React.FC = () => (
-  <Menu onClick={onClick} style={{ width: 256 }} mode="vertical" items={items} />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

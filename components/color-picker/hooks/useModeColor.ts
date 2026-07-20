@@ -35,27 +35,7 @@ export default function useModeColor(
   const [modeState, setModeState] = React.useState<ModeType>('single');
 
   const [modeOptionList, modeSet] = React.useMemo(() => {
-    const list = (Array.isArray(mode) ? mode : [mode]).filter((m) => m);
-    if (!list.length) {
-      list.push('single');
-    }
-
-    const modes = new Set(list);
-    const optionList: ModeOptions = [];
-
-    const pushOption = (modeType: ModeType, localeTxt: string) => {
-      if (modes.has(modeType)) {
-        optionList.push({
-          label: localeTxt,
-          value: modeType,
-        });
-      }
-    };
-
-    pushOption('single', locale.singleColor);
-    pushOption('gradient', locale.gradientColor);
-
-    return [optionList, modes];
+      throw new Error("STUB");
   }, [mode, locale.singleColor, locale.gradientColor]);
 
   // ======================== Post ========================
@@ -65,30 +45,22 @@ export default function useModeColor(
   const [cacheColor, setCacheColor] = React.useState<AggregationColor | null>(null);
 
   const setColor = useEvent((nextColor: AggregationColor) => {
-    setCacheColor(nextColor);
-    setMergedColor(nextColor);
+      throw new Error("STUB");
   });
 
   const postColor = React.useMemo(() => {
-    const colorObj = generateColor(mergedColor || '');
-
-    // Use `cacheColor` in case the color is `cleared`
-    return colorObj.equals(cacheColor) ? cacheColor! : colorObj;
+      throw new Error("STUB");
   }, [mergedColor, cacheColor]);
 
   // >>>>> Mode
   const postMode = React.useMemo(() => {
-    if (modeSet.has(modeState)) {
-      return modeState;
-    }
-
-    return modeOptionList[0]?.value;
+      throw new Error("STUB");
   }, [modeSet, modeState, modeOptionList]);
 
   // ======================= Effect =======================
   // Dynamic update mode when color change
   React.useEffect(() => {
-    setModeState(postColor.isGradient() ? 'gradient' : 'single');
+      throw new Error("STUB");
   }, [postColor]);
 
   // ======================= Return =======================

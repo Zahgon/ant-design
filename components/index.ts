@@ -184,11 +184,7 @@ export { default as Watermark } from './watermark';
 export type { WatermarkContent, WatermarkFont, WatermarkProps, WatermarkText } from './watermark';
 
 export const unstableSetRender: any = () => {
-  warning(
-    false,
-    'compatible',
-    "antd v6 support React 19 already, it's no need to call the compatible function or just remove `@ant-design/v5-patch-for-react-19`",
-  );
+    throw new Error("STUB");
 };
 
 // Warning if React is less than 18 (not include 18)

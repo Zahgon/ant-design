@@ -34,13 +34,6 @@ const warning = () => {
   });
 };
 
-const App: React.FC = () => (
-  <Space wrap>
-    <Button onClick={info}>Info</Button>
-    <Button onClick={success}>Success</Button>
-    <Button onClick={error}>Error</Button>
-    <Button onClick={warning}>Warning</Button>
-  </Space>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

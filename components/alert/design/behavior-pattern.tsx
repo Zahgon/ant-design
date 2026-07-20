@@ -21,40 +21,7 @@ const locales = {
 };
 
 const BehaviorPattern: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <BehaviorMap
-      data={{
-        id: '200000004',
-        label: locale.title,
-        children: [
-          {
-            id: '500000061',
-            label: locale.understandAlertInfo,
-            targetType: 'mvp',
-            children: [
-              {
-                id: '707000085',
-                label: locale.understandAlertContent,
-                link: 'alert-index-tab-design-demo-content',
-              },
-              {
-                id: '707000086',
-                label: locale.understandAlertType,
-                link: 'alert-index-tab-design-demo-type',
-              },
-            ],
-          },
-          {
-            id: '200000005',
-            label: locale.performAlertOperations,
-            targetType: 'extension',
-            link: 'alert-index-tab-design-demo-action',
-          },
-        ],
-      }}
-    />
-  );
+    throw new Error("STUB");
 };
 
 export default BehaviorPattern;

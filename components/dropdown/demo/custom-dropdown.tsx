@@ -35,44 +35,7 @@ const items: MenuProps['items'] = [
 ];
 
 const App: React.FC = () => {
-  const { token } = useToken();
-
-  const contentStyle: React.CSSProperties = {
-    backgroundColor: token.colorBgElevated,
-    borderRadius: token.borderRadiusLG,
-    boxShadow: token.boxShadowSecondary,
-  };
-
-  const menuStyle: React.CSSProperties = {
-    boxShadow: 'none',
-  };
-
-  return (
-    <Dropdown
-      menu={{ items }}
-      popupRender={(menu) => (
-        <div style={contentStyle}>
-          {React.cloneElement(
-            menu as React.ReactElement<{
-              style: React.CSSProperties;
-            }>,
-            { style: menuStyle },
-          )}
-          <Divider style={{ margin: 0 }} />
-          <Space style={{ padding: 8 }}>
-            <Button type="primary">Click me!</Button>
-          </Space>
-        </div>
-      )}
-    >
-      <a onClick={(e) => e.preventDefault()}>
-        <Space>
-          Hover me
-          <DownOutlined />
-        </Space>
-      </a>
-    </Dropdown>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

@@ -67,7 +67,7 @@ const genBaseStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         cursor: 'pointer',
         opacity: 0,
         transition: ['color', 'opacity']
-          .map((prop) => `${prop} ${motionDurationMid} ease`)
+          .map((prop) => { throw new Error("STUB"); })
           .join(', '),
         textRendering: 'auto',
         // https://github.com/ant-design/ant-design/issues/54205
@@ -106,57 +106,14 @@ const genBaseStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
 
 // ============================== Styles ==============================
 const genSelectStyle: GenerateStyle<SelectToken> = (token) => {
-  const { componentCls } = token;
-
-  return [
-    {
-      [componentCls]: {
-        // ==================== In Form ====================
-        [`&${componentCls}-in-form-item`]: {
-          width: '100%',
-        },
-      },
-    },
-
-    // =====================================================
-    // ==                       LTR                       ==
-    // =====================================================
-    // Base
-    genBaseStyle(token),
-
-    // Dropdown
-    genDropdownStyle(token),
-
-    // =====================================================
-    // ==                       RTL                       ==
-    // =====================================================
-    {
-      [`${componentCls}-rtl`]: {
-        direction: 'rtl',
-      },
-    },
-
-    // =====================================================
-    // ==             Space Compact                       ==
-    // =====================================================
-    genCompactItemStyle(token, {
-      focusElCls: `${componentCls}-focused`,
-    }),
-  ];
+    throw new Error("STUB");
 };
 
 // ============================== Export ==============================
 export default genStyleHooks(
   'Select',
   (token, { rootPrefixCls }) => {
-    const selectToken: SelectToken = mergeToken<SelectToken>(token, {
-      rootPrefixCls,
-      inputPaddingHorizontalBase: token.calc(token.paddingSM).sub(token.lineWidth).equal(),
-      multipleSelectItemHeight: token.multipleItemHeight,
-      selectHeight: token.controlHeight,
-    });
-
-    return [genSelectStyle(selectToken), genSelectInputStyle(selectToken)];
+      throw new Error("STUB");
   },
   prepareComponentToken,
   {

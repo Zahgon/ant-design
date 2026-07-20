@@ -39,17 +39,6 @@ const items2: MenuItem[] = [
   { key: '2', label: 'Profile', extra: '⌘P' },
 ];
 
-const App: React.FC = () => (
-  <Space vertical>
-    <Menu
-      mode="inline"
-      defaultOpenKeys={['sub1']}
-      defaultSelectedKeys={['1']}
-      style={{ width: 256 }}
-      items={items1}
-    />
-    <Menu theme="dark" style={{ width: 256 }} items={items2} />
-  </Space>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

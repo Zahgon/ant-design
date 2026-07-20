@@ -9,15 +9,7 @@ export type IconWrapperProps = {
 };
 
 const IconWrapper = forwardRef<HTMLSpanElement, IconWrapperProps>((props, ref) => {
-  const { className, style, children, prefixCls } = props;
-
-  const iconWrapperCls = clsx(`${prefixCls}-icon`, className);
-
-  return (
-    <span ref={ref} className={iconWrapperCls} style={style}>
-      {children}
-    </span>
-  );
+    throw new Error("STUB");
 });
 
 export default IconWrapper;

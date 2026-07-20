@@ -24,30 +24,7 @@ const useMergedPreviewConfig = <T extends PreviewConfig | GroupPreviewConfig>(
   );
 
   return React.useMemo(() => {
-    if (!previewConfig) {
-      return previewConfig;
-    }
-    const {
-      cover,
-      getContainer,
-      closeIcon,
-      rootClassName: previewRootClassName,
-    } = previewConfig as PreviewConfig;
-    const { closeIcon: contextCloseIcon } = contextPreviewConfig ?? {};
-
-    return {
-      motionName: getTransitionName(`${prefixCls}-preview`, 'fade'),
-      ...previewConfig,
-      ...(defaultCover ? { cover: cover ?? defaultCover } : {}),
-      icons,
-      getContainer: getContainer ?? getContextPopupContainer,
-      zIndex,
-      closeIcon: closeIcon ?? contextCloseIcon,
-      rootClassName: clsx(mergedRootClassName, previewRootClassName),
-      mask: mergedPreviewMask,
-      maskClosable: mergedMaskClosable,
-      blurClassName: blurClassName.mask,
-    };
+      throw new Error("STUB");
   }, [
     previewConfig,
     contextPreviewConfig,

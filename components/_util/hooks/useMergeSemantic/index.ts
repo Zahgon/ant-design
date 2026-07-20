@@ -19,30 +19,9 @@ export const mergeClassNames = <
   ...classNames: (SemanticClassNames | undefined)[]
 ) => {
   return classNames
-    .filter((item): item is SemanticClassNames => Boolean(item))
+    .filter((item): item is SemanticClassNames => { throw new Error("STUB"); })
     .reduce<SemanticClassNames>((acc: any, cur) => {
-      // Loop keys of the current classNames
-      Object.keys(cur).forEach((key) => {
-        const keySchema = schema[key as keyof SemanticSchema] as SemanticSchema;
-        const curVal = cur[key as keyof SemanticClassNames];
-        if (keySchema) {
-          if (isPlainObject(curVal)) {
-            // Loop fill
-            acc[key] = mergeClassNames(keySchema, acc[key], curVal);
-          } else {
-            // Covert string to object structure
-            const { _default: defaultField } = keySchema;
-            if (defaultField) {
-              acc[key] = acc[key] || {};
-              acc[key][defaultField] = clsx(acc[key][defaultField], curVal);
-            }
-          }
-        } else {
-          // Flatten fill
-          acc[key] = clsx(acc[key], curVal);
-        }
-      });
-      return acc;
+        throw new Error("STUB");
     }, {} as SemanticClassNames);
 };
 
@@ -50,7 +29,7 @@ const useSemanticClassNames = <ClassNamesType extends AnyObject>(
   schema?: SemanticSchema,
   ...classNames: (Partial<ClassNamesType> | undefined)[]
 ): Partial<ClassNamesType> => {
-  return React.useMemo(() => mergeClassNames(schema, ...classNames), [schema, ...classNames]);
+  return React.useMemo(() => { throw new Error("STUB"); }, [schema, ...classNames]);
 };
 
 // =========================== Styles ===========================
@@ -58,23 +37,20 @@ export const mergeStyles = <StylesType extends AnyObject>(
   ...styles: (Partial<StylesType> | undefined)[]
 ) => {
   return styles
-    .filter((item): item is Partial<StylesType> => Boolean(item))
+    .filter((item): item is Partial<StylesType> => { throw new Error("STUB"); })
     .reduce<Record<PropertyKey, React.CSSProperties>>((acc, cur = {}) => {
-      Object.keys(cur).forEach((key) => {
-        acc[key] = { ...acc[key], ...cur[key] };
-      });
-      return acc;
+        throw new Error("STUB");
     }, {});
 };
 
 const useSemanticStyles = <StylesType extends AnyObject>(
   ...styles: (Partial<StylesType> | undefined)[]
 ) => {
-  return React.useMemo(() => mergeStyles(...styles), [...styles]) as StylesType;
+  return React.useMemo(() => { throw new Error("STUB"); }, [...styles]) as StylesType;
 };
 
 export const useSemanticRootStyle = (style?: React.CSSProperties) => {
-  return React.useMemo(() => (style ? { root: style } : undefined), [style]);
+  return React.useMemo(() => { throw new Error("STUB"); }, [style]);
 };
 
 // =========================== Export ===========================
@@ -103,11 +79,11 @@ export const useMergeSemantic = <
   schema?: SemanticSchema,
 ) => {
   const resolvedClassNamesList = classNamesList.map((classNames) =>
-    classNames ? resolveStyleOrClass(classNames, info) : undefined,
+    { throw new Error("STUB"); },
   );
 
   const resolvedStylesList = stylesList.map((styles) =>
-    styles ? resolveStyleOrClass(styles, info) : undefined,
+    { throw new Error("STUB"); },
   );
 
   const mergedClassNames = useSemanticClassNames<NonNullable<ClassNamesType>>(
@@ -118,10 +94,7 @@ export const useMergeSemantic = <
   const mergedStyles = useSemanticStyles<NonNullable<StylesType>>(...resolvedStylesList);
 
   return React.useMemo(() => {
-    if (!schema) {
-      return [mergedClassNames, mergedStyles];
-    }
-    return [fillObjectBySchema(mergedClassNames, schema), fillObjectBySchema(mergedStyles, schema)];
+      throw new Error("STUB");
   }, [mergedClassNames, mergedStyles, schema]) as [
     Required<RemoveClassNamesString<NonNullable<ClassNamesType>>>,
     Required<NonNullable<StylesType>>,

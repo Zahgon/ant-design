@@ -37,43 +37,7 @@ const treeData = [
   },
 ];
 const App: React.FC = () => {
-  const [placement, setPlacement] = useState<SelectCommonPlacement>('topLeft');
-
-  const placementChange = (e: RadioChangeEvent) => {
-    setPlacement(e.target.value);
-  };
-
-  return (
-    <>
-      <Radio.Group value={placement} onChange={placementChange}>
-        <Radio.Button value="topLeft">topLeft</Radio.Button>
-        <Radio.Button value="topRight">topRight</Radio.Button>
-        <Radio.Button value="bottomLeft">bottomLeft</Radio.Button>
-        <Radio.Button value="bottomRight">bottomRight</Radio.Button>
-      </Radio.Group>
-      <br />
-      <br />
-
-      <TreeSelect
-        showSearch
-        styles={{
-          popup: {
-            root: {
-              maxHeight: 400,
-              overflow: 'auto',
-              minWidth: 300,
-            },
-          },
-        }}
-        placeholder="Please select"
-        popupMatchSelectWidth={false}
-        placement={placement}
-        allowClear
-        treeDefaultExpandAll
-        treeData={treeData}
-      />
-    </>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

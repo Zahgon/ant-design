@@ -18,5 +18,5 @@ export default function useHasSider(
 
   const childNodes = toArray(children);
 
-  return childNodes.some((node) => node.type === Sider);
+  return childNodes.some((node) => { throw new Error("STUB"); });
 }

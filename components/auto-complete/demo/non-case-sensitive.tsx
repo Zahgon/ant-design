@@ -7,16 +7,6 @@ const options = [
   { value: 'Wall Street' },
 ];
 
-const App: React.FC = () => (
-  <AutoComplete
-    style={{ width: 200 }}
-    options={options}
-    placeholder="try to type `b`"
-    showSearch={{
-      filterOption: (inputValue, option) =>
-        option!.value.toUpperCase().includes(inputValue.toUpperCase()),
-    }}
-  />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

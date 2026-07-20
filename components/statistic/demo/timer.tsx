@@ -6,11 +6,7 @@ import { createStyles } from 'antd-style';
 const { Timer } = Statistic;
 
 const useStyle = createStyles(({ css }) => {
-  return {
-    content: css`
-      font-variant-numeric: tabular-nums;
-    `,
-  };
+    throw new Error("STUB");
 });
 
 const deadline = Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 30; // Dayjs is also OK
@@ -28,64 +24,7 @@ const onChange: StatisticTimerProps['onChange'] = (val) => {
 };
 
 const Demo: React.FC = () => {
-  const { styles } = useStyle();
-  return (
-    <Row gutter={16}>
-      <Col span={12}>
-        <Timer
-          classNames={{ content: styles.content }}
-          type="countdown"
-          value={deadline}
-          onFinish={onFinish}
-        />
-      </Col>
-      <Col span={12}>
-        <Timer
-          classNames={{ content: styles.content }}
-          type="countdown"
-          title="Million Seconds"
-          value={deadline}
-          format="HH:mm:ss:SSS"
-        />
-      </Col>
-      <Col span={12}>
-        <Timer
-          classNames={{ content: styles.content }}
-          type="countdown"
-          title="Countdown"
-          value={tenSecondsLater}
-          onChange={onChange}
-        />
-      </Col>
-      <Col span={12}>
-        <Timer
-          classNames={{ content: styles.content }}
-          type="countup"
-          title="Countup"
-          value={before}
-          onChange={onChange}
-        />
-      </Col>
-      <Col span={24} style={{ marginTop: 32 }}>
-        <Timer
-          classNames={{ content: styles.content }}
-          type="countdown"
-          title="Day Level (Countdown)"
-          value={deadline}
-          format="D 天 H 时 m 分 s 秒"
-        />
-      </Col>
-      <Col span={24} style={{ marginTop: 32 }}>
-        <Timer
-          classNames={{ content: styles.content }}
-          type="countup"
-          title="Day Level (Countup)"
-          value={before}
-          format="D 天 H 时 m 分 s 秒"
-        />
-      </Col>
-    </Row>
-  );
+    throw new Error("STUB");
 };
 
 export default Demo;

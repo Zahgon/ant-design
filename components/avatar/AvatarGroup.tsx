@@ -14,14 +14,7 @@ import AvatarContext from './AvatarContext';
 import useStyle from './style';
 
 const AvatarContextProvider: React.FC<React.PropsWithChildren<AvatarContextType>> = (props) => {
-  const { size, shape } = React.useContext<AvatarContextType>(AvatarContext);
-  const avatarContextValue = React.useMemo<AvatarContextType>(
-    () => ({ size: props.size || size, shape: props.shape || shape }),
-    [props.size, props.shape, size, shape],
-  );
-  return (
-    <AvatarContext.Provider value={avatarContextValue}>{props.children}</AvatarContext.Provider>
-  );
+    throw new Error("STUB");
 };
 
 export interface AvatarGroupProps {
@@ -52,98 +45,7 @@ export interface AvatarGroupProps {
 }
 
 const AvatarGroup: React.FC<AvatarGroupProps> = (props) => {
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const {
-    prefixCls: customizePrefixCls,
-    className,
-    rootClassName,
-    style,
-    maxCount,
-    maxStyle,
-    size,
-    shape,
-    maxPopoverPlacement,
-    maxPopoverTrigger,
-    children,
-    max,
-  } = props;
-
-  if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning('Avatar.Group');
-    [
-      ['maxCount', 'max={{ count: number }}'],
-      ['maxStyle', 'max={{ style: CSSProperties }}'],
-      ['maxPopoverPlacement', 'max={{ popover: PopoverProps }}'],
-      ['maxPopoverTrigger', 'max={{ popover: PopoverProps }}'],
-    ].forEach(([deprecatedName, newName]) => {
-      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
-    });
-  }
-
-  const prefixCls = getPrefixCls('avatar', customizePrefixCls);
-  const groupPrefixCls = `${prefixCls}-group`;
-  const rootCls = useCSSVarCls(prefixCls);
-  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
-
-  const cls = clsx(
-    groupPrefixCls,
-    {
-      [`${groupPrefixCls}-rtl`]: direction === 'rtl',
-    },
-    cssVarCls,
-    rootCls,
-    className,
-    rootClassName,
-    hashId,
-  );
-
-  const childrenWithProps = toArray(children).map((child, index) =>
-    cloneElement(child, {
-      // eslint-disable-next-line react/no-array-index-key
-      key: `avatar-key-${index}`,
-    }),
-  );
-
-  const mergeCount = max?.count || maxCount;
-  const numOfChildren = childrenWithProps.length;
-  if (mergeCount && mergeCount < numOfChildren) {
-    const childrenShow = childrenWithProps.slice(0, mergeCount);
-    const childrenHidden = childrenWithProps.slice(mergeCount, numOfChildren);
-
-    const mergeStyle = max?.style || maxStyle;
-    const mergePopoverTrigger = max?.popover?.trigger || maxPopoverTrigger || 'hover';
-    const mergePopoverPlacement = max?.popover?.placement || maxPopoverPlacement || 'top';
-
-    const popoverProps: PopoverProps = {
-      content: childrenHidden,
-      ...max?.popover,
-      placement: mergePopoverPlacement,
-      trigger: mergePopoverTrigger,
-      rootClassName: clsx(`${groupPrefixCls}-popover`, max?.popover?.rootClassName),
-    };
-
-    childrenShow.push(
-      <Popover key="avatar-popover-key" destroyOnHidden {...popoverProps}>
-        <Avatar style={mergeStyle}>{`+${numOfChildren - mergeCount}`}</Avatar>
-      </Popover>,
-    );
-
-    return (
-      <AvatarContextProvider shape={shape} size={size}>
-        <div className={cls} style={style}>
-          {childrenShow}
-        </div>
-      </AvatarContextProvider>
-    );
-  }
-
-  return (
-    <AvatarContextProvider shape={shape} size={size}>
-      <div className={cls} style={style}>
-        {childrenWithProps}
-      </div>
-    </AvatarContextProvider>
-  );
+    throw new Error("STUB");
 };
 
 export default AvatarGroup;

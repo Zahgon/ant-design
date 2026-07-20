@@ -16,46 +16,15 @@ const MyFormItemGroup: React.FC<React.PropsWithChildren<MyFormItemGroupProps>> =
   prefix,
   children,
 }) => {
-  const prefixPath = React.useContext(MyFormItemContext);
-  const concatPath = React.useMemo(() => [...prefixPath, ...toArr(prefix)], [prefixPath, prefix]);
-
-  return <MyFormItemContext.Provider value={concatPath}>{children}</MyFormItemContext.Provider>;
+    throw new Error("STUB");
 };
 
 const MyFormItem = ({ name, ...props }: FormItemProps) => {
-  const prefixPath = React.useContext(MyFormItemContext);
-  const concatName = name !== undefined ? [...prefixPath, ...toArr(name)] : undefined;
-
-  return <Form.Item name={concatName} {...props} />;
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const onFinish = (value: object) => {
-    console.log(value);
-  };
-
-  return (
-    <Form name="form_item_path" layout="vertical" onFinish={onFinish}>
-      <MyFormItemGroup prefix={['user']}>
-        <MyFormItemGroup prefix={['name']}>
-          <MyFormItem name="firstName" label="First Name">
-            <Input />
-          </MyFormItem>
-          <MyFormItem name="lastName" label="Last Name">
-            <Input />
-          </MyFormItem>
-        </MyFormItemGroup>
-
-        <MyFormItem name="age" label="Age">
-          <Input />
-        </MyFormItem>
-      </MyFormItemGroup>
-
-      <Button type="primary" htmlType="submit">
-        Submit
-      </Button>
-    </Form>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

@@ -16,7 +16,7 @@ const columns: TableColumnsType<DataType> = [
     title: 'Team',
     dataIndex: 'team',
     key: 'team',
-    onCell: (__, index = 0) => (index % 2 === 0 ? { rowSpan: 2 } : { rowSpan: 0 }),
+    onCell: (__, index = 0) => { throw new Error("STUB"); },
     width: 100,
   },
   Table.EXPAND_COLUMN,
@@ -27,7 +27,7 @@ const columns: TableColumnsType<DataType> = [
     title: 'Action',
     dataIndex: '',
     key: 'x',
-    render: () => <a>Delete</a>,
+    render: () => { throw new Error("STUB"); },
   },
 ];
 
@@ -66,16 +66,6 @@ const data: DataType[] = [
   },
 ];
 
-const App: React.FC = () => (
-  <Table<DataType>
-    bordered
-    columns={columns}
-    expandable={{
-      expandedRowOffset: 3,
-      expandedRowRender: (record) => <div>{record.description}</div>,
-    }}
-    dataSource={data}
-  />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

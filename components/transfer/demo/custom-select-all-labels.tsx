@@ -8,30 +8,17 @@ interface RecordType {
   description: string;
 }
 
-const mockData = Array.from({ length: 10 }).map<RecordType>((_, i) => ({
-  key: i.toString(),
-  title: `content${i + 1}`,
-  description: `description of content${i + 1}`,
-}));
+const mockData = Array.from({ length: 10 }).map<RecordType>((_, i) => { throw new Error("STUB"); });
 
-const oriTargetKeys = mockData.filter((item) => Number(item.key) % 3 > 1).map((item) => item.key);
+const oriTargetKeys = mockData.filter((item) => { throw new Error("STUB"); }).map((item) => { throw new Error("STUB"); });
 
 const selectAllLabels: TransferProps['selectAllLabels'] = [
   'Select All',
-  ({ selectedCount, totalCount }) => `${selectedCount}/${totalCount}`,
+  ({ selectedCount, totalCount }) => { throw new Error("STUB"); },
 ];
 
 const App: React.FC = () => {
-  const [targetKeys, setTargetKeys] = useState<React.Key[]>(oriTargetKeys);
-  return (
-    <Transfer
-      dataSource={mockData}
-      targetKeys={targetKeys}
-      onChange={setTargetKeys}
-      render={(item) => item.title}
-      selectAllLabels={selectAllLabels}
-    />
-  );
+    throw new Error("STUB");
 };
 
 export default App;

@@ -17,24 +17,7 @@ export interface TitleProps
 }
 
 const Title = React.forwardRef<HTMLElement, TitleProps>((props, ref) => {
-  const { level = 1, children, ...restProps } = props;
-  if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning('Typography.Title');
-
-    warning(
-      TITLE_ELE_LIST.includes(level),
-      'usage',
-      'Title only accept `1 | 2 | 3 | 4 | 5` as `level` value. And `5` need 4.6.0+ version.',
-    );
-  }
-  const component: keyof JSX.IntrinsicElements = TITLE_ELE_LIST.includes(level)
-    ? `h${level}`
-    : `h1`;
-  return (
-    <Base ref={ref} {...restProps} component={component}>
-      {children}
-    </Base>
-  );
+    throw new Error("STUB");
 });
 
 export default Title;

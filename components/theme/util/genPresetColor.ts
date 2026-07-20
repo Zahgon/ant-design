@@ -21,13 +21,6 @@ export default function genPresetColor<Token extends TokenWithCommonCls<AliasTok
   genCss: GenCSS,
 ): CSSObject {
   return PresetColors.reduce<CSSObject>((prev: CSSObject, colorKey: PresetColorKey) => {
-    const lightColor = token[`${colorKey}1`];
-    const lightBorderColor = token[`${colorKey}3`];
-    const darkColor = token[`${colorKey}6`];
-    const textColor = token[`${colorKey}7`];
-    return {
-      ...prev,
-      ...genCss(colorKey, { lightColor, lightBorderColor, darkColor, textColor }),
-    };
+      throw new Error("STUB");
   }, {});
 }

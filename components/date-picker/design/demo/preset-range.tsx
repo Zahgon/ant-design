@@ -12,6 +12,6 @@ const rangePresets: TimeRangePickerProps['presets'] = [
   { label: 'Last 90 Days', value: [dayjs().add(-90, 'd'), dayjs()] },
 ];
 
-const App: React.FC = () => <PureRangePicker presets={rangePresets} />;
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

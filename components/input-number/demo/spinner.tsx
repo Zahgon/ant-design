@@ -15,11 +15,6 @@ const sharedProps = {
   style: { width: 150 },
 };
 
-const App: React.FC = () => (
-  <Flex vertical gap="medium">
-    <InputNumber {...sharedProps} placeholder="Outlined" />
-    <InputNumber {...sharedProps} variant="filled" placeholder="Filled" />
-  </Flex>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

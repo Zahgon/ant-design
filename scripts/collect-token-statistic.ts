@@ -20,33 +20,5 @@ const bar = new cliProgress.SingleBar(
 bar.start(styleFiles.length, 0);
 
 (async () => {
-  await generateCssinjs({
-    key: 'file',
-    beforeRender(componentName: string) {
-      bar.increment({ component: componentName });
-    },
-    render(Component: React.ComponentType<any>) {
-      ReactDOMServer.renderToString(React.createElement(Component));
-      // Render wireframe
-      const wireframeToken = { ...seedToken, wireframe: true };
-      ReactDOMServer.renderToString(
-        React.createElement(
-          DesignTokenContext.Provider,
-          {
-            value: {
-              token: wireframeToken,
-              override: {
-                override: wireframeToken,
-              },
-            },
-          },
-          React.createElement(Component),
-        ),
-      );
-    },
-  });
-  bar.stop();
-  const tokenPath = `${process.cwd()}/components/version/token.json`;
-  fs.writeJsonSync(tokenPath, statistic, 'utf8');
-  console.log(chalk.green(`✅ Collected token statistics successfully, check it in`), tokenPath);
+    throw new Error("STUB");
 })();

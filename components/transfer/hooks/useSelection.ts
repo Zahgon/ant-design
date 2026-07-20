@@ -6,7 +6,7 @@ import type { TransferKey } from '../interface';
 const EMPTY_KEYS: TransferKey[] = [];
 
 function filterKeys(keys: TransferKey[], dataKeys: Set<TransferKey>) {
-  const filteredKeys = keys.filter((key) => dataKeys.has(key));
+  const filteredKeys = keys.filter((key) => { throw new Error("STUB"); });
   return keys.length === filteredKeys.length ? keys : filteredKeys;
 }
 
@@ -26,10 +26,7 @@ function useSelection<T extends { key: TransferKey }>(
 ] {
   // Prepare `dataSource` keys
   const [leftKeys, rightKeys] = React.useMemo(
-    () => [
-      new Set(leftDataSource.map<React.Key>((src) => src?.key)),
-      new Set(rightDataSource.map<React.Key>((src) => src?.key)),
-    ],
+    () => { throw new Error("STUB"); },
     [leftDataSource, rightDataSource],
   );
 
@@ -40,28 +37,25 @@ function useSelection<T extends { key: TransferKey }>(
   );
 
   const sourceSelectedKeys = React.useMemo(
-    () => filterKeys(mergedSelectedKeys, leftKeys),
+    () => { throw new Error("STUB"); },
     [mergedSelectedKeys, leftKeys],
   );
   const targetSelectedKeys = React.useMemo(
-    () => filterKeys(mergedSelectedKeys, rightKeys),
+    () => { throw new Error("STUB"); },
     [mergedSelectedKeys, rightKeys],
   );
 
   // // Reset when data changed
   React.useEffect(() => {
-    setMergedSelectedKeys([
-      ...filterKeys(mergedSelectedKeys, leftKeys),
-      ...filterKeys(mergedSelectedKeys, rightKeys),
-    ]);
+      throw new Error("STUB");
   }, [flattenKeys(leftKeys), flattenKeys(rightKeys)]);
 
   // Update keys
   const setSourceSelectedKeys = useEvent((nextSrcKeys: TransferKey[]) => {
-    setMergedSelectedKeys([...nextSrcKeys, ...targetSelectedKeys]);
+      throw new Error("STUB");
   });
   const setTargetSelectedKeys = useEvent((nextTargetKeys: TransferKey[]) => {
-    setMergedSelectedKeys([...sourceSelectedKeys, ...nextTargetKeys]);
+      throw new Error("STUB");
   });
 
   return [

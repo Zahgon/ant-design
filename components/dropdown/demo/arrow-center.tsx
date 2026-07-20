@@ -29,31 +29,6 @@ const items: MenuProps['items'] = [
   },
 ];
 
-const App: React.FC = () => (
-  <Space vertical>
-    <Space wrap>
-      <Dropdown menu={{ items }} placement="bottomLeft" arrow={{ pointAtCenter: true }}>
-        <Button>bottomLeft</Button>
-      </Dropdown>
-      <Dropdown menu={{ items }} placement="bottom" arrow={{ pointAtCenter: true }}>
-        <Button>bottom</Button>
-      </Dropdown>
-      <Dropdown menu={{ items }} placement="bottomRight" arrow={{ pointAtCenter: true }}>
-        <Button>bottomRight</Button>
-      </Dropdown>
-    </Space>
-    <Space wrap>
-      <Dropdown menu={{ items }} placement="topLeft" arrow={{ pointAtCenter: true }}>
-        <Button>topLeft</Button>
-      </Dropdown>
-      <Dropdown menu={{ items }} placement="top" arrow={{ pointAtCenter: true }}>
-        <Button>top</Button>
-      </Dropdown>
-      <Dropdown menu={{ items }} placement="topRight" arrow={{ pointAtCenter: true }}>
-        <Button>topRight</Button>
-      </Dropdown>
-    </Space>
-  </Space>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

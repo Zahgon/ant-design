@@ -23,11 +23,7 @@ export default function useIcons({
   isRtl,
 }: UseIconsOptions) {
   return React.useMemo(
-    () => ({
-      expandIcon:
-        expandIcon ?? contextExpandIcon ?? (isRtl ? defaultRtlExpandIcon : defaultExpandIcon),
-      loadingIcon: loadingIcon ?? contextLoadingIcon ?? defaultLoadingIcon,
-    }),
+    () => { throw new Error("STUB"); },
     [contextExpandIcon, contextLoadingIcon, expandIcon, isRtl, loadingIcon],
   );
 }

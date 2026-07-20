@@ -40,87 +40,17 @@ const createDot = (holder: HTMLElement, color: string, left: number, top: number
 
 // Inset Effect
 const showInsetEffect: WaveConfig['showEffect'] = (node, { event, component }) => {
-  if (component !== 'Button') {
-    return;
-  }
-
-  const holder = createHolder(node);
-
-  const rect = holder.getBoundingClientRect();
-
-  const left = event.clientX - rect.left;
-  const top = event.clientY - rect.top;
-
-  const dot = createDot(holder, 'rgba(255, 255, 255, 0.65)', left, top);
-
-  // Motion
-  requestAnimationFrame(() => {
-    dot.ontransitionend = () => {
-      holder.remove();
-    };
-
-    dot.style.width = '200px';
-    dot.style.height = '200px';
-    dot.style.opacity = '0';
-  });
+    throw new Error("STUB");
 };
 
 // Shake Effect
 const showShakeEffect: WaveConfig['showEffect'] = (node, { component }) => {
-  if (component !== 'Button') {
-    return;
-  }
-
-  const seq = [0, -15, 15, -5, 5, 0];
-  const itv = 10;
-
-  let steps = 0;
-
-  const loop = () => {
-    cancelAnimationFrame((node as any).effectTimeout);
-
-    (node as any).effectTimeout = requestAnimationFrame(() => {
-      const currentStep = Math.floor(steps / itv);
-      const current = seq[currentStep];
-      const next = seq[currentStep + 1];
-
-      if (next === undefined || next === null) {
-        node.style.transform = '';
-        node.style.transition = '';
-        return;
-      }
-
-      // Trans from current to next by itv
-      const angle = current + ((next - current) / itv) * (steps % itv);
-
-      node.style.transform = `rotate(${angle}deg)`;
-      node.style.transition = 'none';
-
-      steps += 1;
-      loop();
-    });
-  };
-
-  loop();
+    throw new Error("STUB");
 };
 
 // Component
-const Wrapper: React.FC<WaveConfig & { name: string }> = ({ name, ...wave }) => (
-  <ConfigProvider wave={wave}>
-    <Button type="primary">{name}</Button>
-  </ConfigProvider>
-);
+const Wrapper: React.FC<WaveConfig & { name: string }> = ({ name, ...wave }) => { throw new Error("STUB"); };
 
-const Demo: React.FC = () => (
-  <Flex gap="large" wrap>
-    <Wrapper name="Disabled" disabled />
-    <Wrapper name="Default" />
-    <Wrapper name="Inset" showEffect={showInsetEffect} />
-    <Wrapper name="Shake" showEffect={showShakeEffect} />
-    <HappyProvider>
-      <Button type="primary">Happy Work</Button>
-    </HappyProvider>
-  </Flex>
-);
+const Demo: React.FC = () => { throw new Error("STUB"); };
 
 export default Demo;

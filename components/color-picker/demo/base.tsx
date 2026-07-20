@@ -1,6 +1,6 @@
 import React from 'react';
 import { ColorPicker } from 'antd';
 
-const Demo = () => <ColorPicker defaultValue="#1677ff" />;
+const Demo = () => { throw new Error("STUB"); };
 
 export default Demo;

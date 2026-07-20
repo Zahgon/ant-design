@@ -45,10 +45,7 @@ const Group: React.FC<GroupProps> = (props) => {
   const formItemContext = useContext(FormItemInputContext);
 
   const groupFormItemContext = useMemo<FormItemStatusContextProps>(
-    () => ({
-      ...formItemContext,
-      isFormItemInput: false,
-    }),
+    () => { throw new Error("STUB"); },
     [formItemContext],
   );
 

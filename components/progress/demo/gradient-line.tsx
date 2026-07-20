@@ -13,21 +13,6 @@ const conicColors: ProgressProps['strokeColor'] = {
   '100%': '#ffccc7',
 };
 
-const App: React.FC = () => (
-  <Flex vertical gap="medium">
-    <Progress percent={99.9} strokeColor={twoColors} />
-    <Progress percent={50} status="active" strokeColor={{ from: '#108ee9', to: '#87d068' }} />
-    <Flex gap="small" wrap>
-      <Progress type="circle" percent={90} strokeColor={twoColors} />
-      <Progress type="circle" percent={100} strokeColor={twoColors} />
-      <Progress type="circle" percent={93} strokeColor={conicColors} />
-    </Flex>
-    <Flex gap="small" wrap>
-      <Progress type="dashboard" percent={90} strokeColor={twoColors} />
-      <Progress type="dashboard" percent={100} strokeColor={twoColors} />
-      <Progress type="dashboard" percent={93} strokeColor={conicColors} />
-    </Flex>
-  </Flex>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

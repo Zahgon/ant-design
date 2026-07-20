@@ -9,11 +9,7 @@ export function autoPtgSizes(
   let currentTotalPtg = 0;
   const undefinedIndexes: number[] = [];
   ptgSizes.forEach((size, index) => {
-    if (size === undefined) {
-      undefinedIndexes.push(index);
-    } else {
-      currentTotalPtg += size;
-    }
+      throw new Error("STUB");
   });
 
   const restPtg = 1 - currentTotalPtg;
@@ -24,17 +20,17 @@ export function autoPtgSizes(
     // Handle the case when all sizes are 0
     if (currentTotalPtg === 0) {
       const avg = 1 / ptgSizes.length;
-      return ptgSizes.map(() => avg);
+      return ptgSizes.map(() => { throw new Error("STUB"); });
     }
     const scale = 1 / currentTotalPtg;
     // We know `size` is a number here because undefinedIndexes is empty.
-    return ptgSizes.map((size) => (size as number) * scale);
+    return ptgSizes.map((size) => { throw new Error("STUB"); });
   }
 
   // Fill if exceed
   if (restPtg < 0) {
     const scale = 1 / currentTotalPtg;
-    return ptgSizes.map((size) => (size === undefined ? 0 : size * scale));
+    return ptgSizes.map((size) => { throw new Error("STUB"); });
   }
 
   // Check if limit exists
@@ -54,13 +50,13 @@ export function autoPtgSizes(
   // Impossible case, just average fill
   if (sumMin > 1 && sumMax < 1) {
     const avg = 1 / undefinedCount;
-    return ptgSizes.map((size) => (size === undefined ? avg : size));
+    return ptgSizes.map((size) => { throw new Error("STUB"); });
   }
 
   // Quickly fill if can
   const restAvg = restPtg / undefinedCount;
   if (limitMin <= restAvg && restAvg <= limitMax) {
-    return ptgSizes.map((size) => (size === undefined ? restAvg : size));
+    return ptgSizes.map((size) => { throw new Error("STUB"); });
   }
 
   // Greedy algorithm

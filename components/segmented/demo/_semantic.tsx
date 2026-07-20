@@ -22,25 +22,7 @@ const locales = {
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Segmented"
-      semantics={[
-        { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'item', desc: locale.item, version: '6.0.0' },
-        { name: 'label', desc: locale.label, version: '6.0.0' },
-        { name: 'icon', desc: locale.icon, version: '6.0.0' },
-      ]}
-    >
-      <Segmented<string>
-        options={[
-          { label: 'List', value: 'List', icon: <BarsOutlined /> },
-          { label: 'Kanban', value: 'Kanban', icon: <AppstoreOutlined /> },
-        ]}
-      />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

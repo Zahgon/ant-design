@@ -11,14 +11,14 @@ const genCollapseMotion: GenerateStyle<TokenWithCommonCls<AliasToken>, CSSObject
         overflow: 'hidden',
         '&-active': {
           transition: `${['height', 'opacity']
-            .map((prop) => `${prop} ${motionDurationMid} ${motionEaseInOut}`)
+            .map((prop) => { throw new Error("STUB"); })
             .join(', ')} !important`,
         },
       },
       [`${antCls}-motion-collapse`]: {
         overflow: 'hidden',
         transition: `${['height', 'opacity']
-          .map((prop) => `${prop} ${motionDurationMid} ${motionEaseInOut}`)
+          .map((prop) => { throw new Error("STUB"); })
           .join(', ')} !important`,
       },
     },

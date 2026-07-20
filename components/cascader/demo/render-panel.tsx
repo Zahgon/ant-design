@@ -44,6 +44,6 @@ const options: Option[] = [
   },
 ];
 
-const App: React.FC = () => <InternalCascader options={options} placeholder="Please select" />;
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

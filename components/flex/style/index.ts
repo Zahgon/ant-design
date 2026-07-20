@@ -33,87 +33,31 @@ export interface FlexToken extends FullToken<'Flex'> {
 }
 
 const genFlexStyle: GenerateStyle<FlexToken, CSSObject> = (token) => {
-  const { componentCls } = token;
-  return {
-    [componentCls]: {
-      display: 'flex',
-      margin: 0,
-      padding: 0,
-      '&-vertical': {
-        flexDirection: 'column',
-      },
-      '&-rtl': {
-        direction: 'rtl',
-      },
-      '&:empty': {
-        display: 'none',
-      },
-    },
-  };
+    throw new Error("STUB");
 };
 
 const genFlexGapStyle: GenerateStyle<FlexToken, CSSObject> = (token) => {
-  const { componentCls } = token;
-  return {
-    [componentCls]: {
-      '&-gap-small': {
-        gap: token.flexGapSM,
-      },
-      '&-gap-medium, &-gap-middle': {
-        gap: token.flexGap,
-      },
-      '&-gap-large': {
-        gap: token.flexGapLG,
-      },
-    },
-  };
+    throw new Error("STUB");
 };
 
 const genFlexWrapStyle: GenerateStyle<FlexToken, CSSObject> = (token) => {
-  const { componentCls } = token;
-  const wrapStyle: CSSInterpolation = {};
-  flexWrapValues.forEach((value) => {
-    wrapStyle[`${componentCls}-wrap-${value}`] = { flexWrap: value };
-  });
-  return wrapStyle;
+    throw new Error("STUB");
 };
 
 const genAlignItemsStyle: GenerateStyle<FlexToken, CSSObject> = (token) => {
-  const { componentCls } = token;
-  const alignStyle: CSSInterpolation = {};
-  alignItemsValues.forEach((value) => {
-    alignStyle[`${componentCls}-align-${value}`] = { alignItems: value };
-  });
-  return alignStyle;
+    throw new Error("STUB");
 };
 
 const genJustifyContentStyle: GenerateStyle<FlexToken, CSSObject> = (token) => {
-  const { componentCls } = token;
-  const justifyStyle: CSSInterpolation = {};
-  justifyContentValues.forEach((value) => {
-    justifyStyle[`${componentCls}-justify-${value}`] = { justifyContent: value };
-  });
-  return justifyStyle;
+    throw new Error("STUB");
 };
 
-export const prepareComponentToken: GetDefaultToken<'Flex'> = () => ({});
+export const prepareComponentToken: GetDefaultToken<'Flex'> = () => { throw new Error("STUB"); };
 
 export default genStyleHooks(
   'Flex',
   (token) => {
-    const { paddingXS, padding, paddingLG } = token;
-    const flexToken = mergeToken<FlexToken>(token, {
-      flexGapSM: paddingXS,
-      flexGap: padding,
-      flexGapLG: paddingLG,
-    });
-    return [
-      genFlexStyle(flexToken),
-      genFlexGapStyle(flexToken),
-      genFlexWrapStyle(flexToken),
-      genAlignItemsStyle(flexToken),
-      genJustifyContentStyle(flexToken),
-    ];
+      throw new Error("STUB");
   },
   prepareComponentToken,
   {

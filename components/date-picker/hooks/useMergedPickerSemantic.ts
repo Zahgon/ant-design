@@ -27,23 +27,7 @@ const useMergedPickerSemantic = <P extends AnyObject = AnyObject>(
   );
 
   return React.useMemo(() => {
-    // ClassNames
-    const filledClassNames = {
-      ...mergedClassNames,
-      popup: {
-        ...mergedClassNames.popup,
-        root: clsx(mergedClassNames.popup?.root, popupClassName),
-      },
-    };
-
-    // Styles
-    const filledStyles = {
-      ...mergedStyles,
-      popup: { ...mergedStyles.popup, root: { ...mergedStyles.popup?.root, ...popupStyle } },
-    };
-
-    // Return
-    return [filledClassNames, filledStyles];
+      throw new Error("STUB");
   }, [mergedClassNames, mergedStyles, popupClassName, popupStyle]);
 };
 

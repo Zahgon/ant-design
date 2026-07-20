@@ -48,35 +48,7 @@ const items: MenuItem[] = [
 ];
 
 const App: React.FC = () => {
-  const [collapsed, setCollapsed] = useState(false);
-  const [tooltipEnabled, setTooltipEnabled] = useState(true);
-
-  return (
-    <div style={{ width: 256 }}>
-      <Space style={{ marginBottom: 16 }}>
-        <Button
-          type="primary"
-          onClick={() => setCollapsed((prev) => !prev)}
-          icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-        />
-        <Switch
-          checked={tooltipEnabled}
-          onChange={setTooltipEnabled}
-          checkedChildren="Tooltip On"
-          unCheckedChildren="Tooltip Off"
-        />
-      </Space>
-      <Menu
-        defaultSelectedKeys={['1']}
-        defaultOpenKeys={['sub1']}
-        mode="inline"
-        theme="dark"
-        inlineCollapsed={collapsed}
-        tooltip={tooltipEnabled ? { placement: 'left' } : false}
-        items={items}
-      />
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

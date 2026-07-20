@@ -39,42 +39,7 @@ const contentListNoTitle: Record<string, React.ReactNode> = {
 };
 
 const App: React.FC = () => {
-  const [activeTabKey1, setActiveTabKey1] = useState<string>('tab1');
-  const [activeTabKey2, setActiveTabKey2] = useState<string>('app');
-
-  const onTab1Change = (key: string) => {
-    setActiveTabKey1(key);
-  };
-  const onTab2Change = (key: string) => {
-    setActiveTabKey2(key);
-  };
-
-  return (
-    <>
-      <Card
-        style={{ width: '100%' }}
-        title="Card title"
-        extra={<a href="#">More</a>}
-        tabList={tabList}
-        activeTabKey={activeTabKey1}
-        onTabChange={onTab1Change}
-      >
-        {contentList[activeTabKey1]}
-      </Card>
-      <br />
-      <br />
-      <Card
-        style={{ width: '100%' }}
-        tabList={tabListNoTitle}
-        activeTabKey={activeTabKey2}
-        tabBarExtraContent={<a href="#">More</a>}
-        onTabChange={onTab2Change}
-        tabProps={{ size: 'medium' }}
-      >
-        {contentListNoTitle[activeTabKey2]}
-      </Card>
-    </>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

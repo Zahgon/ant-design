@@ -31,21 +31,7 @@ const options: Option[] = [
 ];
 
 const App: React.FC = () => {
-  return (
-    <TemplateSemanticPreview
-      open
-      component={Cascader}
-      componentName="Cascader"
-      defaultValue={['contributors', 'thinkasany']}
-      prefix="prefix"
-      style={{ width: 200 }}
-      options={options}
-      multipleProps={{
-        multiple: true,
-        defaultValue: [['contributors', 'thinkasany']],
-      }}
-    />
-  );
+    throw new Error("STUB");
 };
 
 export default App;

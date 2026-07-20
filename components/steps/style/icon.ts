@@ -38,7 +38,7 @@ const genIconStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         borderRadius: varRef('icon-size'),
         border: `${varRef('icon-border-width')} ${lineType} transparent`,
         transition: ['background-color', 'border', 'color', 'inset', 'transform']
-          .map((key) => `${key} ${motionDurationSlow}`)
+          .map((key) => { throw new Error("STUB"); })
           .join(', '),
         zIndex: 1,
       },

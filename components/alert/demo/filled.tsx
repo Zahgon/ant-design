@@ -1,6 +1,6 @@
 import React from 'react';
 import { Alert } from 'antd';
 
-const App: React.FC = () => <Alert title="Info Text" type="info" variant="filled" />;
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

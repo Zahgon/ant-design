@@ -9,27 +9,7 @@ const PRESET_COLORS = [
 ];
 
 const Demo: React.FC = () => {
-  return (
-    <ColorPicker
-      mode={['single', 'gradient']}
-      presets={[
-        {
-          label: 'Liner',
-          colors: PRESET_COLORS.map((colors) => [
-            {
-              color: colors[0],
-              percent: 0,
-            },
-            {
-              color: colors[1],
-              percent: 100,
-            },
-          ]),
-          defaultOpen: true,
-        },
-      ]}
-    />
-  );
+    throw new Error("STUB");
 };
 
 export default Demo;

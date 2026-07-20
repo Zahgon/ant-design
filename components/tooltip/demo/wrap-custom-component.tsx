@@ -2,17 +2,9 @@ import React from 'react';
 import { Tooltip } from 'antd';
 
 const ComponentWithEvents = React.forwardRef<HTMLSpanElement, React.HTMLAttributes<HTMLElement>>(
-  (props, ref) => (
-    <span ref={ref} {...props}>
-      This text is inside a component with the necessary events exposed.
-    </span>
-  ),
+  (props, ref) => { throw new Error("STUB"); },
 );
 
-const App: React.FC = () => (
-  <Tooltip title="prompt text">
-    <ComponentWithEvents />
-  </Tooltip>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

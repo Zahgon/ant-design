@@ -32,7 +32,9 @@ export interface FormContextProps {
 export const FormContext = React.createContext<FormContextProps>({
   labelAlign: 'right',
   layout: 'horizontal',
-  itemRef: (() => {}) as any,
+  itemRef: (() => {
+      throw new Error("STUB");
+  }) as any,
 });
 
 /** `noStyle` Form Item Context. Used for error collection */
@@ -45,8 +47,7 @@ export interface FormProviderProps extends Omit<RcFormProviderProps, 'validateMe
 }
 
 export const FormProvider: React.FC<FormProviderProps> = (props) => {
-  const providerProps = omit(props, ['prefixCls']);
-  return <RcFormProvider {...providerProps} />;
+    throw new Error("STUB");
 };
 
 /** Used for ErrorList only */
@@ -81,26 +82,7 @@ export type NoFormStyleProps = PropsWithChildren<{
 }>;
 
 export const NoFormStyle: React.FC<NoFormStyleProps> = ({ children, status, override }) => {
-  const formItemInputContext = React.useContext(FormItemInputContext);
-
-  const newFormItemInputContext = React.useMemo(() => {
-    const newContext = { ...formItemInputContext };
-    if (override) {
-      delete newContext.isFormItemInput;
-    }
-    if (status) {
-      delete newContext.status;
-      delete newContext.hasFeedback;
-      delete newContext.feedbackIcon;
-    }
-    return newContext;
-  }, [status, override, formItemInputContext]);
-
-  return (
-    <FormItemInputContext.Provider value={newFormItemInputContext}>
-      {children}
-    </FormItemInputContext.Provider>
-  );
+    throw new Error("STUB");
 };
 
 export const VariantContext = React.createContext<Variant | undefined>(undefined);

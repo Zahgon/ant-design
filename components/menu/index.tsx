@@ -73,16 +73,7 @@ type GenericComponent = Omit<CompoundedComponent, ''> &
   (<T extends MenuItemType>(props: GenericComponentProps<T>) => ReturnType<CompoundedComponent>);
 
 const Menu = forwardRef<MenuRef, MenuProps>((props, ref) => {
-  const menuRef = useRef<RcMenuRef>(null);
-  const context = React.useContext(SiderContext);
-
-  useImperativeHandle(ref, () => ({
-    menu: menuRef.current,
-    focus: (options) => {
-      menuRef.current?.focus(options);
-    },
-  }));
-  return <InternalMenu ref={menuRef} {...props} {...context} />;
+    throw new Error("STUB");
 }) as GenericComponent;
 
 Menu.Item = Item;

@@ -249,7 +249,7 @@ const genBaseStyle: GenerateStyle<SliderToken, CSSObject> = (token) => {
             'box-shadow',
             'outline',
           ]
-            .map((prop) => `${prop} ${motionDurationMid}`)
+            .map((prop) => { throw new Error("STUB"); })
             .join(', '),
         },
 
@@ -445,76 +445,23 @@ const genDirectionStyle = (token: SliderToken, horizontal: boolean): CSSObject =
 };
 // ============================ Horizontal ============================
 const genHorizontalStyle: GenerateStyle<SliderToken, CSSObject> = (token) => {
-  const { componentCls, marginPartWithMark } = token;
-  return {
-    [`${componentCls}-horizontal`]: {
-      ...genDirectionStyle(token, true),
-      [`&${componentCls}-with-marks`]: {
-        marginBottom: marginPartWithMark,
-      },
-    },
-  };
+    throw new Error("STUB");
 };
 
 // ============================= Vertical =============================
 const genVerticalStyle: GenerateStyle<SliderToken, CSSObject> = (token) => {
-  const { componentCls } = token;
-  return {
-    [`${componentCls}-vertical`]: {
-      ...genDirectionStyle(token, false),
-      height: '100%',
-    },
-  };
+    throw new Error("STUB");
 };
 
 // ============================== Export ==============================
 export const prepareComponentToken: GetDefaultToken<'Slider'> = (token) => {
-  // Handle line width is always width-er 1px
-  const increaseHandleWidth = 1;
-  const controlSize = token.controlHeightLG / 4;
-  const controlSizeHover = token.controlHeightSM / 2;
-  const handleLineWidth = token.lineWidth + increaseHandleWidth;
-  const handleLineWidthHover = token.lineWidth + increaseHandleWidth * 1.5;
-  const handleActiveColor = token.colorPrimary;
-  const handleActiveOutlineColor = new FastColor(handleActiveColor).setA(0.2).toRgbString();
-
-  return {
-    controlSize,
-    railSize: 4,
-    handleSize: controlSize,
-    handleSizeHover: controlSizeHover,
-    dotSize: 8,
-    handleLineWidth,
-    handleLineWidthHover,
-    railBg: token.colorFillTertiary,
-    railHoverBg: token.colorFillSecondary,
-    trackBg: token.colorPrimaryBorder,
-    trackHoverBg: token.colorPrimaryBorderHover,
-    handleColor: token.colorPrimaryBorder,
-    handleActiveColor,
-    handleActiveOutlineColor,
-    handleColorDisabled: new FastColor(token.colorTextDisabled)
-      .onBackground(token.colorBgContainer)
-      .toHexString(),
-    dotBorderColor: token.colorBorderSecondary,
-    dotActiveBorderColor: token.colorPrimaryBorder,
-    trackBgDisabled: token.colorBgContainerDisabled,
-  };
+    throw new Error("STUB");
 };
 
 export default genStyleHooks(
   'Slider',
   (token) => {
-    const sliderToken = mergeToken<SliderToken>(token, {
-      marginPart: token.calc(token.controlHeight).sub(token.controlSize).div(2).equal(),
-      marginFull: token.calc(token.controlSize).div(2).equal(),
-      marginPartWithMark: token.calc(token.controlHeightLG).sub(token.controlSize).equal(),
-    });
-    return [
-      genBaseStyle(sliderToken),
-      genHorizontalStyle(sliderToken),
-      genVerticalStyle(sliderToken),
-    ];
+      throw new Error("STUB");
   },
   prepareComponentToken,
 );

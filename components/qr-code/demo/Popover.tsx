@@ -1,10 +1,6 @@
 import React from 'react';
 import { Button, Popover, QRCode } from 'antd';
 
-const App: React.FC = () => (
-  <Popover content={<QRCode value="https://ant.design" bordered={false} />}>
-    <Button type="primary">Hover me</Button>
-  </Popover>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

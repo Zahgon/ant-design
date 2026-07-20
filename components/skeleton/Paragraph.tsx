@@ -24,16 +24,7 @@ const getWidth = (index: number, props: SkeletonParagraphProps) => {
 };
 
 const Paragraph: React.FC<SkeletonParagraphProps> = (props) => {
-  const { prefixCls, className, style, rows = 0 } = props;
-  const rowList = Array.from({ length: rows }).map((_, index) => (
-    // eslint-disable-next-line react/no-array-index-key
-    <li key={index} style={{ width: getWidth(index, props) }} />
-  ));
-  return (
-    <ul className={clsx(prefixCls, className)} style={style}>
-      {rowList}
-    </ul>
-  );
+    throw new Error("STUB");
 };
 
 export default Paragraph;

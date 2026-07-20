@@ -9,7 +9,7 @@ export interface LayoutContextProps {
 
 export const LayoutContext = React.createContext<LayoutContextProps>({
   siderHook: {
-    addSider: () => null,
-    removeSider: () => null,
+    addSider: () => { throw new Error("STUB"); },
+    removeSider: () => { throw new Error("STUB"); },
   },
 });

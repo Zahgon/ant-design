@@ -7,13 +7,6 @@ const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) 
   console.log(e);
 };
 
-const App: React.FC = () => (
-  <>
-    <Input placeholder="input with clear icon" allowClear onChange={onChange} />
-    <br />
-    <br />
-    <TextArea placeholder="textarea with clear icon" allowClear onChange={onChange} />
-  </>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

@@ -24,48 +24,11 @@ const locales = {
 };
 
 const Block: React.FC<Readonly<TypographyProps>> = (props) => {
-  const [editing, setEditing] = React.useState(false);
-
-  return (
-    <Flex vertical gap="middle" align="start" style={{ width: '100%', alignSelf: 'flex-start' }}>
-      <Switch
-        checked={editing}
-        onChange={setEditing}
-        checkedChildren="Editing"
-        unCheckedChildren="Editing"
-      />
-      <Typography.Paragraph
-        copyable
-        editable={{ editing }}
-        ellipsis={{ rows: 2, expandable: true }}
-        style={{ width: '100%' }}
-        {...props}
-      >
-        Ant Design is a design language for background applications, refined by Ant UED Team. It
-        aims to uniform the user interface specs for internal background projects, lower the
-        unnecessary cost of design differences and implementation and liberate the resources of
-        design and front-end development.
-      </Typography.Paragraph>
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-
-  return (
-    <SemanticPreview
-      componentName="Typography"
-      semantics={[
-        { name: 'root', desc: locale.root, version: '6.4.0' },
-        { name: 'actions', desc: locale.actions, version: '6.4.0' },
-        { name: 'action', desc: locale.action, version: '6.4.0' },
-        { name: 'textarea', desc: locale.textarea, version: '6.4.0' },
-      ]}
-    >
-      <Block />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

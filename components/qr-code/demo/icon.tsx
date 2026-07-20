@@ -1,12 +1,6 @@
 import React from 'react';
 import { QRCode } from 'antd';
 
-const App: React.FC = () => (
-  <QRCode
-    errorLevel="H"
-    value="https://ant.design/"
-    icon="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
-  />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

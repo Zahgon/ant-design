@@ -14,12 +14,12 @@ const useResetIconStyle = (iconPrefixCls: string, csp?: CSPConfig) => {
       token,
       hashId: '',
       path: ['ant-design-icons', iconPrefixCls],
-      nonce: () => csp?.nonce!,
+      nonce: () => { throw new Error("STUB"); },
       layer: {
         name: 'antd',
       },
     },
-    () => genIconStyle(iconPrefixCls),
+    () => { throw new Error("STUB"); },
   );
 };
 

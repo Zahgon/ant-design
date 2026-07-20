@@ -15,17 +15,7 @@ const onKeyDown: React.KeyboardEventHandler<HTMLDivElement> = (event) => {
 const FilterDropdownMenuWrapper = React.forwardRef<
   HTMLDivElement,
   React.PropsWithChildren<FilterDropdownMenuWrapperProps>
->((props, ref) => (
-  <div
-    className={props.className}
-    onClick={(e) => e.stopPropagation()}
-    onKeyDown={onKeyDown}
-    ref={ref}
-    role="presentation"
-  >
-    {props.children}
-  </div>
-));
+>((props, ref) => { throw new Error("STUB"); });
 
 if (process.env.NODE_ENV !== 'production') {
   FilterDropdownMenuWrapper.displayName = 'FilterDropdownMenuWrapper';

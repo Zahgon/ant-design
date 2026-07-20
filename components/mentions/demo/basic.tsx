@@ -12,27 +12,6 @@ const onSelect = (option: MentionsOptionProps) => {
   console.log('select', option);
 };
 
-const App: React.FC = () => (
-  <Mentions
-    style={{ width: '100%' }}
-    onChange={onChange}
-    onSelect={onSelect}
-    defaultValue="@afc163"
-    options={[
-      {
-        value: 'afc163',
-        label: 'afc163',
-      },
-      {
-        value: 'zombieJ',
-        label: 'zombieJ',
-      },
-      {
-        value: 'yesmeck',
-        label: 'yesmeck',
-      },
-    ]}
-  />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

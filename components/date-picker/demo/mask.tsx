@@ -6,23 +6,6 @@ const onChange: DatePickerProps['onChange'] = (date, dateString) => {
   console.log(date, dateString);
 };
 
-const App: React.FC = () => (
-  <Space vertical>
-    <DatePicker
-      format={{
-        format: 'YYYY-MM-DD',
-        type: 'mask',
-      }}
-      onChange={onChange}
-    />
-    <DatePicker
-      format={{
-        format: 'YYYY-MM-DD HH:mm:ss',
-        type: 'mask',
-      }}
-      onChange={onChange}
-    />
-  </Space>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

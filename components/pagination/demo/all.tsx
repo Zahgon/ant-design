@@ -1,13 +1,6 @@
 import React from 'react';
 import { Pagination } from 'antd';
 
-const App: React.FC = () => (
-  <Pagination
-    total={85}
-    showSizeChanger
-    showQuickJumper
-    showTotal={(total) => `Total ${total} items`}
-  />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

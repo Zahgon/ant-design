@@ -38,12 +38,7 @@ const packageManager = getUserAgent();
 const components = fg
   .sync('components/*/index.ts[x]', { cwd: ROOT })
   .reduce<string[]>((acc, file) => {
-    const basePath = path.dirname(file);
-    const requiredFiles = ['index.en-US.md', 'demo', '__tests__'];
-    if (requiredFiles.every((item) => fs.existsSync(path.join(basePath, item)))) {
-      acc.push(basePath);
-    }
-    return acc;
+      throw new Error("STUB");
   }, []);
 
 // ==================== scripts ====================
@@ -176,10 +171,7 @@ async function run() {
     message: '📚 请选择需要测试的组件，不建议选择全部【全量快照生成需要耗费很长时间】\n',
     pageSize: Math.floor(components.length / 4),
     loop: false,
-    choices: components.map((component) => ({
-      value: component,
-      checked: component.endsWith('components/button'), // 默认选中 button
-    })),
+    choices: components.map((component) => { throw new Error("STUB"); }),
   });
 
   if (selected.length === 0 || difference(components, selected).length === 0) {
@@ -214,16 +206,13 @@ async function run() {
 
   if (appliedComponents !== 'all') {
     // components/avatar => avatar
-    const componentNames = appliedComponents.map((component) => path.basename(component));
+    const componentNames = appliedComponents.map((component) => { throw new Error("STUB"); });
 
     console.log(`🧹 正在清理基准快照`);
 
     const files = fs.readdirSync(basePath);
     files.forEach((file) => {
-      // 删除不在选择范围内的组件
-      if (!componentNames.some((name) => file.startsWith(name))) {
-        fs.removeSync(path.join(basePath, file));
-      }
+        throw new Error("STUB");
     });
   }
 
@@ -254,6 +243,5 @@ async function run() {
  * npx puppeteer browsers install chrome
  */
 run().catch((e) => {
-  console.error(e);
-  process.exit(1);
+    throw new Error("STUB");
 });

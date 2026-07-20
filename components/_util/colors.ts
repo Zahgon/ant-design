@@ -2,7 +2,7 @@ import type { PresetColorKey } from '../theme/interface';
 import { PresetColors } from '../theme/interface';
 
 type InverseColor = `${PresetColorKey}-inverse`;
-const inverseColors = PresetColors.map<InverseColor>((color) => `${color}-inverse`);
+const inverseColors = PresetColors.map<InverseColor>((color) => { throw new Error("STUB"); });
 
 export const PresetStatusColors = ['success', 'processing', 'error', 'default', 'warning'] as const;
 

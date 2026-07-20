@@ -6,62 +6,6 @@ const sharedStyle: React.CSSProperties = {
   marginBottom: 16,
 };
 
-const App: React.FC = () => (
-  <div>
-    <Space style={sharedStyle} align="center">
-      <Checkbox value="light" />
-      <div>Bamboo</div>
-      <Checkbox value="little">Little</Checkbox>
-    </Space>
-
-    <Space style={sharedStyle} align="center">
-      <Radio value="light" />
-      <div>Bamboo</div>
-      <Radio value="little">Little</Radio>
-    </Space>
-
-    <div
-      style={{
-        ...sharedStyle,
-        display: 'flex',
-        alignItems: 'center',
-      }}
-    >
-      <Checkbox value="light" />
-      <div>Bamboo</div>
-      <Checkbox value="little">Little</Checkbox>
-    </div>
-
-    <div
-      style={{
-        ...sharedStyle,
-        display: 'flex',
-        alignItems: 'center',
-      }}
-    >
-      <Radio value="light" />
-      <div>Bamboo</div>
-      <Radio value="little">Little</Radio>
-    </div>
-
-    <div>
-      <ConfigProvider
-        theme={{
-          token: {
-            controlHeight: 48,
-          },
-        }}
-      >
-        <Checkbox>Aligned</Checkbox>
-      </ConfigProvider>
-    </div>
-
-    <div>
-      <Checkbox>
-        <span style={{ fontSize: 32 }}>Aligned</span>
-      </Checkbox>
-    </div>
-  </div>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

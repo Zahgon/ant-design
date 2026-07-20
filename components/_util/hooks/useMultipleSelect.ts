@@ -11,31 +11,8 @@ export const useMultipleSelect = <T, K>(getKey: (item: T, index: number, array: 
 
   const multipleSelect = useCallback(
     (currentSelectedIndex: number, data: T[], selectedKeys: Set<K>) => {
-      const configPrevSelectedIndex = prevSelectedIndex ?? currentSelectedIndex;
-
-      // add/delete the selected range
-      const startIndex = Math.min(configPrevSelectedIndex || 0, currentSelectedIndex);
-      const endIndex = Math.max(configPrevSelectedIndex || 0, currentSelectedIndex);
-      const rangeKeys = data.slice(startIndex, endIndex + 1).map<K>(getKey);
-      const shouldSelected = rangeKeys.some((rangeKey) => !selectedKeys.has(rangeKey));
-      const changedKeys: K[] = [];
-
-      rangeKeys.forEach((item) => {
-        if (shouldSelected) {
-          if (!selectedKeys.has(item)) {
-            changedKeys.push(item);
-          }
-          selectedKeys.add(item);
-        } else {
-          selectedKeys.delete(item);
-          changedKeys.push(item);
-        }
-      });
-
-      setPrevSelectedIndex(shouldSelected ? endIndex : null);
-
-      return changedKeys;
-    },
+          throw new Error("STUB");
+      },
     [prevSelectedIndex],
   );
 

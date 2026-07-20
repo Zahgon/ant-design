@@ -27,39 +27,7 @@ const locales = {
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Alert"
-      semantics={[
-        { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'icon', desc: locale.icon, version: '6.0.0' },
-        { name: 'section', desc: locale.section, version: '6.0.0' },
-        { name: 'title', desc: locale.title, version: '6.0.0' },
-        { name: 'description', desc: locale.description, version: '6.0.0' },
-        { name: 'actions', desc: locale.actions, version: '6.0.0' },
-        { name: 'close', desc: locale.close, version: '6.1.0' },
-      ]}
-    >
-      <Alert
-        closable
-        title="Info Text"
-        showIcon
-        description="Info Description Info Description Info Description Info Description"
-        type="info"
-        action={
-          <Flex vertical gap="small" style={{ minWidth: 80 }}>
-            <Button size="small" type="primary" block>
-              Accept
-            </Button>
-            <Button size="small" danger ghost block>
-              Decline
-            </Button>
-          </Flex>
-        }
-      />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

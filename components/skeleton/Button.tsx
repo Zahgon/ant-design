@@ -17,48 +17,7 @@ export interface SkeletonButtonProps extends Omit<SkeletonElementProps, 'size'> 
 }
 
 const SkeletonButton: React.FC<SkeletonButtonProps> = (props) => {
-  const {
-    prefixCls: customizePrefixCls,
-    className,
-    rootClassName,
-    classNames,
-    active,
-    style,
-    styles,
-    block = false,
-    size: customSize,
-    ...rest
-  } = props;
-  const { getPrefixCls } = React.useContext(ConfigContext);
-  const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
-  const [hashId, cssVarCls] = useStyle(prefixCls);
-  const mergedSize = useSize((ctx) => customSize ?? ctx);
-
-  const cls = clsx(
-    prefixCls,
-    `${prefixCls}-element`,
-    {
-      [`${prefixCls}-active`]: active,
-      [`${prefixCls}-block`]: block,
-    },
-    classNames?.root,
-    className,
-    rootClassName,
-    hashId,
-    cssVarCls,
-  );
-
-  return (
-    <div className={cls} style={styles?.root}>
-      <Element
-        prefixCls={`${prefixCls}-button`}
-        className={classNames?.content}
-        style={{ ...styles?.content, ...style }}
-        size={mergedSize}
-        {...rest}
-      />
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 export default SkeletonButton;

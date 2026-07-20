@@ -17,20 +17,11 @@ export default function useBubbleLock(
   };
 
   const onLabelClick: React.MouseEventHandler<HTMLLabelElement> = () => {
-    clearLock();
-
-    labelClickLockRef.current = raf(() => {
-      labelClickLockRef.current = null;
-    });
+      throw new Error("STUB");
   };
 
   const onInputClick: React.MouseEventHandler<HTMLInputElement> = (e) => {
-    if (labelClickLockRef.current) {
-      e.stopPropagation();
-      clearLock();
-    }
-
-    onOriginInputClick?.(e);
+      throw new Error("STUB");
   };
 
   return [onLabelClick, onInputClick] as const;

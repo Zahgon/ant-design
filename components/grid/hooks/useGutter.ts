@@ -24,17 +24,7 @@ export default function useGutter(
   };
 
   normalizedGutter.forEach((g, index) => {
-    if (isPlainObject(g)) {
-      for (let i = 0; i < responsiveArray.length; i++) {
-        const breakpoint: Breakpoint = responsiveArray[i];
-        if (mergedScreens[breakpoint] && g[breakpoint] !== undefined) {
-          results[index] = g[breakpoint] as number | string;
-          break;
-        }
-      }
-    } else {
-      results[index] = g;
-    }
+      throw new Error("STUB");
   });
   return results;
 }

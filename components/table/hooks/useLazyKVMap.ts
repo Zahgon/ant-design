@@ -29,12 +29,7 @@ const useLazyKVMap = <RecordType extends AnyObject = AnyObject>(
 
       function dig(records: readonly RecordType[]) {
         records.forEach((record, index) => {
-          const rowKey = getRowKey(record, index);
-          kvMap.set(rowKey, record);
-
-          if (isPlainObject(record) && childrenColumnName in record) {
-            dig(record[childrenColumnName] || []);
-          }
+            throw new Error("STUB");
         });
       }
 

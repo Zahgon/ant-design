@@ -42,14 +42,7 @@ function splitCNCharsBySpace(
     isTwoCNChar((child as React.ReactElement<{ children: string }>).props.children)
   ) {
     return cloneElement(child, (oriProps) => {
-      const mergedCls = clsx(oriProps.className, className) || undefined;
-      const mergedStyle: React.CSSProperties = { ...style, ...oriProps.style };
-      return {
-        ...oriProps,
-        children: oriProps.children.split('').join(SPACE),
-        className: mergedCls,
-        style: mergedStyle,
-      };
+        throw new Error("STUB");
     });
   }
 
@@ -69,11 +62,7 @@ function splitCNCharsBySpace(
     );
   }
 
-  return cloneElement(child, (oriProps) => ({
-    ...oriProps,
-    className: clsx(oriProps.className, className) || undefined,
-    style: { ...oriProps.style, ...style },
-  }));
+  return cloneElement(child, (oriProps) => { throw new Error("STUB"); });
 }
 
 export function spaceChildren(
@@ -85,25 +74,11 @@ export function spaceChildren(
   let isPrevChildPure = false;
   const childList: React.ReactNode[] = [];
   React.Children.forEach(children, (child) => {
-    const isCurrentChildPure = isString(child) || isNumber(child);
-    if (isPrevChildPure && isCurrentChildPure) {
-      const lastIndex = childList.length - 1;
-      const lastChild = childList[lastIndex];
-      childList[lastIndex] = `${lastChild}${child}`;
-    } else {
-      childList.push(child);
-    }
-
-    isPrevChildPure = isCurrentChildPure;
+      throw new Error("STUB");
   });
 
   return React.Children.map(childList, (child) =>
-    splitCNCharsBySpace(
-      child as React.ReactElement | string | number,
-      needInserted,
-      style,
-      className,
-    ),
+    { throw new Error("STUB"); },
   );
 }
 

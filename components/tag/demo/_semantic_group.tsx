@@ -16,21 +16,7 @@ const locales = {
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Tag"
-      semantics={[
-        { name: 'root', desc: locale.root },
-        { name: 'item', desc: locale.item },
-      ]}
-    >
-      <Tag.CheckableTagGroup
-        defaultValue="Books"
-        options={['Movies', 'Books', 'Music', 'Sports']}
-      />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

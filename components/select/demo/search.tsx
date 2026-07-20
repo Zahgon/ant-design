@@ -9,26 +9,6 @@ const onSearch = (value: string) => {
   console.log('search:', value);
 };
 
-const App: React.FC = () => (
-  <Select
-    showSearch={{ optionFilterProp: 'label', onSearch }}
-    placeholder="Select a person"
-    onChange={onChange}
-    options={[
-      {
-        value: 'jack',
-        label: 'Jack',
-      },
-      {
-        value: 'lucy',
-        label: 'Lucy',
-      },
-      {
-        value: 'tom',
-        label: 'Tom',
-      },
-    ]}
-  />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

@@ -5,7 +5,7 @@ import type { ColorGenInput, Colors } from './interface';
 export const toHexFormat = (value?: string, alpha?: boolean) =>
   value?.replace(/[^0-9a-f]/gi, '').slice(0, alpha ? 8 : 6) || '';
 
-export const getHex = (value?: string, alpha?: boolean) => (value ? toHexFormat(value, alpha) : '');
+export const getHex = (value?: string, alpha?: boolean) => { throw new Error("STUB"); };
 
 export type GradientColor = {
   color: AggregationColor;
@@ -21,33 +21,7 @@ export class AggregationColor {
   public cleared = false;
 
   constructor(color: ColorGenInput<AggregationColor> | Colors<AggregationColor>) {
-    // Clone from another AggregationColor
-    if (color instanceof AggregationColor) {
-      this.metaColor = color.metaColor.clone();
-      this.colors = color.colors?.map((info) => ({
-        color: new AggregationColor(info.color),
-        percent: info.percent,
-      }));
-      this.cleared = color.cleared;
-      return;
-    }
-
-    const isArray = Array.isArray(color);
-
-    if (isArray && color.length) {
-      this.colors = color.map(({ color: c, percent }) => ({
-        color: new AggregationColor(c),
-        percent,
-      }));
-      this.metaColor = new RcColor(this.colors[0].color.metaColor);
-    } else {
-      this.metaColor = new RcColor(isArray ? '' : color);
-    }
-
-    if (!color || (isArray && !this.colors)) {
-      this.metaColor = this.metaColor.setA(0);
-      this.cleared = true;
-    }
+      throw new Error("STUB");
   }
 
   toHsb() {
@@ -59,7 +33,7 @@ export class AggregationColor {
   }
 
   toHex() {
-    return getHex(this.toHexString(), this.metaColor.a < 1);
+      throw new Error("STUB");
   }
 
   toHexString() {
@@ -87,7 +61,7 @@ export class AggregationColor {
 
     // CSS line-gradient
     if (colors) {
-      const colorsStr = colors.map((c) => `${c.color.toRgbString()} ${c.percent}%`).join(', ');
+      const colorsStr = colors.map((c) => { throw new Error("STUB"); }).join(', ');
       return `linear-gradient(90deg, ${colorsStr})`;
     }
 
@@ -106,8 +80,7 @@ export class AggregationColor {
     return (
       this.colors!.length === color.colors!.length &&
       this.colors!.every((c, i) => {
-        const target = color.colors![i];
-        return c.percent === target.percent && c.color.equals(target.color);
+          throw new Error("STUB");
       })
     );
   }

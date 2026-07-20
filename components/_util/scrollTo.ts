@@ -14,7 +14,7 @@ interface ScrollToOptions {
 }
 
 export default function scrollTo(y: number, options: ScrollToOptions = {}) {
-  const { getContainer = () => window, callback, duration = 450 } = options;
+  const { getContainer = () => { throw new Error("STUB"); }, callback, duration = 450 } = options;
   const container = getContainer();
   const scrollTop = getScroll(container);
   const startTime = Date.now();
@@ -22,25 +22,11 @@ export default function scrollTo(y: number, options: ScrollToOptions = {}) {
   let rafId: number;
 
   const frameFunc = () => {
-    const timestamp = Date.now();
-    const time = timestamp - startTime;
-    const nextScrollTop = easeInOutCubic(time > duration ? duration : time, scrollTop, y, duration);
-    if (isWindow(container)) {
-      (container as Window).scrollTo(window.pageXOffset, nextScrollTop);
-    } else if (container instanceof Document || container.constructor.name === 'HTMLDocument') {
-      (container as Document).documentElement.scrollTop = nextScrollTop;
-    } else {
-      (container as HTMLElement).scrollTop = nextScrollTop;
-    }
-    if (time < duration) {
-      rafId = raf(frameFunc);
-    } else if (isFunction(callback)) {
-      callback();
-    }
+      throw new Error("STUB");
   };
   rafId = raf(frameFunc);
 
   return () => {
-    raf.cancel(rafId);
+      throw new Error("STUB");
   };
 }

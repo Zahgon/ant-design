@@ -643,171 +643,23 @@ const genPaginationItemStyle: GenerateStyle<PaginationToken, CSSObject> = (token
 };
 
 const genPaginationStyle: GenerateStyle<PaginationToken, CSSObject> = (token) => {
-  const { componentCls, antCls } = token;
-
-  const [varName, varRef] = genCssVar(antCls, 'pagination');
-
-  return {
-    [componentCls]: {
-      [varName(`item-size-actual`)]: unit(token.itemSize),
-      [varName(`item-spacing-actual`)]: unit(token.marginXS),
-      '&-small': {
-        [varName(`item-size-actual`)]: unit(token.itemSizeSM),
-        [varName(`item-spacing-actual`)]: unit(token.marginXXS),
-      },
-      '&-large': {
-        [varName(`item-size-actual`)]: unit(token.itemSizeLG),
-        [varName(`item-spacing-actual`)]: unit(token.marginSM),
-      },
-
-      ...resetComponent(token),
-      display: 'flex',
-      alignItems: 'center',
-
-      '&-start': {
-        justifyContent: 'start',
-      },
-
-      '&-center': {
-        justifyContent: 'center',
-      },
-
-      '&-end': {
-        justifyContent: 'end',
-      },
-
-      'ul, ol': {
-        margin: 0,
-        padding: 0,
-        listStyle: 'none',
-      },
-
-      '&::after': {
-        display: 'block',
-        clear: 'both',
-        height: 0,
-        overflow: 'hidden',
-        visibility: 'hidden',
-        content: '""',
-      },
-
-      [`${componentCls}-total-text`]: {
-        display: 'inline-block',
-        height: varRef(`item-size-actual`),
-        marginInlineEnd: varRef(`item-spacing-actual`),
-        lineHeight: unit(token.calc(varRef(`item-size-actual`)).sub(2).equal()),
-        verticalAlign: 'middle',
-      },
-
-      // item style
-      ...genPaginationItemStyle(token),
-
-      // jump btn style
-      ...genPaginationJumpStyle(token),
-
-      // simple style
-      ...genPaginationSimpleStyle(token),
-
-      // input variant style
-      ...genPaginationInputVariantStyle(token),
-
-      // size style
-      ...genPaginationSmallStyle(token),
-      ...genPaginationLargeStyle(token),
-
-      // disabled style
-      ...genPaginationDisabledStyle(token),
-
-      // media query style
-      [`@media only screen and (max-width: ${token.screenLG}px)`]: {
-        [`${componentCls}-item`]: {
-          '&-after-jump-prev, &-before-jump-next': {
-            display: 'none',
-          },
-        },
-      },
-
-      [`@media only screen and (max-width: ${token.screenSM}px)`]: {
-        [`${componentCls}-options`]: {
-          display: 'none',
-        },
-      },
-    },
-
-    // rtl style
-    [`&${token.componentCls}-rtl`]: {
-      direction: 'rtl',
-    },
-  };
+    throw new Error("STUB");
 };
 
 const genPaginationFocusStyle: GenerateStyle<PaginationToken, CSSObject> = (token) => {
-  const { componentCls } = token;
-
-  return {
-    [`${componentCls}:not(${componentCls}-disabled)`]: {
-      [`${componentCls}-item`]: {
-        ...genFocusStyle(token),
-      },
-
-      [`${componentCls}-jump-prev, ${componentCls}-jump-next`]: {
-        '&:focus-visible': {
-          [`${componentCls}-item-link-icon`]: {
-            opacity: 1,
-          },
-          [`${componentCls}-item-ellipsis`]: {
-            opacity: 0,
-          },
-          ...genFocusOutline(token),
-        },
-      },
-
-      [`${componentCls}-prev, ${componentCls}-next`]: {
-        [`&:focus-visible ${componentCls}-item-link`]: genFocusOutline(token),
-      },
-    },
-  };
+    throw new Error("STUB");
 };
 
-export const prepareComponentToken: GetDefaultToken<'Pagination'> = (token) => ({
-  itemBg: token.colorBgContainer,
-  itemSize: token.controlHeight,
-  itemSizeSM: token.controlHeightSM,
-  itemSizeLG: token.controlHeightLG,
-  itemActiveBg: token.colorBgContainer,
-  itemActiveColor: token.colorPrimary,
-  itemActiveColorHover: token.colorPrimaryHover,
-  itemLinkBg: token.colorBgContainer,
-  itemActiveColorDisabled: token.colorTextDisabled,
-  itemActiveBgDisabled: token.controlItemBgActiveDisabled,
-  itemInputBg: token.colorBgContainer,
-  miniOptionsSizeChangerTop: 0,
-  ...initComponentToken(token),
-});
+export const prepareComponentToken: GetDefaultToken<'Pagination'> = (token) => { throw new Error("STUB"); };
 
 export const prepareToken = (token: Parameters<GenStyleFn<'Pagination'>>[0]) =>
-  mergeToken<PaginationToken>(
-    token,
-    {
-      inputOutlineOffset: 0,
-      quickJumperInputWidth: token.calc(token.controlHeightLG).mul(1.25).equal(),
-      paginationMiniOptionsMarginInlineStart: token.calc(token.marginXXS).div(2).equal(),
-      paginationMiniQuickJumperInputWidth: token.calc(token.controlHeightLG).mul(1.1).equal(),
-      paginationItemPaddingInline: token.calc(token.marginXXS).mul(1.5).equal(),
-      paginationEllipsisLetterSpacing: token.calc(token.marginXXS).div(2).equal(),
-      paginationSlashMarginInlineStart: token.marginSM,
-      paginationSlashMarginInlineEnd: token.marginSM,
-      paginationEllipsisTextIndent: '0.13em', // magic for ui experience
-    },
-    initInputToken(token),
-  );
+  { throw new Error("STUB"); };
 
 // ============================== Export ==============================
 export default genStyleHooks(
   'Pagination',
   (token) => {
-    const paginationToken = prepareToken(token);
-    return [genPaginationStyle(paginationToken), genPaginationFocusStyle(paginationToken)];
+      throw new Error("STUB");
   },
   prepareComponentToken,
 );

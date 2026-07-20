@@ -12,16 +12,9 @@ const options = [
 ];
 
 const labelRender: LabelRender = (props) => {
-  const { label, value } = props;
-
-  if (label) {
-    return value;
-  }
-  return <span>No option match</span>;
+    throw new Error("STUB");
 };
 
-const App: React.FC = () => (
-  <Select labelRender={labelRender} defaultValue="1" style={{ width: '100%' }} options={options} />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

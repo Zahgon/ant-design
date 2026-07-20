@@ -45,13 +45,6 @@ const data: DataType[] = [
   },
 ];
 
-const App: React.FC = () => (
-  <>
-    <Divider>Medium size table</Divider>
-    <Table<DataType> columns={columns} dataSource={data} size="medium" />
-    <Divider>Small size table</Divider>
-    <Table<DataType> columns={columns} dataSource={data} size="small" />
-  </>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

@@ -10,7 +10,9 @@ import { getStyleStr } from './utils';
 export const BaseSize = 2;
 export const FontGap = 3;
 
-const noop: VoidFunction = () => {};
+const noop: VoidFunction = () => {
+    throw new Error("STUB");
+};
 
 // Prevent external hidden elements from adding accent styles
 const emphasizedStyle: React.CSSProperties = {

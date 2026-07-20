@@ -9,22 +9,9 @@ const destroyAll = () => {
 };
 
 const showConfirm = () => {
-  for (let i = 0; i < 3; i += 1) {
-    setTimeout(() => {
-      confirm({
-        icon: <ExclamationCircleOutlined />,
-        content: <Button onClick={destroyAll}>Click to destroy all</Button>,
-        onOk() {
-          console.log('OK');
-        },
-        onCancel() {
-          console.log('Cancel');
-        },
-      });
-    }, i * 500);
-  }
+    throw new Error("STUB");
 };
 
-const App: React.FC = () => <Button onClick={showConfirm}>Confirm</Button>;
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

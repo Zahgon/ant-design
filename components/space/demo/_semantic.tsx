@@ -18,23 +18,7 @@ const locales = {
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Space"
-      semantics={[
-        { name: 'root', desc: locale.root },
-        { name: 'item', desc: locale.item },
-        { name: 'separator', desc: locale.separator },
-      ]}
-    >
-      <Space separator={<Divider vertical />}>
-        <Button type="primary">Primary</Button>
-        <Button>Default</Button>
-        <Button type="dashed">Dashed</Button>
-      </Space>
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

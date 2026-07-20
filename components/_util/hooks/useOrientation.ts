@@ -12,17 +12,6 @@ export const useOrientation = (
   legacyDirection?: Orientation,
 ): [Orientation, boolean] => {
   return useMemo(() => {
-    const validOrientation = isValidOrientation(orientation);
-    let mergedOrientation: Orientation;
-    if (validOrientation) {
-      mergedOrientation = orientation;
-    } else if (typeof vertical === 'boolean') {
-      mergedOrientation = vertical ? 'vertical' : 'horizontal';
-    } else {
-      const validLegacyDirection = isValidOrientation(legacyDirection);
-      mergedOrientation = validLegacyDirection ? legacyDirection : 'horizontal';
-    }
-
-    return [mergedOrientation, mergedOrientation === 'vertical'];
+      throw new Error("STUB");
   }, [legacyDirection, orientation, vertical]);
 };

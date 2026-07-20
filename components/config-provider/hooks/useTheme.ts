@@ -41,48 +41,10 @@ export default function useTheme(
 
   return useMemo<ThemeConfig | undefined>(
     () => {
-      if (!theme) {
-        return parentTheme;
-      }
-
-      // Override
-      const mergedComponents = {
-        ...parentThemeConfig.components,
-      };
-
-      (Object.keys(theme.components || {}) as (keyof OverrideToken)[]).forEach((componentName) => {
-        mergedComponents[componentName] = {
-          ...mergedComponents[componentName],
-          ...theme.components![componentName],
-        } as any;
-      });
-
-      const cssVarKey = `css-var-${themeKey.replace(/:/g, '')}`;
-      const mergedCssVar = {
-        prefix: config?.prefixCls, // Same as prefixCls by default
-        ...parentThemeConfig.cssVar,
-        ...themeConfig.cssVar,
-        key: themeConfig.cssVar?.key || cssVarKey,
-      };
-
-      // Base token
-      return {
-        ...parentThemeConfig,
-        ...themeConfig,
-
-        token: {
-          ...parentThemeConfig.token,
-          ...themeConfig.token,
-        },
-        components: mergedComponents,
-        cssVar: mergedCssVar,
-      };
-    },
+          throw new Error("STUB");
+      },
     [themeConfig, parentThemeConfig, config?.prefixCls, themeKey],
     (prev, next) =>
-      prev.some((prevTheme, index) => {
-        const nextTheme = next[index];
-        return !isEqual(prevTheme, nextTheme, true);
-      }),
+      { throw new Error("STUB"); },
   );
 }

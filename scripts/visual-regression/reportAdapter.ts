@@ -16,19 +16,9 @@ const REPORT_DIR = path.join(ROOT, 'visualRegressionReport');
 const components = fg
   .sync('components/*/index.ts[x]', { cwd: ROOT })
   .reduce<string[]>((acc, file) => {
-    const basePath = path.dirname(file);
-    if (
-      [
-        fs.existsSync(path.join(basePath, 'index.en-US.md')),
-        fs.existsSync(path.join(basePath, 'demo')),
-        fs.existsSync(path.join(basePath, '__tests__')),
-      ].every(Boolean)
-    ) {
-      acc.push(path.basename(basePath));
-    }
-    return acc;
+      throw new Error("STUB");
   }, [])
-  .sort((a, b) => b.length - a.length);
+  .sort((a, b) => { throw new Error("STUB"); });
 
 const processedComponents = new Set<string>();
 const extractFilenameComponents = (filename: string) => {
@@ -60,11 +50,11 @@ const extractFilenameComponents = (filename: string) => {
 // https://placehold.co/
 const imagesPlaceHold = {
   genMissing: (w = 680, h = 280) =>
-    `https://placehold.co/${w}x${h}/transparent/red?text=MISS&font=lora`,
+    { throw new Error("STUB"); },
   getRemoved: (w = 680, h = 280) =>
-    `https://placehold.co/${w}x${h}/transparent/red?text=REMOVED&font=lora`,
+    { throw new Error("STUB"); },
   getAdded: (w = 680, h = 280) =>
-    `https://placehold.co/${w}x${h}/transparent/green?text=ADDED&font=lora`,
+    { throw new Error("STUB"); },
 };
 
 const getImageSize = (imagePath: string) => {
@@ -87,84 +77,19 @@ const convertReport = (options: Required<Options>) => {
   const total = badCases.length;
   const suites: any[] = [];
 
-  const processedBadCases = badCases.map((badCase) => ({
-    raw: badCase,
-    ...extractFilenameComponents(badCase.filename),
-  }));
+  const processedBadCases = badCases.map((badCase) => { throw new Error("STUB"); });
 
   Array.from(processedComponents)
-    .sort((a, b) => b.length - a.length)
+    .sort((a, b) => { throw new Error("STUB"); })
     .forEach((component) => {
-      const componentBadCases = processedBadCases.filter(
-        (badCase) => badCase.componentName === component,
-      );
-
-      const specPath = path.join('components', component, '__tests__/image.test.ts');
-
-      const tests = componentBadCases.map((badCase) => {
-        let baselinePath;
-        let comparisonPath;
-        let diffPath;
-
-        const { filename, type } = badCase.raw;
-
-        if (type === 'changed') {
-          baselinePath = `${publicPath}/images/base/${filename}`;
-          comparisonPath = `${publicPath}/images/current/${filename}`;
-          diffPath = `${publicPath}/images/diff/${filename}`;
-        } else if (type === 'removed') {
-          const pathSuffix = `images/base/${filename}`;
-          const { width, height } = getImageSize(path.join(REPORT_DIR, pathSuffix));
-
-          baselinePath = `${publicPath}/${pathSuffix}`;
-          comparisonPath = imagesPlaceHold.genMissing(width, height); // Missing
-          diffPath = imagesPlaceHold.getRemoved(width, height); // Removed
-        } else if (type === 'added') {
-          const pathSuffix = `images/current/${filename}`;
-          const { width, height } = getImageSize(path.join(REPORT_DIR, pathSuffix));
-
-          baselinePath = imagesPlaceHold.genMissing(width, height); // Missing
-          comparisonPath = `${publicPath}/${pathSuffix}`;
-          diffPath = imagesPlaceHold.getAdded(width, height); // Added
-        }
-
-        const name = [
-          `components/${badCase.componentName}/demo/${badCase.demoName}.tsx`,
-          `[${badCase.theme}]`,
-          badCase.isCssVar && '(CSS Var)',
-        ]
-          .filter(Boolean)
-          .join(' ');
-
-        // https://github.com/kien-ht/cypress-image-diff-html-report/blob/v2.2.0/playground/example.json#L61-L70
-        return {
-          status: 'fail',
-          name,
-          percentage: badCase.raw.weight,
-          failureThreshold: 0.1, // 由 scripts/visual-regression/build.ts 决定
-          specPath,
-          specFilename: path.basename(specPath),
-          baselinePath,
-          diffPath,
-          comparisonPath,
-        };
-      });
-
-      // https://github.com/kien-ht/cypress-image-diff-html-report/blob/v2.2.0/playground/example.json#L57-L73
-      const suite = {
-        name: component,
-        path: specPath,
-        tests,
-      };
-
-      suites.push(suite);
+        throw new Error("STUB");
     });
 
   return {
     total,
     totalPassed: 0,
     totalFailed: total,
-    suites: suites.sort((a, b) => a.name.localeCompare(b.name)),
+    suites: suites.sort((a, b) => { throw new Error("STUB"); }),
     // \\\\\\ 不那么重要的字段 \\\\\\
     startedAt: new Date().toISOString(),
     endedAt: new Date().toISOString(),

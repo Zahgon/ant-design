@@ -4,29 +4,10 @@ import { Flex, Segmented } from 'antd';
 import type { GetProp, SegmentedProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
-const classNames = createStaticStyles(({ css }) => ({
-  root: css`
-    padding: 2px;
-  `,
-}));
+const classNames = createStaticStyles(({ css }) => { throw new Error("STUB"); });
 
 const styleFn: SegmentedProps['styles'] = (info): GetProp<SegmentedProps, 'styles', 'Return'> => {
-  if (info.props.vertical) {
-    return {
-      root: {
-        border: '1px solid #77BEF0',
-        padding: 4,
-        width: 100,
-      },
-      icon: {
-        color: '#77BEF0',
-      },
-      item: {
-        textAlign: 'start',
-      },
-    };
-  }
-  return {};
+    throw new Error("STUB");
 };
 
 const styles: SegmentedProps['styles'] = {
@@ -55,17 +36,7 @@ const options: SegmentedProps['options'] = [
 ];
 
 const App: React.FC = () => {
-  const segmentedSharedProps: SegmentedProps = {
-    options,
-    classNames,
-  };
-
-  return (
-    <Flex vertical gap="medium">
-      <Segmented {...segmentedSharedProps} styles={styles} />
-      <Segmented {...segmentedSharedProps} styles={styleFn} vertical />
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

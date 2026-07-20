@@ -105,8 +105,7 @@ const genBorderedStyle: GenerateStyle<PaginationToken, CSSObject> = (token) => {
 export default genSubStyleComponent(
   ['Pagination', 'bordered'],
   (token) => {
-    const paginationToken = prepareToken(token);
-    return genBorderedStyle(paginationToken);
+      throw new Error("STUB");
   },
   prepareComponentToken,
 );

@@ -119,18 +119,7 @@ export interface NotificationToken extends FullToken<'Notification'> {
 // =============================== Token ===============================
 
 /** Provide default public ComponentToken values for Notification. */
-const prepareComponentToken = (token: AliasToken) => ({
-  zIndexPopup: token.zIndexPopupBase + CONTAINER_MAX_OFFSET + 50,
-  width: 384,
-  progressBg: `linear-gradient(90deg, ${token.colorPrimaryBorderHover}, ${token.colorPrimary})`,
-  // Fix notification background color issue
-  // https://github.com/ant-design/ant-design/issues/55649
-  // https://github.com/ant-design/ant-design/issues/56055
-  colorSuccessBg: undefined,
-  colorErrorBg: undefined,
-  colorInfoBg: undefined,
-  colorWarningBg: undefined,
-});
+const prepareComponentToken = (token: AliasToken) => { throw new Error("STUB"); };
 
 /** Derive internal Notification style tokens from alias and component tokens. */
 export const prepareNotificationToken: (
@@ -293,7 +282,7 @@ const genNotificationListStyle = <Token extends NotificationToken>(
 /** Register the PurePanel sub-style component for Notification. */
 export const PurePanelStyle = genSubStyleComponent(
   ['Notification', 'PurePanel'],
-  (token) => genPurePanelStyle(prepareNotificationToken(token)),
+  (token) => { throw new Error("STUB"); },
   prepareComponentToken,
 );
 
@@ -302,22 +291,14 @@ export const sharedGenerateStyle = <Token extends NotificationToken>(
   token: Token,
   config: SharedStyleConfig<Token>,
 ): ReturnType<GenerateStyle<Token>> => {
-  const itemStyle = config.itemStyle ?? genNotificationStyle;
-
-  return [
-    genNotificationListStyle(token, config),
-    itemStyle(token),
-    genNotificationPlacementStyle(token),
-  ];
+    throw new Error("STUB");
 };
 
 /** Register the main style hook for Notification. */
 export default genStyleHooks(
   'Notification',
   (token) => {
-    const notificationToken = prepareNotificationToken(token);
-
-    return sharedGenerateStyle(notificationToken, { listWidthKey: 'width' });
+      throw new Error("STUB");
   },
   prepareComponentToken,
 );

@@ -4,7 +4,7 @@ import type { MenuProps } from 'antd';
 import { Button, Dropdown, Flex, Space } from 'antd';
 
 const onMenuClick: MenuProps['onClick'] = (e) => {
-  console.log('click', e);
+    throw new Error("STUB");
 };
 
 const items = [
@@ -22,17 +22,6 @@ const items = [
   },
 ];
 
-const App: React.FC = () => (
-  <Flex align="flex-start" gap="small" vertical>
-    <Button type="primary">primary</Button>
-    <Button>secondary</Button>
-    <Space.Compact>
-      <Button>Actions</Button>
-      <Dropdown menu={{ items, onClick: onMenuClick }} placement="bottomRight">
-        <Button icon={<EllipsisOutlined />} />
-      </Dropdown>
-    </Space.Compact>
-  </Flex>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

@@ -21,7 +21,7 @@ export interface DescriptionsItemProps {
 // JSX Structure Syntactic Sugar. Never reach the render code.
 /* istanbul ignore next */
 const DescriptionsItem: React.FC<React.PropsWithChildren<DescriptionsItemProps>> = (props) => {
-  return props.children as React.JSX.Element;
+    throw new Error("STUB");
 };
 
 export default DescriptionsItem;

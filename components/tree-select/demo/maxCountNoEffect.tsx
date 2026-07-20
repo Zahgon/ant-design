@@ -42,30 +42,7 @@ const treeData = [
 const MAX_COUNT = 2;
 
 function MaxCountNoEffectDemo() {
-  const [value, setValue] = useState<string[]>([]);
-
-  const suffix = (
-    <>
-      <span>
-        {value.length} / {MAX_COUNT}
-      </span>
-      <DownOutlined />
-    </>
-  );
-
-  return (
-    <TreeSelect
-      treeCheckable
-      showCheckedStrategy={TreeSelect.SHOW_PARENT}
-      maxCount={MAX_COUNT}
-      suffixIcon={suffix}
-      placeholder="please select"
-      value={value}
-      onChange={(val) => setValue(val as string[])}
-      style={{ width: '100%' }}
-      treeData={treeData}
-    />
-  );
+    throw new Error("STUB");
 }
 
 export default MaxCountNoEffectDemo;

@@ -10,28 +10,13 @@ export default function useRemovePasswordTimeout(
   const removePasswordTimeout = () => {
     removePasswordTimeoutRef.current.push(
       setTimeout(() => {
-        if (
-          inputRef.current?.input &&
-          inputRef.current?.input.getAttribute('type') === 'password' &&
-          inputRef.current?.input.hasAttribute('value')
-        ) {
-          inputRef.current?.input.removeAttribute('value');
-        }
+          throw new Error("STUB");
       }),
     );
   };
 
   useEffect(() => {
-    if (triggerOnMount) {
-      removePasswordTimeout();
-    }
-
-    return () =>
-      removePasswordTimeoutRef.current.forEach((timer) => {
-        if (timer) {
-          clearTimeout(timer);
-        }
-      });
+      throw new Error("STUB");
   }, [triggerOnMount]);
 
   return removePasswordTimeout;

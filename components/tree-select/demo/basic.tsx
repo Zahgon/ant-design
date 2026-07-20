@@ -51,34 +51,7 @@ const treeData = [
   },
 ];
 const App: React.FC = () => {
-  const [value, setValue] = useState<string>();
-
-  const onChange = (newValue: string) => {
-    setValue(newValue);
-  };
-
-  const onPopupScroll: TreeSelectProps['onPopupScroll'] = (e) => {
-    console.log('onPopupScroll', e);
-  };
-
-  return (
-    <TreeSelect
-      showSearch
-      style={{ width: '100%' }}
-      value={value}
-      styles={{
-        popup: {
-          root: { maxHeight: 400, overflow: 'auto' },
-        },
-      }}
-      placeholder="Please select"
-      allowClear
-      treeDefaultExpandAll
-      onChange={onChange}
-      treeData={treeData}
-      onPopupScroll={onPopupScroll}
-    />
-  );
+    throw new Error("STUB");
 };
 
 export default App;

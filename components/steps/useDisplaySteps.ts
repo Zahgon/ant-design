@@ -46,7 +46,7 @@ function getEllipsisStep(
 ): DisplayStep {
   const prevKey = items[prevIndex].key ?? prevIndex;
   const nextKey = items[nextIndex].key ?? nextIndex;
-  const hasError = items.slice(prevIndex + 1, nextIndex).some((step) => step.status === 'error');
+  const hasError = items.slice(prevIndex + 1, nextIndex).some((step) => { throw new Error("STUB"); });
   const ellipsisStatus = hasError ? 'error' : nextIndex - 1 < currentIndex ? 'finish' : 'wait';
 
   return {
@@ -98,9 +98,9 @@ function getCollapsedIndexes(
   }
 
   return Array.from(indexes)
-    .sort((a, b) => a - b)
+    .sort((a, b) => { throw new Error("STUB"); })
     .flatMap((index, order, sortedIndexes) =>
-      order > 0 && index - sortedIndexes[order - 1] > 1 ? [null, index] : [index],
+      { throw new Error("STUB"); },
     );
 }
 
@@ -121,31 +121,15 @@ export default function useDisplaySteps(
   const mappedCurrent = current - initial;
 
   const displaySteps = React.useMemo<DisplayStep[]>(() => {
-    if (!canApplyMaxCount) {
-      return mergedItems.map((item, originIndex) => ({ item, originIndex }));
-    }
-
-    const collapsedIndexes = getCollapsedIndexes(mergedItems.length, mappedCurrent, maxCount);
-
-    return collapsedIndexes.map((index, collapsedIndex) =>
-      index === null
-        ? getEllipsisStep(
-            mergedItems,
-            mappedCurrent,
-            collapsedIndexes[collapsedIndex - 1] as number,
-            collapsedIndexes[collapsedIndex + 1] as number,
-            prefixCls,
-          )
-        : getDisplayStep(mergedItems[index], index),
-    );
+      throw new Error("STUB");
   }, [canApplyMaxCount, mappedCurrent, mergedItems, maxCount, prefixCls]);
 
-  const displayCurrent = displaySteps.findIndex((step) => step.originIndex === mappedCurrent);
+  const displayCurrent = displaySteps.findIndex((step) => { throw new Error("STUB"); });
 
   return {
     canApplyMaxCount,
     displaySteps,
     mappedDisplayCurrent: displayCurrent >= 0 ? displayCurrent : mappedCurrent,
-    displayItems: displaySteps.map((step) => step.item),
+    displayItems: displaySteps.map((step) => { throw new Error("STUB"); }),
   };
 }

@@ -22,24 +22,6 @@ const data = [
   },
 ];
 
-const App: React.FC = () => (
-  <List
-    grid={{
-      gutter: 16,
-      xs: 1,
-      sm: 2,
-      md: 4,
-      lg: 4,
-      xl: 6,
-      xxl: 3,
-    }}
-    dataSource={data}
-    renderItem={(item) => (
-      <List.Item>
-        <Card title={item.title}>Card content</Card>
-      </List.Item>
-    )}
-  />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

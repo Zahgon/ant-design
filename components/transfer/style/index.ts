@@ -43,44 +43,7 @@ interface TransferToken extends FullToken<'Transfer'> {
 }
 
 const genTransferCustomizeStyle: GenerateStyle<TransferToken, CSSObject> = (token) => {
-  const { antCls, componentCls, listHeight, controlHeightLG } = token;
-
-  const tableCls = `${antCls}-table`;
-  const inputCls = `${antCls}-input`;
-
-  return {
-    [`${componentCls}-customize-list`]: {
-      [`${componentCls}-section`]: {
-        flex: '1 1 50%',
-        width: 'auto',
-        height: 'auto',
-        minHeight: listHeight,
-        minWidth: 0,
-      },
-
-      // =================== Hook Components ===================
-      [`${tableCls}-wrapper`]: {
-        [`${tableCls}-small`]: {
-          border: 0,
-          borderRadius: 0,
-
-          [`${tableCls}-selection-column`]: {
-            width: controlHeightLG,
-            minWidth: controlHeightLG,
-          },
-        },
-
-        [`${tableCls}-pagination${tableCls}-pagination`]: {
-          margin: 0,
-          padding: token.paddingXS,
-        },
-      },
-
-      [`${inputCls}[disabled]`]: {
-        backgroundColor: 'transparent',
-      },
-    },
-  };
+    throw new Error("STUB");
 };
 
 const genTransferStatusColor = (token: TransferToken, color: string): CSSObject => {
@@ -97,15 +60,7 @@ const genTransferStatusColor = (token: TransferToken, color: string): CSSObject 
 };
 
 const genTransferStatusStyle: GenerateStyle<TransferToken, CSSObject> = (token) => {
-  const { componentCls } = token;
-  return {
-    [`${componentCls}-status-error`]: {
-      ...genTransferStatusColor(token, token.colorError),
-    },
-    [`${componentCls}-status-warning`]: {
-      ...genTransferStatusColor(token, token.colorWarning),
-    },
-  };
+    throw new Error("STUB");
 };
 
 const genTransferListStyle: GenerateStyle<TransferToken, CSSObject> = (token) => {
@@ -318,84 +273,22 @@ const genTransferListStyle: GenerateStyle<TransferToken, CSSObject> = (token) =>
 };
 
 const genTransferStyle: GenerateStyle<TransferToken, CSSObject> = (token) => {
-  const {
-    antCls,
-    iconCls,
-    componentCls,
-    marginXS,
-    marginXXS,
-    fontSizeIcon,
-    colorBgContainerDisabled,
-  } = token;
-
-  return {
-    [componentCls]: {
-      ...resetComponent(token),
-
-      position: 'relative',
-      display: 'flex',
-      alignItems: 'stretch',
-
-      [`${componentCls}-disabled`]: {
-        [`${componentCls}-section`]: {
-          background: colorBgContainerDisabled,
-        },
-      },
-
-      [`${componentCls}-section`]: genTransferListStyle(token),
-
-      [`${componentCls}-actions`]: {
-        display: 'flex',
-        flex: 'none',
-        flexDirection: 'column',
-        alignSelf: 'center',
-        margin: `0 ${unit(marginXS)}`,
-        verticalAlign: 'middle',
-        gap: marginXXS,
-
-        [`${antCls}-btn ${iconCls}`]: {
-          fontSize: fontSizeIcon,
-        },
-      },
-    },
-  };
+    throw new Error("STUB");
 };
 
 const genTransferRTLStyle: GenerateStyle<TransferToken, CSSObject> = (token) => {
-  const { componentCls } = token;
-  return {
-    [`${componentCls}-rtl`]: {
-      direction: 'rtl',
-    },
-  };
+    throw new Error("STUB");
 };
 
 export const prepareComponentToken: GetDefaultToken<'Transfer'> = (token) => {
-  const { fontSize, lineHeight, controlHeight, controlHeightLG, lineWidth } = token;
-  const fontHeight = Math.round(fontSize * lineHeight);
-  return {
-    listWidth: 180,
-    listHeight: 200,
-    listWidthLG: 250,
-    headerHeight: controlHeightLG,
-    itemHeight: controlHeight,
-    itemPaddingBlock: (controlHeight - fontHeight) / 2,
-    transferHeaderVerticalPadding: Math.ceil((controlHeightLG - lineWidth - fontHeight) / 2),
-  };
+    throw new Error("STUB");
 };
 
 // ============================== Export ==============================
 export default genStyleHooks(
   'Transfer',
   (token) => {
-    const transferToken = mergeToken<TransferToken>(token);
-
-    return [
-      genTransferStyle(transferToken),
-      genTransferCustomizeStyle(transferToken),
-      genTransferStatusStyle(transferToken),
-      genTransferRTLStyle(transferToken),
-    ];
+      throw new Error("STUB");
   },
   prepareComponentToken,
 );

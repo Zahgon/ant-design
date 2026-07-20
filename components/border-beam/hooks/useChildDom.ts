@@ -15,10 +15,8 @@ const useChildDom = (
   const childNode = React.isValidElement(children) ? children : null;
   const internalRef = React.useCallback(
     (node: React.ReactInstance | HTMLElement | SVGElement | null) => {
-      const nextDom = getDOM(node);
-
-      setDomNode((prevDom) => (prevDom === nextDom ? prevDom : nextDom));
-    },
+          throw new Error("STUB");
+      },
     [],
   );
   const mergedRef = useComposeRef(childNode ? getNodeRef(childNode) : null, internalRef);

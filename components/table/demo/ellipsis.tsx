@@ -14,7 +14,7 @@ const columns: TableColumnsType<DataType> = [
     title: 'Name',
     dataIndex: 'name',
     key: 'name',
-    render: (text) => <a>{text}</a>,
+    render: (text) => { throw new Error("STUB"); },
     width: 150,
   },
   {
@@ -73,6 +73,6 @@ const data = [
   },
 ];
 
-const App: React.FC = () => <Table<DataType> columns={columns} dataSource={data} />;
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

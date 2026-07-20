@@ -17,30 +17,7 @@ const locales = {
 };
 
 const Demo: React.FC = () => {
-  const { token } = theme.useToken();
-  const [locale] = useLocale(locales);
-  return (
-    <Flex gap="large">
-      <Flex gap="small" align="center">
-        <Progress size={16} type="circle" percent={68} railColor={token.colorPrimaryBg} />
-        <div>{locale.progress}</div>
-      </Flex>
-      <Flex gap="small" align="center">
-        <Progress size={16} type="circle" percent={100} status="success" />
-        <div>{locale.completed}</div>
-      </Flex>
-      <Flex gap="small" align="center">
-        <Progress
-          size={16}
-          type="circle"
-          percent={68}
-          status="exception"
-          railColor={token.colorErrorBg}
-        />
-        <div>{locale.exception}</div>
-      </Flex>
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 export default Demo;

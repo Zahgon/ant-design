@@ -86,87 +86,11 @@ interface ExternalProps {
 }
 
 const Block: React.FC<MenuProps & ExternalProps> = (props) => {
-  const { mode, setMode, item, ...restProps } = props;
-
-  const divRef = React.useRef<HTMLDivElement>(null);
-  const [current, setCurrent] = React.useState('mail');
-
-  const onClick: MenuProps['onClick'] = (e) => {
-    console.log('click ', e);
-    setCurrent(e.key);
-  };
-
-  const getPopupContainer = React.useCallback<NonNullable<MenuProps['getPopupContainer']>>(
-    () => divRef.current?.parentElement?.parentElement || divRef.current!,
-    [],
-  );
-
-  return (
-    <Flex vertical gap="medium" ref={divRef} align="center">
-      <Segmented<ModeType> options={['horizontal', 'vertical', 'inline']} onChange={setMode} />
-      <div style={{ height: 360 }}>
-        <Menu
-          onClick={onClick}
-          selectedKeys={[current]}
-          mode={mode}
-          items={item}
-          styles={{
-            root: {
-              width: mode === 'horizontal' ? 480 : 230,
-            },
-            popup: {
-              root: {
-                zIndex: 1,
-              },
-            },
-          }}
-          {...restProps}
-          openKeys={['SubMenu']}
-          getPopupContainer={getPopupContainer}
-        />
-      </div>
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  const [mode, setMode] = React.useState<ModeType>('horizontal');
-
-  const semantics = React.useMemo(() => {
-    const baseLocale = [
-      { name: 'root', desc: locale.root },
-      { name: 'item', desc: locale.item },
-      { name: 'itemIcon', desc: locale.itemIcon },
-      { name: 'itemContent', desc: locale.itemContent },
-    ];
-    const subMenuLocale = [
-      { name: 'subMenu.itemTitle', desc: locale['subMenu.itemTitle'] },
-      { name: 'subMenu.list', desc: locale['subMenu.list'] },
-      { name: 'subMenu.item', desc: locale['subMenu.item'] },
-      { name: 'subMenu.itemIcon', desc: locale['subMenu.itemIcon'] },
-      { name: 'subMenu.itemContent', desc: locale['subMenu.itemContent'] },
-    ];
-    const groupLocale = [
-      { name: 'itemTitle', desc: locale.itemTitle },
-      { name: 'list', desc: locale.list },
-    ];
-
-    const additionalPopupLocale = mode !== 'inline' ? [{ name: 'popup', desc: locale.popup }] : [];
-    const additionalGroupLocale = mode !== 'horizontal' ? groupLocale : [];
-
-    return [...baseLocale, ...additionalGroupLocale, ...additionalPopupLocale, ...subMenuLocale];
-  }, [mode, locale]);
-
-  const itemList = React.useMemo(() => {
-    return mode === 'horizontal' ? items : [...items, ...groupItem];
-  }, [mode]);
-
-  return (
-    <SemanticPreview componentName="Menu" semantics={semantics}>
-      <Block mode={mode} setMode={setMode} item={itemList} />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

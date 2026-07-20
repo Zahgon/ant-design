@@ -49,15 +49,6 @@ const data: DataType[] = [
   },
 ];
 
-const App: React.FC = () => (
-  <Table<DataType>
-    columns={columns}
-    rowSelection={{}}
-    expandable={{
-      expandedRowRender: (record) => <p style={{ margin: 0 }}>{record.description}</p>,
-    }}
-    dataSource={data}
-  />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

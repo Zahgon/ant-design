@@ -11,19 +11,7 @@ type DraggerType = (<T = any>(
 ) => React.ReactElement | null) & { displayName?: string };
 
 const Dragger = React.forwardRef<UploadRef, DraggerProps<any>>((props, ref) => {
-  const { style, height, hasControlInside = false, children, ...restProps } = props;
-  const mergedStyle: React.CSSProperties = { ...style, height };
-  return (
-    <Upload
-      ref={ref}
-      hasControlInside={hasControlInside}
-      {...restProps}
-      style={mergedStyle}
-      type="drag"
-    >
-      {children}
-    </Upload>
-  );
+    throw new Error("STUB");
 }) as unknown as DraggerType;
 
 if (process.env.NODE_ENV !== 'production') {

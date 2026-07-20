@@ -5,10 +5,7 @@ import dayjs from 'dayjs';
 const format = 'HH:mm:ss';
 
 const App: React.FC = () => {
-  const startTime = dayjs('12:08:23', 'HH:mm:ss');
-  const endTime = dayjs('12:08:23', 'HH:mm:ss');
-
-  return <TimePicker.RangePicker defaultValue={[startTime, endTime]} format={format} />;
+    throw new Error("STUB");
 };
 
 export default App;

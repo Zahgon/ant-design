@@ -19,18 +19,6 @@ const handleChange = (value: string[]) => {
   console.log(`selected ${value}`);
 };
 
-const App: React.FC = () => (
-  <>
-    <Title level={4}>{options.length} Items</Title>
-    <Select
-      mode="multiple"
-      style={{ width: '100%' }}
-      placeholder="Please select"
-      defaultValue={['a10', 'c12']}
-      onChange={handleChange}
-      options={options}
-    />
-  </>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

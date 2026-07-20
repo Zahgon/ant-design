@@ -4,11 +4,7 @@
 export const fillObjectBySchema = (obj: Record<string, any>, schema: Record<string, any>) => {
   const newObj: Record<string, any> = { ...obj };
   Object.keys(schema).forEach((key) => {
-    if (schema[key]._default) {
-      newObj[key] ||= {};
-    } else {
-      newObj[key] = fillObjectBySchema(newObj[key], schema[key]);
-    }
+      throw new Error("STUB");
   });
   return newObj;
 };

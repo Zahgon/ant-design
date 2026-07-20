@@ -32,38 +32,7 @@ const collectFilterStates = <RecordType extends AnyObject = AnyObject>(
   let filterStates: FilterState<RecordType>[] = [];
 
   (columns || []).forEach((column, index) => {
-    const columnPos = getColumnPos(index, pos);
-    const filterDropdownIsDefined = column.filterDropdown !== undefined;
-
-    if (column.filters || filterDropdownIsDefined || 'onFilter' in column) {
-      if ('filteredValue' in column) {
-        // Controlled
-        let filteredValues = column.filteredValue;
-        if (!filterDropdownIsDefined) {
-          filteredValues = filteredValues?.map(String) ?? filteredValues;
-        }
-        filterStates.push({
-          column,
-          key: getColumnKey(column, columnPos),
-          filteredKeys: filteredValues as FilterKey,
-          forceFiltered: column.filtered,
-        });
-      } else {
-        // Uncontrolled
-        filterStates.push({
-          column,
-          key: getColumnKey(column, columnPos),
-          filteredKeys: (init && column.defaultFilteredValue
-            ? column.defaultFilteredValue!
-            : undefined) as FilterKey,
-          forceFiltered: column.filtered,
-        });
-      }
-    }
-
-    if ('children' in column) {
-      filterStates = [...filterStates, ...collectFilterStates(column.children, init, columnPos)];
-    }
+      throw new Error("STUB");
   });
 
   return filterStates;
@@ -81,63 +50,7 @@ function injectFilter<RecordType extends AnyObject = AnyObject>(
   rootClassName?: string,
 ): ColumnsType<RecordType> {
   return columns.map((column, index) => {
-    const columnPos = getColumnPos(index, pos);
-    const {
-      filterOnClose = true,
-      filterMultiple = true,
-      filterMode,
-      filterSearch,
-    } = column as ColumnType<RecordType>;
-
-    let newColumn: ColumnsType<RecordType>[number] = column;
-
-    if (newColumn.filters || newColumn.filterDropdown) {
-      const columnKey = getColumnKey(newColumn, columnPos);
-      const filterState = filterStates.find(({ key }) => columnKey === key);
-
-      newColumn = {
-        ...newColumn,
-        title: (renderProps: ColumnTitleProps<RecordType>) => (
-          <FilterDropdown
-            tablePrefixCls={prefixCls}
-            prefixCls={`${prefixCls}-filter`}
-            dropdownPrefixCls={dropdownPrefixCls}
-            column={newColumn}
-            columnKey={columnKey}
-            filterState={filterState}
-            filterOnClose={filterOnClose}
-            filterMultiple={filterMultiple}
-            filterMode={filterMode}
-            filterSearch={filterSearch}
-            triggerFilter={triggerFilter}
-            locale={locale}
-            getPopupContainer={getPopupContainer}
-            rootClassName={rootClassName}
-          >
-            {renderColumnTitle<RecordType>(column.title, renderProps)}
-          </FilterDropdown>
-        ),
-      };
-    }
-
-    if ('children' in newColumn) {
-      newColumn = {
-        ...newColumn,
-        children: injectFilter(
-          prefixCls,
-          dropdownPrefixCls,
-          newColumn.children,
-          filterStates,
-          locale,
-          triggerFilter,
-          getPopupContainer,
-          columnPos,
-          rootClassName,
-        ),
-      };
-    }
-
-    return newColumn;
+      throw new Error("STUB");
   });
 }
 
@@ -147,18 +60,7 @@ const generateFilterInfo = <RecordType extends AnyObject = AnyObject>(
   const currentFilters: Record<string, FilterValue | null> = {};
 
   filterStates.forEach(({ key, filteredKeys, column }) => {
-    const keyAsString = key as SafeKey;
-    const { filters, filterDropdown } = column;
-    if (filterDropdown) {
-      currentFilters[keyAsString] = filteredKeys || null;
-    } else if (Array.isArray(filteredKeys)) {
-      const keys = flattenKeys(filters);
-      currentFilters[keyAsString] = keys.filter((originKey) =>
-        filteredKeys.includes(String(originKey)),
-      );
-    } else {
-      currentFilters[keyAsString] = null;
-    }
+      throw new Error("STUB");
   });
 
   return currentFilters;
@@ -170,50 +72,7 @@ export const getFilterData = <RecordType extends AnyObject = AnyObject>(
   childrenColumnName: string,
 ) => {
   const filterDatas = filterStates.reduce<RecordType[]>((currentData, filterState) => {
-    const {
-      column: { onFilter, filters },
-      filteredKeys,
-    } = filterState;
-
-    if (onFilter && filteredKeys && filteredKeys.length) {
-      // Preprocess the keys corresponding to the filter tree,
-      // use Map to improve lookup performance to O(1).
-      const flatKeys = flattenKeys(filters);
-      const keyMap = new Map<string, FilterValue[number]>();
-      flatKeys.forEach((k) => {
-        const strKey = String(k);
-        if (!keyMap.has(strKey)) {
-          keyMap.set(strKey, k);
-        }
-      });
-
-      const realKeys = filteredKeys.map((key) => {
-        const strKey = String(key);
-        return keyMap.get(strKey) ?? key;
-      });
-
-      const internalFilter = (subset: RecordType[]): RecordType[] =>
-        subset.reduce<RecordType[]>((acc, record) => {
-          const clonedRecord = { ...record } as any;
-
-          if (clonedRecord[childrenColumnName]) {
-            clonedRecord[childrenColumnName] = getFilterData(
-              clonedRecord[childrenColumnName],
-              filterStates,
-              childrenColumnName,
-            );
-          }
-
-          if (realKeys.some((realKey) => onFilter(realKey, clonedRecord))) {
-            acc.push(clonedRecord);
-          }
-          return acc;
-        }, []);
-
-      return internalFilter(currentData);
-    }
-
-    return currentData;
+      throw new Error("STUB");
   }, data);
 
   return filterDatas;
@@ -236,10 +95,7 @@ const getMergedColumns = <RecordType extends AnyObject = AnyObject>(
   rawMergedColumns: ColumnsType<RecordType>,
 ): ColumnsType<RecordType> =>
   rawMergedColumns.flatMap((column) => {
-    if ('children' in column) {
-      return [column, ...getMergedColumns<RecordType>(column.children || [])];
-    }
-    return [column];
+      throw new Error("STUB");
   });
 
 const useFilter = <RecordType extends AnyObject = AnyObject>(
@@ -261,85 +117,32 @@ const useFilter = <RecordType extends AnyObject = AnyObject>(
   const warning = devUseWarning('Table');
 
   const mergedColumns = React.useMemo(
-    () => getMergedColumns<RecordType>(rawMergedColumns || []),
+    () => { throw new Error("STUB"); },
     [rawMergedColumns],
   );
 
   const [filterStates, setFilterStates] = React.useState<FilterState<RecordType>[]>(() =>
-    collectFilterStates(mergedColumns, true),
+    { throw new Error("STUB"); },
   );
 
   const mergedFilterStates = React.useMemo(() => {
-    const collectedStates = collectFilterStates(mergedColumns, false);
-    if (collectedStates.length === 0) {
-      return collectedStates;
-    }
-    let filteredKeysIsAllNotControlled = true;
-    let filteredKeysIsAllControlled = true;
-    collectedStates.forEach(({ filteredKeys }) => {
-      if (filteredKeys !== undefined) {
-        filteredKeysIsAllNotControlled = false;
-      } else {
-        filteredKeysIsAllControlled = false;
-      }
-    });
-
-    // Return if not controlled
-    if (filteredKeysIsAllNotControlled) {
-      // Filter column may have been removed
-      const keyList = (mergedColumns || []).map((column, index) =>
-        getColumnKey(column, getColumnPos(index)),
-      );
-      return filterStates.reduce<FilterState<RecordType>[]>((list, item) => {
-        const keyIndex = keyList.indexOf(item.key);
-        if (keyIndex !== -1) {
-          const col = mergedColumns[keyIndex];
-          list.push({
-            ...item,
-            column: {
-              ...item.column,
-              ...col,
-            },
-            forceFiltered: col.filtered,
-          });
-        }
-        return list;
-      }, []);
-    }
-
-    warning(
-      filteredKeysIsAllControlled,
-      'usage',
-      'Columns should all contain `filteredValue` or not contain `filteredValue`.',
-    );
-
-    return collectedStates;
+      throw new Error("STUB");
   }, [mergedColumns, filterStates]);
 
   const filters = React.useMemo(
-    () => generateFilterInfo<RecordType>(mergedFilterStates),
+    () => { throw new Error("STUB"); },
     [mergedFilterStates],
   );
 
   const triggerFilter = (filterState: FilterState<RecordType>) => {
-    const newFilterStates = mergedFilterStates.filter(({ key }) => key !== filterState.key);
+    const newFilterStates = mergedFilterStates.filter(({ key }) => { throw new Error("STUB"); });
     newFilterStates.push(filterState);
     setFilterStates(newFilterStates);
     onFilterChange(generateFilterInfo<RecordType>(newFilterStates), newFilterStates);
   };
 
   const transformColumns = (innerColumns: ColumnsType<RecordType>) =>
-    injectFilter(
-      prefixCls,
-      dropdownPrefixCls,
-      innerColumns,
-      mergedFilterStates,
-      tableLocale,
-      triggerFilter,
-      getPopupContainer,
-      undefined,
-      rootClassName,
-    );
+    { throw new Error("STUB"); };
 
   return [transformColumns, mergedFilterStates, filters] as const;
 };

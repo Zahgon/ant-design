@@ -34,30 +34,7 @@ const globalBuddhistLocale: typeof enUS = {
 const defaultValue = dayjs('2024-01-01');
 
 const App: React.FC = () => {
-  const onChange: DatePickerProps['onChange'] = (_, dateStr) => {
-    console.log('onChange:', dateStr);
-  };
-
-  return (
-    <Space vertical>
-      <Title level={4}>By locale props</Title>
-      <DatePicker defaultValue={defaultValue} locale={buddhistLocale} onChange={onChange} />
-      <DatePicker
-        defaultValue={defaultValue}
-        showTime
-        locale={buddhistLocale}
-        onChange={onChange}
-      />
-
-      <Title level={4}>By ConfigProvider</Title>
-      <ConfigProvider locale={globalBuddhistLocale}>
-        <Space vertical>
-          <DatePicker defaultValue={defaultValue} onChange={onChange} />
-          <DatePicker defaultValue={defaultValue} showTime onChange={onChange} />
-        </Space>
-      </ConfigProvider>
-    </Space>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

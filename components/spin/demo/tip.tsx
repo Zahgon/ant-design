@@ -9,25 +9,6 @@ const contentStyle: React.CSSProperties = {
 
 const content = <div style={contentStyle} />;
 
-const App: React.FC = () => (
-  <Flex gap="medium" vertical>
-    <Flex gap="medium">
-      <Spin description="Loading" size="small">
-        {content}
-      </Spin>
-      <Spin description="Loading">{content}</Spin>
-      <Spin description="Loading" size="large">
-        {content}
-      </Spin>
-    </Flex>
-    <Spin description="Loading...">
-      <Alert
-        title="Alert message title"
-        description="Further details about the context of this alert."
-        type="info"
-      />
-    </Spin>
-  </Flex>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

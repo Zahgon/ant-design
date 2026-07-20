@@ -12,32 +12,7 @@ interface ColorAlphaInputProps {
 }
 
 const ColorAlphaInput: FC<ColorAlphaInputProps> = ({ prefixCls, value, onChange }) => {
-  const colorAlphaInputPrefixCls = `${prefixCls}-alpha-input`;
-  const [internalValue, setInternalValue] = useState<AggregationColor>(() =>
-    generateColor(value || '#000'),
-  );
-
-  const alphaValue = value || internalValue;
-
-  const handleAlphaChange = (step: number | null) => {
-    const hsba = alphaValue.toHsb();
-    hsba.a = (step || 0) / 100;
-    const genColor = generateColor(hsba);
-
-    setInternalValue(genColor);
-
-    onChange?.(genColor);
-  };
-
-  return (
-    <ColorSteppers
-      value={getColorAlpha(alphaValue)}
-      prefixCls={prefixCls}
-      formatter={(step) => `${step}%`}
-      className={colorAlphaInputPrefixCls}
-      onChange={handleAlphaChange}
-    />
-  );
+    throw new Error("STUB");
 };
 
 export default ColorAlphaInput;

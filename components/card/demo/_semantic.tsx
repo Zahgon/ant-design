@@ -36,55 +36,11 @@ const locales = {
 };
 
 const BlockCard: React.FC<React.PropsWithChildren<CardProps>> = (props) => {
-  const divRef = React.useRef<HTMLDivElement>(null);
-  return (
-    <div ref={divRef} style={{ position: 'absolute' }}>
-      <Card
-        {...props}
-        title="Card title"
-        extra="More"
-        style={{ width: 300 }}
-        cover={
-          <img
-            draggable={false}
-            alt="example"
-            src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-          />
-        }
-        actions={[
-          <SettingOutlined key="setting" />,
-          <EditOutlined key="edit" />,
-          <EllipsisOutlined key="ellipsis" />,
-        ]}
-      />
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Card"
-      semantics={[
-        { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'header', desc: locale.header, version: '5.14.0' },
-        { name: 'title', desc: locale.title, version: '5.14.0' },
-        { name: 'extra', desc: locale.extra, version: '5.14.0' },
-        { name: 'cover', desc: locale.cover, version: '5.14.0' },
-        { name: 'body', desc: locale.body, version: '5.14.0' },
-        { name: 'actions', desc: locale.actions, version: '5.14.0' },
-      ]}
-    >
-      <BlockCard>
-        <Meta
-          avatar={<Avatar src="https://api.dicebear.com/10.x/lorelei/svg?seed=8" />}
-          title="Card Meta title"
-          description="This is the description"
-        />
-      </BlockCard>
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

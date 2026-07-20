@@ -52,34 +52,7 @@ const rootStyleItems: DescriptionsProps['items'] = [
 ];
 
 const App: React.FC = () => {
-  const [border, setBorder] = useState(true);
-  const [layout, setLayout] = useState('horizontal' as LayoutType);
-
-  return (
-    <>
-      <Switch
-        checkedChildren="Border"
-        unCheckedChildren="No Border"
-        checked={border}
-        onChange={(e) => setBorder(e)}
-      />
-      <Divider />
-      <Radio.Group onChange={(e) => setLayout(e.target.value)} value={layout}>
-        <Radio value="horizontal">horizontal</Radio>
-        <Radio value="vertical">vertical</Radio>
-      </Radio.Group>
-      <Divider />
-      <Descriptions title="User Info" bordered={border} layout={layout} items={items} />
-      <Divider />
-      <Descriptions
-        title="Root style"
-        styles={{ label: labelStyle, content: contentStyle }}
-        bordered={border}
-        layout={layout}
-        items={rootStyleItems}
-      />
-    </>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

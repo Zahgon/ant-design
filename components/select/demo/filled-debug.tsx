@@ -13,27 +13,6 @@ const sharedSelectProps: SelectProps<string> = {
   ],
 };
 
-const App: React.FC = () => (
-  <Flex gap={12} vertical>
-    <Flex gap={8}>
-      <Select {...sharedSelectProps} disabled />
-      <Select {...sharedSelectProps} disabled mode="multiple" placeholder="Outlined" />
-    </Flex>
-    <Flex gap={8}>
-      <Select {...sharedSelectProps} status="error" />
-      <Select {...sharedSelectProps} status="error" mode="multiple" placeholder="Outlined" />
-    </Flex>
-    <Flex gap={8}>
-      <Select {...sharedSelectProps} disabled status="error" />
-      <Select
-        {...sharedSelectProps}
-        disabled
-        status="error"
-        mode="multiple"
-        placeholder="Outlined"
-      />
-    </Flex>
-  </Flex>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

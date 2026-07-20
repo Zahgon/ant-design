@@ -34,20 +34,6 @@ const props: UploadProps = {
   ],
 };
 
-const App: React.FC = () => (
-  <ConfigProvider
-    theme={{
-      components: {
-        Upload: {
-          actionsColor: 'yellow',
-        },
-      },
-    }}
-  >
-    <Upload {...props}>
-      <Button icon={<UploadOutlined />}>Upload</Button>
-    </Upload>
-  </ConfigProvider>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

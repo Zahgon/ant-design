@@ -22,57 +22,10 @@ interface ColorInputProps {
   disabledFormat?: boolean;
 }
 
-const selectOptions = [FORMAT_HEX, FORMAT_HSB, FORMAT_RGB].map<DefaultOptionType>((format) => ({
-  value: format,
-  label: format.toUpperCase(),
-}));
+const selectOptions = [FORMAT_HEX, FORMAT_HSB, FORMAT_RGB].map<DefaultOptionType>((format) => { throw new Error("STUB"); });
 
 const ColorInput: FC<ColorInputProps> = (props) => {
-  const { prefixCls, format, value, disabledAlpha, onFormatChange, onChange, disabledFormat } =
-    props;
-  const [colorFormat, setColorFormat] = useControlledState<ColorFormatType>(FORMAT_HEX, format);
-
-  const colorInputPrefixCls = `${prefixCls}-input`;
-
-  const triggerFormatChange = (newFormat: ColorFormatType) => {
-    setColorFormat(newFormat);
-    onFormatChange?.(newFormat);
-  };
-
-  const steppersNode = useMemo<React.ReactNode>(() => {
-    const inputProps = { value, prefixCls, onChange };
-    switch (colorFormat) {
-      case FORMAT_HSB:
-        return <ColorHsbInput {...inputProps} />;
-      case FORMAT_RGB:
-        return <ColorRgbInput {...inputProps} />;
-      // case FORMAT_HEX:
-      default:
-        return <ColorHexInput {...inputProps} />;
-    }
-  }, [colorFormat, prefixCls, value, onChange]);
-
-  return (
-    <div className={`${colorInputPrefixCls}-container`}>
-      {!disabledFormat && (
-        <Select
-          value={colorFormat}
-          variant="borderless"
-          getPopupContainer={(current) => current}
-          popupMatchSelectWidth={68}
-          placement="bottomRight"
-          onChange={triggerFormatChange}
-          className={`${prefixCls}-format-select`}
-          size="small"
-          options={selectOptions}
-        />
-      )}
-      <div className={colorInputPrefixCls}>{steppersNode}</div>
-      {!disabledAlpha && (
-        <ColorAlphaInput prefixCls={prefixCls} value={value} onChange={onChange} />
-      )}
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 export default ColorInput;

@@ -35,34 +35,10 @@ const data: DataType[] = [
   },
 ];
 
-const defaultCheckedList = columns.map((item) => item.key);
+const defaultCheckedList = columns.map((item) => { throw new Error("STUB"); });
 
 const App: React.FC = () => {
-  const [checkedList, setCheckedList] = useState(defaultCheckedList);
-
-  const options = columns.map(({ key, title }) => ({
-    label: title,
-    value: key,
-  }));
-
-  const newColumns = columns.map((item) => ({
-    ...item,
-    hidden: !checkedList.includes(item.key as string),
-  }));
-
-  return (
-    <>
-      <Divider>Columns displayed</Divider>
-      <Checkbox.Group
-        value={checkedList}
-        options={options as CheckboxOptionType[]}
-        onChange={(value) => {
-          setCheckedList(value as string[]);
-        }}
-      />
-      <Table<DataType> columns={newColumns} dataSource={data} style={{ marginTop: 24 }} />
-    </>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

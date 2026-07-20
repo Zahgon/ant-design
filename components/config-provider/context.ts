@@ -575,10 +575,7 @@ export interface ConfigConsumerProps extends ConfigComponentProps {
 }
 
 const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {
-  if (customizePrefixCls) {
-    return customizePrefixCls;
-  }
-  return suffixCls ? `${defaultPrefixCls}-${suffixCls}` : defaultPrefixCls;
+    throw new Error("STUB");
 };
 
 // zombieJ: 🚨 Do not pass `defaultRenderEmpty` here since it will cause circular dependency.

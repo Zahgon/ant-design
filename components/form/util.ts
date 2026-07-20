@@ -44,19 +44,5 @@ export function getStatus<DefaultValue>(
   hasFeedback?: boolean,
   validateStatus?: ValidateStatus,
 ): ValidateStatus | DefaultValue {
-  let status = defaultValidateStatus;
-
-  if (validateStatus !== undefined) {
-    status = validateStatus;
-  } else if (meta.validating) {
-    status = 'validating';
-  } else if (errors.length) {
-    status = 'error';
-  } else if (warnings.length) {
-    status = 'warning';
-  } else if (meta.touched || (hasFeedback && meta.validated)) {
-    // success feedback should display when pass hasFeedback prop and current value is valid value
-    status = 'success';
-  }
-  return status;
+    throw new Error("STUB");
 }

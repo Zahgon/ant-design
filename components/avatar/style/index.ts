@@ -170,67 +170,17 @@ const genBaseStyle: GenerateStyle<AvatarToken, CSSObject> = (token) => {
 };
 
 const genGroupStyle: GenerateStyle<AvatarToken, CSSObject> = (token) => {
-  const { componentCls, groupBorderColor, groupOverlapping, groupSpace } = token;
-
-  return {
-    [`${componentCls}-group`]: {
-      display: 'inline-flex',
-
-      [componentCls]: {
-        borderColor: groupBorderColor,
-      },
-
-      '> *:not(:first-child)': {
-        marginInlineStart: groupOverlapping,
-      },
-    },
-    [`${componentCls}-group-popover`]: {
-      [`${componentCls} + ${componentCls}`]: {
-        marginInlineStart: groupSpace,
-      },
-    },
-  };
+    throw new Error("STUB");
 };
 
 export const prepareComponentToken: GetDefaultToken<'Avatar'> = (token) => {
-  const {
-    controlHeight,
-    controlHeightLG,
-    controlHeightSM,
-    fontSize,
-    fontSizeLG,
-    fontSizeXL,
-    fontSizeHeading3,
-    marginXS,
-    marginXXS,
-    colorBorderBg,
-  } = token;
-
-  return {
-    containerSize: controlHeight,
-    containerSizeLG: controlHeightLG,
-    containerSizeSM: controlHeightSM,
-    textFontSize: fontSize,
-    textFontSizeLG: fontSize,
-    textFontSizeSM: fontSize,
-    iconFontSize: Math.round((fontSizeLG + fontSizeXL) / 2),
-    iconFontSizeLG: fontSizeHeading3,
-    iconFontSizeSM: fontSize,
-    groupSpace: marginXXS,
-    groupOverlapping: -marginXS,
-    groupBorderColor: colorBorderBg,
-  };
+    throw new Error("STUB");
 };
 
 export default genStyleHooks(
   'Avatar',
   (token) => {
-    const { colorTextLightSolid, colorTextPlaceholder } = token;
-    const avatarToken = mergeToken<AvatarToken>(token, {
-      avatarBg: colorTextPlaceholder,
-      avatarColor: colorTextLightSolid,
-    });
-    return [genBaseStyle(avatarToken), genGroupStyle(avatarToken)];
+      throw new Error("STUB");
   },
   prepareComponentToken,
 );

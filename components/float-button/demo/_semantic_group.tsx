@@ -34,47 +34,7 @@ const locales = {
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="FloatButton"
-      semantics={[
-        { name: 'root', desc: locale.root },
-        { name: 'list', desc: locale.list },
-        { name: 'item', desc: locale.item },
-        { name: 'itemIcon', desc: locale.itemIcon },
-        { name: 'itemContent', desc: locale.itemContent },
-        { name: 'trigger', desc: locale.trigger },
-        { name: 'triggerIcon', desc: locale.triggerIcon },
-        { name: 'triggerContent', desc: locale.triggerContent },
-      ]}
-      style={{
-        paddingTop: 100,
-      }}
-    >
-      <FloatButton._InternalPanelDoNotUseOrYouWillBeFired
-        type="primary"
-        shape="square"
-        items={[
-          {
-            icon: <AlertOutlined />,
-            content: 'warn',
-          },
-          {
-            icon: <BugOutlined />,
-            content: 'bug',
-          },
-          {
-            icon: <BulbOutlined />,
-            content: 'idea',
-          },
-        ]}
-        trigger="hover"
-        open
-        content="back"
-      />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

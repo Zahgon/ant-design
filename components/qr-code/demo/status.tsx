@@ -3,12 +3,6 @@ import { Flex, QRCode } from 'antd';
 
 const value = 'https://ant.design';
 
-const App: React.FC = () => (
-  <Flex gap="medium" wrap>
-    <QRCode value={value} status="loading" />
-    <QRCode value={value} status="expired" onRefresh={() => console.log('refresh')} />
-    <QRCode value={value} status="scanned" />
-  </Flex>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

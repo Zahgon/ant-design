@@ -7,46 +7,7 @@ const mockVal = (str: string, repeat = 1) => ({
 });
 
 const App: React.FC = () => {
-  const [options, setOptions] = useState<AutoCompleteProps['options']>([]);
-
-  const getPanelValue = (searchText: string) =>
-    !searchText ? [] : [mockVal(searchText), mockVal(searchText, 2), mockVal(searchText, 3)];
-
-  return (
-    <Flex vertical gap={12}>
-      <AutoComplete
-        options={options}
-        style={{ width: 200 }}
-        placeholder="Outlined"
-        showSearch={{ onSearch: (text) => setOptions(getPanelValue(text)) }}
-        onSelect={globalThis.console.log}
-      />
-      <AutoComplete
-        options={options}
-        style={{ width: 200 }}
-        placeholder="Filled"
-        showSearch={{ onSearch: (text) => setOptions(getPanelValue(text)) }}
-        onSelect={globalThis.console.log}
-        variant="filled"
-      />
-      <AutoComplete
-        options={options}
-        style={{ width: 200 }}
-        placeholder="Borderless"
-        showSearch={{ onSearch: (text) => setOptions(getPanelValue(text)) }}
-        onSelect={globalThis.console.log}
-        variant="borderless"
-      />
-      <AutoComplete
-        options={options}
-        style={{ width: 200 }}
-        placeholder="Underlined"
-        onSearch={(text) => setOptions(getPanelValue(text))}
-        onSelect={globalThis.console.log}
-        variant="underlined"
-      />
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

@@ -1,37 +1,8 @@
 import React from 'react';
 import { Flex, Space, Splitter, Typography } from 'antd';
 
-const Desc: React.FC<Readonly<{ text?: string | number }>> = (props) => (
-  <Flex justify="center" align="center" style={{ height: '100%' }}>
-    <Typography.Title type="secondary" level={5} style={{ whiteSpace: 'nowrap' }}>
-      {props.text}
-    </Typography.Title>
-  </Flex>
-);
+const Desc: React.FC<Readonly<{ text?: string | number }>> = (props) => { throw new Error("STUB"); };
 
-const App: React.FC = () => (
-  <Space vertical style={{ width: '100%' }}>
-    <Splitter lazy style={{ height: 200, boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
-      <Splitter.Panel defaultSize="40%" min="20%" max="70%">
-        <Desc text="First" />
-      </Splitter.Panel>
-      <Splitter.Panel>
-        <Desc text="Second" />
-      </Splitter.Panel>
-    </Splitter>
-    <Splitter
-      lazy
-      orientation="vertical"
-      style={{ height: 200, boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}
-    >
-      <Splitter.Panel defaultSize="40%" min="30%" max="70%">
-        <Desc text="First" />
-      </Splitter.Panel>
-      <Splitter.Panel>
-        <Desc text="Second" />
-      </Splitter.Panel>
-    </Splitter>
-  </Space>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

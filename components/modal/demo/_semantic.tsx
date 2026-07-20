@@ -36,47 +36,11 @@ const locales = {
 };
 
 const BlockModal: React.FC<Readonly<ModalProps>> = (props) => {
-  const { children, ...rest } = props;
-  const divRef = React.useRef<HTMLDivElement>(null);
-  return (
-    <div ref={divRef} style={{ position: 'absolute', inset: 0 }}>
-      <Modal
-        getContainer={() => divRef.current!}
-        {...rest}
-        styles={{
-          mask: { position: 'absolute', zIndex: 1 },
-          wrapper: { position: 'absolute', zIndex: 1 },
-        }}
-        style={{ top: '50%', transform: 'translateY(-50%)', marginBottom: 0, paddingBottom: 0 }}
-      >
-        {children}
-      </Modal>
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Modal"
-      semantics={[
-        { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'mask', desc: locale.mask, version: '5.13.0' },
-        { name: 'container', desc: locale.container, version: '6.0.0' },
-        { name: 'wrapper', desc: locale.wrapper, version: '5.13.0' },
-        { name: 'header', desc: locale.header, version: '5.13.0' },
-        { name: 'title', desc: locale.title, version: '6.0.0' },
-        { name: 'body', desc: locale.body, version: '5.13.0' },
-        { name: 'footer', desc: locale.footer, version: '5.13.0' },
-        { name: 'close', desc: locale.close, version: '6.4.0' },
-      ]}
-    >
-      <BlockModal title="Title" open getContainer={false} width={400}>
-        <p>Some contents...</p>
-      </BlockModal>
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

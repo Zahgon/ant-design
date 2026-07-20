@@ -6,29 +6,6 @@ const onChange = (e: RadioChangeEvent) => {
   console.log(`radio checked:${e.target.value}`);
 };
 
-const App: React.FC = () => (
-  <Flex vertical gap="medium">
-    <Radio.Group onChange={onChange} defaultValue="a">
-      <Radio.Button value="a">Hangzhou</Radio.Button>
-      <Radio.Button value="b">Shanghai</Radio.Button>
-      <Radio.Button value="c">Beijing</Radio.Button>
-      <Radio.Button value="d">Chengdu</Radio.Button>
-    </Radio.Group>
-    <Radio.Group onChange={onChange} defaultValue="a">
-      <Radio.Button value="a">Hangzhou</Radio.Button>
-      <Radio.Button value="b" disabled>
-        Shanghai
-      </Radio.Button>
-      <Radio.Button value="c">Beijing</Radio.Button>
-      <Radio.Button value="d">Chengdu</Radio.Button>
-    </Radio.Group>
-    <Radio.Group disabled onChange={onChange} defaultValue="a">
-      <Radio.Button value="a">Hangzhou</Radio.Button>
-      <Radio.Button value="b">Shanghai</Radio.Button>
-      <Radio.Button value="c">Beijing</Radio.Button>
-      <Radio.Button value="d">Chengdu</Radio.Button>
-    </Radio.Group>
-  </Flex>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

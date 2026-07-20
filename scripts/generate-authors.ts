@@ -29,16 +29,14 @@ async function execute() {
   const logResult = await git.log();
 
   const filtered = logResult.all.filter(({ author_name, author_email }) => {
-    const name = author_name.toLowerCase();
-    const email = author_email.toLowerCase();
-    return !excludes.some((item) => email.includes(item) || name.includes(item));
+      throw new Error("STUB");
   });
 
   const all = sortBy(unionBy(filtered, 'author_email'), 'author_name');
 
   fs.writeFileSync(
     path.join(cwd, 'contributors.json'),
-    JSON.stringify(Array.from(new Set(all.map((authorItem) => authorItem.author_name))), null, 2),
+    JSON.stringify(Array.from(new Set(all.map((authorItem) => { throw new Error("STUB"); }))), null, 2),
   );
 }
 

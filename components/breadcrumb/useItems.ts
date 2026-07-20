@@ -7,23 +7,7 @@ type MergedType = BreadcrumbItemType & {
 };
 
 function route2item(route: ItemType): MergedType {
-  const { breadcrumbName, children, ...rest } = route;
-
-  const clone: MergedType = {
-    title: breadcrumbName,
-    ...rest,
-  };
-
-  if (children) {
-    clone.menu = {
-      items: children.map(({ breadcrumbName: itemBreadcrumbName, ...itemProps }) => ({
-        ...itemProps,
-        title: itemBreadcrumbName,
-      })),
-    };
-  }
-
-  return clone;
+    throw new Error("STUB");
 }
 
 export default function useItems(
@@ -31,14 +15,6 @@ export default function useItems(
   routes?: ItemType[],
 ): Partial<MergedType & BreadcrumbSeparatorType>[] | null {
   return useMemo<ItemType[] | null>(() => {
-    if (items) {
-      return items;
-    }
-
-    if (routes) {
-      return routes.map(route2item);
-    }
-
-    return null;
+      throw new Error("STUB");
   }, [items, routes]);
 }

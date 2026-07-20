@@ -18,18 +18,6 @@ const marks: SliderSingleProps['marks'] = {
   },
 };
 
-const App: React.FC = () => (
-  <>
-    <div style={style}>
-      <Slider vertical defaultValue={30} />
-    </div>
-    <div style={style}>
-      <Slider vertical range step={10} defaultValue={[20, 50]} />
-    </div>
-    <div style={style}>
-      <Slider vertical range marks={marks} defaultValue={[26, 37]} />
-    </div>
-  </>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

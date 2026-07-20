@@ -13,10 +13,7 @@ const options: Option[] = [
   {
     label: 'Light',
     value: 'light',
-    children: Array.from({ length: 20 }).map((_, index) => ({
-      label: `Number ${index}`,
-      value: index,
-    })),
+    children: Array.from({ length: 20 }).map((_, index) => { throw new Error("STUB"); }),
   },
   {
     label: 'Bamboo',
@@ -45,36 +42,7 @@ const options: Option[] = [
 ];
 
 const App: React.FC = () => {
-  const onChange: CascaderProps<Option, 'value', true>['onChange'] = (value) => {
-    console.log(value);
-  };
-  return (
-    <>
-      <Cascader
-        style={{ width: '100%' }}
-        options={options}
-        onChange={onChange}
-        multiple
-        maxTagCount="responsive"
-        showCheckedStrategy={SHOW_CHILD}
-        defaultValue={[
-          ['bamboo', 'little', 'fish'],
-          ['bamboo', 'little', 'cards'],
-          ['bamboo', 'little', 'bird'],
-        ]}
-      />
-      <br />
-      <br />
-      <Cascader
-        style={{ width: '100%' }}
-        options={options}
-        onChange={onChange}
-        multiple
-        maxTagCount="responsive"
-        defaultValue={[['bamboo']]}
-      />
-    </>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

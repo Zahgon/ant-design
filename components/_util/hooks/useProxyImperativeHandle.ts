@@ -11,12 +11,7 @@ const fillProxy = (
   element._antProxy = element._antProxy || {};
 
   Object.keys(handler).forEach((key) => {
-    if (!(key in element._antProxy!)) {
-      const ori = (element as any)[key];
-      element._antProxy![key] = ori;
-
-      (element as any)[key] = handler[key];
-    }
+      throw new Error("STUB");
   });
 
   return element;
@@ -30,22 +25,6 @@ export const useProxyImperativeHandle = <
   init: () => ReturnRefType,
 ) => {
   return useImperativeHandle(ref, () => {
-    const refObj = init();
-    const { nativeElement } = refObj;
-
-    if (typeof Proxy !== 'undefined') {
-      return new Proxy(nativeElement, {
-        get(obj: any, prop: any) {
-          if ((refObj as any)[prop]) {
-            return (refObj as any)[prop];
-          }
-
-          return Reflect.get(obj, prop);
-        },
-      });
-    }
-
-    // Fallback of IE
-    return fillProxy(nativeElement, refObj);
+      throw new Error("STUB");
   });
 };

@@ -37,24 +37,12 @@ export type FloatButtonToken = FullToken<'FloatButton'> & {
 };
 
 // ============================== Export ==============================
-export const prepareComponentToken: GetDefaultToken<'FloatButton'> = () => ({});
+export const prepareComponentToken: GetDefaultToken<'FloatButton'> = () => { throw new Error("STUB"); };
 
 export default genStyleHooks(
   'FloatButton',
   (token) => {
-    const { controlHeightLG, marginXXL, marginLG, fontSizeIcon, calc } = token;
-
-    const floatButtonToken = mergeToken<FloatButtonToken>(token, {
-      floatButtonIconSize: calc(fontSizeIcon).mul(1.5).equal(),
-      floatButtonSize: controlHeightLG,
-      floatButtonInsetBlockEnd: marginXXL,
-      floatButtonInsetInlineEnd: marginLG,
-    });
-    return [
-      genFloatButtonStyle(floatButtonToken),
-      genGroupStyle(floatButtonToken),
-      initFadeMotion(token),
-    ];
+      throw new Error("STUB");
   },
   prepareComponentToken,
   {

@@ -48,37 +48,6 @@ const onChange: CascaderProps<Option>['onChange'] = (value) => {
   console.log(value);
 };
 
-const App: React.FC = () => (
-  <>
-    <Cascader
-      suffixIcon={<SmileOutlined />}
-      options={options}
-      onChange={onChange}
-      placeholder="Please select"
-    />
-    <br />
-    <br />
-    <Cascader suffixIcon="ab" options={options} onChange={onChange} placeholder="Please select" />
-    <br />
-    <br />
-    <Cascader
-      expandIcon={<SmileOutlined />}
-      options={options}
-      onChange={onChange}
-      placeholder="Please select"
-    />
-    <br />
-    <br />
-    <Cascader expandIcon="ab" options={options} onChange={onChange} placeholder="Please select" />
-    <br />
-    <br />
-    <Cascader
-      prefix={<SmileOutlined />}
-      options={options}
-      onChange={onChange}
-      placeholder="Please select"
-    />
-  </>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

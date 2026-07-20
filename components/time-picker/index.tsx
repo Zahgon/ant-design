@@ -73,9 +73,7 @@ export interface TimeRangePickerProps extends Omit<RangePickerTimeProps<Dayjs>, 
   popupStyle?: React.CSSProperties;
 }
 
-const RangePicker = React.forwardRef<PickerRef, TimeRangePickerProps>((props, ref) => (
-  <InternalRangePicker {...props} picker="time" mode={undefined} ref={ref} />
-));
+const RangePicker = React.forwardRef<PickerRef, TimeRangePickerProps>((props, ref) => { throw new Error("STUB"); });
 
 export interface TimePickerProps
   extends Omit<PickerTimeProps<Dayjs>, 'picker' | 'classNames' | 'styles'> {
@@ -92,65 +90,7 @@ export interface TimePickerProps
 }
 
 const TimePicker = React.forwardRef<PickerRef, TimePickerProps>((props, ref) => {
-  const {
-    addon,
-    renderExtraFooter,
-    variant,
-    bordered,
-    classNames,
-    styles,
-    popupClassName,
-    popupStyle,
-    ...restProps
-  } = props;
-  // ====================== Warning =======================
-  if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning('TimePicker');
-
-    warning.deprecated(!addon, 'addon', 'renderExtraFooter');
-  }
-
-  const [mergedVariant] = useVariant('timePicker', variant, bordered);
-
-  const internalRenderExtraFooter = React.useMemo<TimePickerProps['renderExtraFooter']>(() => {
-    if (renderExtraFooter) {
-      return renderExtraFooter;
-    }
-
-    if (addon) {
-      return addon;
-    }
-    return undefined;
-  }, [addon, renderExtraFooter]);
-  // =========== Merged Props for Semantic ===========
-  const mergedProps: TimePickerProps = {
-    ...props,
-    variant: mergedVariant,
-  };
-  // =========== Merged Semantic ===========
-  const [mergedClassNames, mergedStyles] = useMergedPickerSemantic(
-    'timePicker',
-    classNames,
-    styles,
-    popupClassName,
-    popupStyle,
-    mergedProps,
-  ) as [
-    NonNullable<TimePickerSemanticAllType['classNames']>,
-    NonNullable<TimePickerSemanticAllType['styles']>,
-  ];
-
-  return (
-    <InternalTimePicker
-      {...restProps}
-      mode={undefined}
-      ref={ref}
-      renderExtraFooter={internalRenderExtraFooter}
-      variant={mergedVariant}
-      classNames={mergedClassNames}
-      styles={mergedStyles}
-    />
-  );
+    throw new Error("STUB");
 });
 
 if (process.env.NODE_ENV !== 'production') {

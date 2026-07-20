@@ -12,10 +12,7 @@ function uniqueBuiltinPlacements(ori: BuildInPlacements): BuildInPlacements {
   if (cachedPlacements[0] !== ori) {
     const target: BuildInPlacements = {};
     Object.keys(ori).forEach((placement) => {
-      target[placement] = {
-        ...ori[placement],
-        dynamicInset: false,
-      };
+        throw new Error("STUB");
     });
     cachedPlacements[0] = ori;
     cachedPlacements[1] = target;
@@ -24,23 +21,7 @@ function uniqueBuiltinPlacements(ori: BuildInPlacements): BuildInPlacements {
 }
 
 const UniqueProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
-  const renderPopup: GetProp<typeof RcUniqueProvider, 'postTriggerProps'> = (options) => {
-    const { id, builtinPlacements, popup } = options;
-
-    const popupEle = isFunction(popup) ? popup() : popup;
-
-    const parsedPlacements = uniqueBuiltinPlacements(builtinPlacements!);
-
-    return {
-      ...options,
-      getPopupContainer: null!,
-      arrow: false as any,
-      popup: <MotionContent key={id}>{popupEle}</MotionContent>,
-      builtinPlacements: parsedPlacements,
-    };
-  };
-
-  return <RcUniqueProvider postTriggerProps={renderPopup}>{children}</RcUniqueProvider>;
+    throw new Error("STUB");
 };
 
 export default UniqueProvider;

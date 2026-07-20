@@ -86,11 +86,7 @@ const genBaseStyle: GenerateStyle<PopconfirmToken, CSSObject> = (token) => {
 
 // ============================== Export ==============================
 export const prepareComponentToken: GetDefaultToken<'Popconfirm'> = (token) => {
-  const { zIndexPopupBase } = token;
-
-  return {
-    zIndexPopup: zIndexPopupBase + 60,
-  };
+    throw new Error("STUB");
 };
 
 export default genStyleHooks('Popconfirm', genBaseStyle, prepareComponentToken, {

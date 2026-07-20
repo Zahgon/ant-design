@@ -14,37 +14,14 @@ const genTagStatusStyle = (
   status: 'success' | 'processing' | 'error' | 'warning',
   cssVariableType: CssVariableType,
 ): CSSInterpolation => {
-  const capitalizedCssVariableType = capitalize<CssVariableType>(cssVariableType);
-  return {
-    [`${token.componentCls}${token.componentCls}-${status}:not(${token.componentCls}-disabled)`]: {
-      [`&${token.componentCls}-outlined`]: {
-        backgroundColor: token[`color${capitalizedCssVariableType}Bg`],
-        borderColor: token[`color${capitalizedCssVariableType}Border`],
-        color: token[`color${cssVariableType}`],
-      },
-      [`&${token.componentCls}-solid`]: {
-        backgroundColor: token[`color${cssVariableType}`],
-        borderColor: token[`color${cssVariableType}`],
-      },
-      [`&${token.componentCls}-filled`]: {
-        backgroundColor: token[`color${capitalizedCssVariableType}Bg`],
-        color: token[`color${cssVariableType}`],
-      },
-    },
-  };
+    throw new Error("STUB");
 };
 
 // ============================== Export ==============================
 export default genSubStyleComponent<'Tag'>(
   ['Tag', 'status'],
   (token) => {
-    const tagToken = prepareToken(token);
-    return [
-      genTagStatusStyle(tagToken, 'success', 'Success'),
-      genTagStatusStyle(tagToken, 'processing', 'Info'),
-      genTagStatusStyle(tagToken, 'error', 'Error'),
-      genTagStatusStyle(tagToken, 'warning', 'Warning'),
-    ];
+      throw new Error("STUB");
   },
   prepareComponentToken,
 );

@@ -26,32 +26,7 @@ const locales = {
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Result"
-      semantics={[
-        { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'icon', desc: locale.icon, version: '6.0.0' },
-        { name: 'title', desc: locale.title, version: '6.0.0' },
-        { name: 'subTitle', desc: locale.subTitle, version: '6.0.0' },
-        { name: 'extra', desc: locale.extra, version: '6.0.0' },
-        { name: 'body', desc: locale.body, version: '6.0.0' },
-      ]}
-    >
-      <Result
-        title="title"
-        subTitle="subTitle"
-        extra={
-          <Button type="primary" key="console">
-            extra
-          </Button>
-        }
-      >
-        <div style={{ textAlign: 'center' }}>The Content of Result</div>
-      </Result>
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

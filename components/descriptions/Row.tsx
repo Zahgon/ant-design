@@ -42,83 +42,8 @@ function renderCells(
       },
       index,
     ) => {
-      if (typeof component === 'string') {
-        return (
-          <Cell
-            key={`${type}-${key || index}`}
-            className={className}
-            style={style}
-            classNames={classNames}
-            styles={{
-              label: {
-                ...rootLabelStyle,
-                ...rootStyles?.label,
-                ...labelStyle,
-                ...styles?.label,
-              },
-              content: {
-                ...rootContentStyle,
-                ...rootStyles?.content,
-                ...contentStyle,
-                ...styles?.content,
-              },
-            }}
-            span={span}
-            colon={colon}
-            component={component}
-            itemPrefixCls={itemPrefixCls}
-            bordered={bordered}
-            label={showLabel ? label : null}
-            content={showContent ? children : null}
-            type={type}
-          />
-        );
-      }
-
-      const mergedStyles = {
-        label: {
-          ...rootLabelStyle,
-          ...rootStyles?.label,
-          ...labelStyle,
-          ...styles?.label,
-        },
-        content: {
-          ...rootContentStyle,
-          ...rootStyles?.content,
-          ...contentStyle,
-          ...styles?.content,
-        },
-      };
-      return [
-        <Cell
-          key={`label-${key || index}`}
-          className={className}
-          style={style}
-          classNames={classNames}
-          styles={mergedStyles}
-          span={1}
-          colon={colon}
-          component={component[0]}
-          itemPrefixCls={itemPrefixCls}
-          bordered={bordered}
-          label={label}
-          type="label"
-        />,
-        <Cell
-          key={`content-${key || index}`}
-          className={className}
-          style={style}
-          classNames={classNames}
-          styles={mergedStyles}
-          span={span * 2 - 1}
-          component={component[1]}
-          itemPrefixCls={itemPrefixCls}
-          bordered={bordered}
-          content={children}
-          type="content"
-        />,
-      ];
-    },
+          throw new Error("STUB");
+      },
   );
 }
 

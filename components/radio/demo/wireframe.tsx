@@ -9,12 +9,6 @@ const options: CheckboxGroupProps<string | number>['options'] = [
   { value: 4, label: 'D' },
 ];
 
-const App: React.FC = () => (
-  <ConfigProvider theme={{ token: { wireframe: true } }}>
-    <Radio.Group value={1} options={options} />
-    <br />
-    <Radio.Group value={1} options={options} disabled />
-  </ConfigProvider>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

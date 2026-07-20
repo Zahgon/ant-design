@@ -9,7 +9,7 @@ let localeList: ModalLocale[] = [];
 
 const generateLocale = () =>
   localeList.reduce<ModalLocale>(
-    (merged, locale) => ({ ...merged, ...locale }),
+    (merged, locale) => { throw new Error("STUB"); },
     defaultLocale.Modal!,
   );
 
@@ -20,8 +20,7 @@ export function changeConfirmLocale(newLocale?: ModalLocale) {
     runtimeLocale = generateLocale();
 
     return () => {
-      localeList = localeList.filter((locale) => locale !== cloneLocale);
-      runtimeLocale = generateLocale();
+        throw new Error("STUB");
     };
   }
 

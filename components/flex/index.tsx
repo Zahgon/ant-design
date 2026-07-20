@@ -12,67 +12,7 @@ import useStyle from './style';
 import createFlexClassNames from './utils';
 
 const Flex = React.forwardRef<HTMLElement, React.PropsWithChildren<FlexProps>>((props, ref) => {
-  const {
-    prefixCls: customizePrefixCls,
-    rootClassName,
-    className,
-    style,
-    flex,
-    gap,
-    vertical,
-    orientation,
-    component: Component = 'div',
-    children,
-    ...othersProps
-  } = props;
-
-  const {
-    flex: ctxFlex,
-    direction: ctxDirection,
-    getPrefixCls,
-  } = React.useContext<ConfigConsumerProps>(ConfigContext);
-
-  const prefixCls = getPrefixCls('flex', customizePrefixCls);
-
-  const [hashId, cssVarCls] = useStyle(prefixCls);
-
-  const [, mergedVertical] = useOrientation(orientation, vertical ?? ctxFlex?.vertical);
-
-  const mergedCls = clsx(
-    className,
-    rootClassName,
-    ctxFlex?.className,
-    prefixCls,
-    hashId,
-    cssVarCls,
-    createFlexClassNames(prefixCls, { ...props, vertical: mergedVertical }),
-    {
-      [`${prefixCls}-rtl`]: ctxDirection === 'rtl',
-      [`${prefixCls}-gap-${gap}`]: isPresetSize(gap),
-      [`${prefixCls}-vertical`]: mergedVertical,
-    },
-  );
-
-  const mergedStyle: React.CSSProperties = { ...ctxFlex?.style, ...style };
-
-  if (isNonNullable(flex)) {
-    mergedStyle.flex = flex;
-  }
-
-  if (isNonNullable(gap) && !isPresetSize(gap)) {
-    mergedStyle.gap = gap;
-  }
-
-  return (
-    <Component
-      ref={ref}
-      className={mergedCls}
-      style={mergedStyle}
-      {...omit(othersProps, ['justify', 'wrap', 'align'])}
-    >
-      {children}
-    </Component>
-  );
+    throw new Error("STUB");
 });
 
 if (process.env.NODE_ENV !== 'production') {

@@ -4,11 +4,7 @@ import type { CascaderProps, GetProp } from 'antd';
 import { createStyles } from 'antd-style';
 
 const useStyles = createStyles(({ token }) => {
-  return {
-    root: {
-      borderRadius: token.borderRadiusLG,
-    },
-  };
+    throw new Error("STUB");
 });
 
 interface Option {
@@ -62,22 +58,7 @@ const stylesObject: CascaderProps['styles'] = {
 };
 
 const stylesFn: CascaderProps['styles'] = (info): GetProp<CascaderProps, 'styles', 'Return'> => {
-  if (info.props.variant === 'filled') {
-    return {
-      prefix: {
-        color: '#1890ff',
-      },
-      suffix: {
-        color: '#1890ff',
-      },
-      popup: {
-        listItem: {
-          color: '#1890ff',
-        },
-      },
-    };
-  }
-  return {};
+    throw new Error("STUB");
 };
 
 const onChange: CascaderProps<Option>['onChange'] = (value) => {
@@ -85,28 +66,7 @@ const onChange: CascaderProps<Option>['onChange'] = (value) => {
 };
 
 const App: React.FC = () => {
-  const { styles: classNames } = useStyles();
-  return (
-    <Flex vertical gap="medium">
-      <Cascader
-        options={options}
-        onChange={onChange}
-        placeholder="Object styles"
-        classNames={classNames}
-        styles={stylesObject}
-        prefix="🏠"
-      />
-      <Cascader
-        options={options}
-        onChange={onChange}
-        placeholder="Function  styles"
-        variant="filled"
-        classNames={classNames}
-        styles={stylesFn}
-        prefix="✅"
-      />
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

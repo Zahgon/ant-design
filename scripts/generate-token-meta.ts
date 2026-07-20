@@ -13,43 +13,13 @@ function getTokenList(list?: DeclarationReflection[], source?: string) {
   return (list || [])
     .filter(
       (item) =>
-        !item.comment?.blockTags.some(
-          (tag) => tag.tag === '@internal' || tag.tag === '@private' || tag.tag === '@deprecated',
-        ),
+        { throw new Error("STUB"); },
     )
-    .map((item) => ({
-      source,
-      token: item.name,
-      type: item?.type?.toString(),
-      desc:
-        item.comment?.blockTags
-          ?.find((tag) => tag.tag === '@desc')
-          ?.content.reduce((result, str) => result.concat(str.text), '') || '',
-      descEn:
-        item.comment?.blockTags
-          ?.find((tag) => tag.tag === '@descEN')
-          ?.content.reduce((result, str) => result.concat(str.text), '') || '',
-      name:
-        item.comment?.blockTags
-          ?.find((tag) => tag.tag === '@nameZH')
-          ?.content.reduce((result, str) => result.concat(str.text), '') || '',
-      nameEn:
-        item.comment?.blockTags
-          ?.find((tag) => tag.tag === '@nameEN')
-          ?.content.reduce((result, str) => result.concat(str.text), '') || '',
-    }));
+    .map((item) => { throw new Error("STUB"); });
 }
 
 function getPresetColorsTokenList(presetColors: string[]) {
-  return presetColors.map((item) => ({
-    source: 'seed',
-    token: item,
-    type: 'color',
-    desc: `预设${item}颜色`,
-    descEn: `Preset ${item} color`,
-    name: `预设${item}颜色`,
-    nameEn: `Preset ${item} color`,
-  }));
+  return presetColors.map((item) => { throw new Error("STUB"); });
 }
 
 const main = async () => {
@@ -76,67 +46,11 @@ const main = async () => {
     };
 
     project?.children?.forEach((file: any) => {
-      // Global Token
-      if (file.name === 'theme/interface') {
-        let presetColors: string[] = [];
-        file.children?.forEach((type: any) => {
-          if (type.name === 'SeedToken') {
-            tokenMeta.seed = getTokenList(type.children, 'seed');
-          } else if (type.name === 'MapToken') {
-            tokenMeta.map = getTokenList(type.children, 'map');
-          } else if (type.name === 'AliasToken') {
-            tokenMeta.alias = getTokenList(type.children, 'alias');
-          } else if (type.name === 'PresetColors') {
-            presetColors = type?.type?.target?.elements?.map((item: any) => item.value);
-          }
-        });
-
-        // Exclude preset colors e.g. 'blue' 'blue-1' 'blue-2' ...
-        tokenMeta.seed = tokenMeta.seed
-          .filter((item) => !presetColors.some((color) => item.token.startsWith(color)))
-          // Incorporate preset colors
-          .concat(getPresetColorsTokenList(presetColors));
-        tokenMeta.map = tokenMeta.map.filter(
-          (item) => !presetColors.some((color) => item.token.startsWith(color)),
-        );
-        tokenMeta.alias = tokenMeta.alias.filter(
-          (item) => !presetColors.some((color) => item.token.startsWith(color)),
-        );
-
-        tokenMeta.alias = tokenMeta.alias.filter(
-          (item) => !tokenMeta.map.some((mapItem) => mapItem.token === item.token),
-        );
-        tokenMeta.map = tokenMeta.map.filter(
-          (item) => !tokenMeta.seed.some((seedItem) => seedItem.token === item.token),
-        );
-      } else {
-        const component = file.name
-          .slice(0, file.name.indexOf('/'))
-          .replace(/(^(.)|-(.))/g, (match: string) => match.replace('-', '').toUpperCase());
-        const componentToken = file.children?.find((item: any) => item?.name === 'ComponentToken');
-        if (componentToken) {
-          tokenMeta.components[component] = getTokenList(componentToken.children, component);
-        }
-      }
+        throw new Error("STUB");
     });
 
     const finalMeta = Object.entries(tokenMeta).reduce<any>((acc, [key, value]) => {
-      if (key !== 'components') {
-        (value as any[]).forEach((item) => {
-          acc.global = acc.global || {};
-          acc.global[item.token] = {
-            name: item.name,
-            nameEn: item.nameEn,
-            desc: item.desc,
-            descEn: item.descEn,
-            type: item.type,
-            source: key,
-          };
-        });
-      } else {
-        acc.components = value;
-      }
-      return acc;
+        throw new Error("STUB");
     }, {});
 
     fs.writeJsonSync(output, finalMeta, 'utf8');

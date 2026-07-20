@@ -35,10 +35,7 @@ const getMappedBeamColorStopPercent = (percent: number) =>
   Number(((Math.min(Math.max(percent, 0), 100) / 100) * MAX_BEAM_COLOR_STOP_PERCENT).toFixed(2));
 
 const normalizeGradientItems = (items: BorderBeamGradient) =>
-  fillGradientEnd(items).map((item) => ({
-    ...item,
-    percent: getMappedBeamColorStopPercent(item.percent),
-  }));
+  fillGradientEnd(items).map((item) => { throw new Error("STUB"); });
 
 // Build the beam gradient from a solid color or explicit gradient stops.
 export const getBorderBeamGradient = (value?: BorderBeamColor) => {
@@ -46,6 +43,6 @@ export const getBorderBeamGradient = (value?: BorderBeamColor) => {
   const normalizedStops = normalizeGradientItems(normalizeBorderBeamColor(value));
 
   return normalizedStops.length
-    ? getLinearGradient(...normalizedStops.map((item) => `${item.color} ${item.percent}%`))
+    ? getLinearGradient(...normalizedStops.map((item) => { throw new Error("STUB"); }))
     : undefined;
 };

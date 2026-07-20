@@ -1,21 +1,6 @@
 import React from 'react';
 import { Card, Space } from 'antd';
 
-const App: React.FC = () => (
-  <Space orientation="vertical" size="medium" style={{ display: 'flex' }}>
-    <Card title="Card" size="small">
-      <p>Card content</p>
-      <p>Card content</p>
-    </Card>
-    <Card title="Card" size="small">
-      <p>Card content</p>
-      <p>Card content</p>
-    </Card>
-    <Card title="Card" size="small">
-      <p>Card content</p>
-      <p>Card content</p>
-    </Card>
-  </Space>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

@@ -31,31 +31,7 @@ const tips =
   'A prime is a natural number greater than 1 that has no positive divisors other than 1 and itself.';
 
 const App: React.FC = () => {
-  const [number, setNumber] = useState<{
-    value: number;
-    validateStatus?: ValidateStatus;
-    errorMsg?: string | null;
-  }>({ value: 11 });
-
-  const onNumberChange: InputNumberProps['onChange'] = (value) => {
-    setNumber({
-      ...validatePrimeNumber(value as number),
-      value: value as number,
-    });
-  };
-
-  return (
-    <Form style={{ maxWidth: 600 }}>
-      <Form.Item
-        {...formItemLayout}
-        label="Prime between 8 & 12"
-        validateStatus={number.validateStatus}
-        help={number.errorMsg || tips}
-      >
-        <InputNumber min={8} max={12} value={number.value} onChange={onNumberChange} />
-      </Form.Item>
-    </Form>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

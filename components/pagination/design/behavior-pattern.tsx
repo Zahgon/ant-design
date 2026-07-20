@@ -21,40 +21,7 @@ const locales = {
 };
 
 const BehaviorPattern: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <BehaviorMap
-      data={{
-        id: '200000004',
-        label: locale.title,
-        children: [
-          {
-            id: '500000061',
-            label: locale.jumpToSpecificPage,
-            targetType: 'mvp',
-          },
-          {
-            id: '200000005',
-            label: locale.adjustItemsPerPage,
-            targetType: 'extension',
-            link: 'pagination-index-tab-design-demo-page-size',
-          },
-          {
-            id: '200000006',
-            label: locale.quickJump,
-            targetType: 'extension',
-            link: 'pagination-index-tab-design-demo-quick-jump',
-          },
-          {
-            id: '200000007',
-            label: locale.understandTotalData,
-            targetType: 'extension',
-            link: 'pagination-index-tab-design-demo-total',
-          },
-        ],
-      }}
-    />
-  );
+    throw new Error("STUB");
 };
 
 export default BehaviorPattern;

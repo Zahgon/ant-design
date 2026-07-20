@@ -12,48 +12,7 @@ export interface AvatarProps extends Omit<SkeletonElementProps, 'shape'> {
 }
 
 const SkeletonAvatar: React.FC<AvatarProps> = (props) => {
-  const {
-    prefixCls: customizePrefixCls,
-    className,
-    classNames,
-    rootClassName,
-    active,
-    style,
-    styles,
-    shape = 'circle',
-    size: customSize,
-    ...rest
-  } = props;
-  const { getPrefixCls } = React.useContext(ConfigContext);
-  const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
-  const [hashId, cssVarCls] = useStyle(prefixCls);
-  const mergedSize = useSize((ctx) => customSize ?? ctx);
-
-  const cls = clsx(
-    prefixCls,
-    `${prefixCls}-element`,
-    {
-      [`${prefixCls}-active`]: active,
-    },
-    classNames?.root,
-    className,
-    rootClassName,
-    hashId,
-    cssVarCls,
-  );
-
-  return (
-    <div className={cls} style={styles?.root}>
-      <Element
-        prefixCls={`${prefixCls}-avatar`}
-        className={classNames?.content}
-        style={{ ...styles?.content, ...style }}
-        shape={shape}
-        size={mergedSize}
-        {...rest}
-      />
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 export default SkeletonAvatar;

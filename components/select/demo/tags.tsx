@@ -15,14 +15,6 @@ const handleChange = (value: string[]) => {
   console.log(`selected ${value}`);
 };
 
-const App: React.FC = () => (
-  <Select
-    mode="tags"
-    style={{ width: '100%' }}
-    placeholder="Tags Mode"
-    onChange={handleChange}
-    options={options}
-  />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

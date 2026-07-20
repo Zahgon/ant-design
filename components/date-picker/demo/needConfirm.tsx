@@ -7,6 +7,6 @@ const onChange: DatePickerProps<Dayjs, false>['onChange'] = (date, dateString) =
   console.log(date, dateString);
 };
 
-const App: React.FC = () => <DatePicker onChange={onChange} needConfirm />;
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

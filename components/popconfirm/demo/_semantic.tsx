@@ -26,40 +26,11 @@ const locales = {
 };
 
 const BlockList: React.FC<React.PropsWithChildren<PopconfirmProps>> = (props) => {
-  const { children, ...rest } = props;
-  const divRef = React.useRef<HTMLDivElement>(null);
-  return (
-    <div ref={divRef} style={{ position: 'absolute', marginTop: 60 }}>
-      <Popconfirm
-        open
-        placement="top"
-        autoAdjustOverflow={false}
-        getPopupContainer={() => divRef.current!}
-        {...rest}
-      >
-        {children}
-      </Popconfirm>
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Popconfirm"
-      semantics={[
-        { name: 'root', desc: locale.root },
-        { name: 'container', desc: locale.container },
-        { name: 'icon', desc: locale.icon, version: '6.4.0' },
-        { name: 'title', desc: locale.title },
-        { name: 'content', desc: locale.content },
-        { name: 'arrow', desc: locale.arrow },
-      ]}
-    >
-      <BlockList title="Confirm" description="Are you sure you want to perform this action?" />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

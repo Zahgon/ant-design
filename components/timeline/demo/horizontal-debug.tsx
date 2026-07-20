@@ -29,14 +29,6 @@ const sharedProps: TimelineProps = {
   ],
 };
 
-const App: React.FC = () => (
-  <Flex vertical>
-    <Timeline {...sharedProps} mode="start" />
-    <Divider />
-    <Timeline {...sharedProps} mode="end" />
-    <Divider />
-    <Timeline {...sharedProps} mode="alternate" />
-  </Flex>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

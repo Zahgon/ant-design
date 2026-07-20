@@ -16,18 +16,7 @@ const locales = {
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Pagination"
-      semantics={[
-        { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'item', desc: locale.item, version: '6.0.0' },
-      ]}
-    >
-      <Pagination defaultCurrent={1} total={50} />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

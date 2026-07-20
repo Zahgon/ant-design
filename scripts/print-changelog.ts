@@ -41,7 +41,7 @@ const MAINTAINERS = [
   // 'li-jia-nan',
   // 'kiner-tang',
   // 'Wxh16144',
-].map((author: string) => author.toLowerCase());
+].map((author: string) => { throw new Error("STUB"); });
 
 const cwd = process.cwd();
 const git = simpleGit(cwd);
@@ -76,12 +76,12 @@ async function printLog() {
     message: '🏷 Please choose tag to compare with current branch:',
     choices: [
       ...tags.all
-        .filter((item) => !item.includes('experimental'))
-        .filter((item) => !item.includes('alpha'))
-        .filter((item) => !item.includes('resource'))
+        .filter((item) => { throw new Error("STUB"); })
+        .filter((item) => { throw new Error("STUB"); })
+        .filter((item) => { throw new Error("STUB"); })
         .reverse()
         .slice(0, 50)
-        .map((item) => ({ name: item, value: item })),
+        .map((item) => { throw new Error("STUB"); }),
       { name: 'custom input ⌨️', value: 'custom input ⌨️' },
     ],
   });
@@ -91,20 +91,14 @@ async function printLog() {
     finalFromVersion = await input({
       message: '🏷 Please input custom tag name:',
       validate: (value: string) => {
-        if (!value.trim()) {
-          return 'Tag name cannot be empty';
-        }
-        return true;
+          throw new Error("STUB");
       },
     });
   }
 
   let toVersion = await select({
     message: `🔀 Please choose branch to compare with ${chalk.magenta(finalFromVersion)}:`,
-    choices: ['master', '4.x-stable', '3.x-stable', 'feature', 'custom input ⌨️'].map((i) => ({
-      name: i,
-      value: i,
-    })),
+    choices: ['master', '4.x-stable', '3.x-stable', 'feature', 'custom input ⌨️'].map((i) => { throw new Error("STUB"); }),
   });
 
   if (toVersion.startsWith('custom input')) {
@@ -120,15 +114,7 @@ async function printLog() {
   const excludeOptions = ['none', 'master', 'feature', 'next', 'custom'];
   const excludeTagChoice = await select({
     message: `🚫 Do you want to exclude commits from a specific tag/branch?`,
-    choices: excludeOptions.map((option) => ({
-      name:
-        option === 'none'
-          ? 'No exclusion'
-          : option === 'custom'
-            ? 'Custom exclude tag ⌨️'
-            : `Exclude from ${option}`,
-      value: option,
-    })),
+    choices: excludeOptions.map((option) => { throw new Error("STUB"); }),
   });
 
   let excludeTag: string | undefined;
@@ -136,10 +122,7 @@ async function printLog() {
     excludeTag = await input({
       message: '🚫 Please input tag/branch to exclude commits from:',
       validate: (value: string) => {
-        if (!value.trim()) {
-          return 'Tag/branch name cannot be empty';
-        }
-        return true;
+          throw new Error("STUB");
       },
     });
   } else if (excludeTagChoice !== 'none') {
@@ -163,7 +146,7 @@ async function printLog() {
   if (excludeTag) {
     try {
       const excludeLogs = await git.log({ from: finalFromVersion, to: excludeTag });
-      excludeCommitHashes = new Set(excludeLogs.all.map((commit) => commit.hash));
+      excludeCommitHashes = new Set(excludeLogs.all.map((commit) => { throw new Error("STUB"); }));
       console.log(
         chalk.yellow(`🚫 Excluding ${excludeCommitHashes.size} commits from ${excludeTag}`),
       );
@@ -176,7 +159,7 @@ async function printLog() {
   let prList: PR[] = [];
 
   // Filter out excluded commits
-  const filteredLogs = logs.all.filter((commit) => !excludeCommitHashes.has(commit.hash));
+  const filteredLogs = logs.all.filter((commit) => { throw new Error("STUB"); });
 
   if (excludeTag && filteredLogs.length !== logs.all.length) {
     console.log(
@@ -193,7 +176,7 @@ async function printLog() {
 
     const match = text.match(/#\d+/g);
 
-    const prs = match?.map((pr) => pr.slice(1)) || [];
+    const prs = match?.map((pr) => { throw new Error("STUB"); }) || [];
 
     const validatePRs: PR[] = [];
 
@@ -203,7 +186,7 @@ async function printLog() {
         hash.slice(0, 6),
         '-',
         prs.length
-          ? prs.map((pr) => `https://github.com/ant-design/ant-design/pull/${pr}`).join(',')
+          ? prs.map((pr) => { throw new Error("STUB"); }).join(',')
           : '?',
       ),
     );
@@ -218,17 +201,7 @@ async function printLog() {
       const fetchPullRequest = async () => {
         try {
           res = await new Promise<Response>((resolve, reject) => {
-            setTimeout(() => {
-              reject(new Error(`Fetch timeout of ${timeout}ms exceeded`));
-            }, timeout);
-            fetch(`https://github.com/ant-design/ant-design/pull/${pr}`)
-              .then((response) => {
-                response.text().then((htmlRes) => {
-                  html = htmlRes;
-                  resolve(response);
-                });
-              })
-              .catch(reject);
+              throw new Error("STUB");
           });
         } catch (err) {
           tryTimes++;
@@ -253,14 +226,11 @@ async function printLog() {
       const lines: Line[] = [];
 
       prLines.each(function getDesc(this: HTMLElement) {
-        lines.push({
-          text: $(this).text().trim(),
-          element: $(this),
-        });
+          throw new Error("STUB");
       });
 
-      let english = getDescription(lines.find((line) => line.text.includes('🇺🇸 English')));
-      let chinese = getDescription(lines.find((line) => line.text.includes('🇨🇳 Chinese')));
+      let english = getDescription(lines.find((line) => { throw new Error("STUB"); }));
+      let chinese = getDescription(lines.find((line) => { throw new Error("STUB"); }));
 
       if (/^-*$/.test(english)) {
         english = prTitle;
@@ -312,30 +282,7 @@ async function printLog() {
 
   function printPR(lang: string, postLang: (str: string) => string) {
     prList.forEach((entity) => {
-      const { pr, author, hash, title } = entity;
-      if (pr) {
-        const str = postLang(entity[lang as keyof PR]!);
-        let icon = '';
-        if (str.toLowerCase().includes('fix') || str.includes('修复')) {
-          icon = '🐞';
-        }
-        if (str.toLowerCase().includes('feat')) {
-          icon = '🆕';
-        }
-
-        let authorText = '';
-        if (!MAINTAINERS.includes(author.toLowerCase())) {
-          authorText = ` [@${author}](https://github.com/${author})`;
-        }
-
-        console.log(
-          `- ${icon} ${str}[#${pr}](https://github.com/ant-design/ant-design/pull/${pr})${authorText}`,
-        );
-      } else {
-        console.log(
-          `🆘 Miss Match: ${title} -> https://github.com/ant-design/ant-design/commit/${hash}`,
-        );
-      }
+        throw new Error("STUB");
     });
   }
 
@@ -345,7 +292,7 @@ async function printLog() {
   console.log('\n');
 
   printPR('chinese', (chinese: string) =>
-    chinese[chinese.length - 1] === '。' || !chinese ? chinese : `${chinese}。`,
+    { throw new Error("STUB"); },
   );
 
   console.log('\n-----\n');
@@ -354,14 +301,7 @@ async function printLog() {
   console.log(chalk.yellow('🇺🇸 English changelog:'));
   console.log('\n');
   printPR('english', (english: string) => {
-    english = english.trim();
-    if (english[english.length - 1] !== '.' || !english) {
-      english = `${english}.`;
-    }
-    if (english) {
-      return `${english} `;
-    }
-    return '';
+      throw new Error("STUB");
   });
 
   // Preview editor generate
@@ -378,13 +318,13 @@ async function printLog() {
   );
 
   ls.stdout.on('data', (data) => {
-    console.log(data.toString());
+      throw new Error("STUB");
   });
 
   console.log(chalk.green('Start changelog preview editor...'));
 
   setTimeout(() => {
-    openWindow('http://localhost:2893/');
+      throw new Error("STUB");
   }, 1000);
 }
 

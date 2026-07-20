@@ -30,66 +30,11 @@ interface TableTransferProps extends TransferProps<TransferItem> {
 }
 
 // Customize Table Transfer
-const TableTransfer = ({ leftColumns, rightColumns, ...restProps }: TableTransferProps) => (
-  <Transfer {...restProps}>
-    {({
-      direction,
-      filteredItems,
-      onItemSelectAll,
-      onItemSelect,
-      selectedKeys: listSelectedKeys,
-      disabled: listDisabled,
-    }) => {
-      const columns = direction === 'left' ? leftColumns : rightColumns;
-
-      const rowSelection: TableRowSelection<TransferItem> = {
-        getCheckboxProps: (item) => ({ disabled: listDisabled || item.disabled }),
-        onChange(_selectedKeys, selectedRows, info) {
-          const treeSelectedKeys = selectedRows
-            .filter((item) => !item.disabled)
-            .map(({ key }) => key);
-          const diffKeys =
-            info.type === 'all'
-              ? difference(treeSelectedKeys, listSelectedKeys)
-              : difference(listSelectedKeys, treeSelectedKeys);
-          onItemSelectAll(diffKeys as string[], info.type === 'all');
-        },
-        onSelect({ key }, selected) {
-          onItemSelect(key as string, selected);
-        },
-        selectedRowKeys: listSelectedKeys,
-      };
-
-      return (
-        <Table
-          rowSelection={rowSelection}
-          columns={columns}
-          dataSource={filteredItems}
-          size="small"
-          style={{ pointerEvents: listDisabled ? 'none' : undefined }}
-          onRow={({ key, disabled: itemDisabled }) => ({
-            onClick: () => {
-              if (itemDisabled || listDisabled) {
-                return;
-              }
-              onItemSelect(key as string, !listSelectedKeys.includes(key as string));
-            },
-          })}
-        />
-      );
-    }}
-  </Transfer>
-);
+const TableTransfer = ({ leftColumns, rightColumns, ...restProps }: TableTransferProps) => { throw new Error("STUB"); };
 
 const mockTags = ['cat', 'dog', 'bird'];
 
-const mockData = Array.from({ length: 20 }).map<RecordType>((_, i) => ({
-  key: i.toString(),
-  title: `content${i + 1}`,
-  description: `description of content${i + 1}`,
-  disabled: i % 4 === 0,
-  tag: mockTags[i % 3],
-}));
+const mockData = Array.from({ length: 20 }).map<RecordType>((_, i) => { throw new Error("STUB"); });
 
 const leftTableColumns: TableColumnsType<DataType> = [
   {
@@ -99,7 +44,7 @@ const leftTableColumns: TableColumnsType<DataType> = [
   {
     dataIndex: 'tag',
     title: 'Tag',
-    render: (tag) => <Tag>{tag}</Tag>,
+    render: (tag) => { throw new Error("STUB"); },
   },
   {
     dataIndex: 'description',
@@ -114,103 +59,10 @@ const rightTableColumns: TableColumnsType<DataType> = [
   },
 ];
 
-const initialTargetKeys = mockData.filter((item) => Number(item.key) > 10).map((item) => item.key);
+const initialTargetKeys = mockData.filter((item) => { throw new Error("STUB"); }).map((item) => { throw new Error("STUB"); });
 
 const App: React.FC = () => {
-  const [targetKeys, setTargetKeys] = useState<React.Key[]>(initialTargetKeys);
-  const [selectedKeys, setSelectedKeys] = useState<React.Key[]>([]);
-
-  const onChange: TransferProps['onChange'] = (nextTargetKeys, direction, moveKeys) => {
-    console.log('targetKeys:', nextTargetKeys);
-    console.log('direction:', direction);
-    console.log('moveKeys:', moveKeys);
-    setTargetKeys(nextTargetKeys);
-  };
-
-  const onSelectChange: TransferProps['onSelectChange'] = (
-    sourceSelectedKeys,
-    targetSelectedKeys,
-  ) => {
-    console.log('sourceSelectedKeys:', sourceSelectedKeys);
-    console.log('targetSelectedKeys:', targetSelectedKeys);
-    setSelectedKeys([...sourceSelectedKeys, ...targetSelectedKeys]);
-  };
-
-  const onScroll: TransferProps['onScroll'] = (direction, e) => {
-    console.log('direction:', direction);
-    console.log('target:', e.target);
-  };
-
-  const [disabled, setDisabled] = useState(false);
-  const [showSearch, setShowSearch] = useState(false);
-
-  const secondOnChange: TransferProps['onChange'] = (nextTargetKeys) => {
-    setTargetKeys(nextTargetKeys);
-  };
-
-  const triggerDisable = (checked: boolean) => {
-    setDisabled(checked);
-  };
-
-  const triggerShowSearch = (checked: boolean) => {
-    setShowSearch(checked);
-  };
-
-  return (
-    <ConfigProvider
-      theme={{
-        components: {
-          Transfer: {
-            listWidth: 40,
-            listWidthLG: 50,
-            listHeight: 30,
-            itemHeight: 20,
-            itemPaddingBlock: 10,
-            headerHeight: 18,
-          },
-        },
-      }}
-    >
-      <Transfer
-        dataSource={mockData}
-        titles={['Source', 'Target']}
-        targetKeys={targetKeys}
-        selectedKeys={selectedKeys}
-        onChange={onChange}
-        onSelectChange={onSelectChange}
-        onScroll={onScroll}
-        render={(item) => item.title}
-      />
-      <Transfer status="error" />
-      <Transfer status="warning" showSearch />
-      <TableTransfer
-        dataSource={mockData}
-        targetKeys={targetKeys}
-        disabled={disabled}
-        showSearch={showSearch}
-        onChange={secondOnChange}
-        filterOption={(inputValue, item) =>
-          item.title!.includes(inputValue) || item.tag.includes(inputValue)
-        }
-        leftColumns={leftTableColumns}
-        rightColumns={rightTableColumns}
-      />
-      <Space style={{ marginTop: 16 }}>
-        <Switch
-          unCheckedChildren="disabled"
-          checkedChildren="disabled"
-          checked={disabled}
-          onChange={triggerDisable}
-        />
-        <Switch
-          unCheckedChildren="showSearch"
-          checkedChildren="showSearch"
-          checked={showSearch}
-          onChange={triggerShowSearch}
-        />
-      </Space>
-    </ConfigProvider>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

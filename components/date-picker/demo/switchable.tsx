@@ -11,36 +11,11 @@ interface PickerWithTypeProps {
 }
 
 const PickerWithType: React.FC<PickerWithTypeProps> = ({ type, onChange }) => {
-  if (type === 'time') {
-    return <TimePicker onChange={onChange} />;
-  }
-  if (type === 'date') {
-    return <DatePicker onChange={onChange} />;
-  }
-  return <DatePicker picker={type} onChange={onChange} />;
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const [type, setType] = useState<PickerType>('time');
-
-  return (
-    <Space>
-      <Select
-        aria-label="Picker Type"
-        value={type}
-        onChange={setType}
-        options={[
-          { label: 'Time', value: 'time' },
-          { label: 'Date', value: 'date' },
-          { label: 'Week', value: 'week' },
-          { label: 'Month', value: 'month' },
-          { label: 'Quarter', value: 'quarter' },
-          { label: 'Year', value: 'year' },
-        ]}
-      />
-      <PickerWithType type={type} onChange={(value) => console.log(value)} />
-    </Space>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

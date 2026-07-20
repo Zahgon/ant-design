@@ -34,10 +34,6 @@ const props: UploadProps = {
   ],
 };
 
-const App: React.FC = () => (
-  <Upload {...props}>
-    <Button icon={<UploadOutlined />}>Upload</Button>
-  </Upload>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

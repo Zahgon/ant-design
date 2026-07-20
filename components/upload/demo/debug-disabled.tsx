@@ -33,40 +33,7 @@ const fileList: UploadFile[] = [
 ];
 
 const App: React.FC = () => {
-  const uploadButton = (
-    <button
-      style={{ color: 'inherit', cursor: 'inherit', border: 0, background: 'none' }}
-      type="button"
-    >
-      <PlusOutlined />
-      <div style={{ marginTop: 8 }}>Upload</div>
-    </button>
-  );
-
-  return (
-    <Space vertical>
-      <Upload disabled>Click Text to Upload</Upload>
-      <Upload disabled>
-        <Button icon={<UploadOutlined />}>Click to Upload</Button>
-      </Upload>
-      <Upload name="avatar" listType="picture-card" fileList={fileList} disabled>
-        {uploadButton}
-      </Upload>
-      <Upload name="avatar" listType="picture-circle" fileList={fileList} disabled>
-        {uploadButton}
-      </Upload>
-      <Dragger disabled>
-        <p className="ant-upload-drag-icon">
-          <InboxOutlined />
-        </p>
-        <p className="ant-upload-text">Click or drag file to this area to upload</p>
-        <p className="ant-upload-hint">
-          Support for a single or bulk upload. Strictly prohibited from uploading company data or
-          other banned files.
-        </p>
-      </Dragger>
-    </Space>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

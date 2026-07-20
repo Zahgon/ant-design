@@ -17,49 +17,10 @@ const columns: TableColumnsType<DataType> = [
   { title: 'Address', dataIndex: 'address' },
 ];
 
-const dataSource = Array.from<DataType>({ length: 46 }).map<DataType>((_, i) => ({
-  key: i,
-  name: `Edward King ${i}`,
-  age: 32,
-  address: `London, Park Lane no. ${i}`,
-}));
+const dataSource = Array.from<DataType>({ length: 46 }).map<DataType>((_, i) => { throw new Error("STUB"); });
 
 const App: React.FC = () => {
-  const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
-  const [loading, setLoading] = useState(false);
-
-  const start = () => {
-    setLoading(true);
-    // ajax request after empty completing
-    setTimeout(() => {
-      setSelectedRowKeys([]);
-      setLoading(false);
-    }, 1000);
-  };
-
-  const onSelectChange = (newSelectedRowKeys: React.Key[]) => {
-    console.log('selectedRowKeys changed: ', newSelectedRowKeys);
-    setSelectedRowKeys(newSelectedRowKeys);
-  };
-
-  const rowSelection: TableRowSelection<DataType> = {
-    selectedRowKeys,
-    onChange: onSelectChange,
-  };
-
-  const hasSelected = selectedRowKeys.length > 0;
-
-  return (
-    <Flex gap="medium" vertical>
-      <Flex align="center" gap="medium">
-        <Button type="primary" onClick={start} disabled={!hasSelected} loading={loading}>
-          Reload
-        </Button>
-        {hasSelected ? `Selected ${selectedRowKeys.length} items` : null}
-      </Flex>
-      <Table<DataType> rowSelection={rowSelection} columns={columns} dataSource={dataSource} />
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

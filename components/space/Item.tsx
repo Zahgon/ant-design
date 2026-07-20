@@ -18,29 +18,7 @@ export interface ItemProps {
 }
 
 const Item: React.FC<ItemProps> = (props) => {
-  const { className, prefix, index, children, separator, style, classNames, styles } = props;
-
-  const { latestIndex } = React.useContext<SpaceContextType>(SpaceContext);
-
-  if (!isReactRenderable(children)) {
-    return null;
-  }
-
-  return (
-    <>
-      <div className={className} style={style}>
-        {children}
-      </div>
-      {index < latestIndex && separator && (
-        <span
-          className={clsx(`${prefix}-item-separator`, classNames?.separator)}
-          style={styles?.separator}
-        >
-          {separator}
-        </span>
-      )}
-    </>
-  );
+    throw new Error("STUB");
 };
 
 export default Item;

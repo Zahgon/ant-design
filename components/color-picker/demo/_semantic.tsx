@@ -24,42 +24,11 @@ const locales = {
 };
 
 const Block: React.FC<Readonly<ColorPickerProps>> = (props) => {
-  const divRef = React.useRef<HTMLDivElement>(null);
-  return (
-    <Flex ref={divRef} style={{ height: 300 }} align="flex-start" gap="small">
-      <ColorPicker
-        defaultValue="#1677ff"
-        open
-        showText
-        {...props}
-        getPopupContainer={() => divRef.current || document.body}
-        styles={{
-          popup: {
-            root: { zIndex: 1 },
-          },
-        }}
-      />
-      <ColorPicker open={false} allowClear {...props} />
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="ColorPicker"
-      semantics={[
-        { name: 'root', desc: locale.root },
-        { name: 'body', desc: locale.body },
-        { name: 'content', desc: locale.content },
-        { name: 'description', desc: locale.description },
-        { name: 'popup.root', desc: locale['popup.root'] },
-      ]}
-    >
-      <Block />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

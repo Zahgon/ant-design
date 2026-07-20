@@ -390,40 +390,13 @@ const genBaseStyle: GenerateStyle<SkeletonToken, CSSObject> = (token) => {
 
 // ============================== Export ==============================
 export const prepareComponentToken: GetDefaultToken<'Skeleton'> = (token) => {
-  const { colorFillContent, colorFill } = token;
-  const gradientFromColor = colorFillContent;
-  const gradientToColor = colorFill;
-  return {
-    color: gradientFromColor,
-    colorGradientEnd: gradientToColor,
-    gradientFromColor,
-    gradientToColor,
-    titleHeight: token.controlHeight / 2,
-    blockRadius: token.borderRadiusSM,
-    paragraphMarginTop: token.marginLG + token.marginXXS,
-    paragraphLiHeight: token.controlHeight / 2,
-  };
+    throw new Error("STUB");
 };
 
 export default genStyleHooks(
   'Skeleton',
   (token) => {
-    const { componentCls, calc } = token;
-
-    const skeletonToken = mergeToken<SkeletonToken>(token, {
-      skeletonAvatarCls: `${componentCls}-avatar`,
-      skeletonTitleCls: `${componentCls}-title`,
-      skeletonParagraphCls: `${componentCls}-paragraph`,
-      skeletonButtonCls: `${componentCls}-button`,
-      skeletonInputCls: `${componentCls}-input`,
-      skeletonNodeCls: `${componentCls}-node`,
-      skeletonImageCls: `${componentCls}-image`,
-      imageSizeBase: calc(token.controlHeight).mul(1.5).equal(),
-      borderRadius: 100, // Large number to make capsule shape
-      skeletonLoadingBackground: `linear-gradient(90deg, ${token.gradientFromColor} 25%, ${token.gradientToColor} 37%, ${token.gradientFromColor} 63%)`,
-      skeletonLoadingMotionDuration: '1.4s',
-    });
-    return genBaseStyle(skeletonToken);
+      throw new Error("STUB");
   },
   prepareComponentToken,
   {

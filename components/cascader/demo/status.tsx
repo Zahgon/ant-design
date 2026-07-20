@@ -1,11 +1,6 @@
 import React from 'react';
 import { Cascader, Space } from 'antd';
 
-const App: React.FC = () => (
-  <Space vertical>
-    <Cascader status="error" placeholder="Error" />
-    <Cascader status="warning" multiple placeholder="Warning multiple" />
-  </Space>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

@@ -17,43 +17,6 @@ const marks = {
   },
 };
 
-const App: React.FC = () => (
-  <ConfigProvider
-    theme={{
-      components: {
-        Slider: {
-          controlSize: 20,
-          railSize: 4,
-          handleSize: 22,
-          handleSizeHover: 18,
-          dotSize: 8,
-          handleLineWidth: 6,
-          handleLineWidthHover: 2,
-          railBg: '#9f3434',
-          railHoverBg: '#8d2424',
-          trackBg: '#b0b0ef',
-          trackHoverBg: '#c77195',
-          handleColor: '#e6f6a2',
-          handleActiveColor: '#d22bc4',
-          dotBorderColor: '#303030',
-          dotActiveBorderColor: '#918542',
-          trackBgDisabled: '#1a1b80',
-        },
-      },
-    }}
-  >
-    <Slider defaultValue={30} disabled />
-    <Slider range={{ draggableTrack: true }} defaultValue={[20, 50]} />
-    <div style={style}>
-      <Slider vertical defaultValue={30} />
-    </div>
-    <div style={style}>
-      <Slider vertical range step={10} defaultValue={[20, 50]} />
-    </div>
-    <div style={style}>
-      <Slider vertical range marks={marks} defaultValue={[26, 37]} />
-    </div>
-  </ConfigProvider>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

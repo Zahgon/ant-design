@@ -82,21 +82,7 @@ export const getComputedToken = (
 
   if (components) {
     Object.entries(components).forEach(([key, value]) => {
-      const { theme: componentTheme, ...componentTokens } = value;
-      let mergedComponentToken = componentTokens;
-      if (componentTheme) {
-        mergedComponentToken = getComputedToken(
-          {
-            ...mergedDerivativeToken,
-            ...componentTokens,
-          },
-          {
-            override: componentTokens,
-          },
-          componentTheme,
-        );
-      }
-      mergedDerivativeToken[key] = mergedComponentToken;
+        throw new Error("STUB");
     });
   }
 

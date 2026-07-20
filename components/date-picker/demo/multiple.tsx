@@ -10,24 +10,6 @@ const onChange: DatePickerProps<Dayjs, true>['onChange'] = (date, dateString) =>
 
 const defaultValue = [dayjs('2000-01-01'), dayjs('2000-01-03'), dayjs('2000-01-05')];
 
-const App: React.FC = () => (
-  <Flex vertical gap="small">
-    <DatePicker
-      multiple
-      onChange={onChange}
-      maxTagCount="responsive"
-      defaultValue={defaultValue}
-      size="small"
-    />
-    <DatePicker multiple onChange={onChange} maxTagCount="responsive" defaultValue={defaultValue} />
-    <DatePicker
-      multiple
-      onChange={onChange}
-      maxTagCount="responsive"
-      defaultValue={defaultValue}
-      size="large"
-    />
-  </Flex>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

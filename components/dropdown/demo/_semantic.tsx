@@ -69,43 +69,11 @@ const items: MenuProps['items'] = [
 ];
 
 const Block: React.FC<Readonly<DropdownProps>> = (props) => {
-  const divRef = React.useRef<HTMLDivElement>(null);
-  return (
-    <div style={{ height: 120, position: 'absolute', top: 50 }} ref={divRef}>
-      <Dropdown
-        open
-        {...props}
-        menu={{ items, defaultOpenKeys: ['SubMenu'] }}
-        styles={{ root: { width: 200, zIndex: 1 } }}
-        getPopupContainer={() => divRef.current!}
-      >
-        <a onClick={(e) => e.preventDefault()}>
-          <Space>
-            Hover me
-            <DownOutlined />
-          </Space>
-        </a>
-      </Dropdown>
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Dropdown"
-      semantics={[
-        { name: 'root', desc: locale.root },
-        { name: 'itemTitle', desc: locale.itemTitle },
-        { name: 'item', desc: locale.item },
-        { name: 'itemContent', desc: locale.itemContent },
-        { name: 'itemIcon', desc: locale.itemIcon },
-      ]}
-    >
-      <Block />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

@@ -14,14 +14,7 @@ const classNamesObject: ResultProps['classNames'] = {
 const classNamesFn: ResultProps['classNames'] = (
   info,
 ): GetProp<ResultProps, 'classNames', 'Return'> => {
-  if (info.props.status === 'success') {
-    return {
-      root: 'demo-result-root--success',
-    };
-  }
-  return {
-    root: 'demo-result-root--default',
-  };
+    throw new Error("STUB");
 };
 
 const stylesObject: ResultProps['styles'] = {
@@ -34,42 +27,11 @@ const stylesObject: ResultProps['styles'] = {
 };
 
 const stylesFn: ResultProps['styles'] = (info): GetProp<ResultProps, 'styles', 'Return'> => {
-  if (info.props.status === 'error') {
-    return {
-      root: { backgroundColor: '#fff2f0', borderColor: '#ff4d4f' },
-      title: { color: '#ff4d4f' },
-    };
-  } else {
-    return {
-      root: { backgroundColor: '#f6ffed', borderColor: '#52c41a' },
-      title: { color: '#52c41a' },
-    };
-  }
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  return (
-    <>
-      <Result
-        status="info"
-        title="classNames Object"
-        subTitle="This is a subtitle"
-        styles={stylesObject}
-        classNames={classNamesObject}
-        extra={<Button type="primary">Action</Button>}
-      >
-        <div>Content area</div>
-      </Result>
-      <Result
-        status="success"
-        title="classNames Function"
-        subTitle="Dynamic class names"
-        styles={stylesFn}
-        classNames={classNamesFn}
-        extra={<Button>Action</Button>}
-      />
-    </>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

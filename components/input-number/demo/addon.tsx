@@ -26,31 +26,6 @@ const selectAfter = (
   />
 );
 
-const App: React.FC = () => (
-  <Space vertical>
-    <InputNumber addonBefore="+" addonAfter="$" defaultValue={100} />
-    <InputNumber addonBefore={selectBefore} addonAfter={selectAfter} defaultValue={100} />
-    <InputNumber addonAfter={<SettingOutlined />} defaultValue={100} />
-    <InputNumber
-      addonBefore={<Cascader placeholder="cascader" style={{ width: 150 }} />}
-      defaultValue={100}
-    />
-    <InputNumber
-      addonBefore="+"
-      addonAfter={<SettingOutlined />}
-      defaultValue={100}
-      disabled
-      controls
-    />
-    <InputNumber
-      prefix="¥"
-      addonBefore="+"
-      addonAfter={<SettingOutlined />}
-      defaultValue={100}
-      disabled
-      controls
-    />
-  </Space>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

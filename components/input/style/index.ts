@@ -545,115 +545,19 @@ export const genAffixStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
 };
 
 const genGroupStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
-  const { componentCls, borderRadiusLG, borderRadiusSM } = token;
-
-  return {
-    [`${componentCls}-group`]: {
-      // Style for input-group: input with label, with button or dropdown...
-      ...resetComponent(token),
-      ...genInputGroupStyle(token),
-
-      '&-rtl': {
-        direction: 'rtl',
-      },
-
-      '&-wrapper': {
-        display: 'inline-block',
-        width: '100%',
-        textAlign: 'start',
-        verticalAlign: 'top', // https://github.com/ant-design/ant-design/issues/6403
-
-        '&-rtl': {
-          direction: 'rtl',
-        },
-
-        // Size
-        '&-lg': {
-          [`${componentCls}-group-addon`]: {
-            borderRadius: borderRadiusLG,
-            fontSize: token.inputFontSizeLG,
-          },
-        },
-        '&-sm': {
-          [`${componentCls}-group-addon`]: {
-            borderRadius: borderRadiusSM,
-          },
-        },
-
-        // Variants
-        ...genOutlinedGroupStyle(token),
-        ...genFilledGroupStyle(token),
-
-        // '&-disabled': {
-        //   [`${componentCls}-group-addon`]: {
-        //     ...genDisabledStyle(token),
-        //   },
-        // },
-
-        // Fix the issue of using icons in Space Compact mode
-        // https://github.com/ant-design/ant-design/issues/42122
-        [`&:not(${componentCls}-compact-first-item):not(${componentCls}-compact-last-item)${componentCls}-compact-item`]:
-          {
-            [`${componentCls}, ${componentCls}-group-addon`]: {
-              borderRadius: 0,
-            },
-          },
-
-        [`&:not(${componentCls}-compact-last-item)${componentCls}-compact-first-item`]: {
-          [`${componentCls}, ${componentCls}-group-addon`]: {
-            borderStartEndRadius: 0,
-            borderEndEndRadius: 0,
-          },
-        },
-
-        [`&:not(${componentCls}-compact-first-item)${componentCls}-compact-last-item`]: {
-          [`${componentCls}, ${componentCls}-group-addon`]: {
-            borderStartStartRadius: 0,
-            borderEndStartRadius: 0,
-          },
-        },
-
-        // Fix the issue of input use show-count param in space compact mode
-        // https://github.com/ant-design/ant-design/issues/46872
-        [`&:not(${componentCls}-compact-last-item)${componentCls}-compact-item`]: {
-          [`${componentCls}-affix-wrapper`]: {
-            borderStartEndRadius: 0,
-            borderEndEndRadius: 0,
-          },
-        },
-        // Fix the issue of input use `addonAfter` param in space compact mode
-        // https://github.com/ant-design/ant-design/issues/52483
-        [`&:not(${componentCls}-compact-first-item)${componentCls}-compact-item`]: {
-          [`${componentCls}-affix-wrapper`]: {
-            borderStartStartRadius: 0,
-            borderEndStartRadius: 0,
-          },
-        },
-      },
-    },
-  };
+    throw new Error("STUB");
 };
 
 // ============================== Range ===============================
 const genRangeStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
-  const { componentCls } = token;
-
-  return {
-    [`${componentCls}-out-of-range`]: {
-      [`&, & input, & textarea, ${componentCls}-show-count-suffix, ${componentCls}-data-count`]: {
-        color: token.colorError,
-      },
-    },
-  };
+    throw new Error("STUB");
 };
 
 // ============================== Export ==============================
 export const useSharedStyle = genStyleHooks(
   ['Input', 'Shared'],
   (token) => {
-    const inputToken = mergeToken<InputToken>(token, initInputToken(token));
-
-    return [genInputStyle(inputToken), genAffixStyle(inputToken)];
+      throw new Error("STUB");
   },
   initComponentToken,
   {
@@ -664,19 +568,7 @@ export const useSharedStyle = genStyleHooks(
 export default genStyleHooks(
   ['Input', 'Component'],
   (token) => {
-    const inputToken = mergeToken<InputToken>(token, initInputToken(token));
-
-    return [
-      genGroupStyle(inputToken),
-      genRangeStyle(inputToken),
-      // =====================================================
-      // ==             Space Compact                       ==
-      // =====================================================
-      genCompactItemStyle(inputToken, {
-        focus: true,
-        focusElCls: `${inputToken.componentCls}-affix-wrapper-focused`,
-      }),
-    ];
+      throw new Error("STUB");
   },
   initComponentToken,
   {

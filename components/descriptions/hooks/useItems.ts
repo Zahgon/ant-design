@@ -8,10 +8,7 @@ import type { ScreenMap } from '../../_util/responsiveObserver';
 
 // Convert children into items
 const transChildren2Items = (childNodes?: React.ReactNode) =>
-  toArray(childNodes).map((node) => ({
-    ...(node as React.ReactElement<any>)?.props,
-    key: node.key,
-  }));
+  toArray(childNodes).map((node) => { throw new Error("STUB"); });
 
 export default function useItems(
   screens: ScreenMap,
@@ -21,18 +18,13 @@ export default function useItems(
   const mergedItems = React.useMemo<DescriptionsItemType[]>(
     () =>
       // Take `items` first or convert `children` into items
-      items || transChildren2Items(children),
+      { throw new Error("STUB"); },
     [items, children],
   );
 
   const responsiveItems = React.useMemo<InternalDescriptionsItemType[]>(
     () =>
-      mergedItems.map(({ span, ...restItem }) => {
-        if (span === 'filled') {
-          return { ...restItem, filled: true };
-        }
-        return { ...restItem, span: isNumber(span) ? span : matchScreen(screens, span) };
-      }),
+      { throw new Error("STUB"); },
     [mergedItems, screens],
   );
 

@@ -36,35 +36,7 @@ const treeData = [
 ];
 
 const App: React.FC = () => {
-  const [value, setValue] = React.useState<string[]>(['child1-1']);
-
-  const onChange = (newValue: string[]) => {
-    setValue(newValue);
-  };
-
-  const suffix = (
-    <>
-      <span>
-        {value.length} / {MAX_COUNT}
-      </span>
-      <DownOutlined />
-    </>
-  );
-
-  return (
-    <TreeSelect
-      treeData={treeData}
-      value={value}
-      onChange={onChange}
-      multiple
-      maxCount={MAX_COUNT}
-      style={{ width: '100%' }}
-      suffixIcon={suffix}
-      treeCheckable
-      placeholder="Please select"
-      showCheckedStrategy={TreeSelect.SHOW_CHILD}
-    />
-  );
+    throw new Error("STUB");
 };
 
 export default App;

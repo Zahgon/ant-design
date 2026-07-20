@@ -22,65 +22,7 @@ interface GridColToken extends FullToken<'Grid'> {
 
 // ============================== Row-Shared ==============================
 const genGridRowStyle: GenerateStyle<GridRowToken, CSSObject> = (token) => {
-  const { componentCls } = token;
-
-  return {
-    // Grid system
-    [componentCls]: {
-      display: 'flex',
-      flexFlow: 'row wrap',
-      minWidth: 0,
-
-      '&::before, &::after': {
-        display: 'flex',
-      },
-
-      '&-no-wrap': {
-        flexWrap: 'nowrap',
-      },
-
-      // The origin of the X-axis
-      '&-start': {
-        justifyContent: 'flex-start',
-      },
-
-      // The center of the X-axis
-      '&-center': {
-        justifyContent: 'center',
-      },
-
-      // The opposite of the X-axis
-      '&-end': {
-        justifyContent: 'flex-end',
-      },
-
-      '&-space-between': {
-        justifyContent: 'space-between',
-      },
-
-      '&-space-around': {
-        justifyContent: 'space-around',
-      },
-
-      '&-space-evenly': {
-        justifyContent: 'space-evenly',
-      },
-
-      // Align at the top
-      '&-top': {
-        alignItems: 'flex-start',
-      },
-
-      // Align at the center
-      '&-middle': {
-        alignItems: 'center',
-      },
-
-      '&-bottom': {
-        alignItems: 'flex-end',
-      },
-    },
-  };
+    throw new Error("STUB");
 };
 
 // ============================== Col-Shared ==============================
@@ -180,9 +122,9 @@ const genGridMediaStyle = (
   },
 });
 
-export const prepareRowComponentToken: GetDefaultToken<'Grid'> = () => ({});
+export const prepareRowComponentToken: GetDefaultToken<'Grid'> = () => { throw new Error("STUB"); };
 
-export const prepareColComponentToken: GetDefaultToken<'Grid'> = () => ({});
+export const prepareColComponentToken: GetDefaultToken<'Grid'> = () => { throw new Error("STUB"); };
 
 // ============================== Export ==============================
 export const useRowStyle = genStyleHooks('Grid', genGridRowStyle, prepareRowComponentToken);
@@ -204,19 +146,7 @@ export const getMediaSize = (token: AliasToken) => {
 export const useColStyle = genStyleHooks(
   'Grid',
   (token) => {
-    const gridToken: GridColToken = mergeToken<GridColToken>(token, {
-      gridColumns: 24, // Row is divided into 24 parts in Grid
-    });
-    const gridMediaSizesMap: Record<string, number> = getMediaSize(gridToken);
-    delete gridMediaSizesMap.xs;
-    return [
-      genGridColStyle(gridToken),
-      genGridStyle(gridToken, ''),
-      genGridStyle(gridToken, '-xs'),
-      Object.keys(gridMediaSizesMap)
-        .map((key) => genGridMediaStyle(gridToken, gridMediaSizesMap[key], `-${key}`))
-        .reduce<CSSObject>((pre, cur) => ({ ...pre, ...cur }), {}),
-    ];
+      throw new Error("STUB");
   },
   prepareColComponentToken,
 );

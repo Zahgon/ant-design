@@ -22,12 +22,7 @@ const sharedContent = (
   </>
 );
 
-const classNames = createStaticStyles(({ css }) => ({
-  container: css`
-    border-radius: 10px;
-    padding: 10px;
-  `,
-}));
+const classNames = createStaticStyles(({ css }) => { throw new Error("STUB"); });
 
 const styles: ModalProps['styles'] = {
   mask: {
@@ -36,87 +31,11 @@ const styles: ModalProps['styles'] = {
 };
 
 const stylesFn: ModalProps['styles'] = (info): GetProp<ModalProps, 'styles', 'Return'> => {
-  if (info.props.footer) {
-    return {
-      container: {
-        borderRadius: 14,
-        border: '1px solid #ccc',
-        padding: 0,
-        overflow: 'hidden',
-      },
-      header: {
-        padding: 16,
-      },
-      body: {
-        padding: 16,
-      },
-      footer: {
-        padding: '16px 10px',
-        backgroundColor: '#fafafa',
-      },
-    };
-  }
-  return {};
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [modalFnOpen, setModalFnOpen] = useState(false);
-
-  const sharedProps: ModalProps = {
-    centered: true,
-    classNames,
-  };
-
-  const footer: React.ReactNode = (
-    <>
-      <Button
-        onClick={() => setModalFnOpen(false)}
-        styles={{ root: { borderColor: '#ccc', color: '#171717', backgroundColor: '#fff' } }}
-      >
-        Cancel
-      </Button>
-      <Button
-        type="primary"
-        styles={{ root: { backgroundColor: '#171717' } }}
-        onClick={() => setModalOpen(true)}
-      >
-        Submit
-      </Button>
-    </>
-  );
-
-  return (
-    <Flex gap="medium">
-      <Button onClick={() => setModalOpen(true)}>Open Style Modal</Button>
-      <Button type="primary" onClick={() => setModalFnOpen(true)}>
-        Open Function Modal
-      </Button>
-      <Modal
-        {...sharedProps}
-        footer={null}
-        title="Custom Style Modal"
-        styles={styles}
-        open={modalOpen}
-        onOk={() => setModalOpen(false)}
-        onCancel={() => setModalOpen(false)}
-      >
-        {sharedContent}
-      </Modal>
-      <Modal
-        {...sharedProps}
-        footer={footer}
-        title="Custom Function Modal"
-        styles={stylesFn}
-        mask={{ enabled: true, blur: true }}
-        open={modalFnOpen}
-        onOk={() => setModalFnOpen(false)}
-        onCancel={() => setModalFnOpen(false)}
-      >
-        {sharedContent}
-      </Modal>
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

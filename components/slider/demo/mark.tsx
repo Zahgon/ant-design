@@ -20,21 +20,6 @@ const marks: SliderSingleProps['marks'] = {
   },
 };
 
-const App: React.FC = () => (
-  <>
-    <h4 style={style}>included=true</h4>
-    <Slider style={sliderStyle} marks={marks} defaultValue={37} />
-    <Slider style={sliderStyle} range marks={marks} defaultValue={[26, 37]} />
-
-    <h4 style={style}>included=false</h4>
-    <Slider style={sliderStyle} marks={marks} included={false} defaultValue={37} />
-
-    <h4 style={style}>marks & step</h4>
-    <Slider style={sliderStyle} marks={marks} step={10} defaultValue={37} />
-
-    <h4 style={style}>step=null</h4>
-    <Slider style={sliderStyle} marks={marks} step={null} defaultValue={37} />
-  </>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

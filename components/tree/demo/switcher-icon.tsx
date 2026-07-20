@@ -55,23 +55,7 @@ const treeData: TreeDataNode[] = [
 ];
 
 const App: React.FC = () => {
-  const onSelect: TreeProps['onSelect'] = (selectedKeys, info) => {
-    console.log('selected', selectedKeys, info);
-  };
-
-  return (
-    <Tree
-      showLine
-      switcherIcon={({ expanded }) => (
-        <DownOutlined
-          style={{ transform: `rotate(${expanded ? 0 : -90}deg)`, transition: 'transform 0.3s' }}
-        />
-      )}
-      defaultExpandedKeys={['0-0-0']}
-      onSelect={onSelect}
-      treeData={treeData}
-    />
-  );
+    throw new Error("STUB");
 };
 
 export default App;

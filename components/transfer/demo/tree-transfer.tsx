@@ -18,59 +18,10 @@ const generateTree = (
   treeNodes: TreeDataNode[] = [],
   checkedKeys: TreeTransferProps['targetKeys'] = [],
 ): TreeDataNode[] =>
-  treeNodes.map(({ children, ...props }) => ({
-    ...props,
-    disabled: checkedKeys.includes(props.key as string),
-    children: generateTree(children, checkedKeys),
-  }));
+  treeNodes.map(({ children, ...props }) => { throw new Error("STUB"); });
 
 const TreeTransfer: React.FC<TreeTransferProps> = (props) => {
-  const { token } = theme.useToken();
-
-  const { dataSource, targetKeys = [], ...restProps } = props;
-
-  const transferDataSource: TransferItem[] = [];
-  function flatten(list: TreeDataNode[] = []) {
-    list.forEach((item) => {
-      transferDataSource.push(item as TransferItem);
-      flatten(item.children);
-    });
-  }
-  flatten(dataSource);
-
-  return (
-    <Transfer
-      {...restProps}
-      targetKeys={targetKeys}
-      dataSource={transferDataSource}
-      render={(item) => item.title}
-      showSelectAll={false}
-    >
-      {({ direction, onItemSelect, selectedKeys }) => {
-        if (direction === 'left') {
-          const checkedKeys = [...selectedKeys, ...targetKeys];
-          return (
-            <div style={{ padding: token.paddingXS }}>
-              <Tree
-                blockNode
-                checkable
-                checkStrictly
-                defaultExpandAll
-                checkedKeys={checkedKeys}
-                treeData={generateTree(dataSource, targetKeys)}
-                onCheck={(_, { node: { key } }) => {
-                  onItemSelect(key as string, !isChecked(checkedKeys, key));
-                }}
-                onSelect={(_, { node: { key } }) => {
-                  onItemSelect(key as string, !isChecked(checkedKeys, key));
-                }}
-              />
-            </div>
-          );
-        }
-      }}
-    </Transfer>
-  );
+    throw new Error("STUB");
 };
 
 const treeData: TreeDataNode[] = [
@@ -89,11 +40,7 @@ const treeData: TreeDataNode[] = [
 ];
 
 const App: React.FC = () => {
-  const [targetKeys, setTargetKeys] = useState<TreeTransferProps['targetKeys']>([]);
-  const onChange: TreeTransferProps['onChange'] = (keys) => {
-    setTargetKeys(keys);
-  };
-  return <TreeTransfer dataSource={treeData} targetKeys={targetKeys} onChange={onChange} />;
+    throw new Error("STUB");
 };
 
 export default App;

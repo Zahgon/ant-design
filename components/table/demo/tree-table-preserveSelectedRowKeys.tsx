@@ -32,62 +32,20 @@ const columns: TableColumnsType<DataType> = [
   },
 ];
 
-const dataSource = Array.from({ length: 15 }).map<DataType>((_, i) => ({
-  key: `key${i}`,
-  name: `Edward ${i}`,
-  age: 32,
-  address: `London Park no. ${i}`,
-  children: [
-    {
-      key: `subKey${i}1`,
-      name: 'Brown',
-      age: 16,
-      address: 'New York No. 3 Lake Park',
-    },
-    {
-      key: `subKey${i}2`,
-      name: 'Jimmy',
-      age: 16,
-      address: 'New York No. 3 Lake Park',
-    },
-  ],
-}));
+const dataSource = Array.from({ length: 15 }).map<DataType>((_, i) => { throw new Error("STUB"); });
 
 // rowSelection objects indicates the need for row selection
 const rowSelection: TableRowSelection<DataType> = {
   onChange: (selectedRowKeys, selectedRows, info) => {
-    console.log(
-      `selectedRowKeys: ${selectedRowKeys}`,
-      'selectedRows: ',
-      selectedRows,
-      'info',
-      info,
-    );
-  },
+        throw new Error("STUB");
+    },
   onSelect: (record, selected, selectedRows) => {
-    console.log(record, selected, selectedRows);
+      throw new Error("STUB");
   },
 };
 
 const App: React.FC = () => {
-  const [checkStrictly, setCheckStrictly] = useState(false);
-  const [preserveSelectedRowKeys, setPreserveSelectedRowKeys] = useState(true);
-
-  return (
-    <>
-      <Space align="center" style={{ marginBottom: 16 }}>
-        CheckStrictly: <Switch checked={checkStrictly} onChange={setCheckStrictly} />
-        preserveSelectedRowKeys:{' '}
-        <Switch checked={preserveSelectedRowKeys} onChange={setPreserveSelectedRowKeys} />
-      </Space>
-      <Table<DataType>
-        columns={columns}
-        rowSelection={{ ...rowSelection, checkStrictly, preserveSelectedRowKeys }}
-        dataSource={dataSource}
-        pagination={{ defaultPageSize: 5 }}
-      />
-    </>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

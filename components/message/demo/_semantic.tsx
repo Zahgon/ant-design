@@ -38,38 +38,7 @@ const previewListStyle: React.CSSProperties = {
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Message"
-      semantics={[
-        { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'wrapper', desc: locale.wrapper, version: '6.4.0' },
-        { name: 'icon', desc: locale.icon, version: '6.0.0' },
-        { name: 'title', desc: locale.title, version: '6.4.0' },
-        { name: 'list', desc: locale.list, version: '6.4.0' },
-        { name: 'listContent', desc: locale.listContent, version: '6.4.0' },
-      ]}
-    >
-      <PureList
-        style={previewListStyle}
-        items={[
-          {
-            key: 'semantic-message-1',
-            content: 'Hello, Ant Design!',
-            type: 'success',
-            duration: false,
-          },
-          {
-            key: 'semantic-message-2',
-            content: 'Welcome back!',
-            type: 'info',
-            duration: false,
-          },
-        ]}
-      />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

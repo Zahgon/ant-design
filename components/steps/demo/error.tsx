@@ -17,6 +17,6 @@ const items = [
   },
 ];
 
-const App: React.FC = () => <Steps current={1} status="error" items={items} />;
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

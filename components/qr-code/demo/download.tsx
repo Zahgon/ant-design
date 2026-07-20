@@ -12,44 +12,15 @@ function doDownload(url: string, fileName: string) {
 }
 
 const downloadCanvasQRCode = () => {
-  const canvas = document.getElementById('myqrcode')?.querySelector<HTMLCanvasElement>('canvas');
-  if (canvas) {
-    const url = canvas.toDataURL();
-    doDownload(url, 'QRCode.png');
-  }
+    throw new Error("STUB");
 };
 
 const downloadSvgQRCode = () => {
-  const svg = document.getElementById('myqrcode')?.querySelector<SVGElement>('svg');
-  const svgData = new XMLSerializer().serializeToString(svg!);
-  const blob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
-  const url = URL.createObjectURL(blob);
-
-  doDownload(url, 'QRCode.svg');
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const [renderType, setRenderType] = React.useState<QRCodeProps['type']>('canvas');
-  return (
-    <Space id="myqrcode" vertical>
-      <Segmented options={['canvas', 'svg']} value={renderType} onChange={setRenderType} />
-      <div>
-        <QRCode
-          type={renderType}
-          value="https://ant.design/"
-          bgColor="rgba(255,255,255,0.5)"
-          style={{ marginBottom: 16 }}
-          icon="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
-        />
-        <Button
-          type="primary"
-          onClick={renderType === 'canvas' ? downloadCanvasQRCode : downloadSvgQRCode}
-        >
-          Download
-        </Button>
-      </div>
-    </Space>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

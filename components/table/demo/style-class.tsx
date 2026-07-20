@@ -3,13 +3,7 @@ import { Flex, Table } from 'antd';
 import type { GetProp, TableProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
-const classNames = createStaticStyles(({ css }) => ({
-  root: css`
-    color: #e0e0e0;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  `,
-}));
+const classNames = createStaticStyles(({ css }) => { throw new Error("STUB"); });
 
 interface DataType {
   key?: string;
@@ -80,73 +74,11 @@ const styles: TableProps<DataType>['styles'] = {
 const stylesFn: TableProps<DataType>['styles'] = (
   info,
 ): GetProp<TableProps<DataType>, 'styles', 'Return'> => {
-  if (info?.props?.size === 'medium') {
-    return {
-      root: {
-        color: '#e0e0e0',
-        borderRadius: 8,
-        boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
-      },
-      title: {
-        backgroundImage: 'linear-gradient(90deg, #6a5acd, #836fff)',
-        color: '#fff',
-        fontSize: '1.25rem',
-        fontWeight: 600,
-        padding: '12px 16px',
-      },
-      footer: {
-        color: '#9ca3af',
-      },
-      header: {
-        cell: {
-          fontWeight: 600,
-          fontSize: '0.95rem',
-          color: '#b8bdfd',
-          padding: '12px 16px',
-          borderBottom: '1px solid rgba(255,255,255,0.08)',
-        },
-      },
-      pagination: {
-        root: {
-          padding: 10,
-        },
-        item: {
-          color: '#b8bdfd',
-        },
-      },
-    };
-  }
-  return {};
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const sharedProps: TableProps<DataType> = {
-    columns,
-    dataSource,
-    classNames,
-    pagination: { pageSize: 3, simple: true },
-  };
-
-  return (
-    <Flex vertical gap="medium">
-      <Table<DataType>
-        {...sharedProps}
-        styles={styles}
-        title={() => 'Table Object Styles'}
-        footer={() => 'Table Object Footer'}
-        size="small"
-        virtual
-        scroll={{ y: 300 }}
-      />
-      <Table<DataType>
-        {...sharedProps}
-        styles={stylesFn}
-        title={() => 'Table Function Styles'}
-        footer={() => 'Table Function Styles'}
-        size="medium"
-      />
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

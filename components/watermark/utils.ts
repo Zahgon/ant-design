@@ -11,7 +11,7 @@ export function toLowercaseSeparator(key: string) {
 
 export function getStyleStr(style: React.CSSProperties): string {
   return Object.keys(style)
-    .map((key) => `${toLowercaseSeparator(key)}: ${style[key as keyof React.CSSProperties]};`)
+    .map((key) => { throw new Error("STUB"); })
     .join(' ');
 }
 
@@ -46,17 +46,7 @@ export const getContentLines = (
   font: Required<WatermarkFont>,
 ): WatermarkContentLine[] =>
   toList(content, { skipEmpty: true }).map((item) => {
-    if (isWatermarkText(item)) {
-      return {
-        text: item.text ?? '',
-        font: mergeProps(font, item.font ?? {}),
-      };
-    }
-
-    return {
-      text: item ?? '',
-      font,
-    };
+      throw new Error("STUB");
   });
 
 /** Whether to re-render the watermark */

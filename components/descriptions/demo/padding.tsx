@@ -30,15 +30,6 @@ const items: DescriptionsProps['items'] = [
   },
 ];
 
-const App: React.FC = () => (
-  <Flex gap={8} vertical>
-    <div style={{ width: 600, border: '1px solid', padding: 20 }}>
-      <Descriptions title="User Info" column={2} items={items} />
-    </div>
-    <div style={{ width: 600, border: '1px solid', padding: 20 }}>
-      <Descriptions layout="vertical" title="User Info" column={2} items={items} />
-    </div>
-  </Flex>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

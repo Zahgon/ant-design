@@ -16,35 +16,7 @@ export interface ConfirmOkBtnProps
 }
 
 const ConfirmOkBtn: FC = () => {
-  const {
-    autoFocusButton,
-    close,
-    isSilent,
-    okButtonProps,
-    rootPrefixCls,
-    okTextLocale,
-    okType,
-    onConfirm,
-    onOk,
-    onClose,
-  } = useContext(ModalContext);
-  return (
-    <ActionButton
-      isSilent={isSilent}
-      type={okType || 'primary'}
-      actionFn={onOk}
-      close={(...args: any[]) => {
-        close?.(...args);
-        onConfirm?.(true);
-        onClose?.();
-      }}
-      autoFocus={autoFocusButton === 'ok'}
-      buttonProps={okButtonProps}
-      prefixCls={`${rootPrefixCls}-btn`}
-    >
-      {okTextLocale}
-    </ActionButton>
-  );
+    throw new Error("STUB");
 };
 
 export default ConfirmOkBtn;

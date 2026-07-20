@@ -1,14 +1,6 @@
 import React from 'react';
 import { Pagination } from 'antd';
 
-const App: React.FC = () => (
-  <>
-    <Pagination simple defaultCurrent={2} total={50} />
-    <br />
-    <Pagination simple={{ readOnly: true }} defaultCurrent={2} total={50} />
-    <br />
-    <Pagination disabled simple defaultCurrent={2} total={50} />
-  </>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

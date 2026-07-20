@@ -47,8 +47,6 @@ const onChange: CascaderProps<Option>['onChange'] = (value) => {
   console.log(value);
 };
 
-const App: React.FC = () => (
-  <Cascader defaultValue={['zhejiang', 'hangzhou', 'xihu']} options={options} onChange={onChange} />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

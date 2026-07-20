@@ -9,13 +9,6 @@ const IconFont = createFromIconfontCN({
   ],
 });
 
-const App: React.FC = () => (
-  <Space>
-    <IconFont type="icon-javascript" />
-    <IconFont type="icon-java" />
-    <IconFont type="icon-shoppingcart" />
-    <IconFont type="icon-python" />
-  </Space>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

@@ -221,37 +221,17 @@ const genBaseStyle: GenerateStyle<TagToken, CSSInterpolation> = (token) => {
 
 // ============================== Export ==============================
 export const prepareToken = (token: Parameters<GenStyleFn<'Tag'>>[0]) => {
-  const { lineWidth, fontSizeIcon, calc } = token;
-  const tagFontSize = token.fontSizeSM;
-  const tagToken = mergeToken<TagToken>(token, {
-    tagFontSize,
-    tagLineHeight: unit(calc(token.lineHeightSM).mul(tagFontSize).equal()),
-    tagIconSize: calc(fontSizeIcon).sub(calc(lineWidth).mul(2)).equal(), // Tag icon is much smaller
-    tagPaddingHorizontal: 8, // Fixed padding.
-    tagBorderlessBg: token.defaultBg,
-  });
-  return tagToken;
+    throw new Error("STUB");
 };
 
 export const prepareComponentToken: GetDefaultToken<'Tag'> = (token) => {
-  const solidTextColor = isBright(new AggregationColor(token.colorBgSolid), '#fff')
-    ? '#000'
-    : '#fff';
-
-  return {
-    defaultBg: new FastColor(token.colorFillTertiary)
-      .onBackground(token.colorBgContainer)
-      .toHexString(),
-    defaultColor: token.colorText,
-    solidTextColor,
-  };
+    throw new Error("STUB");
 };
 
 export default genStyleHooks<'Tag'>(
   'Tag',
   (token) => {
-    const tagToken = prepareToken(token);
-    return genBaseStyle(tagToken);
+      throw new Error("STUB");
   },
   prepareComponentToken,
 );

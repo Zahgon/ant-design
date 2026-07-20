@@ -72,31 +72,7 @@ export interface LocaleProviderProps {
 }
 
 const LocaleProvider: React.FC<LocaleProviderProps> = (props) => {
-  const { locale = {} as Locale, children, _ANT_MARK__ } = props;
-
-  if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning('LocaleProvider');
-
-    warning(
-      _ANT_MARK__ === ANT_MARK,
-      'deprecated',
-      '`LocaleProvider` is deprecated. Please use `locale` with `ConfigProvider` instead: http://u.ant.design/locale',
-    );
-  }
-
-  React.useEffect(() => {
-    const clearLocale = changeConfirmLocale(locale?.Modal);
-    return clearLocale;
-  }, [locale]);
-
-  const getMemoizedContextValue = React.useMemo<LocaleContextProps>(
-    () => ({ ...locale, exist: true }),
-    [locale],
-  );
-
-  return (
-    <LocaleContext.Provider value={getMemoizedContextValue}>{children}</LocaleContext.Provider>
-  );
+    throw new Error("STUB");
 };
 
 if (process.env.NODE_ENV !== 'production') {

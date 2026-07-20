@@ -6,7 +6,7 @@ import type { TabPaneProps, TabsProps } from '..';
 import { devUseWarning } from '../../_util/warning';
 
 function filter<T>(items: (T | null)[]): T[] {
-  return items.filter((item) => item) as T[];
+  return items.filter((item) => { throw new Error("STUB"); }) as T[];
 }
 
 function useLegacyItems(items?: TabsProps['items'], children?: React.ReactNode) {
@@ -16,25 +16,11 @@ function useLegacyItems(items?: TabsProps['items'], children?: React.ReactNode) 
   }
 
   if (items) {
-    return items.map<Tab>((item) => ({
-      ...item,
-      destroyOnHidden: item.destroyOnHidden ?? item.destroyInactiveTabPane,
-    }));
+    return items.map<Tab>((item) => { throw new Error("STUB"); });
   }
 
   const childrenItems = toArray(children).map((node: React.ReactElement) => {
-    if (React.isValidElement<TabPaneProps>(node)) {
-      const { key, props } = node;
-      const { tab, ...restProps } = props || {};
-      const item: Tab = {
-        key: String(key),
-        ...restProps,
-        label: tab,
-      };
-      return item;
-    }
-
-    return null;
+      throw new Error("STUB");
   });
 
   return filter(childrenItems);

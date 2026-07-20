@@ -6,16 +6,6 @@ const onChange: InputNumberProps['onChange'] = (value) => {
   console.log('changed', value);
 };
 
-const App: React.FC = () => (
-  <InputNumber<string>
-    style={{ width: 200 }}
-    defaultValue="1"
-    min="0"
-    max="10"
-    step="0.00000000000001"
-    onChange={onChange}
-    stringMode
-  />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

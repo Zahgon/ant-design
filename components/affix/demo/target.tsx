@@ -16,16 +16,7 @@ const style: React.CSSProperties = {
 };
 
 const App: React.FC = () => {
-  const [container, setContainer] = React.useState<HTMLDivElement | null>(null);
-  return (
-    <div style={containerStyle} ref={setContainer}>
-      <div style={style}>
-        <Affix target={() => container}>
-          <Button type="primary">Fixed at the top of container</Button>
-        </Affix>
-      </div>
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

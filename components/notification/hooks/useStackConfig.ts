@@ -10,16 +10,7 @@ const useStackConfig = (
   defaultStackConfig: StackConfigInput,
 ): false | StackConfig =>
   React.useMemo(() => {
-    const mergedStackConfig = stackConfig ?? defaultStackConfig;
-
-    if (!mergedStackConfig) {
-      return false;
-    }
-
-    return {
-      ...(isPlainObject(defaultStackConfig) ? defaultStackConfig : {}),
-      ...(isPlainObject(mergedStackConfig) ? mergedStackConfig : {}),
-    };
+      throw new Error("STUB");
   }, [stackConfig, defaultStackConfig]);
 
 export default useStackConfig;

@@ -18,7 +18,7 @@ const columns: TableColumnsType<DataType> = [
     title: 'Action',
     dataIndex: '',
     key: 'x',
-    render: () => <a>Delete</a>,
+    render: () => { throw new Error("STUB"); },
   },
 ];
 
@@ -53,15 +53,6 @@ const data: DataType[] = [
   },
 ];
 
-const App: React.FC = () => (
-  <Table<DataType>
-    columns={columns}
-    expandable={{
-      expandedRowRender: (record) => <p style={{ margin: 0 }}>{record.description}</p>,
-      rowExpandable: (record) => record.name !== 'Not Expandable',
-    }}
-    dataSource={data}
-  />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

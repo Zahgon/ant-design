@@ -7,18 +7,9 @@ const onChange: InputNumberProps['onChange'] = (value) => {
 };
 
 const onStep: InputNumberProps['onStep'] = (value, info) => {
-  console.log('onStep', value, info);
+    throw new Error("STUB");
 };
 
-const App: React.FC = () => (
-  <InputNumber
-    min={1}
-    max={10}
-    defaultValue={3}
-    onChange={onChange}
-    onStep={onStep}
-    changeOnWheel
-  />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

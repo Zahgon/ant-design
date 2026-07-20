@@ -72,43 +72,7 @@ const items: MenuItem[] = [
 ];
 
 const App: React.FC = () => {
-  const [mode, setMode] = useState<'vertical' | 'inline'>('inline');
-
-  const changeMode = (value: boolean) => {
-    setMode(value ? 'vertical' : 'inline');
-  };
-
-  return (
-    <>
-      <Switch onChange={changeMode} /> Change Mode
-      <br />
-      <br />
-      <ConfigProvider
-        theme={{
-          components: {
-            Menu: {
-              itemBorderRadius: 0,
-              subMenuItemBorderRadius: 0,
-              itemHoverColor: '#1890ff',
-              itemSelectedColor: '#1890ff',
-              itemSelectedBg: '#e6f7ff',
-              activeBarWidth: 3,
-              itemMarginInline: 0,
-              itemHoverBg: 'transparent',
-            },
-          },
-        }}
-      >
-        <Menu
-          style={{ width: 256 }}
-          defaultSelectedKeys={['1']}
-          defaultOpenKeys={['sub1']}
-          mode={mode}
-          items={items}
-        />
-      </ConfigProvider>
-    </>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

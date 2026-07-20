@@ -20,11 +20,7 @@ function traverseNodesKey(
   const { key: fieldKey, children: fieldChildren } = fieldNames;
 
   function processNode(dataNode: DataNode & FieldNames[keyof FieldNames]) {
-    const key = dataNode[fieldKey];
-    const children = dataNode[fieldChildren];
-    if (callback(key, dataNode) !== false) {
-      traverseNodesKey(children || [], callback, fieldNames);
-    }
+      throw new Error("STUB");
   }
 
   treeData.forEach(processNode as any);
@@ -61,25 +57,7 @@ export function calcRangeKeys({
   traverseNodesKey(
     treeData,
     (key) => {
-      if (record === RECORD_END) {
-        return false;
-      }
-
-      if (matchKey(key as any)) {
-        // Match test
-        keys.push(key as any);
-
-        if (record === RECORD_NONE) {
-          record = RECORD_START;
-        } else if (record === RECORD_START) {
-          record = RECORD_END;
-          return false;
-        }
-      } else if (record === RECORD_START) {
-        // Append selection
-        keys.push(key as any);
-      }
-      return expandedKeys.includes(key as any);
+        throw new Error("STUB");
     },
     fillFieldNames(fieldNames),
   );
@@ -97,13 +75,7 @@ export function convertDirectoryKeysToNodes(
   traverseNodesKey(
     treeData,
     (key, node) => {
-      const index = restKeys.indexOf(key as any);
-      if (index !== -1) {
-        nodes.push(node);
-        restKeys.splice(index, 1);
-      }
-
-      return !!restKeys.length;
+        throw new Error("STUB");
     },
     fillFieldNames(fieldNames),
   );

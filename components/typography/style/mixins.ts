@@ -37,19 +37,7 @@ export const getTitleStyles: GenerateStyle<TypographyToken, CSSObject> = (token)
 
   const styles: CSSObject = {};
   headings.forEach((headingLevel) => {
-    styles[
-      `
-      h${headingLevel}&,
-      div&-h${headingLevel},
-      div&-h${headingLevel} > textarea,
-      h${headingLevel}
-    `
-    ] = getTitleStyle(
-      token[`fontSizeHeading${headingLevel}`],
-      token[`lineHeightHeading${headingLevel}`],
-      token.colorTextHeading,
-      token,
-    );
+      throw new Error("STUB");
   });
   return styles;
 };

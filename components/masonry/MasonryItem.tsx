@@ -23,27 +23,7 @@ interface MasonryItemProps<T = any> extends Pick<MasonryProps, 'itemRender'> {
 }
 
 const MasonryItem = React.forwardRef<HTMLDivElement, MasonryItemProps>((props, ref) => {
-  const { item, style, prefixCls, itemRender, className, index, column, onResize } = props;
-
-  const itemPrefix = `${prefixCls}-item`;
-
-  // ====================== Render ======================
-  const renderNode = useMemo(() => {
-    return item.children ?? itemRender?.({ ...item, index, column });
-  }, [item, itemRender, column, index]);
-
-  let returnNode = (
-    <div ref={ref} style={style} className={clsx(itemPrefix, className)}>
-      {renderNode}
-    </div>
-  );
-
-  // Listen for resize
-  if (onResize) {
-    returnNode = <ResizeObserver onResize={onResize}>{returnNode}</ResizeObserver>;
-  }
-
-  return returnNode;
+    throw new Error("STUB");
 });
 
 if (process.env.NODE_ENV !== 'production') {

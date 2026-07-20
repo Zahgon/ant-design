@@ -5,20 +5,7 @@ import type { ConfigProviderProps, GetProp } from 'antd';
 type AliasToken = GetProp<ConfigProviderProps, 'theme'>['token'];
 
 const App: React.FC = () => {
-  const [radius, setRadius] = useState<number>(0);
-
-  const token: Partial<AliasToken> = {
-    borderRadius: radius,
-  };
-
-  return (
-    <>
-      <Slider min={0} max={20} style={{ margin: 16 }} onChange={setRadius} />
-      <ConfigProvider theme={{ token }}>
-        <FloatButton shape="square" badge={{ dot: true }} />
-      </ConfigProvider>
-    </>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

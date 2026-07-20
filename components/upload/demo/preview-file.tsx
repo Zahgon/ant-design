@@ -13,15 +13,11 @@ const props: UploadProps = {
       method: 'POST',
       body: file,
     })
-      .then((res) => res.json())
-      .then(({ thumbnail }) => thumbnail);
+      .then((res) => { throw new Error("STUB"); })
+      .then(({ thumbnail }) => { throw new Error("STUB"); });
   },
 };
 
-const App: React.FC = () => (
-  <Upload {...props}>
-    <Button icon={<UploadOutlined />}>Upload</Button>
-  </Upload>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

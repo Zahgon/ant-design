@@ -82,47 +82,7 @@ const presets: Array<{
 const defaultPresetKey = presets[0].key;
 
 const App: React.FC = () => {
-  const [currentPresetKey, setCurrentPresetKey] = React.useState(defaultPresetKey);
-  const currentPreset = presets.find((preset) => preset.key === currentPresetKey) ?? presets[0];
-
-  return (
-    <Flex vertical gap={16} style={{ maxWidth: 480 }}>
-      <Segmented
-        block
-        options={presets.map((preset) => ({
-          label: preset.name,
-          value: preset.key,
-        }))}
-        value={currentPresetKey}
-        onChange={(value) => setCurrentPresetKey(value as string)}
-      />
-      <BorderBeam color={currentPreset.color}>
-        <Card
-          title={currentPreset.name}
-          extra={<Tag variant="filled">{currentPreset.usage}</Tag>}
-          styles={{
-            body: {
-              display: 'flex',
-              flexDirection: 'column',
-              gap: 16,
-            },
-          }}
-        >
-          <Typography.Text type="secondary">{currentPreset.description}</Typography.Text>
-          <Flex gap={8} wrap>
-            {currentPreset.color.map((item) => (
-              <Tag key={`${item.color}-${item.percent}`} color={item.color} variant="filled">
-                {item.color} · {item.percent}%
-              </Tag>
-            ))}
-          </Flex>
-          <Typography.Text type="secondary">
-            Stop positions use the public 0-100 input range.
-          </Typography.Text>
-        </Card>
-      </BorderBeam>
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

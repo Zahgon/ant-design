@@ -13,54 +13,7 @@ interface ColorHsbInputProps {
 }
 
 const ColorHsbInput: FC<ColorHsbInputProps> = ({ prefixCls, value, onChange }) => {
-  const colorHsbInputPrefixCls = `${prefixCls}-hsb-input`;
-  const [internalValue, setInternalValue] = useState<AggregationColor>(() =>
-    generateColor(value || '#000'),
-  );
-
-  const hsbValue = value || internalValue;
-
-  const handleHsbChange = (step: number, type: keyof HSB) => {
-    const hsb = hsbValue.toHsb();
-    hsb[type] = type === 'h' ? step : (step || 0) / 100;
-    const genColor = generateColor(hsb);
-
-    setInternalValue(genColor);
-
-    onChange?.(genColor);
-  };
-
-  return (
-    <div className={colorHsbInputPrefixCls}>
-      <ColorSteppers
-        max={360}
-        min={0}
-        value={Number(hsbValue.toHsb().h)}
-        prefixCls={prefixCls}
-        className={colorHsbInputPrefixCls}
-        formatter={(step) => getRoundNumber(step || 0).toString()}
-        onChange={(step) => handleHsbChange(Number(step), 'h')}
-      />
-      <ColorSteppers
-        max={100}
-        min={0}
-        value={Number(hsbValue.toHsb().s) * 100}
-        prefixCls={prefixCls}
-        className={colorHsbInputPrefixCls}
-        formatter={(step) => `${getRoundNumber(step || 0)}%`}
-        onChange={(step) => handleHsbChange(Number(step), 's')}
-      />
-      <ColorSteppers
-        max={100}
-        min={0}
-        value={Number(hsbValue.toHsb().b) * 100}
-        prefixCls={prefixCls}
-        className={colorHsbInputPrefixCls}
-        formatter={(step) => `${getRoundNumber(step || 0)}%`}
-        onChange={(step) => handleHsbChange(Number(step), 'b')}
-      />
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 export default ColorHsbInput;

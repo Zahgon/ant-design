@@ -39,18 +39,6 @@ export const useMergedMask = (
   maskClosable: boolean,
 ] => {
   return useMemo(() => {
-    const maskConfig = normalizeMaskConfig(mask, maskClosable);
-    const contextMaskConfig = normalizeMaskConfig(contextMask);
-
-    const mergedConfig: MaskConfig = {
-      blur: false,
-      ...contextMaskConfig,
-      ...maskConfig,
-      closable: maskConfig.closable ?? maskClosable ?? contextMaskConfig.closable ?? true,
-    };
-
-    const className = mergedConfig.blur ? `${prefixCls}-mask-blur` : undefined;
-
-    return [mergedConfig.enabled !== false, { mask: className }, !!mergedConfig.closable];
+      throw new Error("STUB");
   }, [mask, contextMask, prefixCls, maskClosable]);
 };

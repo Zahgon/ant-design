@@ -113,46 +113,11 @@ const data: DataType[] = [
 ];
 
 const Block: React.FC<TableProps<DataType>> = (props) => {
-  return (
-    <Table<DataType>
-      bordered
-      style={{ width: '100%' }}
-      columns={columns}
-      dataSource={data}
-      size="medium"
-      pagination={{ pageSize: 3 }}
-      title={() => <>table title</>}
-      footer={() => <>table footer</>}
-      {...props}
-    />
-  );
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-
-  return (
-    <SemanticPreview
-      componentName="Table"
-      semantics={[
-        { name: 'root', desc: locale.root },
-        { name: 'title', desc: locale.title },
-        { name: 'content', desc: locale.content },
-        { name: 'header.wrapper', desc: locale['header.wrapper'] },
-        { name: 'header.row', desc: locale['header.row'] },
-        { name: 'header.cell', desc: locale['header.cell'] },
-        { name: 'section', desc: locale.section },
-        { name: 'body.wrapper', desc: locale['body.wrapper'] },
-        { name: 'body.row', desc: locale['body.row'] },
-        { name: 'body.cell', desc: locale['body.cell'] },
-        { name: 'footer', desc: locale.footer },
-        { name: 'pagination.root', desc: locale['pagination.root'] },
-        { name: 'pagination.item', desc: locale['pagination.item'] },
-      ]}
-    >
-      <Block />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

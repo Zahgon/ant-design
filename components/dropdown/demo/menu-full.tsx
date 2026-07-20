@@ -48,21 +48,6 @@ const items: MenuItem[] = [
   null as any,
 ];
 
-const App: React.FC = () => (
-  <Dropdown
-    menu={{
-      items,
-      selectedKeys: ['1'],
-      openKeys: ['sub1'],
-    }}
-  >
-    <a onClick={(e) => e.preventDefault()}>
-      <Space>
-        Hover to check menu style
-        <DownOutlined />
-      </Space>
-    </a>
-  </Dropdown>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

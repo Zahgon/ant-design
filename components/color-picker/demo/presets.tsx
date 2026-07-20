@@ -6,13 +6,11 @@ import type { ColorPickerProps } from 'antd';
 type Presets = Required<ColorPickerProps>['presets'][number];
 
 function genPresets(presets = presetPalettes) {
-  return Object.entries(presets).map<Presets>(([label, colors]) => ({ label, colors, key: label }));
+  return Object.entries(presets).map<Presets>(([label, colors]) => { throw new Error("STUB"); });
 }
 
 const Demo: React.FC = () => {
-  const { token } = theme.useToken();
-  const presets = genPresets({ primary: generate(token.colorPrimary), red, green });
-  return <ColorPicker presets={presets} defaultValue="#1677ff" />;
+    throw new Error("STUB");
 };
 
 export default Demo;

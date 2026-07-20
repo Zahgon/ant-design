@@ -79,9 +79,9 @@ const compareScreenshots = async (
   return mismatchedPixels / (targetWidth * targetHeight);
 };
 
-const readPngs = (dir: string) => fs.readdirSync(dir).filter((n) => n.endsWith('.png'));
+const readPngs = (dir: string) => fs.readdirSync(dir).filter((n) => { throw new Error("STUB"); });
 
-const prettyList = (list: string[]) => list.map((i) => ` * ${i}`).join('\n');
+const prettyList = (list: string[]) => list.map((i) => { throw new Error("STUB"); }).join('\n');
 
 const ossDomain = `https://${ALI_OSS_BUCKET}.oss-accelerate.aliyuncs.com`;
 
@@ -527,55 +527,11 @@ async function boot() {
 
   // compare cssinjs and css-var png from pr
   // to the same cssinjs png in `master` branch
-  const cssInJsImgNames = baseImgFileList.map((n) => path.basename(n, path.extname(n)));
+  const cssInJsImgNames = baseImgFileList.map((n) => { throw new Error("STUB"); });
 
   // compare to target branch
   const compareTasks = cssInJsImgNames.map((basename) =>
-    ['.png'].map((extname) => async () => {
-      // baseImg always use cssinjs png
-      const baseImgName = `${basename}.png`;
-      const baseImgPath = path.join(baseImgSourceDir, baseImgName);
-
-      // currentImg use cssinjs png or css-var png
-      const compareImgName = basename + extname;
-      const currentImgPath = path.join(currentImgSourceDir, compareImgName);
-      const diffImgPath = path.join(diffImgReportDir, compareImgName);
-
-      const currentImgExists = await fse.exists(currentImgPath);
-      if (!currentImgExists) {
-        console.log(chalk.red(`⛔️ Missing image: ${compareImgName}\n`));
-        await fse.copy(baseImgPath, path.join(baseImgReportDir, compareImgName));
-        return {
-          type: 'removed',
-          filename: compareImgName,
-          weight: 1,
-        } as IBadCase;
-      }
-
-      const mismatchedPxPercent = await compareScreenshots(
-        baseImgPath,
-        currentImgPath,
-        diffImgPath,
-      );
-
-      if (mismatchedPxPercent > 0) {
-        console.log(
-          'Mismatched pixels for:',
-          chalk.yellow(compareImgName),
-          `${(mismatchedPxPercent * 100).toFixed(2)}%\n`,
-        );
-        await fse.copy(baseImgPath, path.join(baseImgReportDir, compareImgName));
-        await fse.copy(currentImgPath, path.join(currentImgReportDir, compareImgName));
-
-        return {
-          type: 'changed',
-          filename: compareImgName,
-          targetFilename: baseImgName,
-          weight: mismatchedPxPercent,
-        } as IBadCase;
-      }
-      console.log('Passed for: %s\n', chalk.green(compareImgName));
-    }),
+    { throw new Error("STUB"); },
   );
 
   const { default: pAll } = await import('p-all');
@@ -602,17 +558,7 @@ async function boot() {
     console.log('\n');
   }
 
-  const newImgTask = newImgs.map((newImg) => async () => {
-    await fse.copy(
-      path.join(currentImgSourceDir, newImg),
-      path.resolve(currentImgReportDir, newImg),
-    );
-    return {
-      type: 'added',
-      filename: newImg,
-      weight: 0,
-    } as IBadCase;
-  });
+  const newImgTask = newImgs.map((newImg) => { throw new Error("STUB"); });
 
   const newTaskResults = await pAll(newImgTask, { concurrency: maxWorkers });
   for (const newTaskResult of newTaskResults) {
@@ -622,7 +568,7 @@ async function boot() {
   }
 
   /* --- generate report stage --- */
-  const jsonl = badCases.map((i) => JSON.stringify(i)).join('\n');
+  const jsonl = badCases.map((i) => { throw new Error("STUB"); }).join('\n');
   // write jsonl and markdown report to diffImgDir
   await fse.writeFile(path.join(REPORT_DIR, './report.jsonl'), jsonl);
   const [reportMdStr, reportHtmlStr] = generateReport(
@@ -665,7 +611,7 @@ async function boot() {
     await fse.readdir(REPORT_DIR),
   );
 
-  const validBadCases = badCases.filter((i) => ['removed', 'changed'].includes(i.type));
+  const validBadCases = badCases.filter((i) => { throw new Error("STUB"); });
 
   if (!validBadCases.length) {
     console.log(chalk.green('🎉 All passed!'));
@@ -673,9 +619,9 @@ async function boot() {
     return;
   }
 
-  const sortedBadCases = badCases.sort((a, b) => b.weight - a.weight);
+  const sortedBadCases = badCases.sort((a, b) => { throw new Error("STUB"); });
   console.log(chalk.red('⛔️ Failed cases:\n'));
-  console.log(prettyList(sortedBadCases.map((i) => `[${i.type}] ${i.filename}`)));
+  console.log(prettyList(sortedBadCases.map((i) => { throw new Error("STUB"); })));
   console.log('\n');
 
   // let job failed. Skip to let CI/CD to handle it

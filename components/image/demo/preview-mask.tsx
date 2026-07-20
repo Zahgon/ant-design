@@ -4,33 +4,11 @@ import { Image, Space } from 'antd';
 import { createStyles } from 'antd-style';
 
 const useStyles = createStyles((props) => {
-  const { css } = props;
-  return {
-    mask: css`
-      opacity: 1;
-      font-size: 20px;
-    `,
-  };
+    throw new Error("STUB");
 });
 
 const App: React.FC = () => {
-  const { styles } = useStyles();
-  return (
-    <Image
-      width={96}
-      alt="basic image"
-      src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-      classNames={{ popup: { mask: styles.mask } }}
-      preview={{
-        cover: (
-          <Space vertical align="center">
-            <ZoomInOutlined />
-            Preview
-          </Space>
-        ),
-      }}
-    />
-  );
+    throw new Error("STUB");
 };
 
 export default App;

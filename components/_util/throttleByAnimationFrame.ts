@@ -4,19 +4,15 @@ function throttleByAnimationFrame<T extends any[]>(fn: (...args: T) => void) {
   let requestId: number | null = null;
 
   const later = (args: T) => () => {
-    requestId = null;
-    fn(...args);
+      throw new Error("STUB");
   };
 
   const throttled = (...args: T) => {
-    if (requestId === null) {
-      requestId = raf(later(args));
-    }
+      throw new Error("STUB");
   };
 
   throttled.cancel = () => {
-    raf.cancel(requestId!);
-    requestId = null;
+      throw new Error("STUB");
   };
 
   return throttled;

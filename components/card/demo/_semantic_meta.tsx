@@ -24,37 +24,11 @@ const locales = {
 };
 
 const BlockCard: React.FC<React.PropsWithChildren> = (props) => {
-  const divRef = React.useRef<HTMLDivElement>(null);
-  return (
-    <div ref={divRef} style={{ position: 'absolute' }}>
-      <Card style={{ width: 300 }}>
-        <Meta
-          {...props}
-          avatar={<Avatar src="https://api.dicebear.com/10.x/lorelei/svg?seed=8" />}
-          title="Card Meta title"
-          description="This is the description"
-        />
-      </Card>
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Card.Meta"
-      semantics={[
-        { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'section', desc: locale.section, version: '6.0.0' },
-        { name: 'avatar', desc: locale.avatar, version: '6.0.0' },
-        { name: 'title', desc: locale.title, version: '6.0.0' },
-        { name: 'description', desc: locale.description, version: '6.0.0' },
-      ]}
-    >
-      <BlockCard />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

@@ -14,14 +14,6 @@ const options = [
   },
 ];
 
-const App: React.FC = () => (
-  <ConfigProvider
-    theme={{
-      components: { Mentions: { dropdownHeight: 500, controlItemWidth: 300, zIndexPopup: 1000 } },
-    }}
-  >
-    <InternalMentions style={{ width: '100%' }} value="@" options={options} />
-  </ConfigProvider>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

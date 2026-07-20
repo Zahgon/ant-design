@@ -4,6 +4,6 @@ import { DatePicker } from 'antd';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: PureDatePicker } = DatePicker;
 
-const Demo: FC = () => <PureDatePicker picker="year" />;
+const Demo: FC = () => { throw new Error("STUB"); };
 
 export default Demo;

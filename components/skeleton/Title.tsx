@@ -9,9 +9,6 @@ export interface SkeletonTitleProps {
   width?: number | string;
 }
 
-const Title: React.FC<SkeletonTitleProps> = ({ prefixCls, className, width, style }) => (
-  // biome-ignore lint/a11y/useHeadingContent: HOC here
-  <h3 className={clsx(prefixCls, className)} style={{ width, ...style }} />
-);
+const Title: React.FC<SkeletonTitleProps> = ({ prefixCls, className, width, style }) => { throw new Error("STUB"); };
 
 export default Title;

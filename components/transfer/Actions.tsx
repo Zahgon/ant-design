@@ -52,53 +52,11 @@ const Action: React.FC<ActionProps> = ({
   direction,
   disabled,
 }) => {
-  const isRight = type === 'right';
-  const button = isRight ? actions[0] : actions[1];
-  const moveHandler = isRight ? moveToRight : moveToLeft;
-  const active = isRight ? rightActive : leftActive;
-  const icon = getArrowIcon(type, direction);
-
-  if (React.isValidElement(button)) {
-    const element = button as ButtonElementType;
-    const mergedDisabled = element.props.disabled || disabled || !active;
-    const onClick: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement> = (event) => {
-      if (mergedDisabled) {
-        event.preventDefault();
-        return;
-      }
-      element?.props?.onClick?.(event);
-      moveHandler?.(event);
-    };
-    return React.cloneElement(element, {
-      disabled: mergedDisabled,
-      onClick,
-    });
-  }
-  return (
-    <Button
-      type="primary"
-      size="small"
-      disabled={disabled || !active}
-      onClick={(event: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) =>
-        moveHandler?.(event)
-      }
-      icon={icon}
-    >
-      {button}
-    </Button>
-  );
+    throw new Error("STUB");
 };
 
 const Actions: React.FC<TransferOperationProps> = (props) => {
-  const { className, style, oneWay, actions, ...restProps } = props;
-
-  return (
-    <div className={className} style={style}>
-      <Action type="right" actions={actions} {...restProps} />
-      {!oneWay && <Action type="left" actions={actions} {...restProps} />}
-      {actions.slice(oneWay ? 1 : 2)}
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 if (process.env.NODE_ENV !== 'production') {

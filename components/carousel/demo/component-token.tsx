@@ -11,31 +11,4 @@ const contentStyle: React.CSSProperties = {
   background: '#364d79',
 };
 
-export default () => (
-  <ConfigProvider
-    theme={{
-      components: {
-        Carousel: {
-          dotWidth: 50,
-          dotHeight: 50,
-          dotActiveWidth: 80,
-        },
-      },
-    }}
-  >
-    <Carousel>
-      <div>
-        <h3 style={contentStyle}>1</h3>
-      </div>
-      <div>
-        <h3 style={contentStyle}>2</h3>
-      </div>
-      <div>
-        <h3 style={contentStyle}>3</h3>
-      </div>
-      <div>
-        <h3 style={contentStyle}>4</h3>
-      </div>
-    </Carousel>
-  </ConfigProvider>
-);
+export default () => { throw new Error("STUB"); };

@@ -31,47 +31,20 @@ const expandedColumns: TableProps<ExpandedDataType>['columns'] = [
   {
     title: 'Status',
     key: 'state',
-    render: () => (
-      <span>
-        <Badge status="success" />
-        Finished
-      </span>
-    ),
+    render: () => { throw new Error("STUB"); },
   },
   { title: 'Upgrade Status', dataIndex: 'upgradeNum', key: 'upgradeNum' },
   {
     title: 'Action',
     dataIndex: 'operation',
     key: 'operation',
-    render: () => (
-      <Space size="medium">
-        <a>Pause</a>
-        <a>Stop</a>
-        <Dropdown menu={{ items }}>
-          <a>
-            More <DownOutlined />
-          </a>
-        </Dropdown>
-      </Space>
-    ),
+    render: () => { throw new Error("STUB"); },
   },
 ];
 
-const expandedDataSource = Array.from({ length: 3 }).map<ExpandedDataType>((_, i) => ({
-  key: i,
-  date: '2014-12-24 23:12:00',
-  name: 'This is production name',
-  upgradeNum: 'Upgraded: 56',
-}));
+const expandedDataSource = Array.from({ length: 3 }).map<ExpandedDataType>((_, i) => { throw new Error("STUB"); });
 
-const createExpandedRowRender = (bordered: boolean) => () => (
-  <Table<ExpandedDataType>
-    columns={expandedColumns}
-    dataSource={expandedDataSource}
-    pagination={false}
-    bordered={bordered}
-  />
-);
+const createExpandedRowRender = (bordered: boolean) => () => { throw new Error("STUB"); };
 
 const columns: TableColumnsType<DataType> = [
   { title: 'Name', dataIndex: 'name', key: 'name' },
@@ -80,42 +53,13 @@ const columns: TableColumnsType<DataType> = [
   { title: 'Upgraded', dataIndex: 'upgradeNum', key: 'upgradeNum' },
   { title: 'Creator', dataIndex: 'creator', key: 'creator' },
   { title: 'Date', dataIndex: 'createdAt', key: 'createdAt' },
-  { title: 'Action', key: 'operation', render: () => <a>Publish</a> },
+  { title: 'Action', key: 'operation', render: () => { throw new Error("STUB"); } },
 ];
 
-const dataSource = Array.from({ length: 3 }).map<DataType>((_, i) => ({
-  key: i,
-  name: 'Screem',
-  platform: 'iOS',
-  version: '10.3.4.5654',
-  upgradeNum: 500,
-  creator: 'Jack',
-  createdAt: '2014-12-24 23:12:00',
-}));
+const dataSource = Array.from({ length: 3 }).map<DataType>((_, i) => { throw new Error("STUB"); });
 
 const App: React.FC = () => {
-  const [rootTableBordered, setRootTableBordered] = useState(true);
-  const [childTableBordered, setChildTableBordered] = useState(true);
-  return (
-    <>
-      <Form layout="inline" className="table-demo-control-bar" style={{ marginBottom: 16 }}>
-        <Form.Item label="Root Table Bordered">
-          <Switch checked={rootTableBordered} onChange={(v) => setRootTableBordered(v)} />
-        </Form.Item>
-        <Form.Item label="Child Table Bordered">
-          <Switch checked={childTableBordered} onChange={(v) => setChildTableBordered(v)} />
-        </Form.Item>
-      </Form>
-      <Table<DataType>
-        title={() => 'cool'}
-        footer={() => 'cool'}
-        columns={columns}
-        expandable={{ expandedRowRender: createExpandedRowRender(childTableBordered) }}
-        dataSource={dataSource}
-        bordered={rootTableBordered}
-      />
-    </>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

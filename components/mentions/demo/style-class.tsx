@@ -3,13 +3,7 @@ import { Flex, Mentions } from 'antd';
 import type { GetProp, MentionsProps } from 'antd';
 import { createStyles } from 'antd-style';
 
-const useStyles = createStyles(({ token }) => ({
-  root: {
-    border: `${token.lineWidth}px ${token.lineType} ${token.colorPrimary}`,
-    borderRadius: token.borderRadiusLG,
-    width: 300,
-  },
-}));
+const useStyles = createStyles(({ token }) => { throw new Error("STUB"); });
 
 const options: MentionsProps['options'] = [
   { value: 'afc163', label: 'afc163' },
@@ -29,32 +23,11 @@ const stylesObject: MentionsProps['styles'] = {
 const stylesFunction: MentionsProps['styles'] = (
   info,
 ): GetProp<MentionsProps, 'styles', 'Return'> => {
-  if (info.props.variant === 'filled') {
-    return {
-      root: {
-        border: '1px solid #722ed1',
-      },
-      popup: {
-        border: '1px solid #722ed1',
-      },
-    };
-  }
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const { styles: classNames } = useStyles();
-
-  const sharedProps: MentionsProps = {
-    options,
-    classNames,
-  };
-
-  return (
-    <Flex vertical gap="medium">
-      <Mentions {...sharedProps} styles={stylesObject} placeholder="Object" rows={2} />
-      <Mentions {...sharedProps} styles={stylesFunction} variant="filled" placeholder="Function" />
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

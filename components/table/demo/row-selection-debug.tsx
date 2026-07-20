@@ -5,9 +5,7 @@ import type { TableColumnsType, TableProps } from 'antd';
 type TableRowSelection<T extends object = object> = TableProps<T>['rowSelection'];
 
 const RenderTimes: React.FC = () => {
-  const timesRef = React.useRef(0);
-  timesRef.current += 1;
-  return <span>{timesRef.current}</span>;
+    throw new Error("STUB");
 };
 
 interface DataType {
@@ -17,7 +15,7 @@ interface DataType {
   address: string;
 }
 
-const shouldCellUpdate = (record: DataType, prevRecord: DataType) => record !== prevRecord;
+const shouldCellUpdate = (record: DataType, prevRecord: DataType) => { throw new Error("STUB"); };
 
 const columns: TableColumnsType<DataType> = [
   {
@@ -34,54 +32,16 @@ const columns: TableColumnsType<DataType> = [
     title: 'Address',
     dataIndex: 'address',
     shouldCellUpdate,
-    render: (addr) => (
-      <>
-        {addr}
-        <RenderTimes />
-      </>
-    ),
+    render: (addr) => { throw new Error("STUB"); },
   },
 ];
 
 function genData(length: number) {
-  return Array.from({ length }).map<DataType>((_, i) => ({
-    key: i,
-    name: `Edward King ${i}`,
-    age: 32,
-    address: `London, Park Lane no. ${i}`,
-  }));
+  return Array.from({ length }).map<DataType>((_, i) => { throw new Error("STUB"); });
 }
 
 const App: React.FC = () => {
-  const [data, setData] = useState<DataType[]>(() => genData(50));
-  const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
-
-  const onSelectChange = (newSelectedRowKeys: React.Key[]) => {
-    console.log('selectedRowKeys changed: ', newSelectedRowKeys);
-    setSelectedRowKeys(newSelectedRowKeys);
-  };
-
-  const rowSelection: TableRowSelection<DataType> = {
-    selectedRowKeys,
-    onChange: onSelectChange,
-  };
-
-  return (
-    <>
-      <InputNumber
-        value={data.length}
-        onChange={(cnt) => {
-          setData(genData(cnt || 0));
-        }}
-      />
-      <Table<DataType>
-        rowSelection={rowSelection}
-        columns={columns}
-        dataSource={data}
-        pagination={false}
-      />
-    </>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

@@ -11,15 +11,7 @@ const classNamesObject: SpaceProps['classNames'] = {
 const classNamesFn: SpaceProps['classNames'] = (
   info,
 ): GetProp<SpaceProps, 'classNames', 'Return'> => {
-  if (info.props.orientation === 'vertical') {
-    return {
-      root: 'demo-space-root--vertical',
-    };
-  } else {
-    return {
-      root: 'demo-space-root--horizontal',
-    };
-  }
+    throw new Error("STUB");
 };
 
 const stylesObject: SpaceProps['styles'] = {
@@ -29,39 +21,11 @@ const stylesObject: SpaceProps['styles'] = {
 };
 
 const stylesFn: SpaceProps['styles'] = (info): GetProp<SpaceProps, 'styles', 'Return'> => {
-  if (info.props.size === 'large') {
-    return {
-      root: {
-        backgroundColor: '#e6f7ff',
-        borderColor: '#1890ff',
-        padding: 8,
-      },
-    };
-  } else {
-    return {
-      root: {
-        backgroundColor: '#fff7e6',
-        borderColor: '#fa8c16',
-      },
-    };
-  }
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  return (
-    <div>
-      <Space styles={stylesObject} classNames={classNamesObject} separator="•">
-        <Button>Styled Button 1</Button>
-        <Button>Styled Button 2</Button>
-        <Button>Styled Button 3</Button>
-      </Space>
-      <Space size="large" styles={stylesFn} classNames={classNamesFn}>
-        <Button>Large Space Button 1</Button>
-        <Button>Large Space Button 2</Button>
-        <Button>Large Space Button 3</Button>
-      </Space>
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

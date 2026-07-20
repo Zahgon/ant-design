@@ -19,9 +19,7 @@ const Table = <RecordType extends AnyObject = AnyObject>(
   props: TableProps<RecordType>,
   ref: React.Ref<Reference>,
 ) => {
-  const renderTimesRef = React.useRef<number>(0);
-  renderTimesRef.current += 1;
-  return <InternalTable<RecordType> {...props} ref={ref} _renderTimes={renderTimesRef.current} />;
+    throw new Error("STUB");
 };
 
 const ForwardTable = React.forwardRef(Table) as unknown as RefTable & {

@@ -10,22 +10,7 @@ const items: TimelineProps['items'] = [
 ];
 
 const App: React.FC = () => {
-  return (
-    <Flex vertical gap="medium">
-      <Typography.Title level={5} style={{ margin: 0 }}>
-        titleSpan = 100px
-      </Typography.Title>
-      <Timeline items={items} titleSpan="100px" />
-      <Typography.Title level={5} style={{ margin: 0 }}>
-        titleSpan = 25%
-      </Typography.Title>
-      <Timeline items={items} titleSpan="25%" />
-      <Typography.Title level={5} style={{ margin: 0 }}>
-        titleSpan = 18, mode = end
-      </Typography.Title>
-      <Timeline items={items} titleSpan={18} mode="end" />
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

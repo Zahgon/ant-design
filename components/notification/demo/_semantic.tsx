@@ -47,53 +47,7 @@ const previewListStyle: React.CSSProperties = {
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Notification"
-      height={320}
-      semantics={[
-        { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'wrapper', desc: locale.wrapper, version: '6.4.0' },
-        { name: 'icon', desc: locale.icon, version: '6.0.0' },
-        { name: 'section', desc: locale.section, version: '6.4.0' },
-        { name: 'title', desc: locale.title, version: '6.0.0' },
-        { name: 'description', desc: locale.description, version: '6.0.0' },
-        { name: 'close', desc: locale.close, version: '6.4.0' },
-        { name: 'actions', desc: locale.actions, version: '6.0.0' },
-        { name: 'progress', desc: locale.progress, version: '6.4.0' },
-        { name: 'list', desc: locale.list, version: '6.4.0' },
-        { name: 'listContent', desc: locale.listContent, version: '6.4.0' },
-      ]}
-    >
-      <PureList
-        placement="topRight"
-        style={previewListStyle}
-        items={[
-          {
-            key: 'semantic-notification-1',
-            title: 'Hello World!',
-            description: 'Hello World?',
-            type: 'success',
-            duration: false,
-            actions: (
-              <Button type="primary" size="small">
-                My Button
-              </Button>
-            ),
-          },
-          {
-            key: 'semantic-notification-2',
-            title: 'Welcome back!',
-            description: 'This is another notification.',
-            type: 'info',
-            duration: 999999,
-            showProgress: true,
-          },
-        ]}
-      />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

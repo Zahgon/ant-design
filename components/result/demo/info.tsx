@@ -1,15 +1,6 @@
 import React from 'react';
 import { Button, Result } from 'antd';
 
-const App: React.FC = () => (
-  <Result
-    title="Your operation has been executed"
-    extra={
-      <Button type="primary" key="console">
-        Go Console
-      </Button>
-    }
-  />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

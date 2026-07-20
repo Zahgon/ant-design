@@ -26,8 +26,7 @@ const generateData = (_level: number, _preKey?: React.Key, _tns?: TreeDataNode[]
   }
   const level = _level - 1;
   children.forEach((key, index) => {
-    tns[index].children = [];
-    generateData(level, key, tns[index].children);
+      throw new Error("STUB");
   });
 };
 generateData(z);
@@ -52,7 +51,7 @@ const getParentKey = (key: React.Key, tree: TreeDataNode[]): React.Key => {
   for (let i = 0; i < tree.length; i++) {
     const node = tree[i];
     if (node.children) {
-      if (node.children.some((item) => item.key === key)) {
+      if (node.children.some((item) => { throw new Error("STUB"); })) {
         parentKey = node.key;
       } else if (getParentKey(key, node.children)) {
         parentKey = getParentKey(key, node.children);
@@ -63,71 +62,7 @@ const getParentKey = (key: React.Key, tree: TreeDataNode[]): React.Key => {
 };
 
 const App: React.FC = () => {
-  const [expandedKeys, setExpandedKeys] = useState<React.Key[]>([]);
-  const [searchValue, setSearchValue] = useState('');
-  const [autoExpandParent, setAutoExpandParent] = useState(true);
-
-  const onExpand = (newExpandedKeys: React.Key[]) => {
-    setExpandedKeys(newExpandedKeys);
-    setAutoExpandParent(false);
-  };
-
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
-    const newExpandedKeys = dataList
-      .map((item) => {
-        if (item.title.includes(value)) {
-          return getParentKey(item.key, defaultData);
-        }
-        return null;
-      })
-      .filter((item, i, self): item is React.Key => !!(item && self.indexOf(item) === i));
-    setExpandedKeys(newExpandedKeys);
-    setSearchValue(value);
-    setAutoExpandParent(true);
-  };
-
-  const treeData = useMemo(() => {
-    const loop = (data: TreeDataNode[]): TreeDataNode[] =>
-      data.map((item) => {
-        const strTitle = item.title as string;
-        const index = strTitle.indexOf(searchValue);
-        const beforeStr = strTitle.substring(0, index);
-        const afterStr = strTitle.slice(index + searchValue.length);
-        const title =
-          index > -1 ? (
-            <span key={item.key}>
-              {beforeStr}
-              <span style={{ color: '#f50' }}>{searchValue}</span>
-              {afterStr}
-            </span>
-          ) : (
-            <span key={item.key}>{strTitle}</span>
-          );
-        if (item.children) {
-          return { title, key: item.key, children: loop(item.children) };
-        }
-
-        return {
-          title,
-          key: item.key,
-        };
-      });
-
-    return loop(defaultData);
-  }, [searchValue]);
-
-  return (
-    <div>
-      <Search style={{ marginBottom: 8 }} placeholder="Search" onChange={onChange} />
-      <Tree
-        onExpand={onExpand}
-        expandedKeys={expandedKeys}
-        autoExpandParent={autoExpandParent}
-        treeData={treeData}
-      />
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

@@ -45,41 +45,13 @@ const sharedProps: StepsProps = {
   current: 1,
   style: { width: '100%' },
   titlePlacement: 'vertical',
-  items: Array.from({ length: 3 }, (_, index) => ({
-    title: `Step ${index + 1}`,
-    subTitle: `00:0${index}`,
-    content: 'This is a content.',
-  })),
+  items: Array.from({ length: 3 }, (_, index) => { throw new Error("STUB"); }),
 };
 
-const Block = (props: SemanticPreviewInjectionProps) => (
-  <Flex vertical gap="large" style={{ width: '100%' }}>
-    <Steps {...sharedProps} {...props} />
-    <Steps {...sharedProps} {...props} type="panel" size="small" titlePlacement="horizontal" />
-  </Flex>
-);
+const Block = (props: SemanticPreviewInjectionProps) => { throw new Error("STUB"); };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Steps"
-      semantics={[
-        { name: 'root', desc: locale.root },
-        { name: 'item', desc: locale.item },
-        { name: 'itemWrapper', desc: locale.itemWrapper },
-        { name: 'itemIcon', desc: locale.itemIcon },
-        { name: 'itemHeader', desc: locale.itemHeader },
-        { name: 'itemTitle', desc: locale.itemTitle },
-        { name: 'itemSubtitle', desc: locale.itemSubtitle },
-        { name: 'itemSection', desc: locale.itemSection },
-        { name: 'itemContent', desc: locale.itemContent },
-        { name: 'itemRail', desc: locale.itemRail },
-      ]}
-    >
-      <Block />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

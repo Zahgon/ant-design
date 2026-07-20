@@ -21,6 +21,6 @@ for (let i = 0; i < 100; i += 1) {
   });
 }
 
-const App: React.FC = () => <Tree defaultExpandAll height={400} treeData={treeData} />;
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

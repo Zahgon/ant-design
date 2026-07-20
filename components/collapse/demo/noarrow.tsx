@@ -23,11 +23,7 @@ const items: CollapseProps['items'] = [
 ];
 
 const App: React.FC = () => {
-  const onChange = (key: string | string[]) => {
-    console.log(key);
-  };
-
-  return <Collapse defaultActiveKey={['1']} onChange={onChange} items={items} />;
+    throw new Error("STUB");
 };
 
 export default App;

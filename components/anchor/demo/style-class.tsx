@@ -10,15 +10,7 @@ const classNamesObject: AnchorProps['classNames'] = {
 };
 
 const stylesFn: AnchorProps['styles'] = (info): GetProp<AnchorProps, 'styles', 'Return'> => {
-  if (info.props.direction === 'vertical') {
-    return {
-      root: {
-        backgroundColor: 'rgba(255,251,230,0.5)',
-        height: '100vh',
-      },
-    };
-  }
-  return {};
+    throw new Error("STUB");
 };
 
 const items: NonNullable<AnchorProps['items']> = [
@@ -40,18 +32,7 @@ const items: NonNullable<AnchorProps['items']> = [
 ];
 
 const App: React.FC = () => {
-  return (
-    <Row>
-      <Col span={16}>
-        <div id="part-1" style={{ height: '100vh', background: 'rgba(255,0,0,0.08)' }} />
-        <div id="part-2" style={{ height: '100vh', background: 'rgba(0,255,0,0.08)' }} />
-        <div id="part-3" style={{ height: '100vh', background: 'rgba(0,0,255,0.08)' }} />
-      </Col>
-      <Col span={8}>
-        <Anchor replace items={items} styles={stylesFn} classNames={classNamesObject} />
-      </Col>
-    </Row>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

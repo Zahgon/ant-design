@@ -47,18 +47,6 @@ const onChange: CascaderProps<Option>['onChange'] = (value) => {
   console.log(value);
 };
 
-const App: React.FC = () => (
-  <>
-    <Cascader size="large" options={options} onChange={onChange} />
-    <br />
-    <br />
-    <Cascader options={options} onChange={onChange} />
-    <br />
-    <br />
-    <Cascader size="small" options={options} onChange={onChange} />
-    <br />
-    <br />
-  </>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

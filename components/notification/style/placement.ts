@@ -212,10 +212,7 @@ const genNotificationPlacementRootStyle = (
 
   return {
     ...placements.reduce<CSSObject>(
-      (styles, placement) => ({
-        ...styles,
-        ...genPlacementStyle(token, getPlacementStyleConfig(placement, motionOffset)),
-      }),
+      (styles, placement) => { throw new Error("STUB"); },
       {},
     ),
   };

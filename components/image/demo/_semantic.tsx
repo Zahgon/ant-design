@@ -8,13 +8,7 @@ import { clsx } from 'clsx';
 import useLocale from '../../../.dumi/hooks/useLocale';
 import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 
-const styles = createStaticStyles(({ css }) => ({
-  cover: css`
-    &.semantic-mark-active {
-      opacity: 1;
-    }
-  `,
-}));
+const styles = createStaticStyles(({ css }) => { throw new Error("STUB"); });
 
 const locales = {
   cn: {
@@ -51,56 +45,11 @@ interface ImagePropsBlock extends Omit<ImageProps, 'classNames'> {
 }
 
 const Block: React.FC<Readonly<ImagePropsBlock>> = ({ classNames, ...restProps }) => {
-  const holderRef = React.useRef<HTMLDivElement>(null);
-
-  const { token } = theme.useToken();
-
-  return (
-    <Flex vertical align="center" style={{ minHeight: '100%', width: '100%' }}>
-      <Flex style={{ padding: token.padding, flex: 'none' }} justify="center">
-        <Image
-          width={200}
-          src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-          classNames={{ ...classNames, cover: clsx(classNames?.cover, styles.cover) }}
-          {...restProps}
-        />
-      </Flex>
-      <div style={{ flex: 1, position: 'relative', minHeight: 360, width: '100%' }} ref={holderRef}>
-        <Image.PreviewGroup
-          items={[
-            'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
-            'https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg',
-          ]}
-          classNames={classNames}
-          styles={{ popup: { root: { position: 'absolute' } } }}
-          preview={{ getContainer: () => holderRef.current!, open: true, focusTrap: false }}
-        />
-      </div>
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Image"
-      padding={false}
-      semantics={[
-        { name: 'root', desc: locale.root },
-        { name: 'image', desc: locale.image },
-        { name: 'cover', desc: locale.cover },
-        { name: 'popup.root', desc: locale['popup.root'] },
-        { name: 'popup.mask', desc: locale['popup.mask'] },
-        { name: 'popup.body', desc: locale['popup.body'] },
-        { name: 'popup.footer', desc: locale['popup.footer'] },
-        { name: 'popup.actions', desc: locale['popup.actions'] },
-        { name: 'popup.close', desc: locale['popup.close'], version: '6.4.0' },
-      ]}
-    >
-      <Block />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

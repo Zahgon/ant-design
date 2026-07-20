@@ -608,76 +608,7 @@ export const genPanelStyle: GenerateStyle<SharedPickerToken, CSSObject> = (token
 };
 
 const genPickerPanelStyle: GenerateStyle<PickerToken, CSSObject> = (token) => {
-  const {
-    componentCls,
-    textHeight,
-    lineWidth,
-    paddingSM,
-    antCls,
-    colorPrimary,
-    cellActiveWithRangeBg,
-    colorPrimaryBorder,
-    lineType,
-    colorSplit,
-  } = token;
-
-  return {
-    [`${componentCls}-dropdown`]: {
-      // ======================== Footer ========================
-      [`${componentCls}-footer`]: {
-        borderTop: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
-
-        '&-extra': {
-          padding: `0 ${unit(paddingSM)}`,
-          lineHeight: unit(token.calc(textHeight).sub(token.calc(lineWidth).mul(2)).equal()),
-          textAlign: 'start',
-
-          '&:not(:last-child)': {
-            borderBottom: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
-          },
-        },
-      },
-
-      // ==================== Footer > Ranges ===================
-      [`${componentCls}-panels + ${componentCls}-footer ${componentCls}-ranges`]: {
-        justifyContent: 'space-between',
-      },
-
-      [`${componentCls}-ranges`]: {
-        marginBlock: 0,
-        paddingInline: unit(paddingSM),
-        overflow: 'hidden',
-        textAlign: 'start',
-        listStyle: 'none',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-
-        '> li': {
-          lineHeight: unit(token.calc(textHeight).sub(token.calc(lineWidth).mul(2)).equal()),
-          display: 'inline-block',
-        },
-
-        [`${componentCls}-now-btn-disabled`]: {
-          pointerEvents: 'none',
-          color: token.colorTextDisabled,
-        },
-
-        // https://github.com/ant-design/ant-design/issues/23687
-        [`${componentCls}-preset > ${antCls}-tag-blue`]: {
-          color: colorPrimary,
-          background: cellActiveWithRangeBg,
-          borderColor: colorPrimaryBorder,
-          cursor: 'pointer',
-        },
-
-        [`${componentCls}-ok`]: {
-          paddingBlock: token.calc(lineWidth).mul(2).equal(),
-          marginInlineStart: 'auto',
-        },
-      },
-    },
-  };
+    throw new Error("STUB");
 };
 
 export default genPickerPanelStyle;

@@ -7,12 +7,6 @@ dayjs.extend(customParseFormat);
 
 const dateFormat = 'YYYY-MM-DD';
 
-const App: React.FC = () => (
-  <DatePicker
-    defaultValue={dayjs('2019-09-03', dateFormat)}
-    minDate={dayjs('2019-08-01', dateFormat)}
-    maxDate={dayjs('2020-10-31', dateFormat)}
-  />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

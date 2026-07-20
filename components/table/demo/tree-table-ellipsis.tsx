@@ -76,43 +76,7 @@ const data: DataType[] = [
 ];
 
 const App: React.FC = () => {
-  const [fixed, setFixed] = useState(true);
-
-  const columns: TableColumnsType<DataType> = [
-    {
-      title: 'Name',
-      dataIndex: 'name',
-      key: 'name',
-      width: '30%',
-      ellipsis: true,
-      fixed,
-    },
-    {
-      title: 'Age',
-      dataIndex: 'age',
-      key: 'age',
-      width: '12%',
-    },
-    {
-      title: 'Address',
-      dataIndex: 'address',
-      key: 'address',
-    },
-  ];
-
-  return (
-    <>
-      <Space align="center" style={{ marginBottom: 16 }}>
-        Fixed first column: <Switch checked={fixed} onChange={setFixed} />
-      </Space>
-      <Table<DataType>
-        columns={columns}
-        rowSelection={{ columnWidth: 100 }}
-        expandable={{ defaultExpandAllRows: true }}
-        dataSource={data}
-      />
-    </>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

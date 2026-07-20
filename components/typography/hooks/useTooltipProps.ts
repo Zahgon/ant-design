@@ -9,16 +9,7 @@ const useTooltipProps = (
   children: React.ReactNode,
 ) =>
   useMemo(() => {
-    if (tooltip === true) {
-      return { title: editConfigText ?? children };
-    }
-    if (isValidElement(tooltip)) {
-      return { title: tooltip };
-    }
-    if (isPlainObject<TooltipProps>(tooltip)) {
-      return { title: editConfigText ?? children, ...tooltip };
-    }
-    return { title: tooltip };
+      throw new Error("STUB");
   }, [tooltip, editConfigText, children]);
 
 export default useTooltipProps;

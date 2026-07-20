@@ -3,11 +3,7 @@ import { Button, Flex, Popover } from 'antd';
 import type { GetProp, PopoverProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
-const classNames = createStaticStyles(({ css }) => ({
-  container: css`
-    padding: 10px;
-  `,
-}));
+const classNames = createStaticStyles(({ css }) => { throw new Error("STUB"); });
 
 const styles: PopoverProps['styles'] = {
   container: {
@@ -20,31 +16,11 @@ const styles: PopoverProps['styles'] = {
 };
 
 const stylesFn: PopoverProps['styles'] = (info): GetProp<PopoverProps, 'styles', 'Return'> => {
-  if (!info.props.arrow) {
-    return {
-      container: {
-        backgroundColor: 'rgba(53, 71, 125, 0.8)',
-        padding: 12,
-        borderRadius: 4,
-      },
-      content: {
-        color: '#fff',
-      },
-    };
-  }
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  return (
-    <Flex gap="medium">
-      <Popover content="Object text" classNames={classNames} styles={styles} arrow={false}>
-        <Button>Object Style</Button>
-      </Popover>
-      <Popover content="Function text" classNames={classNames} styles={stylesFn} arrow={false}>
-        <Button type="primary">Function Style</Button>
-      </Popover>
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

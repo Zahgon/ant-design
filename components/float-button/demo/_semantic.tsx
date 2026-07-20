@@ -20,24 +20,7 @@ const locales = {
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="FloatButton"
-      semantics={[
-        { name: 'root', desc: locale.root },
-        { name: 'icon', desc: locale.icon },
-        { name: 'content', desc: locale.content },
-      ]}
-    >
-      <FloatButton._InternalPanelDoNotUseOrYouWillBeFired
-        type="primary"
-        shape="square"
-        icon={<QuestionCircleOutlined />}
-        content="HELP"
-      />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

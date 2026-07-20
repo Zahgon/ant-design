@@ -84,15 +84,5 @@ export default function useTreeSelectStyle(
   treePrefixCls: string,
   rootCls: string,
 ) {
-  return genStyleHooks(
-    'TreeSelect',
-    (token) => {
-      const treeSelectToken = mergeToken<TreeSelectToken>(token, { treePrefixCls });
-      return genBaseStyle(treeSelectToken);
-    },
-    initComponentToken,
-    {
-      resetFont: false,
-    },
-  )(prefixCls, rootCls);
+    throw new Error("STUB");
 }

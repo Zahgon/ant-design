@@ -26,17 +26,7 @@ export const useCompactItemContext = (prefixCls: string, direction: DirectionTyp
   const compactItemContext = React.useContext(SpaceCompactItemContext);
 
   const compactItemClassnames = React.useMemo<string>(() => {
-    if (!compactItemContext) {
-      return '';
-    }
-    const { compactDirection, isFirstItem, isLastItem } = compactItemContext;
-    const separator = compactDirection === 'vertical' ? '-vertical-' : '-';
-
-    return clsx(`${prefixCls}-compact${separator}item`, {
-      [`${prefixCls}-compact${separator}first-item`]: isFirstItem,
-      [`${prefixCls}-compact${separator}last-item`]: isLastItem,
-      [`${prefixCls}-compact${separator}item-rtl`]: direction === 'rtl',
-    });
+      throw new Error("STUB");
   }, [prefixCls, direction, compactItemContext]);
 
   return {
@@ -47,10 +37,7 @@ export const useCompactItemContext = (prefixCls: string, direction: DirectionTyp
 };
 
 export const NoCompactStyle: React.FC<Readonly<React.PropsWithChildren>> = (props) => {
-  const { children } = props;
-  return (
-    <SpaceCompactItemContext.Provider value={null}>{children}</SpaceCompactItemContext.Provider>
-  );
+    throw new Error("STUB");
 };
 
 export interface SpaceCompactProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -65,90 +52,11 @@ export interface SpaceCompactProps extends React.HTMLAttributes<HTMLDivElement> 
 }
 
 const CompactItem: React.FC<React.PropsWithChildren<SpaceCompactItemContextType>> = (props) => {
-  const { children, ...others } = props;
-  return (
-    <SpaceCompactItemContext.Provider
-      value={React.useMemo<SpaceCompactItemContextType>(() => others, [others])}
-    >
-      {children}
-    </SpaceCompactItemContext.Provider>
-  );
+    throw new Error("STUB");
 };
 
 const Compact: React.FC<SpaceCompactProps> = (props) => {
-  const { getPrefixCls, direction: directionConfig } = React.useContext(ConfigContext);
-
-  const {
-    size,
-    direction,
-    orientation,
-    block,
-    prefixCls: customizePrefixCls,
-    className,
-    rootClassName,
-    children,
-    vertical,
-    ...restProps
-  } = props;
-
-  // ======================== Warning ==========================
-  if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning('Space.Compact');
-    warning.deprecated(!direction, 'direction', 'orientation');
-  }
-
-  const [mergedOrientation, mergedVertical] = useOrientation(orientation, vertical, direction);
-  const mergedSize = useSize((ctx) => size ?? ctx);
-
-  const prefixCls = getPrefixCls('space-compact', customizePrefixCls);
-  const [hashId] = useStyle(prefixCls);
-  const clx = clsx(
-    prefixCls,
-    hashId,
-    {
-      [`${prefixCls}-rtl`]: directionConfig === 'rtl',
-      [`${prefixCls}-block`]: block,
-      [`${prefixCls}-vertical`]: mergedVertical,
-    },
-    className,
-    rootClassName,
-  );
-
-  const compactItemContext = React.useContext(SpaceCompactItemContext);
-
-  const childNodes = toArray(children);
-
-  const nodes = React.useMemo(
-    () =>
-      childNodes.map((child, i) => {
-        const key = child?.key || `${prefixCls}-item-${i}`;
-        return (
-          <CompactItem
-            key={key}
-            compactSize={mergedSize}
-            compactDirection={mergedOrientation}
-            isFirstItem={i === 0 && (!compactItemContext || compactItemContext?.isFirstItem)}
-            isLastItem={
-              i === childNodes.length - 1 && (!compactItemContext || compactItemContext?.isLastItem)
-            }
-          >
-            {child}
-          </CompactItem>
-        );
-      }),
-    [childNodes, compactItemContext, mergedOrientation, mergedSize, prefixCls],
-  );
-
-  // =========================== Render ===========================
-  if (childNodes.length === 0) {
-    return null;
-  }
-
-  return (
-    <div className={clx} {...restProps}>
-      {nodes}
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 export default Compact;

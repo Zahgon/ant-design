@@ -13,7 +13,7 @@ const columns: TableColumnsType<DataType> = [
   {
     title: 'Name',
     dataIndex: 'name',
-    render: (text: string) => <a>{text}</a>,
+    render: (text: string) => { throw new Error("STUB"); },
   },
   {
     title: 'Age',
@@ -55,31 +55,13 @@ const data: DataType[] = [
 // rowSelection object indicates the need for row selection
 const rowSelection: TableProps<DataType>['rowSelection'] = {
   onChange: (selectedRowKeys: React.Key[], selectedRows: DataType[]) => {
-    console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
-  },
-  getCheckboxProps: (record: DataType) => ({
-    disabled: record.name === 'Disabled User', // Column configuration not to be checked
-    name: record.name,
-  }),
+        throw new Error("STUB");
+    },
+  getCheckboxProps: (record: DataType) => { throw new Error("STUB"); },
 };
 
 const App: React.FC = () => {
-  const [selectionType, setSelectionType] = useState<'checkbox' | 'radio'>('checkbox');
-
-  return (
-    <div>
-      <Radio.Group onChange={(e) => setSelectionType(e.target.value)} value={selectionType}>
-        <Radio value="checkbox">Checkbox</Radio>
-        <Radio value="radio">radio</Radio>
-      </Radio.Group>
-      <Divider />
-      <Table<DataType>
-        rowSelection={{ type: selectionType, ...rowSelection }}
-        columns={columns}
-        dataSource={data}
-      />
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

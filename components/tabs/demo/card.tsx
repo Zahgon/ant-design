@@ -5,19 +5,6 @@ const onChange = (key: string) => {
   console.log(key);
 };
 
-const App: React.FC = () => (
-  <Tabs
-    onChange={onChange}
-    type="card"
-    items={Array.from({ length: 3 }).map((_, i) => {
-      const id = String(i + 1);
-      return {
-        label: `Tab ${id}`,
-        key: id,
-        children: `Content of Tab Pane ${id}`,
-      };
-    })}
-  />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

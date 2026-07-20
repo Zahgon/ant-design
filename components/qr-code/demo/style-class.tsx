@@ -3,13 +3,7 @@ import { Flex, QRCode } from 'antd';
 import type { GetProp, QRCodeProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
-const classNames = createStaticStyles(({ css }) => ({
-  root: css`
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 16px;
-  `,
-}));
+const classNames = createStaticStyles(({ css }) => { throw new Error("STUB"); });
 
 const stylesObject: QRCodeProps['styles'] = {
   root: {
@@ -21,36 +15,11 @@ const stylesObject: QRCodeProps['styles'] = {
 };
 
 const stylesFunction: QRCodeProps['styles'] = (info): GetProp<QRCodeProps, 'styles', 'Return'> => {
-  if (info.props.type === 'canvas') {
-    return {
-      root: {
-        border: '2px solid #ff4d4f',
-        borderRadius: 8,
-        padding: 16,
-        backgroundColor: 'rgba(255, 77, 79, 0.1)',
-      },
-    };
-  }
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const sharedProps: QRCodeProps = {
-    value: 'https://ant.design/',
-    size: 160,
-    classNames,
-  };
-
-  return (
-    <Flex gap="medium">
-      <QRCode {...sharedProps} styles={stylesObject} />
-      <QRCode
-        {...sharedProps}
-        type="canvas"
-        icon="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
-        styles={stylesFunction}
-      />
-    </Flex>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

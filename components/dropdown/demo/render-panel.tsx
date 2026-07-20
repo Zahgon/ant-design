@@ -39,6 +39,6 @@ const menu = [
   },
 ];
 
-const App: React.FC = () => <InternalDropdown menu={{ items: menu }} />;
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

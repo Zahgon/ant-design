@@ -27,19 +27,7 @@ let taskQueue: Task[] = [];
 let defaultGlobalConfig: GlobalConfigProps = {};
 
 function getGlobalContext() {
-  const { getContainer, rtl, maxCount, top, bottom, showProgress, pauseOnHover } =
-    defaultGlobalConfig;
-  const mergedContainer = getContainer?.() || document.body;
-
-  return {
-    getContainer: () => mergedContainer,
-    rtl,
-    maxCount,
-    top,
-    bottom,
-    showProgress,
-    pauseOnHover,
-  };
+    throw new Error("STUB");
 }
 
 interface GlobalHolderRef {
@@ -51,60 +39,11 @@ const GlobalHolder = React.forwardRef<
   GlobalHolderRef,
   { notificationConfig: GlobalConfigProps; sync: () => void }
 >((props, ref) => {
-  const { notificationConfig, sync } = props;
-
-  const { getPrefixCls } = useContext(ConfigContext);
-  const prefixCls = defaultGlobalConfig.prefixCls || getPrefixCls('notification');
-  const appConfig = useContext(AppConfigContext);
-
-  const [api, holder] = useInternalNotification({
-    ...notificationConfig,
-    prefixCls,
-    ...appConfig.notification,
-  });
-
-  React.useEffect(sync, []);
-
-  React.useImperativeHandle(ref, () => {
-    const instance: NotificationInstance = { ...api };
-
-    Object.keys(instance).forEach((method) => {
-      instance[method as keyof NotificationInstance] = (...args: any[]) => {
-        sync();
-        return (api as any)[method](...args);
-      };
-    });
-
-    return {
-      instance,
-      sync,
-    };
-  });
-
-  return holder;
+    throw new Error("STUB");
 });
 
 const GlobalHolderWrapper = React.forwardRef<GlobalHolderRef, unknown>((_, ref) => {
-  const [notificationConfig, setNotificationConfig] =
-    React.useState<GlobalConfigProps>(getGlobalContext);
-
-  const sync = () => {
-    setNotificationConfig(getGlobalContext);
-  };
-
-  React.useEffect(sync, []);
-
-  const global = globalConfig();
-  const rootPrefixCls = global.getRootPrefixCls();
-  const rootIconPrefixCls = global.getIconPrefixCls();
-  const theme = global.getTheme();
-
-  const dom = <GlobalHolder ref={ref} sync={sync} notificationConfig={notificationConfig} />;
-  return (
-    <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={rootIconPrefixCls} theme={theme}>
-      {global.holderRender ? global.holderRender(dom) : dom}
-    </ConfigProvider>
-  );
+    throw new Error("STUB");
 });
 
 const flushNotificationQueue = () => {
@@ -119,21 +58,7 @@ const flushNotificationQueue = () => {
 
     // Delay render to avoid sync issue
     act(() => {
-      render(
-        <GlobalHolderWrapper
-          ref={(node) => {
-            const { instance, sync } = node || {};
-            Promise.resolve().then(() => {
-              if (!newNotification.instance && instance) {
-                newNotification.instance = instance;
-                newNotification.sync = sync;
-                flushNotificationQueue();
-              }
-            });
-          }}
-        />,
-        holderFragment,
-      );
+        throw new Error("STUB");
     });
 
     return;
@@ -146,23 +71,7 @@ const flushNotificationQueue = () => {
 
   // >>> Execute task
   taskQueue.forEach((task) => {
-    switch (task.type) {
-      case 'open': {
-        act(() => {
-          notification!.instance!.open({
-            ...defaultGlobalConfig,
-            ...task.config,
-          });
-        });
-        break;
-      }
-
-      case 'destroy':
-        act(() => {
-          notification?.instance?.destroy(task.key);
-        });
-        break;
-    }
+      throw new Error("STUB");
   });
 
   // Clean up
@@ -174,15 +83,7 @@ const flushNotificationQueue = () => {
 // ==============================================================================
 
 function setNotificationGlobalConfig(config: GlobalConfigProps) {
-  defaultGlobalConfig = {
-    ...defaultGlobalConfig,
-    ...config,
-  };
-
-  // Trigger sync for it
-  act(() => {
-    notification?.sync?.();
-  });
+    throw new Error("STUB");
 }
 
 function open(config: ArgsProps) {
@@ -235,18 +136,20 @@ const baseStaticMethods: BaseMethods = {
 const staticMethods = baseStaticMethods as NoticeMethods & BaseMethods;
 
 methods.forEach((type: keyof NoticeMethods) => {
-  staticMethods[type] = (config) => open({ ...config, type });
+    throw new Error("STUB");
 });
 
 // ==============================================================================
 // ==                                   Test                                   ==
 // ==============================================================================
-const noop = () => {};
+const noop = () => {
+    throw new Error("STUB");
+};
 
 let _actWrapper: (wrapper: (fn: () => void) => void) => void = noop;
 if (process.env.NODE_ENV === 'test') {
   _actWrapper = (wrapper) => {
-    act = wrapper;
+      throw new Error("STUB");
   };
 }
 const actWrapper = _actWrapper;
@@ -255,7 +158,7 @@ export { actWrapper };
 let _actDestroy = noop;
 if (process.env.NODE_ENV === 'test') {
   _actDestroy = () => {
-    notification = null;
+      throw new Error("STUB");
   };
 }
 const actDestroy = _actDestroy;

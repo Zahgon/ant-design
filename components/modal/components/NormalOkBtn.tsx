@@ -12,17 +12,7 @@ export interface NormalOkBtnProps
 }
 
 const NormalOkBtn: FC = () => {
-  const { confirmLoading, okButtonProps, okType, okTextLocale, onOk } = useContext(ModalContext);
-  return (
-    <Button
-      {...convertLegacyProps(okType)}
-      loading={confirmLoading}
-      onClick={onOk}
-      {...okButtonProps}
-    >
-      {okTextLocale}
-    </Button>
-  );
+    throw new Error("STUB");
 };
 
 export default NormalOkBtn;

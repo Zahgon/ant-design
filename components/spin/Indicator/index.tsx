@@ -13,16 +13,5 @@ export interface IndicatorProps {
 }
 
 export default function Indicator(props: IndicatorProps) {
-  const { prefixCls, indicator, percent, className, style } = props;
-  const dotClassName = `${prefixCls}-dot`;
-
-  if (indicator && React.isValidElement(indicator)) {
-    return cloneElement(indicator, (currentProps) => ({
-      className: clsx(currentProps.className, dotClassName, className),
-      style: { ...currentProps.style, ...style },
-      percent,
-    }));
-  }
-
-  return <Looper prefixCls={prefixCls} percent={percent} className={className} style={style} />;
+    throw new Error("STUB");
 }

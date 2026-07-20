@@ -35,7 +35,7 @@ const columns: ColumnsType<DataType> = [
     title: 'Name',
     dataIndex: 'name',
     key: 'name',
-    render: (text) => <a>{text}</a>,
+    render: (text) => { throw new Error("STUB"); },
   },
   {
     title: 'Age',
@@ -51,31 +51,12 @@ const columns: ColumnsType<DataType> = [
     title: 'Tags',
     key: 'tags',
     dataIndex: 'tags',
-    render: (tags: string[]) => (
-      <Flex gap="small" align="center" wrap>
-        {tags.map((tag) => {
-          let color = tag.length > 5 ? 'geekblue' : 'green';
-          if (tag === 'kawaii') {
-            color = 'volcano';
-          }
-          return (
-            <Tag color={color} key={tag}>
-              {tag.toUpperCase()}
-            </Tag>
-          );
-        })}
-      </Flex>
-    ),
+    render: (tags: string[]) => { throw new Error("STUB"); },
   },
   {
     title: 'Action',
     key: 'action',
-    render: (_, record) => (
-      <Space size="medium">
-        <a>Invite {record.name}</a>
-        <a>Delete</a>
-      </Space>
-    ),
+    render: (_, record) => { throw new Error("STUB"); },
   },
 ];
 
@@ -104,35 +85,7 @@ const data: DataType[] = [
 ];
 
 const App: React.FC = () => {
-  const [top, setTop] = useState<TablePaginationPlacement<DataType>>('topStart');
-  const [bottom, setBottom] = useState<TablePaginationPlacement<DataType>>('bottomEnd');
-  return (
-    <div>
-      <div>
-        <Radio.Group
-          style={{ marginBottom: 10 }}
-          options={topOptions}
-          value={top}
-          onChange={(e) => {
-            setTop(e.target.value);
-          }}
-        />
-      </div>
-      <Radio.Group
-        style={{ marginBottom: 10 }}
-        options={bottomOptions}
-        value={bottom}
-        onChange={(e) => {
-          setBottom(e.target.value);
-        }}
-      />
-      <Table<DataType>
-        columns={columns}
-        pagination={{ placement: [top, bottom] }}
-        dataSource={data}
-      />
-    </div>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

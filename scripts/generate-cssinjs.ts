@@ -24,29 +24,6 @@ export const styleFiles = globSync(
 export const generateCssinjs = ({ key, beforeRender, render }: GenCssinjsOptions<any>) =>
   Promise.all(
     styleFiles.map(async (file) => {
-      const absPath = url.pathToFileURL(file).href;
-      const pathArr = file.split(path.sep);
-      const styleIndex = pathArr.lastIndexOf('style');
-      const componentName = pathArr[styleIndex - 1];
-      let useStyle: StyleFn = () => {};
-      if (file.includes('grid')) {
-        const { useColStyle, useRowStyle } = await import(absPath);
-        useStyle = (prefixCls) => {
-          useRowStyle(prefixCls);
-          useColStyle(prefixCls);
-        };
-      } else if (file.includes('tree-select')) {
-        const originalUseStyle = (await import(absPath)).default;
-        useStyle = (prefixCls, treePrefixCls = `${prefixCls}-tree`) =>
-          originalUseStyle(prefixCls, treePrefixCls);
-      } else {
-        useStyle = (await import(absPath)).default;
-      }
-      const Demo: React.FC = () => {
-        useStyle(`${key}-${componentName}`);
-        return React.createElement('div');
-      };
-      beforeRender?.(componentName);
-      render?.(Demo, path.relative(process.cwd(), file));
+        throw new Error("STUB");
     }),
   );

@@ -47,13 +47,6 @@ const onChange: CascaderProps<Option>['onChange'] = (value) => {
   console.log(value);
 };
 
-const App: React.FC = () => (
-  <Cascader
-    fieldNames={{ label: 'name', value: 'code', children: 'items' }}
-    options={options}
-    onChange={onChange}
-    placeholder="Please select"
-  />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

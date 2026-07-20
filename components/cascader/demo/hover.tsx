@@ -48,15 +48,8 @@ const onChange: CascaderProps<Option>['onChange'] = (value) => {
 };
 
 // Just show the latest item.
-const displayRender = (labels: string[]) => labels[labels.length - 1];
+const displayRender = (labels: string[]) => { throw new Error("STUB"); };
 
-const App: React.FC = () => (
-  <Cascader
-    options={options}
-    expandTrigger="hover"
-    displayRender={displayRender}
-    onChange={onChange}
-  />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

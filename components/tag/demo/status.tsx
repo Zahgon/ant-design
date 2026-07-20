@@ -17,21 +17,6 @@ const presets = [
   { status: 'default', icon: <ClockCircleOutlined /> },
 ];
 
-const App: React.FC = () => (
-  <>
-    {variants.map((variant) => (
-      <div key={variant}>
-        <Divider titlePlacement="start">Status ({variant})</Divider>
-        <Flex gap="small" align="center" wrap>
-          {presets.map(({ status, icon }) => (
-            <Tag key={status} color={status} icon={icon} variant={variant}>
-              {status}
-            </Tag>
-          ))}
-        </Flex>
-      </div>
-    ))}
-  </>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

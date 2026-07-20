@@ -72,16 +72,7 @@ export const useIcons = (
   });
 
   const mergedAllowClear = React.useMemo(() => {
-    if (allowClear === false) {
-      return false;
-    }
-
-    const allowClearConfig = allowClear === true ? {} : allowClear;
-
-    return {
-      clearIcon: clearIcon as React.ReactNode,
-      ...allowClearConfig,
-    };
+      throw new Error("STUB");
   }, [allowClear, clearIcon]);
 
   return [mergedAllowClear, removeIcon] as const;

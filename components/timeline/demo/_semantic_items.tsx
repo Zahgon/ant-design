@@ -29,43 +29,11 @@ const locales = {
 };
 
 const Block = ({ classNames }: SemanticPreviewInjectionProps) => {
-  return (
-    <Timeline
-      items={[
-        {
-          title: '2015-09-01 09:12:11',
-          content: 'Solve initial network problems',
-          classNames,
-        },
-        {
-          title: '2015-09-01 11:11:11',
-          content: 'Technical testing',
-        },
-      ]}
-    />
-  );
+    throw new Error("STUB");
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Timeline"
-      itemsAPI={`items`}
-      semantics={[
-        { name: 'root', desc: locale.root },
-        { name: 'wrapper', desc: locale.wrapper },
-        { name: 'icon', desc: locale.icon },
-        { name: 'section', desc: locale.section },
-        { name: 'header', desc: locale.header },
-        { name: 'title', desc: locale.title },
-        { name: 'content', desc: locale.content },
-        { name: 'rail', desc: locale.rail },
-      ]}
-    >
-      <Block />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

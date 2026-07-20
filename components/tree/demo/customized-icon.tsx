@@ -23,20 +23,12 @@ const treeData: TreeDataNode[] = [
       {
         title: 'leaf',
         key: '0-0-1',
-        icon: ({ selected }) => (selected ? <FrownFilled /> : <FrownOutlined />),
+        icon: ({ selected }) => { throw new Error("STUB"); },
       },
     ],
   },
 ];
 
-const App: React.FC = () => (
-  <Tree
-    showIcon
-    defaultExpandAll
-    defaultSelectedKeys={['0-0-0']}
-    switcherIcon={<DownOutlined />}
-    treeData={treeData}
-  />
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;

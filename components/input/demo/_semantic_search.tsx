@@ -31,33 +31,7 @@ const locales = {
 };
 
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
-  return (
-    <SemanticPreview
-      componentName="Input.Search"
-      semantics={[
-        { name: 'root', desc: locale.root },
-        { name: 'prefix', desc: locale.prefix },
-        { name: 'input', desc: locale.input },
-        { name: 'suffix', desc: locale.suffix },
-        { name: 'clear', desc: locale.clear, version: '6.4.0' },
-        { name: 'count', desc: locale.count },
-        { name: 'button.root', desc: locale['button.root'] },
-        { name: 'button.icon', desc: locale['button.icon'] },
-        { name: 'button.content', desc: locale['button.content'] },
-      ]}
-    >
-      <Input.Search
-        loading
-        allowClear
-        enterButton="Searching..."
-        showCount
-        prefix={<UserOutlined />}
-        suffix={<EditOutlined />}
-        defaultValue="Hello, Ant Design"
-      />
-    </SemanticPreview>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

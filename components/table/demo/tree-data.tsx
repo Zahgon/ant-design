@@ -100,34 +100,15 @@ const data: DataType[] = [
 // rowSelection objects indicates the need for row selection
 const rowSelection: TableRowSelection<DataType> = {
   onChange: (selectedRowKeys, selectedRows, info) => {
-    console.log(
-      `selectedRowKeys: ${selectedRowKeys}`,
-      'selectedRows: ',
-      selectedRows,
-      'info',
-      info,
-    );
-  },
+        throw new Error("STUB");
+    },
   onSelect: (record, selected, selectedRows) => {
-    console.log(record, selected, selectedRows);
+      throw new Error("STUB");
   },
 };
 
 const App: React.FC = () => {
-  const [checkStrictly, setCheckStrictly] = useState(false);
-
-  return (
-    <>
-      <Space align="center" style={{ marginBottom: 16 }}>
-        CheckStrictly: <Switch checked={checkStrictly} onChange={setCheckStrictly} />
-      </Space>
-      <Table<DataType>
-        columns={columns}
-        rowSelection={{ ...rowSelection, checkStrictly }}
-        dataSource={data}
-      />
-    </>
-  );
+    throw new Error("STUB");
 };
 
 export default App;

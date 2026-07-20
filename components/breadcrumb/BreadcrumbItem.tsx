@@ -40,65 +40,7 @@ export interface BreadcrumbItemProps extends SeparatorType {
 }
 
 export const InternalBreadcrumbItem: React.FC<BreadcrumbItemProps> = (props) => {
-  const { prefixCls, separator = '/', children, menu, dropdownProps, href, dropdownIcon } = props;
-  const breadcrumbContext = React.useContext(BreadcrumbContext);
-  const { classNames: mergedClassNames, styles: mergedStyles } = breadcrumbContext;
-  /** If overlay is have Wrap a Dropdown */
-  const renderBreadcrumbNode = (breadcrumbItem: React.ReactNode) => {
-    if (menu) {
-      const mergeDropDownProps: DropdownProps = {
-        ...dropdownProps,
-      };
-
-      if (menu) {
-        const { items, ...menuProps } = menu || {};
-        mergeDropDownProps.menu = {
-          ...menuProps,
-          items: items?.map(({ key, title, label, path, ...itemProps }, index) => {
-            let mergedLabel: React.ReactNode = label ?? title;
-
-            if (path) {
-              mergedLabel = <a href={`${href}${path}`}>{mergedLabel}</a>;
-            }
-
-            return {
-              ...itemProps,
-              key: key ?? index,
-              label: mergedLabel,
-            };
-          }),
-        };
-      }
-
-      return (
-        <Dropdown placement="bottom" {...mergeDropDownProps}>
-          <span className={`${prefixCls}-overlay-link`}>
-            {breadcrumbItem}
-            {dropdownIcon}
-          </span>
-        </Dropdown>
-      );
-    }
-    return breadcrumbItem;
-  };
-
-  // wrap to dropDown
-  const link = renderBreadcrumbNode(children);
-
-  if (isNonNullable(link)) {
-    return (
-      <>
-        <li
-          className={clsx(`${prefixCls}-item`, mergedClassNames?.item)}
-          style={mergedStyles?.item}
-        >
-          {link}
-        </li>
-        {separator && <BreadcrumbSeparator>{separator}</BreadcrumbSeparator>}
-      </>
-    );
-  }
-  return null;
+    throw new Error("STUB");
 };
 
 type CompoundedComponent = React.FC<BreadcrumbItemProps> & {
@@ -107,14 +49,7 @@ type CompoundedComponent = React.FC<BreadcrumbItemProps> & {
 };
 
 const BreadcrumbItem: CompoundedComponent = (props) => {
-  const { prefixCls: customizePrefixCls, children, href, ...restProps } = props;
-  const { getPrefixCls } = React.useContext(ConfigContext);
-  const prefixCls = getPrefixCls('breadcrumb', customizePrefixCls);
-  return (
-    <InternalBreadcrumbItem {...restProps} prefixCls={prefixCls}>
-      {renderItem(prefixCls, restProps as ItemType, children, href)}
-    </InternalBreadcrumbItem>
-  );
+    throw new Error("STUB");
 };
 
 BreadcrumbItem.__ANT_BREADCRUMB_ITEM = true;

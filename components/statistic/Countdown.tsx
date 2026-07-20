@@ -12,11 +12,7 @@ export interface CountdownProps extends StatisticProps {
 }
 
 const Countdown: React.FC<CountdownProps> = (props) => {
-  if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning('Countdown');
-    warning.deprecated(false, '<Statistic.Countdown />', '<Statistic.Timer type="countdown" />');
-  }
-  return <StatisticTimer {...props} type="countdown" />;
+    throw new Error("STUB");
 };
 
 export default React.memo(Countdown);

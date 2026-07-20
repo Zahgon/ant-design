@@ -11,19 +11,4 @@ const items: CollapseProps['items'] = [
   { key: '3', label: `This is panel header 3, (${text})`, children: text },
 ];
 
-export default () => (
-  <ConfigProvider
-    theme={{
-      components: {
-        Collapse: {
-          headerPadding: '0px 10px 20px 30px',
-          headerBg: '#eaeeff',
-          contentPadding: '0px 10px 20px 30px',
-          contentBg: '#e6f7ff',
-        },
-      },
-    }}
-  >
-    <Collapse items={items} />
-  </ConfigProvider>
-);
+export default () => { throw new Error("STUB"); };

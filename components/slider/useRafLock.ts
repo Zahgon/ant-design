@@ -10,18 +10,10 @@ export default function useRafLock(): [state: boolean, setState: (nextState: boo
   };
 
   const setDelayState = (nextState: boolean) => {
-    cleanup();
-
-    if (nextState) {
-      setState(nextState);
-    } else {
-      rafRef.current = raf(() => {
-        setState(nextState);
-      });
-    }
+      throw new Error("STUB");
   };
 
-  React.useEffect(() => cleanup, []);
+  React.useEffect(() => { throw new Error("STUB"); }, []);
 
   return [state, setDelayState];
 }

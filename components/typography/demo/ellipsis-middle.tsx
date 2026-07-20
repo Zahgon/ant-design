@@ -7,21 +7,9 @@ const EllipsisMiddle: React.FC<{ suffixCount: number; children: string }> = ({
   suffixCount,
   children,
 }) => {
-  const start = children.slice(0, children.length - suffixCount);
-  const suffix = children.slice(-suffixCount).trim();
-  return (
-    <Text style={{ maxWidth: '100%' }} ellipsis={{ suffix }}>
-      {start}
-    </Text>
-  );
+    throw new Error("STUB");
 };
 
-const App: React.FC = () => (
-  <EllipsisMiddle suffixCount={12}>
-    In the process of internal desktop applications development, many different design specs and
-    implementations would be involved, which might cause designers and developers difficulties and
-    duplication and reduce the efficiency of development.
-  </EllipsisMiddle>
-);
+const App: React.FC = () => { throw new Error("STUB"); };
 
 export default App;
